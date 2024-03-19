@@ -1,0 +1,38 @@
+{
+  "name": "o-talent-back",
+  "version": "1.0.0",
+  "description": "backend part of project otalent",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/O-clock-Kimchi/O-Talent-back.git"
+  },
+  "keywords": [
+    "otalent"
+  ],
+  "author": "FlorianPERI & WilliamCommandeur",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/O-clock-Kimchi/O-Talent-back/issues"
+  },
+  "homepage": "https://github.com/O-clock-Kimchi/O-Talent-back#readme",
+  "devDependencies": {
+    "@faker-js/faker": "^8.4.1",
+    "eslint": "^8.57.0",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-plugin-import": "^2.29.1"
+  },
+  "dependencies": {
+    "@apollo/server": "^4.10.1",
+    "@as-integrations/fastify": "^2.1.1",
+    "dataloader": "^2.2.2",
+    "debug": "^4.3.4",
+    "dotenv": "^16.4.5",
+    "fastify": "^4.26.2",
+    "graphql": "^16.8.1",
+    "postgres": "^3.4.3"
+  }
+}
