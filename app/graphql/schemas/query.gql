@@ -6,7 +6,7 @@ type Query {
     organizations: [Organization!]!
 
     review(id: Int!): Review
-    review: [Review!]!
+    reviews: [Review!]!
 
     training(id: Int!): Training
     trainings: [Training!]!

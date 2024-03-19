@@ -3,9 +3,9 @@
     "version": "2.2.13",
     "width": 2000,
     "height": 2000,
-    "scrollTop": -769.171875,
-    "scrollLeft": -39.015625,
-    "zoomLevel": 1,
+    "scrollTop": -911.7390350439282,
+    "scrollLeft": -170.84375,
+    "zoomLevel": 0.9,
     "show": {
       "tableComment": true,
       "columnComment": true,
@@ -19,7 +19,7 @@
     },
     "database": "PostgreSQL",
     "databaseName": "otalent",
-    "canvasType": "@vuerd/builtin-generator-code",
+    "canvasType": "ERD",
     "language": "GraphQL",
     "tableCase": "pascalCase",
     "columnCase": "camelCase",
@@ -626,29 +626,6 @@
           },
           {
             "id": "c34daa91-7cbb-41d3-be57-452cfc38872b",
-            "name": "member_id",
-            "comment": "",
-            "dataType": "INT",
-            "default": "",
-            "option": {
-              "autoIncrement": false,
-              "primaryKey": false,
-              "unique": false,
-              "notNull": true
-            },
-            "ui": {
-              "active": false,
-              "pk": false,
-              "fk": true,
-              "pfk": false,
-              "widthName": 71.037109375,
-              "widthComment": 60,
-              "widthDataType": 60,
-              "widthDefault": 60
-            }
-          },
-          {
-            "id": "1361adc7-797a-4ff0-b99a-e725bf89aad0",
             "name": "category_id",
             "comment": "",
             "dataType": "INT",
@@ -669,13 +646,36 @@
               "widthDataType": 60,
               "widthDefault": 60
             }
+          },
+          {
+            "id": "1361adc7-797a-4ff0-b99a-e725bf89aad0",
+            "name": "member_id",
+            "comment": "",
+            "dataType": "INT",
+            "default": "",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": false,
+              "unique": false,
+              "notNull": true
+            },
+            "ui": {
+              "active": false,
+              "pk": false,
+              "fk": true,
+              "pfk": false,
+              "widthName": 71.037109375,
+              "widthComment": 60,
+              "widthDataType": 60,
+              "widthDefault": 60
+            }
           }
         ],
         "ui": {
           "active": false,
-          "left": 1398.1227,
-          "top": 1368.6972,
-          "zIndex": 2,
+          "left": 1305.1227,
+          "top": 1316.6972,
+          "zIndex": 28,
           "widthName": 145.52685546875,
           "widthComment": 60
         },
@@ -1193,8 +1193,8 @@
           "columnIds": [
             "c34daa91-7cbb-41d3-be57-452cfc38872b"
           ],
-          "x": 1398.1227,
-          "y": 1466.5722,
+          "x": 1305.1227,
+          "y": 1414.5722,
           "direction": "left"
         },
         "constraintName": "fk_category_to_favorites_categories",
@@ -1219,8 +1219,8 @@
           "columnIds": [
             "1361adc7-797a-4ff0-b99a-e725bf89aad0"
           ],
-          "x": 1398.1227,
-          "y": 1401.3222,
+          "x": 1305.1227,
+          "y": 1349.3222,
           "direction": "left"
         },
         "constraintName": "fk_member_to_favorites_categories",

@@ -10,5 +10,18 @@ type Organization {
     siret: String!
     image: String
     urlSite: String
-    trainingList: [Training!]!
+    trainings: [Training!]!
+}
+
+input OrganizationInput {
+    name: String!
+    email: String!
+    password: String!
+    phoneNumber: String!
+    address: String!
+    city: String!
+    postalCode: String!
+    siret: String!
+    image: String
+    urlSite: String
 }

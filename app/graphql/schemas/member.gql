@@ -7,7 +7,17 @@ type Member {
     city: String
     postalCode: String
     avatar: String
-    memberLikesCategoryList: [MemberLikesCategory!]!
-    memberLikesTrainingList: [MemberLikesTraining!]!
-    reviewList: [Review!]!
+    categories: [Category!]!
+    trainings: [Training!]!
+    reviews: [Review!]!
+}
+
+input MemberInput {
+    firstname: String!
+    lastname: String!
+    email: String!
+    password: String!
+    city: String
+    postalCode: String
+    avatar: String
 }

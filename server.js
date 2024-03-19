@@ -1,11 +1,11 @@
 import Fastify from "fastify";
 import { ApolloServer } from "@apollo/server";
 import fastifyApollo, { fastifyApolloDrainPlugin } from "@as-integrations/fastify";
-import debug from 'debug';
-import typeDefs from './app/graphql/schemas.js';
-import resolvers from './app/graphql/resolvers.js';
+import Debug from 'debug';
+import typeDefs from './app/graphql/schemas/index.js';
+import resolvers from './app/graphql/resolvers/index.js';
 
-const logger = debug('app:server')
+const debug = Debug('app:server');
 const fastify = Fastify();
 
 
@@ -21,9 +21,9 @@ await apollo.start();
 
 await fastify.register(fastifyApollo(apollo));
 
-fastify.listen({ port: process.env.PORT ?? 3000 }, (err) => {
+fastify.listen({ port: process.env.SERVER_PORT ?? 3000 }, (err) => {
   if (err) {
-    logger(err);
+    debug(err);
   }
   const serverAddress = fastify.addresses().find((address) => address.family === 'IPv4');
   debug(`🚀 Server ready at http://${serverAddress.address}:${serverAddress.port}/graphql`);

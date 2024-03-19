@@ -99,12 +99,12 @@ CREATE TABLE training
 ALTER TABLE member_likes_category
   ADD CONSTRAINT FK_category_TO_member_likes_category
     FOREIGN KEY (member_id)
-    REFERENCES category (id);
+    REFERENCES member (id);
 
 ALTER TABLE member_likes_category
   ADD CONSTRAINT FK_member_TO_member_likes_category
     FOREIGN KEY (category_id)
-    REFERENCES member (id);
+    REFERENCES category (id);
 
 ALTER TABLE member_likes_training
   ADD CONSTRAINT FK_training_TO_member_likes_training
@@ -172,10 +172,10 @@ $$ LANGUAGE SQL STRICT;
 CREATE FUNCTION insert_review(json) RETURNS review AS $$
   INSERT INTO review (rating, comment, training_id, member_id)
   VALUES (
-    $1->>'rating',
+    ($1->>'rating')::rating,
     $1->>'comment',
-    $1->>'trainingId',
-    $1->>'memberId'
+    ($1->>'trainingId')::INT,
+    ($1->>'memberId')::INT
   ) RETURNING *
 $$ LANGUAGE SQL STRICT;
 
@@ -184,15 +184,15 @@ CREATE FUNCTION insert_training(json) RETURNS training AS $$
   VALUES (
     $1->>'label',
     $1->>'description',
-    $1->>'price',
-    $1->>'duration',
-    $1->>'dates',
-    $1->>'excerpt',
+    ($1->>'price')::pnum,
+    ($1->>'duration')::pint,
+    ARRAY[($1->>'startingDate'), ($1->>'endingDate')]::DATE[],
+    $1->>'excerpt', 
     $1->>'prerequisites',
     $1->>'program',
     $1->>'image',
-    $1->>'organizationId',
-    $1->>'categoryId'
+    ($1->>'organizationId')::INT,
+    ($1->>'categoryId')::INT
   ) RETURNING *
 $$ LANGUAGE SQL STRICT;
 COMMIT;

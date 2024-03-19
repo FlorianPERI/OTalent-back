@@ -1,6 +1,10 @@
 type Category {
     id: ID!
     label: String!
-    memberLikesCategoryList: [MemberLikesCategory!]!
-    trainingList: [Training!]!
+    members: [Member!]
+    trainings: [Training!]
+}
+
+input CategoryInput {
+    label: String!
 }

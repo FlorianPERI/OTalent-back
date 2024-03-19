@@ -1,17 +1,18 @@
-const Query = require('./query');
-const Mutation = require('./mutation');
-const Member = require('./member');
-const Organization = require('./organization');
-const Review = require('./review');
-const Training = require('./training');
-const Category = require('./category');
+import query from './query.js';
+// import mutation from './mutation.js';
+// import member from './member.js';
+// import organization from './organization.js';
+// import review from './review.js';
+// import training from './training.js';
+// import category from './category.js';
 
-module.exports = {
-  Query,
-  Mutation,
-  Member,
-  Organization,
-  Review,
-  Training,
-  Category
+ const resolvers = {
+  query
+  // mutation,
+  // member,
+  // organization,
+  // review,
+  // training,
+  // category
 };
+export default resolvers;

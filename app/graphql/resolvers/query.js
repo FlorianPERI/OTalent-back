@@ -1,40 +1,49 @@
-const debug = require('debug')('app:resolver:query');
+import Debug from 'debug';
+const debug = Debug('app:resolvers:query');
 
 // const restoDB = new RestoDB();
 
 const query = {
-  cities(_, __, { dataSources }) {
-    debug('find all cities');
-    return dataSources.restoDB.city.findAll();
+  member(_, __, { dataSources }) {
+    debug(`find member [${id}]`);
+    /* return dataSources.otalentDB.member.findByPk(id); */
   },
-  city(_, { id }, { dataSources }) {
-    debug(`find city[${id}]`);
-    return dataSources.restoDB.city.findByPk(id);
+  members(_, { id }, { dataSources }) {
+    debug(`find all members`);
+    /* return dataSources.otalentDB.member.findAll(); */
   },
-  cookingStyles(_, __, { dataSources }) {
-    debug('find all cookinStyles');
-    return dataSources.restoDB.cookingStyle.findAll();
+  organization(_, __, { dataSources }) {
+    debug(`find organization [${id}]`);
+    /* return dataSources.otalentDB.organization.findByPk(id); */
   },
-  cookingStyle(_, { id }, { dataSources }) {
-    debug(`find cookinStyle[${id}]`);
-    return dataSources.restoDB.cookingStyle.findByPk(id);
+  organizations(_, { id }, { dataSources }) {
+    debug('find all organizations');
+    /* return dataSources.otalentDB.organization.findAll(); */
   },
-  restaurants(_, __, { dataSources }) {
-    debug('find all restaurants');
-    return dataSources.restoDB.restaurant.findAll();
+  review(_, __, { dataSources }) {
+    debug(`find review [${id}]`);
+    /* return dataSources.otalentDB.review.findByPk(id); */
   },
-  restaurant(_, { id }, { dataSources }) {
-    debug(`find restaurant[${id}]`);
-    return dataSources.restoDB.restaurant.findByPk(id);
+  reviews(_, { id }, { dataSources }) {
+    debug('find all reviews');
+    /* return dataSources.otalentDB.review.findAll(); */
   },
-  managers(_, __, { dataSources }) {
-    debug('find all managers');
-    return dataSources.restoDB.manager.findAll();
+  training(_, __, { dataSources }) {
+    debug(`find training [${id}]`);
+    /* return dataSources.otalentDB.training.findByPk(id); */
   },
-  manager(_, { id }, { dataSources }) {
-    debug(`find manager[${id}]`);
-    return dataSources.restoDB.manager.findByPk(id);
+  trainings(_, { id }, { dataSources }) {
+    debug('find all trainings');
+    /* return dataSources.otalentDB.training.findAll(); */
+  },
+  category(_, __, { dataSources }) {
+    debug(`find category [${id}]`);
+    /* return dataSources.otalentDB.category.findByPk(id); */
+  },
+  categories(_, { id }, { dataSources }) {
+    debug('find all categories');
+    /* return dataSources.otalentDB.category.findAll(); */
   },
 };
 
-module.exports = query;
+export default query;
