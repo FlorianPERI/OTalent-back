@@ -1,0 +1,16 @@
+type Query {
+    member(id: Int!): Member
+    members: [Member!]!
+
+    organization(id: Int!): Organization
+    organizations: [Organization!]!
+
+    review(id: Int!): Review
+    review: [Review!]!
+
+    training(id: Int!): Training
+    trainings: [Training!]!
+
+    category(id: Int!): Category
+    categories: [Category!]!
+}

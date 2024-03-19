@@ -1,0 +1,6 @@
+type Category {
+    id: ID!
+    label: String!
+    memberLikesCategoryList: [MemberLikesCategory!]!
+    trainingList: [Training!]!
+}

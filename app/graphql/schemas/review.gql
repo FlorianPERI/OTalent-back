@@ -1,0 +1,7 @@
+type Review {
+    id: ID!
+    rating: Int!
+    comment: String
+    training: Training
+    member: Member
+}

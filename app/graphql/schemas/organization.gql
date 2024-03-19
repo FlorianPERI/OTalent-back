@@ -1,0 +1,14 @@
+type Organization {
+    id: ID!
+    name: String!
+    email: String!
+    password: String!
+    phoneNumber: String!
+    address: String!
+    city: String!
+    postalCode: String!
+    siret: String!
+    image: String
+    urlSite: String
+    trainingList: [Training!]!
+}

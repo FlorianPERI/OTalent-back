@@ -19,7 +19,7 @@
     },
     "database": "PostgreSQL",
     "databaseName": "otalent",
-    "canvasType": "@vuerd/builtin-sql-ddl",
+    "canvasType": "@vuerd/builtin-generator-code",
     "language": "GraphQL",
     "tableCase": "pascalCase",
     "columnCase": "camelCase",

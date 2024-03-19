@@ -1,0 +1,16 @@
+type Training {
+    id: ID!
+    label: String!
+    description: String!
+    price: Float!
+    duration: Int!
+    dateList: [Date!]
+    excerpt: String!
+    prerequisites: String
+    program: String
+    image: String
+    organization: Organization
+    category: Category
+    memberLikesTrainingList: [MemberLikesTraining!]!
+    reviewList: [Review!]!
+}

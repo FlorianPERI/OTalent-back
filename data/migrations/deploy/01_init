@@ -139,4 +139,60 @@ ALTER TABLE training
 CREATE INDEX member_email_idx ON member USING HASH(email);
 CREATE INDEX organization_email_idx ON organization USING HASH(email);        
 
+--CRUD functions
+CREATE FUNCTION insert_member(json) RETURNS member AS $$
+  INSERT INTO member (firstname, lastname, password, email, postal_code, city, avatar)
+  VALUES (
+    $1->>'firstname',
+    $1->>'lastname',
+    $1->>'password',
+    $1->>'email',
+    $1->>'postalCode',
+    $1->>'city',
+    $1->>'urlAvatar'
+  ) RETURNING *;
+$$ LANGUAGE SQL STRICT;
+
+CREATE FUNCTION insert_organization(json) RETURNS organization AS $$
+  INSERT INTO organization (name, email, password, phone_number, url_site, address, city, postal_code, siret, image)
+  VALUES (
+    $1->>'name',
+    $1->>'email',
+    $1->>'password',
+    $1->>'phoneNumber',
+    $1->>'urlSite',
+    $1->>'address',
+    $1->>'city',
+    $1->>'postalCode',
+    $1->>'siret',
+    $1->>'image'
+  ) RETURNING *;
+$$ LANGUAGE SQL STRICT;
+
+CREATE FUNCTION insert_review(json) RETURNS review AS $$
+  INSERT INTO review (rating, comment, training_id, member_id)
+  VALUES (
+    $1->>'rating',
+    $1->>'comment',
+    $1->>'trainingId',
+    $1->>'memberId'
+  ) RETURNING *
+$$ LANGUAGE SQL STRICT;
+
+CREATE FUNCTION insert_training(json) RETURNS training AS $$
+  INSERT INTO training (label, description, price, duration, dates, excerpt, prerequisites, program, image, organization_id, category_id)
+  VALUES (
+    $1->>'label',
+    $1->>'description',
+    $1->>'price',
+    $1->>'duration',
+    $1->>'dates',
+    $1->>'excerpt',
+    $1->>'prerequisites',
+    $1->>'program',
+    $1->>'image',
+    $1->>'organizationId',
+    $1->>'categoryId'
+  ) RETURNING *
+$$ LANGUAGE SQL STRICT;
 COMMIT;

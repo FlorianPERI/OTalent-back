@@ -1,0 +1,13 @@
+type Member {
+    id: ID!
+    firstname: String!
+    lastname: String!
+    email: String!
+    password: String!
+    city: String
+    postalCode: String
+    avatar: String
+    memberLikesCategoryList: [MemberLikesCategory!]!
+    memberLikesTrainingList: [MemberLikesTraining!]!
+    reviewList: [Review!]!
+}

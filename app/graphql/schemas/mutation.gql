@@ -1,0 +1,27 @@
+type Mutation {
+    addMember(input: MemberInput!): Member
+    modifyMember(id: Int!, input: MemberInput!): Member
+    deleteMember(id: Int!): Boolean
+
+    addOrganization(input: OrganizationInput!): Organization
+    modifyOrganization(id: Int!, input: OrganizationInput!): Organization
+    deleteOrganization(id: Int!): Boolean
+
+    addReview(input: ReviewInput!): Review
+    modifyReview(id: Int!, input: ReviewInput!): Review
+    deleteReview(id: Int!): Boolean
+
+    addTraining(input: TrainingInput!): Training
+    modifyTraining(id: Int!, input: MemberInput!): Training
+    deleteTraining(id: Int!): Boolean
+
+    addCategory(input: MemberInput!): Member
+    modifyCategory(id: Int!, input: MemberInput!): Member
+    deleteCategory(id: Int!): Boolean
+
+    associateMemberCategory(memberId: Int!, categoryId: Int!): Boolean
+    dissociateMemberCategory(memberId: Int!, categoryId: Int!): Boolean
+
+    associateMemberTraining(memberId: Int!, categoryId: Int!): Boolean
+    dissociateMemberTraining(memberId: Int!, trainingId: Int!): Boolean
+}
