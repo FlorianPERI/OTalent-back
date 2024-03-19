@@ -1,3 +1,4 @@
+-- SQLBook: Code
 -- Deploy otalent:01_init to pg
 
 BEGIN;
