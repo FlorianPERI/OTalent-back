@@ -19,7 +19,7 @@
     },
     "database": "PostgreSQL",
     "databaseName": "otalent",
-    "canvasType": "ERD",
+    "canvasType": "@vuerd/builtin-sql-ddl",
     "language": "GraphQL",
     "tableCase": "pascalCase",
     "columnCase": "camelCase",
@@ -236,7 +236,7 @@
           "active": false,
           "left": 1054.1932,
           "top": 836.6128,
-          "zIndex": 15,
+          "zIndex": 6,
           "widthName": 60,
           "widthComment": 60
         },
@@ -528,7 +528,7 @@
           "active": false,
           "left": 388.6402,
           "top": 1400.4975,
-          "zIndex": 5,
+          "zIndex": 4,
           "widthName": 60,
           "widthComment": 60
         },
@@ -891,7 +891,7 @@
           "active": false,
           "left": 735.9527,
           "top": 1165.1774,
-          "zIndex": 19,
+          "zIndex": 7,
           "widthName": 60,
           "widthComment": 60
         },
@@ -1160,7 +1160,7 @@
           "active": false,
           "left": 75.6137,
           "top": 1068.7672,
-          "zIndex": 11,
+          "zIndex": 5,
           "widthName": 79.2001953125,
           "widthComment": 60
         },
