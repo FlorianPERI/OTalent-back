@@ -4,6 +4,7 @@ import fastifyApollo, { fastifyApolloDrainPlugin } from '@as-integrations/fastif
 import Debug from 'debug';
 import typeDefs from './app/graphql/schemas/index.js';
 import resolvers from './app/graphql/resolvers/index.js';
+import OtalentDB from './app/graphql/dataSources/otalentDB/datamappers/index.js';
 
 const debug = Debug('app:server');
 const fastify = Fastify();
@@ -14,9 +15,15 @@ const apollo = new ApolloServer({
   plugins: [fastifyApolloDrainPlugin(fastify)],
 });
 
+const contextFunction = async () => ({
+  dataSources: {
+    otalentDB: new OtalentDB(),
+  },
+});
+
 await apollo.start();
 
-await fastify.register(fastifyApollo(apollo));
+await fastify.register(fastifyApollo(apollo), { context: contextFunction });
 
 fastify.listen({ port: process.env.SERVER_PORT ?? 3000 }, (err) => {
   if (err) {
