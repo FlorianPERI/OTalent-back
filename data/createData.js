@@ -1,7 +1,10 @@
-import dayjs from 'dayjs';
-import { faker } from '@faker-js/faker/locale/fr';
-import { formatingDate, generateRandomArray, matchPostalCodeRegex} from './utils/dataUtils.js';
+import { fakerFR as faker } from '@faker-js/faker';
+import { formatingDate, generateRandomArray, matchPostalCodeRegex } from './utils/dataUtils.js';
 
+/**
+ * Creation of a Member entity with Faker
+ * @returns Member Object
+ */
 function createMember() {
   const firstname = faker.person.firstName();
   const lastname = faker.person.lastName();
@@ -10,7 +13,7 @@ function createMember() {
   let postalCode = faker.location.zipCode();
   while (!matchPostalCodeRegex(postalCode)) {
     postalCode = faker.location.zipCode();
-  };
+  }
   const city = faker.location.city();
   const urlAvatar = faker.image.url();
   const member = {
@@ -23,20 +26,24 @@ function createMember() {
     urlAvatar,
   };
   return member;
-};
+}
 
+/**
+ * Creation of a Organization entity with Faker
+ * @returns Organization Object
+ */
 function createOrganization() {
   const name = faker.company.name();
   const email = faker.internet.email();
   const password = faker.internet.password();
-  const phoneNumber = '0' + faker.string.numeric({ length: 9, allowLeadingZeros: false });
+  const phoneNumber = `0${faker.string.numeric({ length: 9, allowLeadingZeros: false })}`;
   const urlSite = faker.internet.url();
   const address = faker.location.street();
   const city = faker.location.city();
   let postalCode = faker.location.zipCode();
   while (!matchPostalCodeRegex(postalCode)) {
     postalCode = faker.location.zipCode();
-  };
+  }
   const siret = faker.string.numeric(14);
   const image = faker.image.url();
   const organization = {
@@ -52,27 +59,33 @@ function createOrganization() {
     image,
   };
   return organization;
-};
+}
 
+/**
+ * Creation of a Review entity with Faker
+ * @returns Review Object
+ */
 function createReview() {
   const rating = faker.number.int({ min: 0, max: 5 });
   const comment = faker.lorem.words({ min: 5, max: 20 });
-  let review = {
+  const review = {
     rating,
     comment,
   };
   return review;
-};
+}
 
+/**
+ * Creation of a Training entity with Faker
+ * @returns Training Object
+*/
 function createTraining() {
   const label = faker.lorem.words({ min: 3, max: 6 });
   const description = faker.lorem.words({ min: 120, max: 400 });
   const price = faker.number.int({ min: 150, max: 10000 });
   const duration = faker.number.int({ min: 35, max: 2000 });
   const startingDate = formatingDate(faker.date.anytime());
-  const endingDate = formatingDate(faker.date.anytime())
-  // const dates = [formatingDate(faker.date.anytime()), formatingDate(faker.date.anytime())];
-  // console.log(dates);
+  const endingDate = formatingDate(faker.date.anytime());
   const excerpt = faker.lorem.words({ min: 10, max: 25 });
   const prerequisites = generateRandomArray(1, 4, 3, 8);
   const program = generateRandomArray(3, 9, 4, 10);
@@ -90,7 +103,8 @@ function createTraining() {
     image,
   };
   return training;
+}
+
+export {
+  createMember, createOrganization, createReview, createTraining,
 };
-
-export {createMember, createOrganization, createReview, createTraining}
-

@@ -1,8 +1,6 @@
 import Debug from 'debug';
 const debug = Debug('app:resolvers:query');
 
-// const restoDB = new RestoDB();
-
 const query = {
   member(_, __, { dataSources }) {
     debug(`find member [${id}]`);
