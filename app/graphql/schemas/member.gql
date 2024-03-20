@@ -13,10 +13,10 @@ type Member {
 }
 
 input MemberInput {
-    firstname: String!
-    lastname: String!
-    email: String!
-    password: String!
+    firstname: String
+    lastname: String
+    email: String
+    password: String
     city: String
     postalCode: String
     avatar: String

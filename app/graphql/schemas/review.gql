@@ -7,8 +7,8 @@ type Review {
 }
 
 input ReviewInput {
-    rating: Int!
+    rating: Int
     comment: String
-    trainingId: Int!
-    memberId: Int!
+    trainingId: Int
+    memberId: Int
 }

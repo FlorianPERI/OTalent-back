@@ -16,15 +16,15 @@ type Training {
 }
 
 input TrainingInput {
-    label: String!
-    description: String!
-    price: Float!
-    duration: Int!
+    label: String
+    description: String
+    price: Float
+    duration: Int
     dateList: [String!]
-    excerpt: String!
+    excerpt: String
     prerequisites: String
     program: String
     image: String
-    organizationId: Int!
-    categoryId: Int!
+    organizationId: Int
+    categoryId: Int
 }

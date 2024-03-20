@@ -1,17 +1,18 @@
 import Debug from 'debug';
-const debug = Debug('app:schemas');
 import { readFileSync } from 'node:fs';
 import * as url from 'url';
-const __dirname = url.fileURLToPath(new URL('.', import.meta.url));
 import path from 'node:path';
 
-const member = readFileSync(path.join(__dirname, './member.gql'));
-const organization = readFileSync(path.join(__dirname, './organization.gql'));
-const review = readFileSync(path.join(__dirname, './review.gql'));
-const training = readFileSync(path.join(__dirname, './training.gql'));
-const category = readFileSync(path.join(__dirname, './category.gql'));
-const query = readFileSync(path.join(__dirname, './query.gql'));
-const mutation = readFileSync(path.join(__dirname, './mutation.gql'));
+const debug = Debug('app:schemas');
+const dirname = url.fileURLToPath(new URL('.', import.meta.url));
+
+const member = readFileSync(path.join(dirname, './member.gql'));
+const organization = readFileSync(path.join(dirname, './organization.gql'));
+const review = readFileSync(path.join(dirname, './review.gql'));
+const training = readFileSync(path.join(dirname, './training.gql'));
+const category = readFileSync(path.join(dirname, './category.gql'));
+const query = readFileSync(path.join(dirname, './query.gql'));
+const mutation = readFileSync(path.join(dirname, './mutation.gql'));
 
 const schemas = `#graphql
   ${member}
@@ -25,4 +26,4 @@ const schemas = `#graphql
 
 debug('schema created');
 
-export default schemas;        
+export default schemas;

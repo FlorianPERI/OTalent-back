@@ -6,5 +6,5 @@ type Category {
 }
 
 input CategoryInput {
-    label: String!
+    label: String
 }

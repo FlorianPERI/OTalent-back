@@ -4,17 +4,12 @@ import {
 import { getRandomInt } from './utils/dataUtils.js';
 import categories from './categories.json' assert {type:"json"};
 import Debug from 'debug';
-const debug = Debug('data:seed');
-import pkg from 'pg';
+import 'dotenv/config';
+import client from '../app/graphql/dataSources/otalentDB/services/client.js'
 
-const { Client } = pkg;
-const client = new Client({
-host: process.env.PGHOST,
-database: process.env.PGDATABASE,
-user: process.env.PGUSER,
-password: process.env.PGPASSWORD,
-ssl: process.env.SSLMODE})
+const debug = Debug('app:seed');
 
+/*****  NUMBERS OF DATA TO IMPORT *****/
 const NB_MEMBERS = 200;
 const NB_ORGANIZATIONS = 50;
 const NB_REVIEWS = 450;
@@ -163,7 +158,7 @@ function importMemberLikesCategory(NB_MEMBER_LIKES_CATEGORY, NB_MEMBERS, NB_CATE
 }
 
 
-client.connect()
+Promise.resolve()
   .then(() => importMembers(NB_MEMBERS))
   .then(() => importOrganizations(NB_ORGANIZATIONS))
   .then(() => importCategories(NB_CATEGORIES))

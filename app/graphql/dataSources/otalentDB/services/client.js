@@ -1,12 +1,10 @@
-import postgres from 'postgres'
+import Debug from 'debug';
+import pkg from 'pg';
 
-const sql = postgres('postgres://username:password@host:port/database', {
-  host                 : PGHOST,            // Postgres ip address[es] or domain name[s]
-  port                 : 5432,              // Postgres server port[s]
-  database             : PGDATABASE,        // Name of database to connect to
-  username             : PGUSER,            // Username of database user
-  password             : PGPASSWORD,        // Password of database user
-  ssl                  : PGSSLMODE          // true, prefer, require, tls.connect options
-})
+const { Pool } = pkg;
 
-export default sql;
+const debug = Debug('app:client');
+const pool = new Pool();
+const client = await pool.connect();
+debug('connected to database');
+export default client;
