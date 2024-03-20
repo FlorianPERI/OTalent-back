@@ -32,6 +32,16 @@ class Training extends CoreDatamapper {
     return results.rows;
   }
 
+  async findByCategoryId(id) {
+    debug(`finding all trainings of category[${id}]`);
+    const query = {
+      text: 'SELECT * FROM training WHERE category_id = $1;',
+      values: [id],
+    };
+    const results = await this.client.query(query);
+    return results.rows;
+  }
+
 }
 
 export default Training;
