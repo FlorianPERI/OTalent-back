@@ -1,7 +1,6 @@
-const debug = require('debug')('app:datasource:otalent:coredatamapper');
-const DataLoader = require('dataloader');
-const { createHash } = require('node:crypto');
+import Debug from 'debug';
 
+const debug = Debug('app:datasource:coredatamapper');
 class CoreDatamapper {
   tableName;
 
