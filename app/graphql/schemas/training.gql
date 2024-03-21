@@ -13,6 +13,7 @@ type Training {
     category: Category!
     members: [Member!]
     reviews: [Review!]
+    averageRating: Float
 }
 
 input TrainingInput {

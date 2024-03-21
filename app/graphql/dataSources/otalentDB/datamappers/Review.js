@@ -30,6 +30,16 @@ class Review extends CoreDatamapper {
     const results = await this.client.query(query);
     return results.rows;
   }
+
+  async findAverageRatingOfTraining(id) {
+    debug(`find average rating for training[${id}]`);
+    const query = {
+      text: 'SELECT AVG(rating) FROM review WHERE training_id = $1;',
+      values: [id],
+    };
+    const results = await this.client.query(query);
+    return results.rows[0].avg;
+  }
 }
 
 export default Review;
