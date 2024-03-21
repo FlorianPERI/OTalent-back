@@ -16,7 +16,7 @@ const member = {
   reviews({ id: memberId }, _, { dataSources }) {
     debug(`find all review of member[${memberId}]`);
     return dataSources.otalentDB.review.findByMemberId(memberId);
-  }
+  },
 };
 
 export default member;

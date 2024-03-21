@@ -1,4 +1,5 @@
 import Debug from 'debug';
+
 const debug = Debug('app:resolvers:mutation');
 
 const query = {
@@ -7,11 +8,11 @@ const query = {
     /* return dataSources.otalentDB.member.insert(args); */
   },
   modifyMember(_, { id, input }, { dataSources }) {
-    debug(`find all members`);
+    debug('find all members');
     /* return dataSources.otalentDB.member.update(id, input); */
   },
   deleteMember(_, { id }, { dataSources }) {
-    debug(`find all members`);
+    debug('find all members');
     /* return dataSources.otalentDB.member.delete(id); */
   },
 
@@ -20,24 +21,24 @@ const query = {
     /* return dataSources.otalentDB.organization.insert(args); */
   },
   modifyOrganization(_, { id, input }, { dataSources }) {
-    debug(`find all members`);
+    debug('find all members');
     /* return dataSources.otalentDB.organization.update(id, input); */
   },
   deleteOrganization(_, { id }, { dataSources }) {
-    debug(`find all members`);
+    debug('find all members');
     /* return dataSources.otalentDB.organization.delete(id); */
   },
-  
+
   addTraining(_, args, { dataSources }) {
     debug(`find member [${id}]`);
     /* return dataSources.otalentDB.training.insert(args); */
   },
   modifyTraining(_, { id, input }, { dataSources }) {
-    debug(`find all members`);
+    debug('find all members');
     /* return dataSources.otalentDB.training.update(id, input); */
   },
   deleteTraining(_, { id }, { dataSources }) {
-    debug(`find all members`);
+    debug('find all members');
     /* return dataSources.otalentDB.training.delete(id); */
   },
 
@@ -46,11 +47,11 @@ const query = {
     /* return dataSources.otalentDB.review.insert(args); */
   },
   modifyReview(_, { id, input }, { dataSources }) {
-    debug(`find all members`);
+    debug('find all members');
     /* return dataSources.otalentDB.review.update(id, input); */
   },
   deleteReview(_, { id }, { dataSources }) {
-    debug(`find all members`);
+    debug('find all members');
     /* return dataSources.otalentDB.review.delete(id); */
   },
 
@@ -59,11 +60,11 @@ const query = {
     /* return dataSources.otalentDB.category.insert(args); */
   },
   modifyCategory(_, { id, input }, { dataSources }) {
-    debug(`find all members`);
+    debug('find all members');
     /* return dataSources.otalentDB.category.update(id, input); */
   },
   deleteCategory(_, { id }, { dataSources }) {
-    debug(`find all members`);
+    debug('find all members');
     /* return dataSources.otalentDB.category.delete(id); */
   },
 };
