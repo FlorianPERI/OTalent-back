@@ -1,32 +1,59 @@
+"Represents a training"
 type Training {
+    "ID of the training"
     id: ID!
+    "Label or name of the training"
     label: String!
+    "Description of the training"
     description: String!
+    "Price of the training"
     price: Float!
+    "Duration of the training in hours"
     duration: Int!
-    dates: [Date!]!   
+    "List of dates for the training"
+    dates: [Date!]
+    "Excerpt or summary of the training"
     excerpt: String!
+    "Prerequisites required for the training"
     prerequisites: String
+    "Program or curriculum of the training"
     program: String
+    "Image URL representing the training"
     image: String
+
+    "Organization offering the training"
     organization: Organization!
+    "Category to which the training belongs"
     category: Category!
+    "Members enrolled in the training"
     members: [Member!]
+    "Reviews associated with the training"
     reviews: [Review!]
     averageRating: Float
 }
 
+"Input for creating or updating a training"
 input TrainingInput {
+    "Label or name of the training"
     label: String
+    "Description of the training"
     description: String
+    "Price of the training"
     price: Float
+    "Duration of the training in hours"
     duration: Int
-    startingDate: String
-    endingDate: String
+    "List of dates for the training"
+    dates: [Date!]
+    "Excerpt or summary of the training"
     excerpt: String
+    "Prerequisites required for the training"
     prerequisites: String
+    "Program or curriculum of the training"
     program: String
+    "Image URL representing the training"
     image: String
+    "ID of the organization offering the training"
     organizationId: Int
+    "ID of the category to which the training belongs"
     categoryId: Int
 }
