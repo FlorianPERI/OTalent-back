@@ -67,6 +67,24 @@ const mutation = {
     debug(`delete category [${id}]`);
     return dataSources.otalentDB.category.delete(id);
   },
+
+  associateMemberCategory(_, { memberId, categoryId }, { dataSources }) {
+    debug(`associate member [${memberId}] and [${categoryId}] `);
+    return dataSources.otalentDB.member.associateMemberCategory(memberId, categoryId);
+  },
+  dissociateMemberCategory(_, { memberId, categoryId }, { dataSources }) {
+    debug(`dissociate member [${memberId}] and [${categoryId}] `);
+    return dataSources.otalentDB.member.dissociateMemberCategory(memberId, categoryId);
+  },
+
+  associateMemberTraining(_, { memberId, trainingId }, { dataSources }) {
+    debug(`associate member [${memberId}] and [${trainingId}] `);
+    return dataSources.otalentDB.member.associateMemberTraining(memberId, trainingId);
+  },
+  dissociateMemberTraining(_, { memberId, trainingId }, { dataSources }) {
+    debug(`dissociate member [${memberId}] and [${trainingId}] `);
+    return dataSources.otalentDB.member.dissociateMemberTraining(memberId, trainingId);
+  },
 };
 
 export default mutation;
