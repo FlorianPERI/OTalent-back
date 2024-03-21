@@ -1,23 +1,43 @@
+"Represents a member"
 type Member {
+    "ID of the member"
     id: ID!
+    "First name of the member"
     firstname: String!
+    "Last name of the member"
     lastname: String!
+    "Email address of the member"
     email: String!
+    "Password of the member"
     password: String!
+    "City where the member resides"
     city: String
-    postalCode: String
+    "Postal code of the member's location"
+    postal_code: String
+    "Avatar URL of the member"
     avatar: String
+    "Categories the member is interested in"
     categories: [Category!]!
+    "Trainings attended by the member"
     trainings: [Training!]!
+    "Reviews given by the member"
     reviews: [Review!]!
 }
 
+"Input for creating or updating a member"
 input MemberInput {
+    "First name of the member"
     firstname: String
+    "Last name of the member"
     lastname: String
+    "Email address of the member"
     email: String
+    "Password of the member"
     password: String
+    "City where the member resides"
     city: String
+    "Postal code of the member's location"
     postalCode: String
+    "Avatar URL of the member"
     avatar: String
 }
