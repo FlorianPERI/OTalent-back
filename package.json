@@ -7,7 +7,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "DEBUG=app:* nodemon server.js",
-    "db:seed": "DEBUG=app:* nodemon data/seed.js",
+    "db:seed": "DEBUG=app:* node data/seed.js",
     "utils": "./scripts/utils.sh"
   },
   "repository": {
@@ -32,6 +32,8 @@
     "@apollo/server": "^4.10.1",
     "@as-integrations/fastify": "^2.1.1",
     "@faker-js/faker": "^8.4.1",
+    "@fastify/cors": "^9.0.1",
+    "bcrypt": "^5.1.1",
     "dataloader": "^2.2.2",
     "dayjs": "^1.11.10",
     "debug": "^4.3.4",
