@@ -3,13 +3,14 @@ import Debug from 'debug';
 const debug = Debug('app:resolvers:category');
 
 const category = {
-  trainings({ id: categoryId }, _, { dataSources }) {
-    debug(`find all trainings of category [${categoryId}]`);
-    return dataSources.otalentDB.training.findByCategoryId(categoryId);
+  trainings({ id }, _, { dataSources }) {
+    debug(`find all trainings of category [${id}]`);
+    return dataSources.otalentDB.training.findByCategoryId(id);
   },
 
-  members({ id: categoryId }, _, { dataSources }) {
-    return dataSources.otalentDB.member.findByCategoryId(categoryId);
+  members({ id }, _, { dataSources }) {
+    debug(`find all members of category [${id}]`);
+    return dataSources.otalentDB.member.findByCategoryId(id);
   },
 };
 
