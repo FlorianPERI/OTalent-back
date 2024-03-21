@@ -8,7 +8,10 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "DEBUG=app:* nodemon server.js",
     "db:seed": "DEBUG=app:* node data/seed.js",
-    "utils": "./scripts/utils.sh"
+
+    "utils": "./scripts/utils.sh",
+    "coredatamapper": "DEBUG=app:datasource:coredatamapper nodemon server.js"
+
   },
   "repository": {
     "type": "git",

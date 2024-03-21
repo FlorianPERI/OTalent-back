@@ -20,10 +20,11 @@ type Training {
     program: String
     "Image URL representing the training"
     image: String
+
     "Organization offering the training"
-    organization: Organization
+    organization: Organization!
     "Category to which the training belongs"
-    category: Category
+    category: Category!
     "Members enrolled in the training"
     members: [Member!]
     "Reviews associated with the training"
@@ -41,7 +42,7 @@ input TrainingInput {
     "Duration of the training in hours"
     duration: Int
     "List of dates for the training"
-    dateList: [String!]
+    dates: [Date!]
     "Excerpt or summary of the training"
     excerpt: String
     "Prerequisites required for the training"

@@ -29,9 +29,9 @@ type Mutation {
     deleteTraining(id: Int!): Boolean
 
     "Add a new category"
-    addCategory(input: MemberInput!): Member
+    addCategory(input: CategoryInput!): Category
     "Modify an existing category"
-    modifyCategory(id: Int!, input: MemberInput!): Member
+    modifyCategory(id: Int!, input: CategoryInput!): Category
     "Delete a category"
     deleteCategory(id: Int!): Boolean
 

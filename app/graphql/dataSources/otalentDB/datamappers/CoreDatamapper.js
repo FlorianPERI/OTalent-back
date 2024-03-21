@@ -1,3 +1,4 @@
+import { log } from 'console';
 import Debug from 'debug';
 
 const debug = Debug('app:datasource:coredatamapper');
@@ -23,6 +24,33 @@ class CoreDatamapper {
       text: `SELECT * FROM ${this.tableName} WHERE id = $1`,
       values: [id],
     };
+    const result = await this.client.query(query);
+    return result.rows[0];
+  }
+
+  async delete(id) {
+    debug(`deleting ${this.tableName}[${id}]`);
+    const query = {
+      text: `DELETE FROM ${this.tableName} WHERE id = $1;`,
+      values: [id],
+    };
+    const result = await this.client.query(query);
+    return !!result.rowCount;
+  }
+
+  async insert(data) {
+    debug(`adding new ${this.tableName}`);
+    // const fields = [];
+
+
+    Object.entries(data.input).forEach(([prop, value]) => {
+      console.log(value);
+    });
+    const query = {
+      text: `SELECT * FROM insert_${this.tableName}($1);`,
+      values: [data.input],
+    };
+    console.log(query);
     const result = await this.client.query(query);
     return result.rows[0];
   }
