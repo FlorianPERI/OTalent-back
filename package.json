@@ -7,7 +7,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "DEBUG=app:* nodemon server.js",
-    "db:seed": "DEBUG=app:* nodemon data/seed.js"
+    "db:seed": "DEBUG=app:* nodemon data/seed.js",
+    "utils": "./scripts/utils.sh"
   },
   "repository": {
     "type": "git",

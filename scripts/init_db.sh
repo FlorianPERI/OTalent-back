@@ -5,8 +5,7 @@ if [ -f .env ]
    export $(cat .env | sed 's/#.*//g' | xargs)
  fi
 
-dropdb $PGDATABASE --if-exists -e -i -h $PGHOST
-createdb $PGDATABASE -e -h $PGHOST
+dropdb $PGDATABASE --if-exists -e -i
+createdb $PGDATABASE -e
 sqitch deploy
 sqitch verify
-node data/seed.js
