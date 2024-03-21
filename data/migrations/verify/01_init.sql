@@ -3,6 +3,6 @@
 
 BEGIN;
 
-SELECT * FROM category, member, member_likes_category, member_likes_training, organization, review, training;
+SELECT label FROM category;
 
 ROLLBACK;
