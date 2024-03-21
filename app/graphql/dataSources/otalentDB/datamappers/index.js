@@ -1,4 +1,3 @@
-import Debug from 'debug';
 import client from '../services/client.js';
 import MemberDatamapper from './Member.js';
 import ReviewDatamapper from './Review.js';
