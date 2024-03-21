@@ -13,7 +13,7 @@ type Member {
     "City where the member resides"
     city: String
     "Postal code of the member's location"
-    postalCode: String
+    postal_code: String
     "Avatar URL of the member"
     avatar: String
     "Categories the member is interested in"

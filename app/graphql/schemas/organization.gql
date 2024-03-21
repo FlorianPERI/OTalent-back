@@ -9,19 +9,19 @@ type Organization {
     "Password of the organization"
     password: String!
     "Phone number of the organization"
-    phoneNumber: String!
+    phone_number: String!
     "Address of the organization"
     address: String!
     "City where the organization is located"
     city: String!
     "Postal code of the organization's location"
-    postalCode: String!
+    postal_code: String!
     "SIRET number of the organization"
     siret: String!
     "Image URL of the organization"
     image: String
     "Website URL of the organization"
-    urlSite: String
+    url_site: String
     "Trainings offered by the organization"
     trainings: [Training!]!
 }
