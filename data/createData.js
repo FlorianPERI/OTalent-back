@@ -1,14 +1,13 @@
 import { fakerFR as faker } from '@faker-js/faker';
-import { formatingDate, generateRandomArray, matchPostalCodeRegex } from './utils/dataUtils.js';
-
+import { formatingDate, generateRandomArray, matchPostalCodeRegex, hashingPassword } from './utils/dataUtils.js';
 /**
  * Creation of a Member entity with Faker
  * @returns Member Object
  */
-function createMember() {
+async function createMember() {
   const firstname = faker.person.firstName();
   const lastname = faker.person.lastName();
-  const password = faker.internet.password();
+  const password = await hashingPassword(faker.internet.password());
   const email = faker.internet.email({ firstName: firstname, lastName: lastname });
   let postalCode = faker.location.zipCode();
   while (!matchPostalCodeRegex(postalCode)) {
@@ -32,10 +31,10 @@ function createMember() {
  * Creation of a Organization entity with Faker
  * @returns Organization Object
  */
-function createOrganization() {
+async function createOrganization() {
   const name = faker.company.name();
   const email = faker.internet.email();
-  const password = faker.internet.password();
+  const password = await hashingPassword(faker.internet.password());
   const phoneNumber = `0${faker.string.numeric({ length: 9, allowLeadingZeros: false })}`;
   const urlSite = faker.internet.url();
   const address = faker.location.street();
