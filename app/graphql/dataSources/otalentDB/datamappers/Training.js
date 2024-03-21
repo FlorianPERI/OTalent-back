@@ -1,16 +1,10 @@
 import Debug from 'debug';
 import CoreDatamapper from './CoreDatamapper.js';
-import { da } from '@faker-js/faker';
 
 const debug = Debug('app:datasource:otalentDB:training');
 
 class Training extends CoreDatamapper {
   tableName = 'training';
-
-  constructor(options) {
-    super(options);
-    debug('training datamapper created');
-  }
 
   async findByMemberId(id) {
     debug(`finding all trainings of member[${id}]`);
@@ -41,7 +35,6 @@ class Training extends CoreDatamapper {
     const results = await this.client.query(query);
     return results.rows;
   }
-
 }
 
 export default Training;
