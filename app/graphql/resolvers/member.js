@@ -3,19 +3,19 @@ import Debug from 'debug';
 const debug = Debug('app:resolvers:member');
 
 const member = {
-  trainings({ id: memberId }, _, { dataSources }) {
-    debug(`find all trainings of member [${memberId}]`);
-    return dataSources.otalentDB.training.findByMemberId(memberId);
+  trainings({ id }, _, { dataSources }) {
+    debug(`find all trainings of member [${id}]`);
+    return dataSources.otalentDB.training.findByMemberId(id);
   },
 
-  categories({ id: memberId }, _, { dataSources }) {
-    debug(`find all categories of member[${memberId}]`);
-    return dataSources.otalentDB.category.findByMemberId(memberId);
+  categories({ id }, _, { dataSources }) {
+    debug(`find all categories of member [${id}]`);
+    return dataSources.otalentDB.category.findByMemberId(id);
   },
 
-  reviews({ id: memberId }, _, { dataSources }) {
-    debug(`find all review of member[${memberId}]`);
-    return dataSources.otalentDB.review.findByMemberId(memberId);
+  reviews({ id }, _, { dataSources }) {
+    debug(`find all reviews of member [${id}]`);
+    return dataSources.otalentDB.review.findByMemberId(id);
   },
 };
 
