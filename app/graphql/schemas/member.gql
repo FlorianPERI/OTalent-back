@@ -5,7 +5,7 @@ type Member {
     email: String!
     password: String!
     city: String
-    postalCode: String
+    postal_code: String
     avatar: String
     categories: [Category!]!
     trainings: [Training!]!

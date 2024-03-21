@@ -24,11 +24,11 @@ const NB_MEMBER_LIKES_CATEGORY = 250;
  * @param {number} NB_MEMBERS - Number of members to import.
  * @returns {Promise<Array>} - A promise resolved with an array containing the results of the insertion queries.
  */
-async function importMembers(NB_MEMBERS) {
+function importMembers(NB_MEMBERS) {
   debug('importing members');
   const inserts = [];
   for (let memberIndex = 0; memberIndex < NB_MEMBERS; memberIndex += 1) {
-    const member = JSON.stringify(await createMember());
+    const member = JSON.stringify(createMember());
     const query = {
       text: 'SELECT * FROM insert_member($1);',
       values: [member],
@@ -42,11 +42,11 @@ async function importMembers(NB_MEMBERS) {
  * @param {number} NB_ORGANIZATIONS - Number of organizations to import. 
  * @returns {Promise<Array>}
  */
-async function importOrganizations(NB_ORGANIZATIONS) {
+function importOrganizations(NB_ORGANIZATIONS) {
   debug('importing organizations');
   const inserts = [];
   for (let organizationIndex = 0; organizationIndex < NB_ORGANIZATIONS; organizationIndex += 1) {
-    const organization = JSON.stringify(await createOrganization());
+    const organization = JSON.stringify(createOrganization());
     const query = {
       text: 'SELECT * FROM insert_organization($1);',
       values: [organization],
@@ -115,7 +115,7 @@ function importCategories(NB_CATEGORIES) {
   return Promise.all(inserts);
 }
 /**
- * Imports unique relationships between members and trainings into the database.
+ * Imports relationships between members and trainings into the database.
  * @param {number} NB_MEMBER_LIKES_TRAINING - Number of relationships between members and trainings to import.
  * @param {number} NB_MEMBERS - Number of members in the database.
  * @param {number} NB_TRAININGS - Number of trainings in the database.
@@ -124,15 +124,9 @@ function importCategories(NB_CATEGORIES) {
 function importMemberLikesTraining(NB_MEMBER_LIKES_TRAINING, NB_MEMBERS, NB_TRAININGS) {
   debug('importing favorite trainings');
   const inserts = [];
-  const uniquePairs = new Set();
   for (let memberLikesTrainingIndex = 0; memberLikesTrainingIndex < NB_MEMBER_LIKES_TRAINING; memberLikesTrainingIndex += 1) {
-    let memberId, trainingId, pair;
-    do {
-      memberId = getRandomInt(1, NB_MEMBERS);
-      trainingId = getRandomInt(1, NB_TRAININGS);
-      pair = `${memberId}${trainingId}`;
-    } while (uniquePairs.has(pair));
-    uniquePairs.add(pair);
+    const memberId = getRandomInt(1, NB_MEMBERS);
+    const trainingId = getRandomInt(1, NB_TRAININGS);
     const query = {
       text: 'INSERT INTO member_likes_training (member_id, training_id) VALUES ($1, $2);',
       values: [memberId, trainingId],
@@ -142,7 +136,7 @@ function importMemberLikesTraining(NB_MEMBER_LIKES_TRAINING, NB_MEMBERS, NB_TRAI
   return Promise.all(inserts);
 }
 /**
- * Imports unique relationships between members and categories into the database.
+ * Imports relationships between members and categories into the database.
  * @param {number} NB_MEMBER_LIKES_CATEGORY - Number of relationships between members and categories to import
  * @param {number} NB_MEMBERS - Number of members in the database.
  * @param {number} NB_CATEGORIES - Number of categories in the datase.
@@ -151,15 +145,9 @@ function importMemberLikesTraining(NB_MEMBER_LIKES_TRAINING, NB_MEMBERS, NB_TRAI
 function importMemberLikesCategory(NB_MEMBER_LIKES_CATEGORY, NB_MEMBERS, NB_CATEGORIES) {
   debug('importing favorite categories');
   const inserts = [];
-  const uniquePairs = new Set();
   for (let memberLikesCategoryIndex = 0; memberLikesCategoryIndex < NB_MEMBER_LIKES_CATEGORY; memberLikesCategoryIndex += 1) {
-    let memberId, categoryId, pair;
-    do {
-      memberId = getRandomInt(1, NB_MEMBERS);
-      categoryId = getRandomInt(1, NB_CATEGORIES);
-      pair = `${memberId},${categoryId}`;
-    } while (uniquePairs.has(pair));
-    uniquePairs.add(pair);
+    const memberId = getRandomInt(1, NB_MEMBERS);
+    const categoryId = getRandomInt(1, NB_CATEGORIES);
     const query = {
       text: 'INSERT INTO member_likes_category (member_id, category_id) VALUES ($1, $2);',
       values: [memberId, categoryId],
@@ -171,7 +159,6 @@ function importMemberLikesCategory(NB_MEMBER_LIKES_CATEGORY, NB_MEMBERS, NB_CATE
 
 
 Promise.resolve()
-  .then(() => console.log('import des données'))
   .then(() => importMembers(NB_MEMBERS))
   .then(() => importOrganizations(NB_ORGANIZATIONS))
   .then(() => importCategories(NB_CATEGORIES))

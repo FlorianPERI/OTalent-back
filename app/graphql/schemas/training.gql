@@ -4,13 +4,13 @@ type Training {
     description: String!
     price: Float!
     duration: Int!
-    dateList: [String!]
+    dates: [Date!]!   
     excerpt: String!
     prerequisites: String
     program: String
     image: String
-    organization: Organization
-    category: Category
+    organization: Organization!
+    category: Category!
     members: [Member!]
     reviews: [Review!]
 }
@@ -20,7 +20,8 @@ input TrainingInput {
     description: String
     price: Float
     duration: Int
-    dateList: [String!]
+    startingDate: String
+    endingDate: String
     excerpt: String
     prerequisites: String
     program: String

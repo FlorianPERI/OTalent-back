@@ -15,8 +15,8 @@ type Mutation {
     modifyTraining(id: Int!, input: MemberInput!): Training
     deleteTraining(id: Int!): Boolean
 
-    addCategory(input: MemberInput!): Member
-    modifyCategory(id: Int!, input: MemberInput!): Member
+    addCategory(input: CategoryInput!): Category
+    modifyCategory(id: Int!, input: CategoryInput!): Category
     deleteCategory(id: Int!): Boolean
 
     associateMemberCategory(memberId: Int!, categoryId: Int!): Boolean

@@ -3,14 +3,14 @@ type Organization {
     name: String!
     email: String!
     password: String!
-    phoneNumber: String!
+    phone_number: String!
     address: String!
     city: String!
-    postalCode: String!
+    postal_code: String!
     siret: String!
     image: String
-    urlSite: String
-    trainings: [Training!]!
+    url_site: String
+    trainings: [Training!]
 }
 
 input OrganizationInput {

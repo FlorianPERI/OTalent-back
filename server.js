@@ -1,5 +1,6 @@
 import Fastify from 'fastify';
 import { ApolloServer } from '@apollo/server';
+import { resolvers as scalarResolvers, typeDefs as scalarTypeDefs } from 'graphql-scalars';
 import fastifyApollo, { fastifyApolloDrainPlugin } from '@as-integrations/fastify';
 import Debug from 'debug';
 import typeDefs from './app/graphql/schemas/index.js';
@@ -10,8 +11,14 @@ const debug = Debug('app:server');
 const fastify = Fastify();
 
 const apollo = new ApolloServer({
-  typeDefs,
-  resolvers,
+  typeDefs: [
+    ...scalarTypeDefs,
+    typeDefs,
+  ],
+  resolvers: [
+    scalarResolvers,
+    resolvers,
+  ],
   plugins: [fastifyApolloDrainPlugin(fastify)],
 });
 
