@@ -6,11 +6,6 @@ const debug = Debug('app:datasource:otalentDB:category');
 class Category extends CoreDatamapper {
   tableName = 'category';
 
-  constructor(options) {
-    super(options);
-    debug('category datamapper created');
-  }
-
   async findByMemberId(id) {
     debug(`find all categories of member[${id}]`);
     const query = {

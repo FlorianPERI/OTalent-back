@@ -6,11 +6,6 @@ const debug = Debug('app:datasource:otalentDB:member');
 class Member extends CoreDatamapper {
   tableName = 'member';
 
-  constructor(options) {
-    super(options);
-    debug('member datamapper created');
-  }
-
   async findByTrainingId(id) {
     debug(`find all members interested by training[${id}]`);
     const query = {

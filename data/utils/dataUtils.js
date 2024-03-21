@@ -57,7 +57,7 @@ function matchPostalCodeRegex(postalCode) {
  * @returns {Promise<string>} - A Promise that resolves with the hashed password.
  */
 async function hashingPassword(password) {
-  const hash = await bcrypt.hash(password, parseInt(process.env.PASSWORD_SALT));
+  const hash = await bcrypt.hash(password, parseInt(process.env.PASSWORD_SALT, 10));
   return hash;
 }
 
