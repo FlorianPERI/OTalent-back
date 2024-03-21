@@ -6,6 +6,7 @@ import typeDefs from './app/graphql/schemas/index.js';
 import resolvers from './app/graphql/resolvers/index.js';
 import OtalentDB from './app/graphql/dataSources/otalentDB/datamappers/index.js';
 
+const PORT = process.env.SERVER_PORT ?? 3000;
 const debug = Debug('app:server');
 const fastify = Fastify();
 
@@ -25,10 +26,9 @@ await apollo.start();
 
 await fastify.register(fastifyApollo(apollo), { context: contextFunction });
 
-fastify.listen({ port: process.env.SERVER_PORT ?? 3000 }, (err) => {
+fastify.listen({ port: PORT }, (err) => {
   if (err) {
     debug(err);
   }
-  const serverAddress = fastify.addresses().find((address) => address.family === 'IPv4');
-  debug(`🚀 Server ready at http://${serverAddress.address}:${serverAddress.port}/graphql`);
+  debug(`🚀 Server ready at http://localhost:${PORT}/graphql`);
 });
