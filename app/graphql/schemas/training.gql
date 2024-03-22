@@ -11,7 +11,7 @@ type Training {
     "Duration of the training in hours"
     duration: Int!
     "List of dates for the training"
-    dates: [Date!]
+    dates: [Date!]!
     "Excerpt or summary of the training"
     excerpt: String!
     "Prerequisites required for the training"
@@ -43,7 +43,8 @@ input TrainingInput {
     "Duration of the training in hours"
     duration: Int
     "List of dates for the training"
-    dates: [Date!]
+    startingDate: String
+    endingDate: String
     "Excerpt or summary of the training"
     excerpt: String
     "Prerequisites required for the training"
