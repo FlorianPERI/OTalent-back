@@ -37,6 +37,7 @@ class CoreDatamapper {
         text: `SELECT * FROM ${this.tableName} WHERE id = ANY($1)`,
         values: [sortedIds],
       };
+      debug(query);
       const results = await this.client.query(query);
       return sortedIds.map((id) => results.rows.find((row) => row.id === id));
     });
@@ -56,6 +57,7 @@ class CoreDatamapper {
         text: `SELECT * FROM ${this.tableName} WHERE ${idField} = ANY($1);`,
         values: [sortedIds],
       };
+      debug(query);
       const results = await this.client.query(query);
       return sortedIds.map((id) => results.rows.filter((row) => row[idField] === id));
     });
@@ -77,7 +79,7 @@ class CoreDatamapper {
         text: `SELECT * FROM ${this.tableName} JOIN ${joinTableName} ON ${joinTableName}.${condition} = ${this.tableName}.id WHERE ${joinTableName}.${idField} = ANY($1);`,
         values: [sortedIds],
       };
-      debug(query.text);
+      debug(query);
       const results = await this.client.query(query);
       return sortedIds.map((id) => results.rows.filter((row) => row[idField] === id));
     });
