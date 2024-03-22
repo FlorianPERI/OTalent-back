@@ -20,7 +20,7 @@ class CoreDatamapper {
   }
 
   async findAll() {
-    debug(`requesting all ${this.tableName}`);
+    debug(`requesting all ${this.tableName}s`);
     const query = {
       text: `SELECT * FROM ${this.tableName}`,
     };
@@ -33,7 +33,7 @@ class CoreDatamapper {
   }
 
   async delete(id) {
-    debug(`deleting ${this.tableName}[${id}]`);
+    debug(`deleting ${this.tableName} [${id}]`);
     const query = {
       text: `DELETE FROM ${this.tableName} WHERE id = $1;`,
       values: [id],
