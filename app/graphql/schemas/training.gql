@@ -20,7 +20,6 @@ type Training {
     program: String
     "Image URL representing the training"
     image: String
-
     "Organization offering the training"
     organization: Organization!
     "Category to which the training belongs"
