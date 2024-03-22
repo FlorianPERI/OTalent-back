@@ -13,8 +13,8 @@ class Review extends CoreDatamapper {
    */
   constructor(options) {
     super(options);
-    this.createDataLoader('Training', 'review', 'training_id');
-    this.createDataLoader('Member', 'review', 'member_id');
+    this.createDataLoader('Training', 'training_id');
+    this.createDataLoader('Member', 'member_id');
     this.createAverageRatingDataLoader('Training', 'review', 'training_id');
   }
 
