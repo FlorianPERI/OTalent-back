@@ -1,6 +1,7 @@
 /**
  * This file contains the implementation of the CoreDatamapper class.
- * The CoreDatamapper class is responsible for handling data operations for a specific table in the database.
+ * The CoreDatamapper class is responsible for handling
+ * data operations for a specific table in the database.
  * It provides methods for querying, inserting, deleting, and associating data.
  * @file CoreDatamapper.js
  * @exports CoreDatamapper

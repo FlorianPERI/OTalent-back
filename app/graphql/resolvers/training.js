@@ -14,7 +14,8 @@ const training = {
   ...createMethods('Organization', 'findByPk', 'organization_id'),
   ...createMethods('Members', 'findByTrainingId'),
   ...createMethods('Reviews', 'findByTrainingId'),
-  averageRating: ({ id }, _, { dataSources }) => dataSources.otalentDB.review.findAverageRatingOfTraining(id),
+  averageRating: ({ id }, _, { dataSources }) => dataSources.otalentDB.review
+    .findAverageRatingOfTraining(id),
 };
 
 export default training;

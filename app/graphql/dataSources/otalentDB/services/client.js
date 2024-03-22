@@ -6,7 +6,8 @@ const { Pool } = pkg;
 const debug = Debug('app:client');
 
 /**
- * Instance of pg Pool. It will connect to the PostgreSQL database using the connection string from the environment variables.
+ * Instance of pg Pool. It will connect to the PostgreSQL database
+ * using the connection string from the environment variables.
  * @type {Pool} pool
  *
  */
