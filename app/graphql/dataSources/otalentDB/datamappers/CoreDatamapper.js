@@ -40,17 +40,10 @@ class CoreDatamapper {
 
   async insert(data) {
     debug(`adding new ${this.tableName}`);
-    // const fields = [];
-
-
-    Object.entries(data.input).forEach(([prop, value]) => {
-      console.log(value);
-    });
     const query = {
       text: `SELECT * FROM insert_${this.tableName}($1);`,
       values: [data.input],
     };
-    console.log(query);
     const result = await this.client.query(query);
     return result.rows[0];
   }

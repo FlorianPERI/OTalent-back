@@ -22,6 +22,11 @@ const training = {
     debug(`find all reviews of training [${id}]`);
     return dataSources.otalentDB.review.findByTrainingId(id);
   },
+
+  averageRating({ id }, _, { dataSources }) {
+    debug(`find average of ratings for training[${id}]`);
+    return dataSources.otalentDB.review.findAverageRatingOfTraining(id);
+  }
 };
 
 export default training;

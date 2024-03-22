@@ -25,6 +25,46 @@ class Member extends CoreDatamapper {
     const results = await this.client.query(query);
     return results.rows;
   }
+
+  async associateMemberCategory(memberId, categoryId) {
+    debug(`associating member[${memberId}] and category[${categoryId}]`);
+    const query = {
+      text: 'INSERT INTO member_likes_category (member_id, category_id) VALUES ($1, $2);',
+      values: [memberId, categoryId],
+    };
+    const results = await this.client.query(query);
+    return !!results.rowCount;
+  }
+
+  async dissociateMemberCategory(memberId, categoryId) {
+    debug(`dissociating member[${memberId}] and category[${categoryId}]`);
+    const query = {
+      text: 'DELETE FROM member_likes_category WHERE member_id = $1 AND category_id = $2;',
+      values: [memberId, categoryId],
+    };
+    const results = await this.client.query(query);
+    return !!results.rowCount;
+  }
+
+  async associateMemberTraining(memberId, trainingId) {
+    debug(`associating member[${memberId}] and training[${trainingId}]`);
+    const query = {
+      text: 'INSERT INTO member_likes_training (member_id, training_id) VALUES ($1, $2);',
+      values: [memberId, trainingId],
+    };
+    const results = await this.client.query(query);
+    return !!results.rowCount;
+  }
+
+  async dissociateMemberTraining(memberId, trainingId) {
+    debug(`dissociating member[${memberId}] and training[${trainingId}]`);
+    const query = {
+      text: 'DELETE FROM member_likes_training WHERE member_id = $1 AND training_id = $2;',
+      values: [memberId, trainingId],
+    };
+    const results = await this.client.query(query);
+    return !!results.rowCount;
+  }
 }
 
 export default Member;

@@ -29,6 +29,7 @@ type Training {
     members: [Member!]
     "Reviews associated with the training"
     reviews: [Review!]
+    averageRating: Float
 }
 
 "Input for creating or updating a training"
