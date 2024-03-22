@@ -26,7 +26,4 @@ function importTrainingsFromJSON() {
     return Promise.all(inserts);
 }
 
-Promise.resolve()
-    .then(() => importTrainingsFromJSON())
-    .then(() => debug('all trainings from JSON imported'))
-    .finally(() => client.end());
+export { importTrainingsFromJSON };
