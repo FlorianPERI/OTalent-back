@@ -5,7 +5,7 @@ import { getRandomInt } from './utils/dataUtils.js';
 import categories from './categories.json' assert {type: "json"};
 import Debug from 'debug';
 import 'dotenv/config';
-import client from '../app/graphql/dataSources/otalentDB/services/client.js'
+import client from '../app/graphql/dataSources/otalentDB/services/client.js';
 
 const debug = Debug('app:seed');
 
