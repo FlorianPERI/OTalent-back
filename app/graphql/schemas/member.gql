@@ -17,11 +17,11 @@ type Member {
     "Avatar URL of the member"
     avatar: String
     "Categories the member is interested in"
-    categories: [Category!]!
+    categories: [Category!]
     "Trainings attended by the member"
-    trainings: [Training!]!
+    trainings: [Training!]
     "Reviews given by the member"
-    reviews: [Review!]!
+    reviews: [Review!]
 }
 
 "Input for creating or updating a member"
