@@ -32,7 +32,7 @@ class CoreDatamapper {
      */
     this.findByPkLoader = new DataLoader(async (ids) => {
       const sortedIds = [...ids].sort((a, b) => a - b);
-      debug(`requesting ${this.tableName} with ids [${sortedIds}]`);
+      debug(`requesting ${this.tableName}s with ids [${sortedIds}]`);
       const query = {
         text: `SELECT * FROM ${this.tableName} WHERE id = ANY($1)`,
         values: [sortedIds],
@@ -51,7 +51,7 @@ class CoreDatamapper {
     const lowerCaseEntityName = entityName.toLowerCase();
     this[`findBy${entityName}IdLoader`] = new DataLoader(async (ids) => {
       const sortedIds = [...ids].sort((a, b) => a - b);
-      debug(`find all ${this.tableName} for ${lowerCaseEntityName}[${sortedIds}]`);
+      debug(`requesting ${this.tableName}s for ${lowerCaseEntityName}[${sortedIds}]`);
       const query = {
         text: `SELECT * FROM ${this.tableName} WHERE ${idField} = ANY($1);`,
         values: [sortedIds],
@@ -72,7 +72,7 @@ class CoreDatamapper {
     const lowerCaseEntityName = entityName.toLowerCase();
     this[`findBy${entityName}IdLoader`] = new DataLoader(async (ids) => {
       const sortedIds = [...ids].sort((a, b) => a - b);
-      debug(`find all ${this.tableName} related to ${lowerCaseEntityName}[${sortedIds}]`);
+      debug(`requesting ${this.tableNames}s for ${lowerCaseEntityName}[${sortedIds}]`);
       const query = {
         text: `SELECT * FROM ${this.tableName} JOIN ${joinTableName} ON ${joinTableName}.${condition} = ${this.tableName}.id WHERE ${joinTableName}.${idField} = ANY($1);`,
         values: [sortedIds],
