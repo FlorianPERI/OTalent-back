@@ -11,7 +11,7 @@ type Training {
     "Duration of the training in hours"
     duration: Int!
     "List of dates for the training"
-    dates: [Date!]
+    dates: [Date!]!
     "Excerpt or summary of the training"
     excerpt: String!
     "Prerequisites required for the training"
@@ -20,7 +20,6 @@ type Training {
     program: String
     "Image URL representing the training"
     image: String
-
     "Organization offering the training"
     organization: Organization!
     "Category to which the training belongs"
@@ -42,8 +41,10 @@ input TrainingInput {
     price: Float
     "Duration of the training in hours"
     duration: Int
-    "List of dates for the training"
-    dates: [Date!]
+    "Starting date for the training"
+    startingDate: Date
+    "Ending date for the training"
+    endingDate: Date
     "Excerpt or summary of the training"
     excerpt: String
     "Prerequisites required for the training"

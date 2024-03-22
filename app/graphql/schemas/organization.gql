@@ -28,7 +28,7 @@ type Organization {
     "Website URL of the organization"
     url_site: String
     "Trainings offered by the organization"
-    trainings: [Training!]!
+    trainings: [Training!]
 
 }
 
