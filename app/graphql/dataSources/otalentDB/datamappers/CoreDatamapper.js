@@ -202,22 +202,24 @@ class CoreDatamapper {
     return result.rows[0];
   }
 
+  /**
+   * Caches the result of a query.
+   * @param {object} query - The query object.
+   * @param {number} ttl - The time-to-live (TTL) of the cache in seconds.
+   * @returns {object[]} - Returns the query results.
+   */
   async cacheQuery(query, ttl) {
     const cacheKey = createHash('sha1').update(JSON.stringify(query)).digest('base64');
     const cachedValue = await this.cache.get(cacheKey);
-
     if (cachedValue) {
       debug('cached value found');
       return JSON.parse(cachedValue);
     }
-
     debug(`no cached value found for ${cacheKey}`);
     const results = await this.client.query(query);
     const data = results.rows || [];
-
     debug('add value to cache');
     this.cache.set(cacheKey, JSON.stringify(data), { ttl });
-
     return data;
   }
 }

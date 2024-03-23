@@ -4,7 +4,6 @@
   "description": "backend part of project otalent",
   "main": "server.js",
   "type": "module",
-  
   "scripts": {
     "test": "bun test --coverage",
     "dev": "DEBUG=app:* bun server.js",
@@ -39,6 +38,8 @@
     "@as-integrations/fastify": "^2.1.1",
     "@faker-js/faker": "^8.4.1",
     "@fastify/cors": "^9.0.1",
+    "@graphql-tools/schema": "^10.0.3",
+    "axios": "^1.6.8",
     "bcrypt": "^5.1.1",
     "dataloader": "^2.2.2",
     "dayjs": "^1.11.10",

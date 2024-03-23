@@ -1,6 +1,3 @@
-/**
- * Importing required modules and packages
- */
 import Fastify from 'fastify';
 import { ApolloServer } from '@apollo/server';
 import { InMemoryLRUCache } from '@apollo/utils.keyvaluecache';
@@ -24,18 +21,18 @@ const fastify = Fastify();
  */
 const apollo = new ApolloServer({
   typeDefs: [
-    ...scalarTypeDefs,
+    ...scalarTypeDefs, // Add custom scalar type definitions
     typeDefs,
   ],
   resolvers: [
-    scalarResolvers,
+    scalarResolvers, // Add custom scalar type resolvers
     resolvers,
   ],
   cache: new InMemoryLRUCache({
-    max: 500,
-    maxSize: 2 ** 20 * 50,
-    sizeCalculation: (value, key) => (value.length + key.length) * 2,
-    ttl: 300,
+    max: 500, // 500 items
+    maxSize: 2 ** 20 * 50, // 50MB
+    sizeCalculation: (value, key) => (value.length + key.length) * 2, // 2 bytes per char
+    ttl: 300, // 5 minutes
   }),
   plugins: [fastifyApolloDrainPlugin(fastify)],
 });
@@ -44,10 +41,10 @@ const apollo = new ApolloServer({
  * Function to provide context to ApolloServer
  */
 const contextFunction = async () => {
-  const { cache } = apollo;
+  const { cache } = apollo; // Get the cache from ApolloServer
   return {
     dataSources: {
-      otalentDB: new OtalentDB({ cache }),
+      otalentDB: new OtalentDB({ cache }), // Create a new instance of OtalentDB with cache
     },
   };
 };
