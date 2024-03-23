@@ -16,6 +16,8 @@ const training = {
   ...createMethods('Reviews', 'findByTrainingId'),
   averageRating: ({ id }, _, { dataSources }) => dataSources.otalentDB.review
     .findAverageRatingOfTraining(id),
+  dates: (parent) => parent.dates.map((dateStr) => new Date(dateStr))
+  ,
 };
 
 export default training;
