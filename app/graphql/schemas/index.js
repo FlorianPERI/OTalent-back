@@ -25,7 +25,7 @@ const mutation = readFile('./mutation.gql');
  * Combine all the GraphQL schemas into a single string.
  * @returns {string} - The combined schemas.
  */
-const combineSchemas = () => `#graphql
+const schemas = `#graphql
     ${member}
     ${organization}
     ${review}
@@ -35,8 +35,6 @@ const combineSchemas = () => `#graphql
     ${mutation}
   `;
 
-const schemas = combineSchemas();
-
-debug('schema created');
+debug('schemas combined successfully');
 
 export default schemas;
