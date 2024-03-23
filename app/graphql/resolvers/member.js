@@ -1,22 +1,16 @@
-import Debug from 'debug';
+import { createMethods } from '../utils/createMethods.js';
 
-const debug = Debug('app:resolvers:member');
-
+/**
+ * Resolvers for the Member type.
+ * @typedef {Object} Member
+ * @property {Function} Trainings - Resolver for Trainings field.
+ * @property {Function} Categories - Resolver for Categories field.
+ * @property {Function} Reviews - Resolver for Reviews field.
+ */
 const member = {
-  trainings({ id }, _, { dataSources }) {
-    debug(`find all trainings of member [${id}]`);
-    return dataSources.otalentDB.training.findByMemberId(id);
-  },
-
-  categories({ id }, _, { dataSources }) {
-    debug(`find all categories of member [${id}]`);
-    return dataSources.otalentDB.category.findByMemberId(id);
-  },
-
-  reviews({ id }, _, { dataSources }) {
-    debug(`find all reviews of member [${id}]`);
-    return dataSources.otalentDB.review.findByMemberId(id);
-  },
+  ...createMethods('Trainings', 'findByMemberId'),
+  ...createMethods('Categories', 'findByMemberId'),
+  ...createMethods('Reviews', 'findByMemberId'),
 };
 
 export default member;

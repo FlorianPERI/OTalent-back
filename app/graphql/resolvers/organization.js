@@ -1,12 +1,12 @@
-import Debug from 'debug';
+import { createMethods } from '../utils/createMethods.js';
 
-const debug = Debug('app:resolvers:organization');
-
+/**
+ * Resolvers for the Organization type.
+ * @typedef {Object} Organization
+ * @property {Function} Trainings - Resolver for Trainings field.
+ */
 const organization = {
-  trainings({ id }, _, { dataSources }) {
-    debug(`find all trainings of organization [${id}]`);
-    return dataSources.otalentDB.training.findByOrganizationId(id);
-  },
+  ...createMethods('Trainings', 'findByOrganizationId'),
 };
 
 export default organization;

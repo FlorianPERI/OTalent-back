@@ -1,3 +1,6 @@
+/**
+ * Importing required modules and packages
+ */
 import Fastify from 'fastify';
 import { ApolloServer } from '@apollo/server';
 import { InMemoryLRUCache } from '@apollo/utils.keyvaluecache';
@@ -9,10 +12,16 @@ import typeDefs from './app/graphql/schemas/index.js';
 import resolvers from './app/graphql/resolvers/index.js';
 import OtalentDB from './app/graphql/dataSources/otalentDB/datamappers/index.js';
 
+/**
+ * Setting up the server
+ */
 const PORT = process.env.SERVER_PORT ?? 3000;
 const debug = Debug('app:server');
 const fastify = Fastify();
 
+/**
+ * Creating an instance of ApolloServer
+ */
 const apollo = new ApolloServer({
   typeDefs: [
     ...scalarTypeDefs,
@@ -31,6 +40,9 @@ const apollo = new ApolloServer({
   plugins: [fastifyApolloDrainPlugin(fastify)],
 });
 
+/**
+ * Function to provide context to ApolloServer
+ */
 const contextFunction = async () => {
   const { cache } = apollo;
   return {
@@ -40,10 +52,24 @@ const contextFunction = async () => {
   };
 };
 
+/**
+ * Starting ApolloServer
+ */
 await apollo.start();
+
+/**
+ * Registering CORS plugin with Fastify
+ */
 await fastify.register(cors, { origin: '*' });
+
+/**
+ * Registering ApolloServer with Fastify
+ */
 await fastify.register(fastifyApollo(apollo), { context: contextFunction });
 
+/**
+ * Starting the server
+ */
 fastify.listen({ port: PORT }, (err) => {
   if (err) {
     debug(err);

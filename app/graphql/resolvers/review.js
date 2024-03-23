@@ -1,16 +1,14 @@
-import Debug from 'debug';
+import { createMethods } from '../utils/createMethods.js';
 
-const debug = Debug('app:resolvers:review');
-
+/**
+ * Resolvers for the Review type.
+ * @typedef {Object} Review
+ * @property {Function} Training - Resolver for Training field.
+ * @property {Function} Member - Resolver for Member field.
+ */
 const review = {
-  training({ id, training_id: trainingId }, _, { dataSources }) {
-    debug(`find training of review [${id}]`);
-    return dataSources.otalentDB.training.findByPk(trainingId);
-  },
-
-  member({ id, member_id: memberId }, _, { dataSources }) {
-    debug(`find member of review [${id}]`);
-    return dataSources.otalentDB.member.findByPk(memberId);
-  },
+  ...createMethods('Training', 'findByPk', 'training_id'),
+  ...createMethods('Member', 'findByPk', 'member_id'),
 };
+
 export default review;

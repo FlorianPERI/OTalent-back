@@ -10,7 +10,7 @@ type Category {
     trainings: [Training!]
 }
 
-"Input category"
+"Input for creating or updating a category"
 input CategoryInput {
     "Label of a category"
     label: String
