@@ -8,6 +8,7 @@
  */
 import DataLoader from 'dataloader';
 import Debug from 'debug';
+import { createHash } from 'node:crypto';
 
 const debug = Debug('app:datasource:coredatamapper');
 
@@ -25,6 +26,7 @@ class CoreDatamapper {
    */
   constructor(options) {
     this.client = options.client;
+    this.cache = options.cache;
 
     /**
      * DataLoader instance for batch loading data by primary key.
@@ -38,8 +40,8 @@ class CoreDatamapper {
         values: [sortedIds],
       };
       debug(query);
-      const results = await this.client.query(query);
-      return sortedIds.map((id) => results.rows.find((row) => row.id === id));
+      const rows = await this.cacheQuery(query);
+      return sortedIds.map((id) => rows.find((row) => row.id === id));
     });
   }
 
@@ -58,8 +60,8 @@ class CoreDatamapper {
         values: [sortedIds],
       };
       debug(query);
-      const results = await this.client.query(query);
-      return sortedIds.map((id) => results.rows.filter((row) => row[idField] === id));
+      const rows = await this.cacheQuery(query);
+      return sortedIds.map((id) => rows.filter((row) => row[idField] === id));
     });
   }
 
@@ -80,8 +82,8 @@ class CoreDatamapper {
         values: [sortedIds],
       };
       debug(query);
-      const results = await this.client.query(query);
-      return sortedIds.map((id) => results.rows.filter((row) => row[idField] === id));
+      const rows = await this.cacheQuery(query);
+      return sortedIds.map((id) => rows.filter((row) => row[idField] === id));
     });
   }
 
@@ -104,7 +106,7 @@ class CoreDatamapper {
         text: `INSERT INTO ${tableName} (${this.tableName}_id, ${lowerCaseEntityName}_id) VALUES ($1, $2);`,
         values: [id1, id2],
       };
-      const results = await this.client.query(query);
+      const results = await this.cacheQuery(query);
       return !!results.rowCount;
     };
 
@@ -143,8 +145,8 @@ class CoreDatamapper {
         text: `SELECT AVG(rating) FROM ${tableName} WHERE ${idField} = ANY($1);`,
         values: [ids],
       };
-      const results = await this.client.query(query);
-      return ids.map((id) => results.rows.find((row) => row.id === id)?.avg || 0);
+      const rows = await this.cacheQuery(query);
+      return ids.map((id) => rows.find((row) => row.id === id)?.avg || 0);
     });
   }
 
@@ -157,8 +159,8 @@ class CoreDatamapper {
     const query = {
       text: `SELECT * FROM ${this.tableName}`,
     };
-    const results = await this.client.query(query);
-    return results.rows;
+    const rows = await this.cacheQuery(query);
+    return rows;
   }
 
   /**
@@ -198,6 +200,25 @@ class CoreDatamapper {
     };
     const result = await this.client.query(query);
     return result.rows[0];
+  }
+
+  async cacheQuery(query, ttl) {
+    const cacheKey = createHash('sha1').update(JSON.stringify(query)).digest('base64');
+    const cachedValue = await this.cache.get(cacheKey);
+
+    if (cachedValue) {
+      debug('cached value found');
+      return JSON.parse(cachedValue);
+    }
+
+    debug(`no cached value found for ${cacheKey}`);
+    const results = await this.client.query(query);
+    const data = results.rows || [];
+
+    debug('add value to cache');
+    this.cache.set(cacheKey, JSON.stringify(data), { ttl });
+
+    return data;
   }
 }
 
