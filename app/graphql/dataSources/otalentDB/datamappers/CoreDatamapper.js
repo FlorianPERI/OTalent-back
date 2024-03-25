@@ -8,6 +8,7 @@
  */
 import DataLoader from 'dataloader';
 import Debug from 'debug';
+import { log } from 'node:console';
 import { createHash } from 'node:crypto';
 
 const debug = Debug('app:otalentDB:core');
@@ -33,12 +34,13 @@ class CoreDatamapper {
      * @type {DataLoader}
      */
     this.findByPkLoader = new DataLoader(async (ids) => {
-      const sortedIds = [...ids].sort((a, b) => a - b);
+      const sortedIds = [...ids];
       debug(`finding all ${this.tableName} with ids [${sortedIds}]`);
       const query = {
         text: `SELECT * FROM ${this.tableName} WHERE id = ANY($1)`,
         values: [sortedIds],
       };
+      console.log(query);
       // debug(query);
       const rows = await this.cacheQuery(query);
       return sortedIds.map((id) => rows.find((row) => row.id === id));
@@ -53,13 +55,12 @@ class CoreDatamapper {
   createDataLoader(entityName, idField) {
     const lowerCaseEntityName = entityName.toLowerCase();
     this[`findBy${entityName}IdLoader`] = new DataLoader(async (ids) => {
-      const sortedIds = [...ids].sort((a, b) => a - b);
+      const sortedIds = [...ids];
       debug(`finding all ${this.tableName} by ${lowerCaseEntityName} with ids [${sortedIds}]`);
       const query = {
         text: `SELECT * FROM ${this.tableName} WHERE ${idField} = ANY($1);`,
         values: [sortedIds],
       };
-      // debug(query);
       const rows = await this.cacheQuery(query);
       return sortedIds.map((id) => rows.filter((row) => row[idField] === id));
     });
