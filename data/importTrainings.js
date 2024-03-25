@@ -3,6 +3,7 @@ import 'dotenv/config';
 import client from '../app/graphql/dataSources/otalentDB/services/client.js';
 import trainings from './trainings.json' assert {type: "json"};
 
+
 const debug = Debug('data:json:trainings');
 
 function importTrainingsFromJSON() {
@@ -16,6 +17,7 @@ function importTrainingsFromJSON() {
     trainings.forEach((training) => {
         const values = [];
         training.duration = training.duration * 35;
+        training.program = JSON.stringify(training.program.split(','));
         Object.values(training).forEach((value) => values.push(value));
         const query = {
             text: `INSERT INTO training (${fields}) VALUES (${placeholders});`,
@@ -25,5 +27,6 @@ function importTrainingsFromJSON() {
     });
     return Promise.all(inserts);
 }
+
 
 export { importTrainingsFromJSON };

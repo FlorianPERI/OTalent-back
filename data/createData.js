@@ -67,7 +67,7 @@ async function createOrganization() {
  * @returns Review Object
  */
 function createReview() {
-  const rating = faker.number.int({ min: 0, max: 5 });
+  const rating = faker.number.int({ min: 1, max: 5 });
   const comment = faker.lorem.words({ min: 5, max: 20 });
   const review = {
     rating,
