@@ -1,32 +1,21 @@
-import Debug from 'debug';
+import { createMethods } from '../utils/createMethods.js';
 
-const debug = Debug('app:resolvers:training');
-
+/**
+ * Resolvers for the Training type.
+ * @typedef {Object} Training
+ * @property {Function} Category - Resolver for Category field.
+ * @property {Function} Organization - Resolver for Organization field.
+ * @property {Function} Members - Resolver for Members field.
+ * @property {Function} Reviews - Resolver for Reviews field.
+ * @property {Function} averageRating - Resolver for averageRating field.
+ */
 const training = {
-  category({ id, category_id: categoryId }, _, { dataSources }) {
-    debug(`find category of training [${id}]`);
-    return dataSources.otalentDB.category.findByPk(categoryId);
-  },
-
-  organization({ id, organization_id: organizationId }, _, { dataSources }) {
-    debug(`find organization of training [${id}]`);
-    return dataSources.otalentDB.organization.findByPk(organizationId);
-  },
-
-  members({ id }, _, { dataSources }) {
-    debug(`find all members of training [${id}]`);
-    return dataSources.otalentDB.member.findByTrainingId(id);
-  },
-
-  reviews({ id }, _, { dataSources }) {
-    debug(`find all reviews of training [${id}]`);
-    return dataSources.otalentDB.review.findByTrainingId(id);
-  },
-
-  averageRating({ id }, _, { dataSources }) {
-    debug(`find average of ratings for training[${id}]`);
-    return dataSources.otalentDB.review.findAverageRatingOfTraining(id);
-  }
+  ...createMethods('Category', 'findByPk', 'category_id'),
+  ...createMethods('Organization', 'findByPk', 'organization_id'),
+  ...createMethods('Members', 'findByTrainingId'),
+  ...createMethods('Reviews', 'findByTrainingId'),
+  averageRating: ({ id }, _, { dataSources }) => dataSources.otalentDB.review
+    .findAverageRatingOfTraining(id),
 };
 
 export default training;

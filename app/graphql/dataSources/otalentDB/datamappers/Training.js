@@ -1,39 +1,51 @@
-import Debug from 'debug';
 import CoreDatamapper from './CoreDatamapper.js';
 
-const debug = Debug('app:datasource:otalentDB:training');
-
+/**
+ * Represents a Training data mapper.
+ * @extends CoreDatamapper
+ */
 class Training extends CoreDatamapper {
   tableName = 'training';
 
+  /**
+   * Creates a new instance of the Training data mapper.
+   * @param {object} options - The options for the data mapper.
+   */
+  constructor(options) {
+    super(options);
+    this.createDataLoader('Organization', 'organization_id');
+    this.createDataLoader('Category', 'category_id');
+    this.createDataLoaderWithJoin('Member', 'member_likes_training', 'member_id', 'training_id');
+  }
+
+  /**
+   * Finds trainings by member ID.
+   * @param {number} id - The member ID.
+   * @returns {Promise<Array>} - A promise that resolves to an array of trainings.
+   */
   async findByMemberId(id) {
-    debug(`finding all trainings of member[${id}]`);
-    const query = {
-      text: 'SELECT t.* FROM training t JOIN member_likes_training mlt ON mlt.training_id = t.id WHERE mlt.member_id = $1;',
-      values: [id],
-    };
-    const results = await this.client.query(query);
-    return results.rows;
+    const result = await this.findByMemberIdLoader.load(id);
+    return result || [];
   }
 
+  /**
+   * Finds trainings by organization ID.
+   * @param {number} id - The organization ID.
+   * @returns {Promise<Array>} - A promise that resolves to an array of trainings.
+   */
   async findByOrganizationId(id) {
-    debug(`finding all trainings of organization[${id}]`);
-    const query = {
-      text: 'SELECT * FROM training WHERE organization_id = $1;',
-      values: [id],
-    };
-    const results = await this.client.query(query);
-    return results.rows;
+    const result = await this.findByOrganizationIdLoader.load(id);
+    return result || [];
   }
 
+  /**
+   * Finds trainings by category ID.
+   * @param {number} id - The category ID.
+   * @returns {Promise<Array>} - A promise that resolves to an array of trainings.
+   */
   async findByCategoryId(id) {
-    debug(`finding all trainings of category[${id}]`);
-    const query = {
-      text: 'SELECT * FROM training WHERE category_id = $1;',
-      values: [id],
-    };
-    const results = await this.client.query(query);
-    return results.rows;
+    const result = await this.findByCategoryIdLoader.load(id);
+    return result || [];
   }
 }
 

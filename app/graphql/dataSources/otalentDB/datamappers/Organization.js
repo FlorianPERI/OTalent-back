@@ -1,8 +1,9 @@
-// import Debug from 'debug';
 import CoreDatamapper from './CoreDatamapper.js';
 
-// const debug = Debug('app:datasource:otalentDB:organization');
-
+/**
+ * Represents an Organization datamapper.
+ * @extends CoreDatamapper
+ */
 class Organization extends CoreDatamapper {
   tableName = 'organization';
 }

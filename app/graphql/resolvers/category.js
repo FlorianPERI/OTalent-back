@@ -1,17 +1,14 @@
-import Debug from 'debug';
+import { createMethods } from '../utils/createMethods.js';
 
-const debug = Debug('app:resolvers:category');
-
+/**
+ * Resolvers for the Category type.
+ * @typedef {Object} Category
+ * @property {Function} Trainings - Resolver for Trainings field.
+ * @property {Function} Members - Resolver for Members field.
+ */
 const category = {
-  trainings({ id }, _, { dataSources }) {
-    debug(`find all trainings of category [${id}]`);
-    return dataSources.otalentDB.training.findByCategoryId(id);
-  },
-
-  members({ id }, _, { dataSources }) {
-    debug(`find all members of category [${id}]`);
-    return dataSources.otalentDB.member.findByCategoryId(id);
-  },
+  ...createMethods('Trainings', 'findByCategoryId'),
+  ...createMethods('Members', 'findByCategoryId'),
 };
 
 export default category;

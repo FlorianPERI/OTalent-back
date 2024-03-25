@@ -4,12 +4,12 @@
   "description": "backend part of project otalent",
   "main": "server.js",
   "type": "module",
+  
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "DEBUG=app:* nodemon server.js",
-    "db:seed": "DEBUG=app:* node data/seed.js",
-    "utils": "./scripts/utils.sh",
-    "coredatamapper": "DEBUG=app:datasource:coredatamapper nodemon server.js"
+    "test": "bun test --coverage",
+    "dev": "DEBUG=app:* bun server.js",
+    "db:seed": "DEBUG=app:* bun data/seed.js",
+    "utils": "./scripts/utils.sh"
   },
   "repository": {
     "type": "git",
@@ -25,9 +25,13 @@
   },
   "homepage": "https://github.com/O-clock-Kimchi/O-Talent-back#readme",
   "devDependencies": {
+    "@babel/core": "^7.24.3",
+    "@babel/preset-env": "^7.24.3",
+    "babel-jest": "^29.7.0",
     "eslint": "^8.57.0",
     "eslint-config-airbnb-base": "^15.0.0",
-    "eslint-plugin-import": "^2.29.1"
+    "eslint-plugin-import": "^2.29.1",
+    "jest": "^29.7.0"
   },
   "dependencies": {
     "@apollo/server": "^4.10.1",
