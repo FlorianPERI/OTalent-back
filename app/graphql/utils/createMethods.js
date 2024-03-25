@@ -54,10 +54,10 @@ function createQueryMethods(entityName, pluralEntityName = `${entityName}s`) {
 function createMutationMethods(entityName) {
   const lowerCaseEntityName = entityName.toLowerCase();
   return {
-    [`add${entityName}`]: (_, args, { dataSources }) => dataSources
-      .otalentDB[lowerCaseEntityName].insert(args),
-    [`modify${entityName}`]: (_, { id, input }, { dataSources }) => dataSources
-      .otalentDB[lowerCaseEntityName].update(id, input),
+    [`add${entityName}`]: (_, data, { dataSources }) => dataSources
+      .otalentDB[lowerCaseEntityName].insert(data),
+    [`modify${entityName}`]: (_, data, { dataSources }) => dataSources
+      .otalentDB[lowerCaseEntityName].update(data.id, data),
     [`delete${entityName}`]: (_, { id }, { dataSources }) => dataSources
       .otalentDB[lowerCaseEntityName].delete(id),
   };

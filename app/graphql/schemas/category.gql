@@ -5,9 +5,9 @@ type Category {
     "Label of the category"
     label: String!
     "Members liking this category"
-    members: [Member!]
+    members: [Member]
     "Trainings belonging to this category"
-    trainings: [Training!]
+    trainings: [Training]
 }
 
 "Input for creating or updating a category"
