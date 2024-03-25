@@ -40,7 +40,7 @@ class CoreDatamapper {
       };
       // debug(query);
       const rows = await this.cacheQuery(query);
-      return ids.map((id) => rows.find((row) => row.id === id) || null);
+      return ids.map((id) => rows.find((row) => row.id === id));
     });
   }
 
@@ -59,10 +59,7 @@ class CoreDatamapper {
       };
       debug(query);
       const rows = await this.cacheQuery(query);
-      return ids.map((id) => {
-        const filteredRows = rows.filter((row) => row[idField] === id);
-        return filteredRows.length > 0 ? filteredRows : [null];
-      });
+      return ids.map((id) => rows.filter((row) => row[idField] === id));
     });
   }
 
@@ -83,11 +80,7 @@ class CoreDatamapper {
       };
       // debug(query);
       const rows = await this.cacheQuery(query);
-      return ids.map((id) => {
-        const filteredRows = rows.filter((row) => row[idField] === id);
-        debug(filteredRows);
-        return filteredRows.length > 0 ? filteredRows : [null];
-      });
+      return ids.map((id) => rows.filter((row) => row[idField] === id));
     });
   }
 
