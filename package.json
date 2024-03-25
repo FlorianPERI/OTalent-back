@@ -4,11 +4,10 @@
   "description": "backend part of project otalent",
   "main": "server.js",
   "type": "module",
-  
   "scripts": {
     "test": "bun test --coverage",
-    "dev": "DEBUG=app:* bun server.js",
-    "db:seed": "DEBUG=app:* bun data/seed.js",
+    "dev": "DEBUG=app:*  nodemon server.js",
+    "db:seed": "DEBUG=app:* node data/seed.js",
     "utils": "./scripts/utils.sh"
   },
   "repository": {

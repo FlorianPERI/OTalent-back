@@ -171,7 +171,7 @@ CREATE FUNCTION insert_member(json) RETURNS member AS $$
 $$ LANGUAGE SQL STRICT;
 
 CREATE FUNCTION insert_organization(json) RETURNS organization AS $$
-  INSERT INTO organization (name, email, password, phone_number, url_site, address, city, postal_code, siret, image)
+  INSERT INTO organization (name, email, password, phone_number, url_site, address, description, city, postal_code, siret, image)
   VALUES (
     $1->>'name',
     $1->>'email',
@@ -179,6 +179,7 @@ CREATE FUNCTION insert_organization(json) RETURNS organization AS $$
     $1->>'phoneNumber',
     $1->>'urlSite',
     $1->>'address',
+    $1->>'description',
     $1->>'city',
     $1->>'postalCode',
     $1->>'siret',
