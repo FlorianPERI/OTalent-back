@@ -11,7 +11,7 @@ import Debug from 'debug';
 import { log } from 'node:console';
 import { createHash } from 'node:crypto';
 
-const debug = Debug('app:datasource:coredatamapper');
+const debug = Debug('app:otalentDB:core');
 
 /**
  * Represents a CoreDatamapper.
@@ -35,12 +35,12 @@ class CoreDatamapper {
      */
     this.findByPkLoader = new DataLoader(async (ids) => {
       const sortedIds = [...ids].sort((a, b) => a - b);
-      debug(`requesting ${this.tableName}s with ids [${sortedIds}]`);
+      debug(`finding all ${this.tableName} with ids [${sortedIds}]`);
       const query = {
         text: `SELECT * FROM ${this.tableName} WHERE id = ANY($1)`,
         values: [sortedIds],
       };
-      debug(query);
+      // debug(query);
       const rows = await this.cacheQuery(query);
       return sortedIds.map((id) => rows.find((row) => row.id === id));
     });
@@ -55,12 +55,12 @@ class CoreDatamapper {
     const lowerCaseEntityName = entityName.toLowerCase();
     this[`findBy${entityName}IdLoader`] = new DataLoader(async (ids) => {
       const sortedIds = [...ids].sort((a, b) => a - b);
-      debug(`requesting ${this.tableName}s for ${lowerCaseEntityName}[${sortedIds}]`);
+      debug(`finding all ${this.tableName} by ${lowerCaseEntityName} with ids [${sortedIds}]`);
       const query = {
         text: `SELECT * FROM ${this.tableName} WHERE ${idField} = ANY($1);`,
         values: [sortedIds],
       };
-      debug(query);
+      // debug(query);
       const rows = await this.cacheQuery(query);
       return sortedIds.map((id) => rows.filter((row) => row[idField] === id));
     });
@@ -77,12 +77,12 @@ class CoreDatamapper {
     const lowerCaseEntityName = entityName.toLowerCase();
     this[`findBy${entityName}IdLoader`] = new DataLoader(async (ids) => {
       const sortedIds = [...ids].sort((a, b) => a - b);
-      debug(`requesting ${this.tableNames}s for ${lowerCaseEntityName}[${sortedIds}]`);
+      debug(`finding all ${this.tableName} using ${joinTableName} with ${lowerCaseEntityName} ids [${sortedIds}]`);
       const query = {
         text: `SELECT * FROM ${this.tableName} JOIN ${joinTableName} ON ${joinTableName}.${condition} = ${this.tableName}.id WHERE ${joinTableName}.${idField} = ANY($1);`,
         values: [sortedIds],
       };
-      debug(query);
+      // debug(query);
       const rows = await this.cacheQuery(query);
       return sortedIds.map((id) => rows.filter((row) => row[idField] === id));
     });
@@ -203,22 +203,24 @@ class CoreDatamapper {
     return result.rows[0];
   }
 
+  /**
+   * Caches the result of a query.
+   * @param {object} query - The query object.
+   * @param {number} ttl - The time-to-live (TTL) of the cache in seconds.
+   * @returns {object[]} - Returns the query results.
+   */
   async cacheQuery(query, ttl) {
     const cacheKey = createHash('sha1').update(JSON.stringify(query)).digest('base64');
     const cachedValue = await this.cache.get(cacheKey);
-
     if (cachedValue) {
-      debug('cached value found');
+      debug('cached value found, returning it');
       return JSON.parse(cachedValue);
     }
-
     debug(`no cached value found for ${cacheKey}`);
     const results = await this.client.query(query);
     const data = results.rows || [];
-
-    debug('add value to cache');
+    debug('value added to cache');
     this.cache.set(cacheKey, JSON.stringify(data), { ttl });
-
     return data;
   }
 }

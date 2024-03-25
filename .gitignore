@@ -4,3 +4,4 @@ sqitch.conf
 coverage
 .vscode
 bun.lockb
+*.log
