@@ -140,13 +140,13 @@ class CoreDatamapper {
      * @returns {number[]} - Returns an array of average ratings.
      */
     this[`findAverageRatingOf${entityName}Loader`] = new DataLoader(async (ids) => {
-      debug(`find average ratings for ${entityName.toLowerCase()}[${ids}]`);
+      debug(`find average ratings for ${entityName.toLowerCase()} [${ids}]`);
       const query = {
-        text: `SELECT AVG(rating) FROM ${tableName} WHERE ${idField} = ANY($1);`,
+        text: `SELECT ${idField}, COALESCE(AVG(rating), 0)::numeric(10,2) AS avg FROM ${tableName} WHERE ${idField} = ANY($1) GROUP BY ${idField};`,
         values: [ids],
       };
       const rows = await this.cacheQuery(query);
-      return ids.map((id) => rows.find((row) => row.id === id)?.avg || 0);
+      return ids.map((id) => parseFloat(rows.find((row) => row[idField] === id)?.avg || 0));
     });
   }
 
