@@ -23,7 +23,7 @@ class Category extends CoreDatamapper {
    */
   async findByMemberId(id) {
     const result = await this.findByMemberIdLoader.load(id);
-    return result || [];
+    return result || null;
   }
 }
 

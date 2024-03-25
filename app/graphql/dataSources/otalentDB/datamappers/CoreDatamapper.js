@@ -41,7 +41,7 @@ class CoreDatamapper {
       };
       // debug(query);
       const rows = await this.cacheQuery(query);
-      return sortedIds.map((id) => rows.find((row) => row.id === id));
+      return sortedIds.map((id) => rows.find((row) => row.id === id) || null);
     });
   }
 
@@ -61,7 +61,10 @@ class CoreDatamapper {
       };
       // debug(query);
       const rows = await this.cacheQuery(query);
-      return sortedIds.map((id) => rows.filter((row) => row[idField] === id));
+      return sortedIds.map((id) => {
+        const filteredRows = rows.filter((row) => row[idField] === id);
+        return filteredRows.length > 0 ? filteredRows : [null];
+      });
     });
   }
 
@@ -83,7 +86,11 @@ class CoreDatamapper {
       };
       // debug(query);
       const rows = await this.cacheQuery(query);
-      return sortedIds.map((id) => rows.filter((row) => row[idField] === id));
+      return sortedIds.map((id) => {
+        const filteredRows = rows.filter((row) => row[idField] === id);
+        debug(filteredRows);
+        return filteredRows.length > 0 ? filteredRows : [null];
+      });
     });
   }
 
@@ -173,6 +180,42 @@ class CoreDatamapper {
   }
 
   /**
+   * Inserts a new entity.
+   * @param {object} data - The data of the entity.
+   * @returns {object} - Returns the inserted entity object.
+   */
+  async insert(data) {
+    debug(data);
+    debug(`adding new ${this.tableName}`);
+    const query = {
+      text: `SELECT * FROM insert_${this.tableName}($1);`,
+      values: [data.input],
+    };
+    const result = await this.client.query(query);
+    return result.rows[0];
+  }
+
+  /**
+   * Updates an entity.
+   * @param {object} data - The data of the entity.
+   * @returns {object} - Returns the inserted entity object.
+   */
+  async update(id, data) {
+    debug(`updating ${this.tableName} [${id}]`);
+    const keys = Object.keys(data.input);
+    const values = Object.values(data.input);
+    debug(keys, values);
+    const setString = keys.map((key, index) => `${key} = $${index + 1}`).join(', ');
+    const query = {
+      text: `UPDATE ${this.tableName} SET ${setString}, updated_at = now() WHERE id = $${values.length + 1} RETURNING *;`,
+      values: [...values, id],
+    };
+    debug(query);
+    const result = await this.client.query(query);
+    return result.rows[0];
+  }
+
+  /**
    * Deletes an entity by its ID.
    * @param {number} id - The ID of the entity.
    * @returns {boolean} - Returns true if the deletion is successful, false otherwise.
@@ -185,21 +228,6 @@ class CoreDatamapper {
     };
     const result = await this.client.query(query);
     return !!result.rowCount;
-  }
-
-  /**
-   * Inserts a new entity.
-   * @param {object} data - The data of the entity.
-   * @returns {object} - Returns the inserted entity object.
-   */
-  async insert(data) {
-    debug(`adding new ${this.tableName}`);
-    const query = {
-      text: `SELECT * FROM insert_${this.tableName}($1);`,
-      values: [data.input],
-    };
-    const result = await this.client.query(query);
-    return result.rows[0];
   }
 
   /**
