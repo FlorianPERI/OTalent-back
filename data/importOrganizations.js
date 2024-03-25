@@ -6,6 +6,10 @@ import { hashingPassword } from './utils/dataUtils.js';
 
 const debug = Debug('data:json:organizations');
 
+/**
+ * Imports organizations from a json file into the database
+ * @returns {Promise<Array>} - A promise resolved with an array containing the results of the insertion queries
+ */
 function importOrganizationsFromJSON() {
     debug('importing organizations from json');
     const inserts = [];
