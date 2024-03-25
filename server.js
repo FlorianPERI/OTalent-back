@@ -16,7 +16,7 @@ import OtalentDB from './app/graphql/dataSources/otalentDB/datamappers/index.js'
 /**
  * Setting up the server
  */
-const PORT = process.env.SERVER_PORT ?? 4000;
+const PORT = process.env.SERVER_PORT ?? 3000;
 const debug = Debug('app:server');
 const fastify = Fastify();
 
