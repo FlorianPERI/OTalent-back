@@ -7,6 +7,7 @@ import Debug from 'debug';
 import 'dotenv/config';
 import client from '../app/graphql/dataSources/otalentDB/services/client.js';
 import { importTrainingsFromJSON } from './importTrainings.js';
+import { importOrganizationsFromJSON } from './importOrganizations.js';
 
 const debug = Debug('app:seed');
 
@@ -173,6 +174,7 @@ function importMemberLikesCategory(NB_MEMBER_LIKES_CATEGORY, NB_MEMBERS, NB_CATE
 
 Promise.resolve()
   .then(() => importMembers(NB_MEMBERS))
+  .then(() => importOrganizationsFromJSON())
   .then(() => importOrganizations(NB_ORGANIZATIONS))
   .then(() => importCategories(NB_CATEGORIES))
   .then(() => importTrainingsFromJSON())

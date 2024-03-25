@@ -77,6 +77,7 @@ CREATE TABLE organization
   city         TEXT         NOT NULL,
   postal_code  pcode        NOT NULL,
   siret        siret        NOT NULL,
+  description  TEXT,
   image        url,
   url_site     url,
   created_at TIMESTAMPTZ NOT NULL DEFAULT now(),
