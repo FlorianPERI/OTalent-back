@@ -33,15 +33,14 @@ class CoreDatamapper {
      * @type {DataLoader}
      */
     this.findByPkLoader = new DataLoader(async (ids) => {
-      const sortedIds = [...ids].sort((a, b) => a - b);
-      debug(`finding all ${this.tableName} with ids [${sortedIds}]`);
+      debug(`finding all ${this.tableName} with ids [${ids}]`);
       const query = {
         text: `SELECT * FROM ${this.tableName} WHERE id = ANY($1)`,
-        values: [sortedIds],
+        values: [ids],
       };
       // debug(query);
       const rows = await this.cacheQuery(query);
-      return sortedIds.map((id) => rows.find((row) => row.id === id) || null);
+      return ids.map((id) => rows.find((row) => row.id === id) || null);
     });
   }
 
@@ -53,15 +52,14 @@ class CoreDatamapper {
   createDataLoader(entityName, idField) {
     const lowerCaseEntityName = entityName.toLowerCase();
     this[`findBy${entityName}IdLoader`] = new DataLoader(async (ids) => {
-      const sortedIds = [...ids].sort((a, b) => a - b);
-      debug(`finding all ${this.tableName} by ${lowerCaseEntityName} with ids [${sortedIds}]`);
+      debug(`finding all ${this.tableName} by ${lowerCaseEntityName} with ids [${ids}]`);
       const query = {
         text: `SELECT * FROM ${this.tableName} WHERE ${idField} = ANY($1);`,
-        values: [sortedIds],
+        values: [ids],
       };
-      // debug(query);
+      debug(query);
       const rows = await this.cacheQuery(query);
-      return sortedIds.map((id) => {
+      return ids.map((id) => {
         const filteredRows = rows.filter((row) => row[idField] === id);
         return filteredRows.length > 0 ? filteredRows : [null];
       });
@@ -78,15 +76,14 @@ class CoreDatamapper {
   createDataLoaderWithJoin(entityName, joinTableName, condition, idField) {
     const lowerCaseEntityName = entityName.toLowerCase();
     this[`findBy${entityName}IdLoader`] = new DataLoader(async (ids) => {
-      const sortedIds = [...ids].sort((a, b) => a - b);
-      debug(`finding all ${this.tableName} using ${joinTableName} with ${lowerCaseEntityName} ids [${sortedIds}]`);
+      debug(`finding all ${this.tableName} using ${joinTableName} with ${lowerCaseEntityName} ids [${ids}]`);
       const query = {
         text: `SELECT * FROM ${this.tableName} JOIN ${joinTableName} ON ${joinTableName}.${condition} = ${this.tableName}.id WHERE ${joinTableName}.${idField} = ANY($1);`,
-        values: [sortedIds],
+        values: [ids],
       };
       // debug(query);
       const rows = await this.cacheQuery(query);
-      return sortedIds.map((id) => {
+      return ids.map((id) => {
         const filteredRows = rows.filter((row) => row[idField] === id);
         debug(filteredRows);
         return filteredRows.length > 0 ? filteredRows : [null];
@@ -204,13 +201,11 @@ class CoreDatamapper {
     debug(`updating ${this.tableName} [${id}]`);
     const keys = Object.keys(data.input);
     const values = Object.values(data.input);
-    debug(keys, values);
     const setString = keys.map((key, index) => `${key} = $${index + 1}`).join(', ');
     const query = {
       text: `UPDATE ${this.tableName} SET ${setString}, updated_at = now() WHERE id = $${values.length + 1} RETURNING *;`,
       values: [...values, id],
     };
-    debug(query);
     const result = await this.client.query(query);
     return result.rows[0];
   }
