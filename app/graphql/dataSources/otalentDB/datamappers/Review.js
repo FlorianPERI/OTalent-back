@@ -47,6 +47,7 @@ class Review extends CoreDatamapper {
     const result = await this.findAverageRatingOfTrainingLoader.load(id);
     return result || 0;
   }
+
 }
 
 export default Review;
