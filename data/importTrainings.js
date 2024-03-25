@@ -21,6 +21,7 @@ function importTrainingsFromJSON() {
     trainings.forEach((training) => {
         const values = [];
         training.duration = training.duration * 35;
+        training.prerequisites = JSON.stringify(training.prerequisites.split());
         training.program = JSON.stringify(training.program.split(','));
         Object.values(training).forEach((value) => values.push(value));
         const query = {
@@ -32,5 +33,6 @@ function importTrainingsFromJSON() {
     return Promise.all(inserts);
 }
 
+importTrainingsFromJSON();
 
 export { importTrainingsFromJSON };
