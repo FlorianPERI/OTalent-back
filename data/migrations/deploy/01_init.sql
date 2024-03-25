@@ -25,7 +25,9 @@ CREATE DOMAIN url AS TEXT CHECK (VALUE ~ '^(https?):\/\/[^\s\/$.?#].[^\s]*$');
 CREATE TABLE category
 (
   id    INT  NOT NULL GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
-  label TEXT NOT NULL UNIQUE
+  label TEXT NOT NULL UNIQUE,
+  created_at TIMESTAMPTZ NOT NULL DEFAULT now(),
+  updated_at TIMESTAMPTZ
 );
 
 
@@ -39,21 +41,29 @@ CREATE TABLE member
   password    TEXT        NOT NULL,
   city        TEXT,
   postal_code pcode,
-  avatar      url
+  avatar      url,
+  created_at TIMESTAMPTZ NOT NULL DEFAULT now(),
+  updated_at TIMESTAMPTZ
 );
 
 CREATE TABLE member_likes_category
 (
   id          INT NOT NULL GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
   member_id   INT NOT NULL,
-  category_id INT NOT NULL
+  category_id INT NOT NULL,
+  created_at TIMESTAMPTZ NOT NULL DEFAULT now(),
+  updated_at TIMESTAMPTZ,
+  UNIQUE(member_id, category_id)
 );
 
 CREATE TABLE member_likes_training
 (
   id          INT NOT NULL GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
   member_id   INT NOT NULL,
-  training_id INT NOT NULL
+  training_id INT NOT NULL,
+  created_at TIMESTAMPTZ NOT NULL DEFAULT now(),
+  updated_at TIMESTAMPTZ,
+  UNIQUE(member_id, training_id)
 );
 
 CREATE TABLE organization
@@ -67,8 +77,11 @@ CREATE TABLE organization
   city         TEXT         NOT NULL,
   postal_code  pcode        NOT NULL,
   siret        siret        NOT NULL,
+  description  TEXT,
   image        url,
-  url_site     url
+  url_site     url,
+  created_at TIMESTAMPTZ NOT NULL DEFAULT now(),
+  updated_at TIMESTAMPTZ
 );
 
 CREATE TABLE review
@@ -77,7 +90,9 @@ CREATE TABLE review
   rating      rating  NOT NULL,
   comment     TEXT,
   training_id INT     NOT NULL,
-  member_id   INT     NOT NULL
+  member_id   INT     NOT NULL,
+  created_at TIMESTAMPTZ NOT NULL DEFAULT now(),
+  updated_at TIMESTAMPTZ
 );
 
 CREATE TABLE training
@@ -87,13 +102,15 @@ CREATE TABLE training
   description     TEXT    NOT NULL,
   price           pnum    NOT NULL DEFAULT 0.0,
   duration        pint    NOT NULL,
-  dates           DATE[]  NOT NULL,
+  dates           DATE[]  NOT NULL CHECK (cardinality(dates) > 0),
   excerpt         TEXT    NOT NULL,
   prerequisites   TEXT   ,
   program         TEXT   ,
   image           url   ,
   organization_id INT     NOT NULL,
-  category_id     INT     NOT NULL
+  category_id     INT     NOT NULL,
+  created_at TIMESTAMPTZ NOT NULL DEFAULT now(),
+  updated_at TIMESTAMPTZ
 );
 
 ALTER TABLE member_likes_category
@@ -154,7 +171,7 @@ CREATE FUNCTION insert_member(json) RETURNS member AS $$
 $$ LANGUAGE SQL STRICT;
 
 CREATE FUNCTION insert_organization(json) RETURNS organization AS $$
-  INSERT INTO organization (name, email, password, phone_number, url_site, address, city, postal_code, siret, image)
+  INSERT INTO organization (name, email, password, phone_number, url_site, address, description, city, postal_code, siret, image)
   VALUES (
     $1->>'name',
     $1->>'email',
@@ -162,6 +179,7 @@ CREATE FUNCTION insert_organization(json) RETURNS organization AS $$
     $1->>'phoneNumber',
     $1->>'urlSite',
     $1->>'address',
+    $1->>'description',
     $1->>'city',
     $1->>'postalCode',
     $1->>'siret',
@@ -186,7 +204,12 @@ CREATE FUNCTION insert_training(json) RETURNS training AS $$
     $1->>'description',
     ($1->>'price')::pnum,
     ($1->>'duration')::pint,
-    ARRAY[($1->>'startingDate'), ($1->>'endingDate')]::DATE[],
+    CASE
+      WHEN ($1->>'startingDate') IS NOT NULL AND ($1->>'endingDate') IS NOT NULL THEN
+        ARRAY[($1->>'startingDate')::DATE, ($1->>'endingDate')::DATE]::DATE[]
+      ELSE
+        NULL
+    END,
     $1->>'excerpt', 
     $1->>'prerequisites',
     $1->>'program',

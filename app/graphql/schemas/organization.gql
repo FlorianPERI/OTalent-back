@@ -8,7 +8,8 @@ type Organization {
     email: String!
     "Password of the organization"
     password: String!
-
+    "Description of the organization"
+    description: String
     "Phone number of the organization"
     phone_number: String!
     "Address of the organization"

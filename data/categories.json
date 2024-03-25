@@ -1,26 +1,24 @@
 {
-    "label": [
-      "Informatique",
-      "Mathématiques",
-      "Technologie",
-      "Chimie",
-      "Physique",
-      "Littérature",
-      "Langues",
-      "Arts",
-      "Histoire",
-      "Géographie",
-      "Sports",
-      "Développement personnel",
-      "Philosophie",
-      "Biologie",
-      "Zoologie",
-      "Finance",
-      "Sciences Politiques",
-      "Economie",
-      "Culture générale",
-      "Botanique",
-      "Astronomie",
-      "Design"
-    ]
-  }
+  "label": [
+    "Informatique",
+    "Chimie",
+    "Développement personnel",
+    "Finance",
+    "Sciences Politiques",
+    "Astronomie",
+    "Culture générale",
+    "Jardinage",
+    "Cuisine",
+    "Arts",
+    "Electronique",
+    "Graphisme",
+    "Management",
+    "Photographie et vidéo",
+    "Musique",
+    "Business",
+    "Santé et Bien-être",
+    "Marketing",
+    "Langues",
+    "Fitness"
+  ]
+}

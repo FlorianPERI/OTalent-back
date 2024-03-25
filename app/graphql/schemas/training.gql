@@ -41,9 +41,10 @@ input TrainingInput {
     price: Float
     "Duration of the training in hours"
     duration: Int
-    "List of dates for the training"
-    startingDate: String
-    endingDate: String
+    "Starting date for the training"
+    startingDate: Date
+    "Ending date for the training"
+    endingDate: Date
     "Excerpt or summary of the training"
     excerpt: String
     "Prerequisites required for the training"
