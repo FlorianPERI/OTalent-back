@@ -8,7 +8,6 @@
  */
 import DataLoader from 'dataloader';
 import Debug from 'debug';
-import { log } from 'node:console';
 import { createHash } from 'node:crypto';
 
 const debug = Debug('app:otalentDB:core');
