@@ -1,5 +1,7 @@
 import { fakerFR as faker } from '@faker-js/faker';
-import { formatingDate, generateRandomArray, matchPostalCodeRegex, hashingPassword } from './utils/dataUtils.js';
+import {
+  formatingDate, generateRandomArray, matchPostalCodeRegex, hashingPassword,
+} from './utils/dataUtils.js';
 /**
  * Creation of a Member entity with Faker
  * @returns Member Object
