@@ -5,7 +5,7 @@ type Organization {
     "Name of the organization"
     name: String!
     "Email address of the organization"
-    email: String!
+    email: EmailAddress!
     "Password of the organization"
     password: String!
     "Description of the organization"
@@ -22,12 +22,12 @@ type Organization {
     "SIRET number of the organization"
     siret: String!
     "Image URL of the organization"
-    image: String
+    image: URL
 
     "Website URL of the organization"
-    url_site: String
+    url_site: URL
     "Trainings offered by the organization"
-    trainings: [Training!]
+    trainings: [Training]
 }
 
 "Input for creating or updating an organization"
@@ -35,7 +35,7 @@ input OrganizationInput {
     "Name of the organization"
     name: String
     "Email address of the organization"
-    email: String
+    email: EmailAddress
     "Password of the organization"
     password: String
     "Phone number of the organization"
@@ -49,7 +49,7 @@ input OrganizationInput {
     "SIRET number of the organization"
     siret: String
     "Image URL of the organization"
-    image: String
+    image: URL
     "Website URL of the organization"
-    urlSite: String
+    urlSite: URL
 }

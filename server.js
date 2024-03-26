@@ -12,6 +12,7 @@ import dayjs from 'dayjs';
 import typeDefs from './app/graphql/schemas/index.js';
 import resolvers from './app/graphql/resolvers/index.js';
 import OtalentDB from './app/graphql/dataSources/otalentDB/datamappers/index.js';
+import SireneAPI from './app/graphql/dataSources/sireneAPI/index.js';
 
 /**
  * Setting up the server
@@ -64,6 +65,7 @@ const contextFunction = async () => {
   return {
     dataSources: {
       otalentDB: new OtalentDB({ cache }), // Create a new instance of OtalentDB with cache
+      sireneAPI: new SireneAPI({ cache }), // Create a new instance of OtalentDB with cache
     },
   };
 };

@@ -18,6 +18,7 @@ const organization = readFile('./organization.gql');
 const review = readFile('./review.gql');
 const training = readFile('./training.gql');
 const category = readFile('./category.gql');
+const sirene = readFile('./sirene.gql');
 const query = readFile('./query.gql');
 const mutation = readFile('./mutation.gql');
 
@@ -31,6 +32,7 @@ const schemas = `#graphql
     ${review}
     ${training}
     ${category}
+    ${sirene}
     ${query}
     ${mutation}
   `;

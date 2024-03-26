@@ -24,4 +24,6 @@ type Query {
     category(id: Int!): Category
     "Retrieve all categories"
     categories: [Category!]!
+
+    siret(siret: String!): Sirene
 }

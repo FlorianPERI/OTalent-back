@@ -15,6 +15,7 @@ const query = {
   ...createQueryMethods('review'),
   ...createQueryMethods('training'),
   ...createQueryMethods('category', 'categories'),
+  siret: (_, { siret }, { dataSources }) => dataSources.sireneAPI.getSiret(siret),
 };
 
 export default query;
