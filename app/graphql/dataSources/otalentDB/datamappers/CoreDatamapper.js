@@ -199,6 +199,7 @@ class CoreDatamapper {
       text: `UPDATE ${this.tableName} SET ${setString}, updated_at = now() WHERE id = $${values.length + 1} RETURNING *;`,
       values: [...values, id],
     };
+    debug(query);
     const result = await this.client.query(query);
     return result.rows[0];
   }

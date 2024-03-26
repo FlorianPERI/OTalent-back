@@ -7,7 +7,7 @@ type Member {
     "Last name of the member"
     lastname: String!
     "Email address of the member"
-    email: String!
+    email: EmailAddress!
     "Password of the member"
     password: String!
     "City where the member resides"
@@ -15,13 +15,13 @@ type Member {
     "Postal code of the member's location"
     postal_code: String
     "Avatar URL of the member"
-    avatar: String
+    avatar: URL
     "Categories the member is interested in"
-    categories: [Category!]
+    categories: [Category]
     "Trainings attended by the member"
-    trainings: [Training!]
+    trainings: [Training]
     "Reviews given by the member"
-    reviews: [Review!]
+    reviews: [Review]
 }
 
 "Input for creating or updating a member"
@@ -31,7 +31,7 @@ input MemberInput {
     "Last name of the member"
     lastname: String
     "Email address of the member"
-    email: String
+    email: EmailAddress
     "Password of the member"
     password: String
     "City where the member resides"
@@ -39,5 +39,5 @@ input MemberInput {
     "Postal code of the member's location"
     postalCode: String
     "Avatar URL of the member"
-    avatar: String
+    avatar: URL
 }
