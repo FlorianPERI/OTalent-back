@@ -156,8 +156,8 @@ class CoreDatamapper {
     const query = {
       text: `SELECT * FROM ${this.tableName}`,
     };
-    const rows = await this.client(query);
-    return rows;
+    const results = await this.client.query(query);
+    return results.rows;
   }
 
   /**
