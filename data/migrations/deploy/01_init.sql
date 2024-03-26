@@ -218,4 +218,11 @@ CREATE FUNCTION insert_training(json) RETURNS training AS $$
     ($1->>'categoryId')::INT
   ) RETURNING *
 $$ LANGUAGE SQL STRICT;
+
+CREATE FUNCTION insert_category(json) RETURNS category AS $$
+  INSERT INTO category (label)
+  VALUES (
+    $1->>'label'
+  ) RETURNING *
+$$ LANGUAGE SQL STRICT;
 COMMIT;
