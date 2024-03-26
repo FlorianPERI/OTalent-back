@@ -116,42 +116,50 @@ CREATE TABLE training
 ALTER TABLE member_likes_category
   ADD CONSTRAINT FK_category_TO_member_likes_category
     FOREIGN KEY (member_id)
-    REFERENCES member (id);
+    REFERENCES member (id)
+    ON DELETE CASCADE;
 
 ALTER TABLE member_likes_category
   ADD CONSTRAINT FK_member_TO_member_likes_category
     FOREIGN KEY (category_id)
-    REFERENCES category (id);
+    REFERENCES category (id)
+    ON DELETE CASCADE;
 
 ALTER TABLE member_likes_training
   ADD CONSTRAINT FK_training_TO_member_likes_training
     FOREIGN KEY (training_id)
-    REFERENCES training (id);
+    REFERENCES training (id)
+    ON DELETE CASCADE;
 
 ALTER TABLE member_likes_training
   ADD CONSTRAINT FK_member_TO_member_likes_training
     FOREIGN KEY (member_id)
-    REFERENCES member (id);
+    REFERENCES member (id)
+    ON DELETE CASCADE;
 
 ALTER TABLE training
   ADD CONSTRAINT FK_organization_TO_training
     FOREIGN KEY (organization_id)
-    REFERENCES organization (id);
+    REFERENCES organization (id)
+    ON DELETE CASCADE;
 
 ALTER TABLE review
   ADD CONSTRAINT FK_training_TO_review
     FOREIGN KEY (training_id)
-    REFERENCES training (id);
+    REFERENCES training (id)
+    ON DELETE CASCADE;
 
 ALTER TABLE review
   ADD CONSTRAINT FK_member_TO_review
     FOREIGN KEY (member_id)
-    REFERENCES member (id);
+    REFERENCES member (id)
+    ON DELETE CASCADE;
 
 ALTER TABLE training
   ADD CONSTRAINT FK_category_TO_training
     FOREIGN KEY (category_id)
-    REFERENCES category (id);
+    REFERENCES category (id)
+    ON DELETE CASCADE;
 
 CREATE INDEX member_email_idx ON member USING HASH(email);
 CREATE INDEX organization_email_idx ON organization USING HASH(email);        

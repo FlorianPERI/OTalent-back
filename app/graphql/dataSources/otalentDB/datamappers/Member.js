@@ -7,27 +7,22 @@ import CoreDatamapper from './CoreDatamapper.js';
 class Member extends CoreDatamapper {
   tableName = 'member';
 
+  constructor(options) {
+    super(options);
+    this.createAssociationMethods('Member', 'Category');
+    this.createAssociationMethods('Member', 'Training');
+    this.createDataLoaderWithJoin('Training', 'member_likes_training', 'member_id', 'training_id');
+    this.createDataLoaderWithJoin('Category', 'member_likes_category', 'member_id', 'category_id');
+  }
   /**
    * Creates a new instance of the Member datamapper.
    * @param {object} options - The options for the datamapper.
    */
-  constructor(options) {
-    super(options);
-    this.setupEntity('Training', 'member_likes_training', 'member_id', 'training_id');
-    this.setupEntity('Category', 'member_likes_category', 'member_id', 'category_id');
-  }
-
-  /**
-   * Sets up an entity with the specified parameters.
-   * @param {string} entityName - The name of the entity.
-   * @param {string} tableName - The name of the table.
-   * @param {string} condition - The condition for the join.
-   * @param {string} idField - The ID field for the join.
-   */
-  setupEntity(entityName, tableName, condition, idField) {
-    this.createDataLoaderWithJoin(entityName, tableName, condition, idField);
-    this.createAssociationMethods(entityName, tableName);
-  }
+  // constructor(options) {
+  //   super(options);
+  //   this.setupEntity('Training', 'member_likes_training', 'member_id', 'training_id');
+  //   this.setupEntity('Category', 'member_likes_category', 'member_id', 'category_id');
+  // }
 
   /**
    * Finds members by training ID.
