@@ -33,5 +33,4 @@ function importTrainingsFromJSON() {
     return Promise.all(inserts);
 }
 
-
 export { importTrainingsFromJSON };
