@@ -6,9 +6,9 @@
   "type": "module",
   "scripts": {
     "test": "bun test --coverage",
-    "dev": "DEBUG=app:*  nodemon server.js",
-    "dev:bun":"DEBUG=app:* bun server.js",
-    "db:seed": "DEBUG=app:* node data/seed.js",
+    "dev": "set DEBUG=app:* & nodemon server.js",
+    "dev:bun":"set DEBUG=app:* bun server.js",
+    "db:seed": "set DEBUG=app:* & node data/seed.js",
     "utils": "./scripts/utils.sh"
   },
   "repository": {
