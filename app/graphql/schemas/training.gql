@@ -7,9 +7,9 @@ type Training {
     "Description of the training"
     description: String!
     "Price of the training"
-    price: Float!
+    price: NonNegativeFloat!
     "Duration of the training in hours"
-    duration: Int!
+    duration: PositiveInt!
     "List of dates for the training"
     dates: [Date!]!
     "Excerpt or summary of the training"
@@ -19,16 +19,17 @@ type Training {
     "Program or curriculum of the training"
     program: String
     "Image URL representing the training"
-    image: String
+    image: URL
     "Organization offering the training"
     organization: Organization!
     "Category to which the training belongs"
     category: Category!
     "Members enrolled in the training"
-    members: [Member!]
+    members: [Member]
     "Reviews associated with the training"
-    reviews: [Review!]
-    averageRating: Float
+    reviews: [Review]
+    "Average rating of the training"
+    averageRating: NonNegativeFloat
 }
 
 "Input for creating or updating a training"
@@ -38,9 +39,9 @@ input TrainingInput {
     "Description of the training"
     description: String
     "Price of the training"
-    price: Float
+    price: NonNegativeFloat
     "Duration of the training in hours"
-    duration: Int
+    duration: PositiveInt
     "Starting date for the training"
     startingDate: Date
     "Ending date for the training"
@@ -52,9 +53,9 @@ input TrainingInput {
     "Program or curriculum of the training"
     program: String
     "Image URL representing the training"
-    image: String
+    image: URL
     "ID of the organization offering the training"
-    organizationId: Int
+    organizationId: ID
     "ID of the category to which the training belongs"
-    categoryId: Int
+    categoryId: ID
 }

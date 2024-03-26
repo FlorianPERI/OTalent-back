@@ -1,0 +1,7 @@
+type Sirene {
+    siretFound: Boolean!
+    denominationUniteLegale: String!
+    libelleVoieEtablissement: String!
+    codePostalEtablissement: String!
+    libelleCommuneEtablissement: String!
+}

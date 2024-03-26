@@ -3,7 +3,7 @@ type Review {
     "ID of the review"
     id: ID!
     "Rating given in the review"
-    rating: Int!
+    rating: NonNegativeInt!
     "Comment provided in the review"
     comment: String
     "Training associated with the review"
@@ -15,11 +15,11 @@ type Review {
 "Input for creating or updating a review"
 input ReviewInput {
     "Rating to be given in the review"
-    rating: Int
+    rating: NonNegativeInt
     "Comment to be provided in the review"
     comment: String
     "ID of the training associated with the review"
-    trainingId: Int
+    trainingId: ID
     "ID of the member who submitted the review"
-    memberId: Int
+    memberId: ID
 }

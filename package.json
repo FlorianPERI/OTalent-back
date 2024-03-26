@@ -6,9 +6,15 @@
   "type": "module",
   "scripts": {
     "test": "bun test --coverage",
+<<<<<<< HEAD
     "dev": "set DEBUG=app:* & nodemon server.js",
     "dev:bun":"set DEBUG=app:* bun server.js",
     "db:seed": "set DEBUG=app:* & node data/seed.js",
+=======
+    "dev": "DEBUG=app:*  nodemon server.js",
+    "dev:bun": "DEBUG=app:* bun server.js",
+    "db:seed": "DEBUG=app:* node data/seed.js",
+>>>>>>> cc7dc577b5b9e17de6493f05959493cb026ac8e6
     "utils": "./scripts/utils.sh"
   },
   "repository": {
@@ -30,6 +36,7 @@
     "eslint-plugin-import": "^2.29.1"
   },
   "dependencies": {
+    "@apollo/datasource-rest": "^6.2.2",
     "@apollo/server": "^4.10.1",
     "@apollo/utils.keyvaluecache": "^3.1.0",
     "@as-integrations/fastify": "^2.1.1",
@@ -38,6 +45,7 @@
     "@graphql-tools/schema": "^10.0.3",
     "axios": "^1.6.8",
     "bcrypt": "^5.1.1",
+    "cloudinary": "^2.0.3",
     "dataloader": "^2.2.2",
     "dayjs": "^1.11.10",
     "debug": "^4.3.4",

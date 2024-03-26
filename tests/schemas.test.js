@@ -60,7 +60,7 @@ test('Category query', async () => {
 test('Training query', async () => {
   const query = `
     query {
-      training(id: 15) {
+      training(id: 1) {
         id
         label
         description
@@ -154,6 +154,7 @@ test('Organization query', async () => {
         city
         postal_code
         siret
+        description
         image
         url_site
         trainings {
@@ -175,6 +176,7 @@ test('Organization query', async () => {
     expect(typeof data.organization.city).toBe('string');
     expect(typeof data.organization.postal_code).toBe('string');
     expect(typeof data.organization.siret).toBe('string');
+    expect(typeof data.organization.description).toBe('string');
     if (data.organization.image) {
       expect(typeof data.organization.image).toBe('string');
     }

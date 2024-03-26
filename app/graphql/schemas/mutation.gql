@@ -3,45 +3,45 @@ type Mutation {
     "Add a new member"
     addMember(input: MemberInput!): Member
     "Modify an existing member"
-    modifyMember(id: Int!, input: MemberInput!): Member
+    modifyMember(id: ID!, input: MemberInput!): Member
     "Delete a member"
-    deleteMember(id: Int!): Boolean
+    deleteMember(id: ID!): Boolean
 
     "Add a new organization"
     addOrganization(input: OrganizationInput!): Organization
     "Modify an existing organization"
-    modifyOrganization(id: Int!, input: OrganizationInput!): Organization
+    modifyOrganization(id: ID!, input: OrganizationInput!): Organization
     "Delete an organization"
-    deleteOrganization(id: Int!): Boolean
+    deleteOrganization(id: ID!): Boolean
 
     "Add a new review"
     addReview(input: ReviewInput!): Review
     "Modify an existing review"
-    modifyReview(id: Int!, input: ReviewInput!): Review
+    modifyReview(id: ID!, input: ReviewInput!): Review
     "Delete a review"
-    deleteReview(id: Int!): Boolean
+    deleteReview(id: ID!): Boolean
 
     "Add a new training"
     addTraining(input: TrainingInput!): Training
     "Modify an existing training"
-    modifyTraining(id: Int!, input: TrainingInput!): Training
+    modifyTraining(id: ID!, input: TrainingInput!): Training
     "Delete a training"
-    deleteTraining(id: Int!): Boolean
+    deleteTraining(id: ID!): Boolean
 
     "Add a new category"
     addCategory(input: CategoryInput!): Category
     "Modify an existing category"
-    modifyCategory(id: Int!, input: CategoryInput!): Category
+    modifyCategory(id: ID!, input: CategoryInput!): Category
     "Delete a category"
-    deleteCategory(id: Int!): Boolean
+    deleteCategory(id: ID!): Boolean
 
     "Associate a member with a category"
-    associateMemberCategory(memberId: Int!, categoryId: Int!): Boolean
+    associateMemberCategory(memberId: ID!, categoryId: Int!): Boolean
     "Dissociate a member from a category"
-    dissociateMemberCategory(memberId: Int!, categoryId: Int!): Boolean
+    dissociateMemberCategory(memberId: ID!, categoryId: Int!): Boolean
 
     "Associate a member with a training"
-    associateMemberTraining(memberId: Int!, trainingId: Int!): Boolean
+    associateMemberTraining(memberId: ID!, trainingId: Int!): Boolean
     "Dissociate a member from a training"
-    dissociateMemberTraining(memberId: Int!, trainingId: Int!): Boolean
+    dissociateMemberTraining(memberId: ID!, trainingId: Int!): Boolean
 }

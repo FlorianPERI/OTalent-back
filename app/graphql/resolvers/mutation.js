@@ -1,4 +1,4 @@
-import { createMutationMethods, createAssociationMethods } from '../utils/createMethods.js';
+import { createMutationMethods/* , createAssociationMethods */ } from '../utils/createMethods.js';
 
 /**
  * Resolvers for the Mutation type.
@@ -17,8 +17,14 @@ const mutation = {
   ...createMutationMethods('Training'),
   ...createMutationMethods('Review'),
   ...createMutationMethods('Category'),
-  ...createAssociationMethods('Member', 'Category'),
-  ...createAssociationMethods('Member', 'Training'),
-};
+  // ...createAssociationMethods('Member', 'Category'),
+  // ...createAssociationMethods('Member', 'Training'),
+  associateMemberCategory(_, { memberId, categoryId }, { dataSources }) {
+    return dataSources.otalentDB.member.associateMemberCategory(memberId, categoryId);
+  },
+  associateMemberTraining(_, { memberId, trainingId }, { dataSources }) {
+    return dataSources.otalentDB.member.associateMemberTraining(memberId, trainingId);
+  },
 
+};
 export default mutation;
