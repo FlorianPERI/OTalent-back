@@ -80,5 +80,5 @@ function createMutationMethods(entityName) {
 // }
 
 export {
-  createMethods, createQueryMethods, createMutationMethods,
+  createMethods, createQueryMethods, createMutationMethods, /* createAssociationMethods */
 };
