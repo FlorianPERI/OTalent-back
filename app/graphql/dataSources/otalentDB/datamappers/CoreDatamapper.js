@@ -39,7 +39,8 @@ class CoreDatamapper {
         values: [ids],
       };
       // debug(query);
-      const rows = await this.cacheQuery(query);
+      const result = await this.client.query(query);
+      const { rows } = result;
       return ids.map((id) => rows.find((row) => row.id === id));
     });
   }
@@ -58,7 +59,8 @@ class CoreDatamapper {
         values: [ids],
       };
       debug(query);
-      const rows = await this.cacheQuery(query);
+      const result = await this.client.query(query);
+      const { rows } = result;
       return ids.map((id) => rows.filter((row) => row[idField] === id));
     });
   }
@@ -79,7 +81,8 @@ class CoreDatamapper {
         values: [ids],
       };
       // debug(query);
-      const rows = await this.cacheQuery(query);
+      const result = await this.client.query(query);
+      const { rows } = result;
       return ids.map((id) => rows.filter((row) => row[idField] === id));
     });
   }
@@ -91,19 +94,15 @@ class CoreDatamapper {
    */
   createAssociationMethods(entityName, tableName) {
     const lowerCaseEntityName = entityName.toLowerCase();
-    /**
-     * Associates two entities.
-     * @param {number} id1 - The ID of the first entity.
-     * @param {number} id2 - The ID of the second entity.
-     * @returns {boolean} - Returns true if the association is successful, false otherwise.
-     */
-    this[`associate${entityName}`] = async (id1, id2) => {
+    const lowerCaseTableName = tableName.toLowerCase();
+    this[`associate${entityName}${tableName}`] = async (id1, id2) => {
       debug(`associating ${this.tableName}[${id1}] and ${lowerCaseEntityName}[${id2}]`);
       const query = {
-        text: `INSERT INTO ${tableName} (${this.tableName}_id, ${lowerCaseEntityName}_id) VALUES ($1, $2);`,
+        text: `INSERT INTO ${this.tableName}_likes_${lowerCaseTableName} (${this.tableName}_id, ${lowerCaseTableName}_id) VALUES ($1, $2);`,
         values: [id1, id2],
       };
-      const results = await this.cacheQuery(query);
+      debug(query);
+      const results = await this.client.query(query);
       return !!results.rowCount;
     };
 
@@ -142,7 +141,8 @@ class CoreDatamapper {
         text: `SELECT ${idField}, COALESCE(AVG(rating), 0)::numeric(10,2) AS avg FROM ${tableName} WHERE ${idField} = ANY($1) GROUP BY ${idField};`,
         values: [ids],
       };
-      const rows = await this.cacheQuery(query);
+      const result = await this.client.query(query);
+      const { rows } = result;
       return ids.map((id) => parseFloat(rows.find((row) => row[idField] === id)?.avg || 0));
     });
   }
@@ -156,7 +156,7 @@ class CoreDatamapper {
     const query = {
       text: `SELECT * FROM ${this.tableName}`,
     };
-    const rows = await this.cacheQuery(query);
+    const rows = await this.client(query);
     return rows;
   }
 
@@ -225,20 +225,21 @@ class CoreDatamapper {
    * @param {number} ttl - The time-to-live (TTL) of the cache in seconds.
    * @returns {object[]} - Returns the query results.
    */
-  async cacheQuery(query, ttl) {
-    const cacheKey = createHash('sha1').update(JSON.stringify(query)).digest('base64');
-    const cachedValue = await this.cache.get(cacheKey);
-    if (cachedValue) {
-      debug('cached value found, returning it');
-      return JSON.parse(cachedValue);
-    }
-    debug(`no cached value found for ${cacheKey}`);
-    const results = await this.client.query(query);
-    const data = results.rows || [];
-    debug('value added to cache');
-    this.cache.set(cacheKey, JSON.stringify(data), { ttl });
-    return data;
-  }
+  // async cacheQuery(key, query, ttl) {
+  //   const cacheKey = `${this.tableName}:${key}`;
+  //   debug(ttl);
+  //   const cachedValue = await this.cache.get(cacheKey);
+  //   if (cachedValue) {
+  //     debug('cached value found, returning it');
+  //     return JSON.parse(cachedValue);
+  //   }
+  //   debug(`no cached value found for ${cacheKey}`);
+  //   const results = await this.client.query(query);
+  //   const data = results.rows || [];
+  //   debug('value added to cache');
+  //   this.cache.set(cacheKey, JSON.stringify(data), { ttl });
+  //   return data;
+  // }
 }
 
 export default CoreDatamapper;
