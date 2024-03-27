@@ -38,7 +38,6 @@ class CoreDatamapper {
         text: `SELECT * FROM ${this.tableName} WHERE id = ANY($1)`,
         values: [ids],
       };
-      console.log(query);
       // debug(query);
       const result = await this.client.query(query);
       const { rows } = result;
@@ -165,10 +164,17 @@ class CoreDatamapper {
    * Inserts a new entity.
    * @param {object} data - The data of the entity.
    * @returns {object} - Returns the inserted entity object.
+   * @throws {Error} - Throws an error if the email is already used in another table.
    */
   async insert(data) {
     debug(data);
     debug(`adding new ${this.tableName}`);
+    const tableNameToCheck = this.tableName === 'organization' ? 'member'
+      : this.tableName === 'member' ? 'organization'
+        : null;
+    if (tableNameToCheck && await isEmailInAnotherTable(data.input.email, tableNameToCheck)) {
+      throw new Error('This email is already used');
+    }
 
     if ((this.tableName === 'member' || this.tableName === 'organization') && data.input.password) {
       const hashedPassword = await bcrypt.hash(data.input.password, parseInt(process.env.PASSWORD_SALT) || 10);

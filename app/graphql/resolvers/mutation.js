@@ -22,5 +22,10 @@ const mutation = {
   ...createAssociationMethods('Member', 'Category'),
   ...createAssociationMethods('Member', 'Training'),
 
+  // Login method for members and organizations
+  login(_, { email, password }, { dataSources }) {
+    return dataSources.otalentDB.member.login(email, password);
+  },
+
 };
 export default mutation;
