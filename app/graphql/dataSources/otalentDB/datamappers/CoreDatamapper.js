@@ -33,7 +33,6 @@ class CoreDatamapper {
      * @type {DataLoader}
      */
     this.findByPkLoader = new DataLoader(async (ids) => {
-
       debug(`finding all ${this.tableName} with ids [${ids}]`);
       const query = {
         text: `SELECT * FROM ${this.tableName} WHERE id = ANY($1)`,
@@ -55,7 +54,6 @@ class CoreDatamapper {
   createDataLoader(entityName, idField) {
     const lowerCaseEntityName = entityName.toLowerCase();
     this[`findBy${entityName}IdLoader`] = new DataLoader(async (ids) => {
-
       debug(`finding all ${this.tableName} by ${lowerCaseEntityName} with ids [${ids}]`);
       const query = {
         text: `SELECT * FROM ${this.tableName} WHERE ${idField} = ANY($1);`,
@@ -173,7 +171,7 @@ class CoreDatamapper {
     debug(`adding new ${this.tableName}`);
 
     if ((this.tableName === 'member' || this.tableName === 'organization') && data.input.password) {
-      const hashedPassword = await bcrypt.hash(data.input.password, process.env.SALT_ROUNDS || 10);
+      const hashedPassword = await bcrypt.hash(data.input.password, parseInt(process.env.PASSWORD_SALT) || 10);
       data.input.password = hashedPassword;
     }
 
@@ -193,7 +191,7 @@ class CoreDatamapper {
   async update(id, data) {
     debug(`updating ${this.tableName} [${id}]`);
     if ((this.tableName === 'member' || this.tableName === 'organization') && data.input.password) {
-      const hashedPassword = await bcrypt.hash(data.input.password, process.env.SALT_ROUNDS || 10);
+      const hashedPassword = await bcrypt.hash(data.input.password, parseInt(process.env.PASSWORD_SALT) || 10);
       data.input.password = hashedPassword;
     }
     const keys = Object.keys(data.input);
@@ -229,21 +227,21 @@ class CoreDatamapper {
    * @param {number} ttl - The time-to-live (TTL) of the cache in seconds.
    * @returns {object[]} - Returns the query results.
    */
-  // async cacheQuery(key, query, ttl) {
-  //   const cacheKey = `${this.tableName}:${key}`;
-  //   debug(ttl);
-  //   const cachedValue = await this.cache.get(cacheKey);
-  //   if (cachedValue) {
-  //     debug('cached value found, returning it');
-  //     return JSON.parse(cachedValue);
-  //   }
-  //   debug(`no cached value found for ${cacheKey}`);
-  //   const results = await this.client.query(query);
-  //   const data = results.rows || [];
-  //   debug('value added to cache');
-  //   this.cache.set(cacheKey, JSON.stringify(data), { ttl });
-  //   return data;
-  // }
+//   async cacheQuery(key, query, ttl) {
+//     const cacheKey = `${this.tableName}:${key}`;
+//     debug(ttl);
+//     const cachedValue = await this.cache.get(cacheKey);
+//     if (cachedValue) {
+//       debug('cached value found, returning it');
+//       return JSON.parse(cachedValue);
+//     }
+//     debug(`no cached value found for ${cacheKey}`);
+//     const results = await this.client.query(query);
+//     const data = results.rows || [];
+//     debug('value added to cache');
+//     this.cache.set(cacheKey, JSON.stringify(data), { ttl });
+//     return data;
+//   }
+// }
 }
-
 export default CoreDatamapper;

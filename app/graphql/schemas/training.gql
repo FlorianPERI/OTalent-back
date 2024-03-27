@@ -35,7 +35,7 @@ type Training {
 "Input for creating or updating a training"
 input TrainingInput {
     "Label or name of the training"
-    label: String
+    label: String @constraint(maxLength: 250)
     "Description of the training"
     description: String
     "Price of the training"
@@ -47,7 +47,7 @@ input TrainingInput {
     "Ending date for the training"
     endingDate: Date
     "Excerpt or summary of the training"
-    excerpt: String
+    excerpt: String @constraint(maxLength: 250)
     "Prerequisites required for the training"
     prerequisites: String
     "Program or curriculum of the training"
