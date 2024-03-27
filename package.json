@@ -40,6 +40,7 @@
     "axios": "^1.6.8",
     "bcrypt": "^5.1.1",
     "cloudinary": "^2.0.3",
+    "crypto": "^1.0.1",
     "dataloader": "^2.2.2",
     "dayjs": "^1.11.10",
     "debug": "^4.3.4",
