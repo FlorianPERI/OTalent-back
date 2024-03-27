@@ -13,7 +13,7 @@ class Category extends CoreDatamapper {
    */
   constructor(options) {
     super(options);
-    this.createDataLoaderWithJoin('Member', 'member_likes_category', 'member_id', 'category_id');
+    this.createDataLoaderWithJoin('Member', 'member_likes_category', 'category_id', 'member_id');
   }
 
   /**

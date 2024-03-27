@@ -8,8 +8,6 @@
  */
 import DataLoader from 'dataloader';
 import Debug from 'debug';
-import { log } from 'node:console';
-import { createHash } from 'node:crypto';
 
 const debug = Debug('app:otalentDB:core');
 
@@ -79,7 +77,7 @@ class CoreDatamapper {
     this[`findBy${entityName}IdLoader`] = new DataLoader(async (ids) => {
       debug(`finding all ${this.tableName} using ${joinTableName} with ${lowerCaseEntityName} ids [${ids}]`);
       const query = {
-        text: `SELECT * FROM ${this.tableName} JOIN ${joinTableName} ON ${joinTableName}.${condition} = ${this.tableName}.id WHERE ${joinTableName}.${idField} = ANY($1);`,
+        text: `SELECT ${this.tableName}.*, ${joinTableName}.${lowerCaseEntityName}_id FROM ${this.tableName} JOIN ${joinTableName} ON ${joinTableName}.${condition} = ${this.tableName}.id WHERE ${joinTableName}.${idField} = ANY($1);`,
         values: [ids],
       };
       debug(query);
@@ -97,6 +95,7 @@ class CoreDatamapper {
   createAssociationMethods(entityName, tableName) {
     const lowerCaseEntityName = entityName.toLowerCase();
     const lowerCaseTableName = tableName.toLowerCase();
+
     this[`associate${entityName}${tableName}`] = async (id1, id2) => {
       debug(`associating ${this.tableName}[${id1}] and ${lowerCaseEntityName}[${id2}]`);
       const query = {
@@ -108,18 +107,13 @@ class CoreDatamapper {
       return !!results.rowCount;
     };
 
-    /**
-     * Dissociates two entities.
-     * @param {number} id1 - The ID of the first entity.
-     * @param {number} id2 - The ID of the second entity.
-     * @returns {boolean} - Returns true if the dissociation is successful, false otherwise.
-     */
-    this[`dissociate${entityName}`] = async (id1, id2) => {
+    this[`dissociate${entityName}${tableName}`] = async (id1, id2) => {
       debug(`dissociating ${this.tableName}[${id1}] and ${lowerCaseEntityName}[${id2}]`);
       const query = {
-        text: `DELETE FROM ${tableName} WHERE ${this.tableName}_id = $1 AND ${lowerCaseEntityName}_id = $2;`,
+        text: `DELETE FROM ${this.tableName}_likes_${lowerCaseTableName} WHERE ${this.tableName}_id = $1 AND ${lowerCaseTableName}_id = $2;`,
         values: [id1, id2],
       };
+      debug(query);
       const results = await this.client.query(query);
       return !!results.rowCount;
     };
@@ -132,11 +126,6 @@ class CoreDatamapper {
    * @param {string} idField - The ID field of the entity.
    */
   createAverageRatingDataLoader(entityName, tableName, idField) {
-    /**
-     * Finds the average ratings of the entity.
-     * @param {number[]} ids - The IDs of the entities.
-     * @returns {number[]} - Returns an array of average ratings.
-     */
     this[`findAverageRatingOf${entityName}Loader`] = new DataLoader(async (ids) => {
       debug(`find average ratings for ${entityName.toLowerCase()} [${ids}]`);
       const query = {

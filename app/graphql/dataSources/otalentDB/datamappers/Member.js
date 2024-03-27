@@ -14,15 +14,6 @@ class Member extends CoreDatamapper {
     this.createDataLoaderWithJoin('Training', 'member_likes_training', 'member_id', 'training_id');
     this.createDataLoaderWithJoin('Category', 'member_likes_category', 'member_id', 'category_id');
   }
-  /**
-   * Creates a new instance of the Member datamapper.
-   * @param {object} options - The options for the datamapper.
-   */
-  // constructor(options) {
-  //   super(options);
-  //   this.setupEntity('Training', 'member_likes_training', 'member_id', 'training_id');
-  //   this.setupEntity('Category', 'member_likes_category', 'member_id', 'category_id');
-  // }
 
   /**
    * Finds members by training ID.
