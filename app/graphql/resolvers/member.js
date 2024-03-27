@@ -8,9 +8,9 @@ import { createMethods } from '../utils/createMethods.js';
  * @property {Function} Reviews - Resolver for Reviews field.
  */
 const member = {
-  ...createMethods('Trainings', 'findByMemberId'),
-  ...createMethods('Categories', 'findByMemberId'),
-  ...createMethods('Reviews', 'findByMemberId'),
+  ...createMethods('Trainings', 'findByMemberId'), // Find the trainings of the member
+  ...createMethods('Categories', 'findByMemberId'), // Find the categories of the member
+  ...createMethods('Reviews', 'findByMemberId'), // Find the reviews of the member
 };
 
 export default member;

@@ -36,12 +36,12 @@ type Mutation {
     deleteCategory(id: ID!): Boolean
 
     "Associate a member with a category"
-    associateMemberCategory(memberId: ID!, categoryId: Int!): Boolean
+    associateMemberCategory(memberId: ID!, categoryId: ID!): Boolean
     "Dissociate a member from a category"
-    dissociateMemberCategory(memberId: ID!, categoryId: Int!): Boolean
+    dissociateMemberCategory(memberId: ID!, categoryId: ID!): Boolean
 
     "Associate a member with a training"
-    associateMemberTraining(memberId: ID!, trainingId: Int!): Boolean
+    associateMemberTraining(memberId: ID!, trainingId: ID!): Boolean
     "Dissociate a member from a training"
-    dissociateMemberTraining(memberId: ID!, trainingId: Int!): Boolean
+    dissociateMemberTraining(memberId: ID!, trainingId: ID!): Boolean
 }

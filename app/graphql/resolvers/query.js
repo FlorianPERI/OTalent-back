@@ -10,6 +10,8 @@ import { createQueryMethods } from '../utils/createMethods.js';
  * @property {Function} category - Resolver for category field.
  */
 const query = {
+
+  // Creates findByPK and findAll methods for each type
   ...createQueryMethods('member'),
   ...createQueryMethods('organization'),
   ...createQueryMethods('review'),

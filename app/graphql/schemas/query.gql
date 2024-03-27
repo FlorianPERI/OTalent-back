@@ -1,27 +1,27 @@
 "Root query type"
 type Query {
     "Retrieve a member by ID"
-    member(id: Int!): Member
+    member(id: ID!): Member
     "Retrieve all members"
     members: [Member!]!
 
     "Retrieve an organization by ID"
-    organization(id: Int!): Organization
+    organization(id: ID!): Organization
     "Retrieve all organizations"
     organizations: [Organization!]!
 
     "Retrieve a review by ID"
-    review(id: Int!): Review
+    review(id: ID!): Review
     "Retrieve all reviews"
     reviews: [Review!]!
 
     "Retrieve a training by ID"
-    training(id: Int!): Training
+    training(id: ID!): Training
     "Retrieve all trainings"
     trainings: [Training!]!
 
     "Retrieve a category by ID"
-    category(id: Int!): Category
+    category(id: ID!): Category
     "Retrieve all categories"
     categories: [Category!]!
 

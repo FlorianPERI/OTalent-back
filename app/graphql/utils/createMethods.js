@@ -69,16 +69,15 @@ function createMutationMethods(entityName) {
  * @param {string} associationName - The name of the association.
  * @returns {Object} - The association methods object.
  */
-// function createAssociationMethods(entityName, associationName) {
-//   const lowerCaseEntityName = entityName.toLowerCase();
-//   return {
-//     [`associate${entityName}${associationName}`]: (_, { memberId, id }, { dataSources }) => dataSources
-//       .otalentDB[lowerCaseEntityName][`associate${entityName}${associationName}`](memberId, id),
-//     [`dissociate${entityName}${associationName}`]: (_, { memberId, id }, { dataSources }) => dataSources
-//       .otalentDB[lowerCaseEntityName][`dissociate${entityName}${associationName}`](memberId, id),
-//   };
-// }
+function createAssociationMethods(firstEntity, secondEntity) {
+  const lowerFirstEntity = firstEntity.toLowerCase();
+  const lowerSecondEntity = secondEntity.toLowerCase();
+  return {
+    [`associate${firstEntity}${secondEntity}`]: (_, { [`${lowerFirstEntity}Id`]: firstEntityId, [`${lowerSecondEntity}Id`]: secondEntityId }, { dataSources }) => dataSources.otalentDB[lowerFirstEntity][`associate${firstEntity}${secondEntity}`](firstEntityId, secondEntityId),
+    [`dissociate${firstEntity}${secondEntity}`]: (_, { [`${lowerFirstEntity}Id`]: firstEntityId, [`${lowerSecondEntity}Id`]: secondEntityId }, { dataSources }) => dataSources.otalentDB[lowerFirstEntity][`dissociate${firstEntity}${secondEntity}`](firstEntityId, secondEntityId),
+  };
+}
 
 export {
-  createMethods, createQueryMethods, createMutationMethods, /* createAssociationMethods */
+  createMethods, createQueryMethods, createMutationMethods, createAssociationMethods,
 };
