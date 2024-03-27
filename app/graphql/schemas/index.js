@@ -21,6 +21,7 @@ const category = readFile('./category.gql');
 const sirene = readFile('./sirene.gql');
 const query = readFile('./query.gql');
 const mutation = readFile('./mutation.gql');
+const authPayload = readFile('./authPayload.gql');
 
 /**
  * Combine all the GraphQL schemas into a single string.
@@ -35,6 +36,7 @@ const schemas = `#graphql
     ${sirene}
     ${query}
     ${mutation}
+    ${authPayload}
   `;
 
 debug('schemas combined successfully');

@@ -7,7 +7,7 @@
   "scripts": {
     "test": "bun test --coverage",
     "dev": "set DEBUG=app:* & nodemon server.js",
-    "dev:bun":"set DEBUG=app:* bun server.js",
+    "dev:bun": "set DEBUG=app:* bun server.js",
     "db:seed": "set DEBUG=app:* & node data/seed.js",
     "utils": "./scripts/utils.sh"
   },
@@ -47,6 +47,7 @@
     "fastify": "^4.26.2",
     "graphql": "^16.8.1",
     "graphql-scalars": "^1.23.0",
+    "jsonwebtoken": "^9.0.2",
     "pg": "^8.11.3",
     "pino": "^8.19.0",
     "pino-pretty": "^11.0.0",

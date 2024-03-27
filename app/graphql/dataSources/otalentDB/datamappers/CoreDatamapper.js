@@ -37,7 +37,6 @@ class CoreDatamapper {
         text: `SELECT * FROM ${this.tableName} WHERE id = ANY($1)`,
         values: [ids],
       };
-      console.log(query);
       // debug(query);
       const result = await this.client.query(query);
       const { rows } = result;
