@@ -70,7 +70,7 @@ CREATE TABLE organization
 (
   id           INT          NOT NULL GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
   name         TEXT         NOT NULL,
-  email        mail_address NOT NULL,
+  email        mail_address NOT NULL UNIQUE,
   password     TEXT         NOT NULL,
   phone_number phone_number NOT NULL,
   address      TEXT         NOT NULL,

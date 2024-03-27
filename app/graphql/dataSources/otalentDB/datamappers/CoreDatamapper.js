@@ -8,6 +8,7 @@
  */
 import DataLoader from 'dataloader';
 import Debug from 'debug';
+import { isEmailInAnotherTable } from './utils/datamapperUtils.js';
 
 const debug = Debug('app:otalentDB:core');
 
@@ -163,10 +164,18 @@ class CoreDatamapper {
    * Inserts a new entity.
    * @param {object} data - The data of the entity.
    * @returns {object} - Returns the inserted entity object.
+   * @throws {Error} - Throws an error if the email is already used in another table.
    */
   async insert(data) {
     debug(data);
     debug(`adding new ${this.tableName}`);
+    // eslint-disable-next-line no-nested-ternary
+    const tableNameToCheck = this.tableName === 'organization' ? 'member'
+      : this.tableName === 'member' ? 'organization'
+        : null;
+    if (tableNameToCheck && await isEmailInAnotherTable(data.input.email, tableNameToCheck)) {
+      throw new Error('This email is already used');
+    }
     const query = {
       text: `SELECT * FROM insert_${this.tableName}($1);`,
       values: [data.input],
