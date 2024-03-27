@@ -1,17 +1,17 @@
 "Represents a category"
 type Category {
-    "ID of the category"
-    id: ID!
-    "Label of the category"
-    label: String!
-    "Members liking this category"
-    members: [Member]
-    "Trainings belonging to this category"
-    trainings: [Training]
+  "ID of the category"
+  id: ID!
+  "Label of the category"
+  label: String!
+  "Members liking this category"
+  members: [Member]
+  "Trainings belonging to this category"
+  trainings: [Training]
 }
 
 "Input for creating or updating a category"
 input CategoryInput {
-    "Label of a category"
-    label: String
+  "Label of a category"
+  label: String @constraint(maxLength: 48)
 }
