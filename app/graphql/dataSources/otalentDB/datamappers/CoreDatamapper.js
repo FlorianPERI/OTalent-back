@@ -169,6 +169,12 @@ class CoreDatamapper {
   async insert(data) {
     debug(data);
     debug(`adding new ${this.tableName}`);
+    const tableNameToCheck = this.tableName === 'organization' ? 'member'
+      : this.tableName === 'member' ? 'organization'
+        : null;
+    if (tableNameToCheck && await isEmailInAnotherTable(data.input.email, tableNameToCheck)) {
+      throw new Error('This email is already used');
+    }
 
     if ((this.tableName === 'member' || this.tableName === 'organization') && data.input.password) {
       const hashedPassword = await bcrypt.hash(data.input.password, parseInt(process.env.PASSWORD_SALT) || 10);
