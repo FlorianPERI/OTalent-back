@@ -34,7 +34,6 @@ class CoreDatamapper {
      * @type {DataLoader}
      */
     this.findByPkLoader = new DataLoader(async (ids) => {
-
       debug(`finding all ${this.tableName} with ids [${ids}]`);
       const query = {
         text: `SELECT * FROM ${this.tableName} WHERE id = ANY($1)`,
@@ -56,7 +55,6 @@ class CoreDatamapper {
   createDataLoader(entityName, idField) {
     const lowerCaseEntityName = entityName.toLowerCase();
     this[`findBy${entityName}IdLoader`] = new DataLoader(async (ids) => {
-
       debug(`finding all ${this.tableName} by ${lowerCaseEntityName} with ids [${ids}]`);
       const query = {
         text: `SELECT * FROM ${this.tableName} WHERE ${idField} = ANY($1);`,
@@ -84,7 +82,7 @@ class CoreDatamapper {
         text: `SELECT * FROM ${this.tableName} JOIN ${joinTableName} ON ${joinTableName}.${condition} = ${this.tableName}.id WHERE ${joinTableName}.${idField} = ANY($1);`,
         values: [ids],
       };
-      // debug(query);
+      debug(query);
       const result = await this.client.query(query);
       const { rows } = result;
       return ids.map((id) => rows.filter((row) => row[idField] === id));
