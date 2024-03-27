@@ -13,5 +13,5 @@ type Category {
 "Input for creating or updating a category"
 input CategoryInput {
     "Label of a category"
-    label: String
+    label: String @constraint(maxLength: 48)
 }
