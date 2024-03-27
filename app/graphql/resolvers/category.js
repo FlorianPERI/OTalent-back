@@ -7,8 +7,8 @@ import { createMethods } from '../utils/createMethods.js';
  * @property {Function} Members - Resolver for Members field.
  */
 const category = {
-  ...createMethods('Trainings', 'findByCategoryId'),
-  ...createMethods('Members', 'findByCategoryId'),
+  ...createMethods('Trainings', 'findByCategoryId'), // Find the trainings of the category
+  ...createMethods('Members', 'findByCategoryId'), // Find the members of the category
 };
 
 export default category;

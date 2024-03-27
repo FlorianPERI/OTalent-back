@@ -6,8 +6,7 @@ import { createMethods } from '../utils/createMethods.js';
  * @property {Function} Trainings - Resolver for Trainings field.
  */
 const organization = {
-  ...createMethods('Trainings', 'findByOrganizationId'),
-  ...createMethods('Trainings', 'findByOrganizationId'),
+  ...createMethods('Trainings', 'findByOrganizationId'), // Find the trainings of the organization
 };
 
 export default organization;

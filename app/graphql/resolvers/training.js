@@ -10,10 +10,10 @@ import { createMethods } from '../utils/createMethods.js';
  * @property {Function} averageRating - Resolver for averageRating field.
  */
 const training = {
-  ...createMethods('Category', 'findByPk', 'category_id'),
-  ...createMethods('Organization', 'findByPk', 'organization_id'),
-  ...createMethods('Members', 'findByTrainingId'),
-  ...createMethods('Reviews', 'findByTrainingId'),
+  ...createMethods('Category', 'findByPk', 'category_id'), // Find the category of the training
+  ...createMethods('Organization', 'findByPk', 'organization_id'), // Find the organization of the training
+  ...createMethods('Members', 'findByTrainingId'), // Find the members of the training
+  ...createMethods('Reviews', 'findByTrainingId'), // Find the reviews of the training
   averageRating: ({ id }, _, { dataSources }) => dataSources.otalentDB.review
     .findAverageRatingOfTraining(id),
   dates: (parent) => parent.dates.map((dateStr) => new Date(dateStr))
