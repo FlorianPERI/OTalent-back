@@ -32,11 +32,13 @@ class CoreDatamapper {
      * @type {DataLoader}
      */
     this.findByPkLoader = new DataLoader(async (ids) => {
+
       debug(`finding all ${this.tableName} with ids [${ids}]`);
       const query = {
         text: `SELECT * FROM ${this.tableName} WHERE id = ANY($1)`,
         values: [ids],
       };
+      console.log(query);
       // debug(query);
       const result = await this.client.query(query);
       const { rows } = result;
@@ -52,6 +54,7 @@ class CoreDatamapper {
   createDataLoader(entityName, idField) {
     const lowerCaseEntityName = entityName.toLowerCase();
     this[`findBy${entityName}IdLoader`] = new DataLoader(async (ids) => {
+
       debug(`finding all ${this.tableName} by ${lowerCaseEntityName} with ids [${ids}]`);
       const query = {
         text: `SELECT * FROM ${this.tableName} WHERE ${idField} = ANY($1);`,
