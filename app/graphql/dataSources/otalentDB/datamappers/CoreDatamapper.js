@@ -8,6 +8,7 @@
  */
 import DataLoader from 'dataloader';
 import Debug from 'debug';
+import bcrypt from 'bcrypt';
 
 const debug = Debug('app:otalentDB:core');
 
@@ -167,6 +168,12 @@ class CoreDatamapper {
   async insert(data) {
     debug(data);
     debug(`adding new ${this.tableName}`);
+
+    if ((this.tableName === 'member' || this.tableName === 'organization') && data.input.password) {
+      const hashedPassword = await bcrypt.hash(data.input.password, process.env.SALT_ROUNDS || 10);
+      data.input.password = hashedPassword;
+    }
+
     const query = {
       text: `SELECT * FROM insert_${this.tableName}($1);`,
       values: [data.input],
@@ -182,6 +189,10 @@ class CoreDatamapper {
    */
   async update(id, data) {
     debug(`updating ${this.tableName} [${id}]`);
+    if ((this.tableName === 'member' || this.tableName === 'organization') && data.input.password) {
+      const hashedPassword = await bcrypt.hash(data.input.password, process.env.SALT_ROUNDS || 10);
+      data.input.password = hashedPassword;
+    }
     const keys = Object.keys(data.input);
     const values = Object.values(data.input);
     const setString = keys.map((key, index) => `${key} = $${index + 1}`).join(', ');
