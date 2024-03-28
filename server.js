@@ -10,7 +10,7 @@ import cors from '@fastify/cors';
 import Debug from 'debug';
 import { resolvers as scalarResolvers, typeDefs as scalarTypeDefs } from 'graphql-scalars';
 import dayjs from 'dayjs';
-import { createApollo4QueryValidationPlugin, constraintDirectiveTypeDefs } from 'graphql-constraint-directive/apollo4';
+import { createApollo4QueryValidationPlugin, constraintDirectiveTypeDefs } from 'graphql-constraint-directive/apollo4.js';
 import typeDefs from './app/graphql/schemas/index.js';
 import resolvers from './app/graphql/resolvers/index.js';
 import OtalentDB from './app/graphql/dataSources/otalentDB/datamappers/index.js';

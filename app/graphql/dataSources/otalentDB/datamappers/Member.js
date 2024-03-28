@@ -1,8 +1,8 @@
 import bcrypt from 'bcrypt';
-import jwt from 'jsonwebtoken';
 import CoreDatamapper from './CoreDatamapper.js';
 import 'dotenv/config';
 import { isMember, isOrganization } from './utils/datamapperUtils.js';
+import { generateToken } from './utils/generateToken.js';
 
 /**
  * Represents a Member datamapper.
@@ -75,9 +75,9 @@ class Member extends CoreDatamapper {
       throw new Error('Invalid credentials');
     }
     if (await isMember(email)) {
-      token = jwt.sign({ member: true, id: user.id }, process.env.JWT_SECRET);
-    } else if (await isOrganization(email)) {
-      token = jwt.sign({ member: false, id: user.id }, process.env.JWT_SECRET);
+      token = generateToken('member', user.id);
+    } if (await isOrganization(email)) {
+      token = generateToken('organization', user.id);
     }
     return { token };
   }
