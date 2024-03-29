@@ -5,12 +5,13 @@ import Fastify from 'fastify';
 import { ApolloServer } from '@apollo/server';
 import { InMemoryLRUCache } from '@apollo/utils.keyvaluecache';
 import responseCachePlugin from '@apollo/server-plugin-response-cache';
+import { ApolloServerPluginCacheControl } from '@apollo/server/plugin/cacheControl';
 import fastifyApollo, { fastifyApolloDrainPlugin } from '@as-integrations/fastify';
 import cors from '@fastify/cors';
 import Debug from 'debug';
 import { resolvers as scalarResolvers, typeDefs as scalarTypeDefs } from 'graphql-scalars';
 import dayjs from 'dayjs';
-import { createApollo4QueryValidationPlugin, constraintDirectiveTypeDefs } from 'graphql-constraint-directive/apollo4';
+import { createApollo4QueryValidationPlugin, constraintDirectiveTypeDefs } from 'graphql-constraint-directive/apollo4.js';
 import typeDefs from './app/graphql/schemas/index.js';
 import resolvers from './app/graphql/resolvers/index.js';
 import OtalentDB from './app/graphql/dataSources/otalentDB/datamappers/index.js';
@@ -52,7 +53,13 @@ const apollo = new ApolloServer({
     sizeCalculation: (value, key) => (value.length + key.length) * 2, // 2 bytes per char
     ttl: 300, // 5 minutes
   }),
-  plugins: [fastifyApolloDrainPlugin(fastify), createApollo4QueryValidationPlugin(), responseCachePlugin()],
+  plugins: [
+    fastifyApolloDrainPlugin(fastify),
+    createApollo4QueryValidationPlugin(),
+    responseCachePlugin(),
+    ApolloServerPluginCacheControl({
+      defaultMaxAge: 10,
+    })],
   formatError: (formattedError, error) => {
     debug(formattedError);
     logger.error(formattedError);

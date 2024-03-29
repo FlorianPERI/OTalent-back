@@ -1,40 +1,40 @@
 "Root query type"
 type Query {
-  "Retrieve a member by ID"
-  member(id: ID!): Member @cacheControl(maxAge: 60)
-  "Retrieve all members"
-  members: [Member!]! @cacheControl(maxAge: 60)
+    "Retrieve a member by ID"
+    member(id: ID!): Member @cacheControl(maxAge: 60)
+    "Retrieve all members"
+    members: [Member!]! @cacheControl(maxAge: 60)
 
-  "Retrieve an organization by ID"
-  organization(id: ID!): Organization @cacheControl(maxAge: 60)
-  "Retrieve all organizations"
-  organizations: [Organization!]! @cacheControl(maxAge: 60)
+    "Retrieve an organization by ID"
+    organization(id: ID!): Organization @cacheControl(maxAge: 60)
+    "Retrieve all organizations"
+    organizations: [Organization!]! @cacheControl(maxAge: 60)
 
-  "Retrieve a review by ID"
-  review(id: ID!): Review @cacheControl(maxAge: 60)
-  "Retrieve all reviews"
-  reviews: [Review!]! @cacheControl(maxAge: 60)
+    "Retrieve a review by ID"
+    review(id: ID!): Review @cacheControl(maxAge: 60)
+    "Retrieve all reviews"
+    reviews: [Review!]! @cacheControl(maxAge: 60)
 
-  "Retrieve a training by ID"
-  training(id: ID!): Training @cacheControl(maxAge: 60)
-  "Retrieve all trainings"
-  trainings: [Training!]! @cacheControl(maxAge: 60)
+    "Retrieve a training by ID"
+    training(id: ID!): Training @cacheControl(maxAge: 60)
+    "Retrieve all trainings"
+    trainings: [Training!]! @cacheControl(maxAge: 60)
 
-  "Retrieve a category by ID"
-  category(id: ID!): Category @cacheControl(maxAge: 240)
-  "Retrieve all categories"
-  categories: [Category!]! @cacheControl(maxAge: 240)
+    "Retrieve a category by ID"
+    category(id: ID!): Category @cacheControl(maxAge: 240)
+    "Retrieve all categories"
+    categories: [Category!]! @cacheControl(maxAge: 240)
 
-  siret(siret: String!): Sirene
+    siret(siret: String!): Sirene
 }
 
 enum CacheControlScope {
-  PUBLIC
-  PRIVATE
+    PUBLIC
+    PRIVATE
 }
 
 directive @cacheControl(
-  maxAge: Int
-  scope: CacheControlScope
-  inheritMaxAge: Boolean
+    maxAge: Int
+    scope: CacheControlScope
+    inheritMaxAge: Boolean
 ) on FIELD_DEFINITION | OBJECT | INTERFACE | UNION
