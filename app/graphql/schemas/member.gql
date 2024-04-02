@@ -34,7 +34,9 @@ input MemberInput {
     email: EmailAddress
     "Password of the member"
     password: String
-        @constraint(pattern: "^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)[a-zA-Z\\d]{8,}$")
+        @constraint(
+            pattern: "^(?=.*\\w)(?=.*\\d)(?=.*[@$!%*#?&])[\\w\\d@$!%*#?&]{8,}$"
+        )
     "City where the member resides"
     city: String @constraint(maxLength: 255)
     "Postal code of the member's location"
