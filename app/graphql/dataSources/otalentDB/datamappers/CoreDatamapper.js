@@ -199,6 +199,13 @@ class CoreDatamapper {
    */
   async update(id, data) {
     debug(`updating ${this.tableName} [${id}]`);
+    // eslint-disable-next-line no-nested-ternary
+    const tableNameToCheck = this.tableName === 'organization' ? 'member'
+      : this.tableName === 'member' ? 'organization'
+        : null;
+    if (tableNameToCheck && await isEmailInAnotherTable(data.input.email, tableNameToCheck)) {
+      throw new Error('This email is already used');
+    }
     if ((this.tableName === 'member' || this.tableName === 'organization') && data.input.password) {
       const hashedPassword = await bcrypt.hash(
         data.input.password,

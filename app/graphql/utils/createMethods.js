@@ -55,13 +55,13 @@ function createMutationMethods(entityName) {
   const lowerCaseEntityName = entityName.toLowerCase();
   return {
     [`add${entityName}`]: (_, data, { user, dataSources }) => {
-      if (!user && (entityName !== 'Member' || entityName !== 'Organization')) {
+      if (!user && entityName !== 'Member') {
         throw new Error('User not authenticated.');
       }
       return dataSources.otalentDB[lowerCaseEntityName].insert(data);
     },
     [`modify${entityName}`]: (_, data, { user, dataSources }) => {
-      if (!user) {
+      if (!user && entityName !== 'Member') {
         throw new Error('User not authenticated');
       }
       return dataSources.otalentDB[lowerCaseEntityName].update(data.id, data);
