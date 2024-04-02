@@ -17,6 +17,7 @@ import resolvers from './app/graphql/resolvers/index.js';
 import OtalentDB from './app/graphql/dataSources/otalentDB/datamappers/index.js';
 import SireneAPI from './app/graphql/dataSources/sireneAPI/index.js';
 import auth from './app/services/auth/index.js';
+import 'dotenv/config';
 
 /**
  * Setting up the server
@@ -64,7 +65,7 @@ const apollo = new ApolloServer({
     logger.error(formattedError);
     return formattedError;
   },
-  introspection: false,
+  introspection: process.env.NODE_ENV !== 'production',
 });
 
 /**

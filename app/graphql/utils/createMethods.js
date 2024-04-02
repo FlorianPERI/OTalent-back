@@ -55,7 +55,7 @@ function createMutationMethods(entityName) {
   const lowerCaseEntityName = entityName.toLowerCase();
   return {
     [`add${entityName}`]: (_, data, { user, dataSources }) => {
-      if (!user) {
+      if (!user && (entityName !== 'Member' || entityName !== 'Organization')) {
         throw new Error('User not authenticated.');
       }
       return dataSources.otalentDB[lowerCaseEntityName].insert(data);

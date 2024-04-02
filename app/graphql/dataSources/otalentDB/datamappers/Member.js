@@ -48,28 +48,14 @@ class Member extends CoreDatamapper {
    * @throws {Error} - Throws an error if the credantials are invalid.
    */
   async login(email, password) {
-    let query;
-    let user;
     let token;
-    if (await isMember(email)) {
-      query = {
-        text: 'SELECT * FROM member WHERE email = $1',
-        values: [email],
-      };
-      const response = await this.client.query(query);
-      // eslint-disable-next-line prefer-destructuring
-      user = response.rows[0];
-    } else if (await isOrganization(email)) {
-      query = {
-        text: 'SELECT * FROM organization WHERE email = $1;',
-        values: [email],
-      };
-      const response = await this.client.query(query);
-      // eslint-disable-next-line prefer-destructuring
-      user = response.rows[0];
-    } else {
-      throw new Error('Invalid credentials');
-    }
+    const query = {
+      text: 'SELECT \'member\' as type, id, email, password FROM member WHERE email = $1 UNION SELECT \'organization\' as type, id, email, password FROM organization WHERE email = $1',
+      values: [email],
+    };
+
+    const response = await this.client.query(query);
+    const user = response.rows[0];
     const isCorrect = await bcrypt.compare(password, user.password);
     if (!isCorrect) {
       throw new Error('Invalid credentials');
