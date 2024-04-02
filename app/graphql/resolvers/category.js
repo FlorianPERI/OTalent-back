@@ -1,4 +1,4 @@
-import { createMethods } from '../utils/createMethods.js';
+import { createMethods } from './utils/createMethods.js';
 
 /**
  * Resolvers for the Category type.

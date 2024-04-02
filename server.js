@@ -5,6 +5,7 @@ import Fastify from 'fastify';
 import { ApolloServer } from '@apollo/server';
 import { InMemoryLRUCache } from '@apollo/utils.keyvaluecache';
 import responseCachePlugin from '@apollo/server-plugin-response-cache';
+import { ApolloServerPluginCacheControl } from '@apollo/server/plugin/cacheControl';
 import fastifyApollo, { fastifyApolloDrainPlugin } from '@as-integrations/fastify';
 import cors from '@fastify/cors';
 import Debug from 'debug';
@@ -58,10 +59,12 @@ const apollo = new ApolloServer({
     fastifyApolloDrainPlugin(fastify),
     createApollo4QueryValidationPlugin(),
     responseCachePlugin(),
-  ],
+    ApolloServerPluginCacheControl({
+      defaultMaxAge: 10,
+    })],
   formatError: (formattedError, error) => {
     debug(formattedError);
-    logger.error(formattedError);
+    logger.error(formattedError); // Log the error to file
     return formattedError;
   },
 

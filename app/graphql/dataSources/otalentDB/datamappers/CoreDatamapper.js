@@ -8,8 +8,8 @@
  */
 import DataLoader from 'dataloader';
 import Debug from 'debug';
-import bcrypt from 'bcrypt';
-import { isEmailInAnotherTable } from './utils/datamapperUtils.js';
+import accountUtils from './utils/accountUtils.js';
+
 
 const debug = Debug('app:otalentDB:core');
 
@@ -18,21 +18,15 @@ const debug = Debug('app:otalentDB:core');
  * @class
  */
 class CoreDatamapper {
-  tableName;
-
   /**
    * Creates an instance of CoreDatamapper.
-   * @param {object} options - The options object.
+   * @param {object} options - The options for CoreDatamapper.
    * @param {object} options.client - The database client.
+   * @param {object} options.cache - The cache.
    */
   constructor(options) {
     this.client = options.client;
     this.cache = options.cache;
-
-    /**
-     * DataLoader instance for batch loading data by primary key.
-     * @type {DataLoader}
-     */
     this.findByPkLoader = new DataLoader(async (ids) => {
       debug(`finding all ${this.tableName} with ids [${ids}]`);
       const query = {
@@ -46,12 +40,105 @@ class CoreDatamapper {
     });
   }
 
+  /** *************************************************************************************
+   *
+   *                              CRUD Methods
+   *
+   ************************************************************************************** */
+
   /**
-   * Creates a DataLoader instance for batch loading data by entity ID.
+   * Finds all entities.
+   * @returns {Promise<object[]>} - Returns a promise that resolves to an array of entities.
+   */
+  async findAll() {
+    debug(`requesting all ${this.tableName}s`);
+    const query = {
+      text: `SELECT * FROM ${this.tableName}`,
+    };
+    const results = await this.client.query(query);
+    return results.rows;
+  }
+
+  /**
+   * Finds an entity by its primary key.
+   * @param {number} id - The ID of the entity.
+   * @returns {Promise<object>} - Returns a promise that resolves to the entity object.
+   */
+  async findByPk(id) {
+    return this.findByPkLoader.load(parseInt(id, 10));
+  }
+
+  /**
+   * Inserts a new entity.
+   * @param {object} data - The data of the entity.
+   * @returns {Promise<object>} - Returns a promise that resolves to the inserted entity object.
+   * @throws {Error} - Throws an error if the email is already used in another table.
+   */
+  async insert(data) {
+    debug(data);
+    debug(`adding new ${this.tableName}`);
+
+    await accountUtils.checkEmailUniqueness(data, this.tableName);
+    const modifiedData = await accountUtils.hashPasswordIfNeeded(data, this.tableName);
+
+    const query = {
+      text: `SELECT * FROM insert_${this.tableName}($1);`,
+      values: [modifiedData.input],
+    };
+    const result = await this.client.query(query);
+    return result.rows[0];
+  }
+
+  /**
+   * Updates an entity.
+   * @param {number} id - The ID of the entity.
+   * @param {object} data - The updated data of the entity.
+   * @returns {Promise<object>} - Returns a promise that resolves to the updated entity object.
+   */
+  async update(id, data) {
+    debug(`updating ${this.tableName} [${id}]`);
+    const modifiedData = await accountUtils.hashPasswordIfNeeded(data, this.tableName);
+    const values = Object.values(modifiedData.input);
+    const keys = Object.keys(modifiedData.input);
+    const setString = keys.map((key, index) => `${key} = $${index + 1}`).join(', ');
+    const query = {
+      text: `UPDATE ${this.tableName} SET ${setString}, updated_at = now() WHERE id = $${values.length + 1} RETURNING *;`,
+      values: [...values, id],
+    };
+    const result = await this.client.query(query);
+    return result.rows[0];
+  }
+
+  /**
+   * Deletes an entity.
+   * @param {number} id - The ID of the entity.
+   * @returns {Promise<boolean>} - Returns a promise that resolves to a boolean indicating
+   * if the entity was deleted successfully.
+   */
+  async delete(id) {
+    debug(`deleting ${this.tableName} [${id}]`);
+    const query = {
+      text: `DELETE FROM ${this.tableName} WHERE id = $1;`,
+      values: [id],
+    };
+    const result = await this.client.query(query);
+    return !!result.rowCount;
+  }
+
+  /** *************************************************************************************
+   *
+   *                              Dataloader Methods
+   *
+   ************************************************************************************** */
+
+  /**
+   * Creates a base DataLoader instance for batch loading data.
    * @param {string} entityName - The name of the entity.
    * @param {string} idField - The ID field of the entity.
+   * @param {function} buildQuery - The function to build the query for batch loading.
+   * @returns {DataLoader} - Returns a DataLoader instance.
    */
-  createDataLoader(entityName, idField) {
+  byEntityIdDataLoader(entityName, idField) {
     const lowerCaseEntityName = entityName.toLowerCase();
     this[`findBy${entityName}IdLoader`] = new DataLoader(async (ids) => {
       debug(`finding all ${this.tableName} by ${lowerCaseEntityName} with ids [${ids}]`);
@@ -73,7 +160,7 @@ class CoreDatamapper {
    * @param {string} condition - The join condition.
    * @param {string} idField - The ID field of the entity.
    */
-  createDataLoaderWithJoin(entityName, joinTableName, condition, idField) {
+  joinDataLoader(entityName, joinTableName, condition, idField) {
     const lowerCaseEntityName = entityName.toLowerCase();
     this[`findBy${entityName}IdLoader`] = new DataLoader(async (ids) => {
       debug(`finding all ${this.tableName} using ${joinTableName} with ${lowerCaseEntityName} ids [${ids}]`);
@@ -89,44 +176,13 @@ class CoreDatamapper {
   }
 
   /**
-   * Creates association methods for the entity.
-   * @param {string} entityName - The name of the entity.
-   * @param {string} tableName - The name of the association table.
-   */
-  createAssociationMethods(entityName, tableName) {
-    const lowerCaseEntityName = entityName.toLowerCase();
-    const lowerCaseTableName = tableName.toLowerCase();
-
-    this[`associate${entityName}${tableName}`] = async (id1, id2) => {
-      debug(`associating ${this.tableName}[${id1}] and ${lowerCaseEntityName}[${id2}]`);
-      const query = {
-        text: `INSERT INTO ${this.tableName}_likes_${lowerCaseTableName} (${this.tableName}_id, ${lowerCaseTableName}_id) VALUES ($1, $2);`,
-        values: [id1, id2],
-      };
-      debug(query);
-      const results = await this.client.query(query);
-      return !!results.rowCount;
-    };
-
-    this[`dissociate${entityName}${tableName}`] = async (id1, id2) => {
-      debug(`dissociating ${this.tableName}[${id1}] and ${lowerCaseEntityName}[${id2}]`);
-      const query = {
-        text: `DELETE FROM ${this.tableName}_likes_${lowerCaseTableName} WHERE ${this.tableName}_id = $1 AND ${lowerCaseTableName}_id = $2;`,
-        values: [id1, id2],
-      };
-      debug(query);
-      const results = await this.client.query(query);
-      return !!results.rowCount;
-    };
-  }
-
-  /**
    * Creates a DataLoader instance for batch loading average ratings of an entity.
    * @param {string} entityName - The name of the entity.
    * @param {string} tableName - The name of the table.
    * @param {string} idField - The ID field of the entity.
    */
-  createAverageRatingDataLoader(entityName, tableName, idField) {
+
+  avgRatingDataLoader(entityName, tableName, idField) {
     this[`findAverageRatingOf${entityName}Loader`] = new DataLoader(async (ids) => {
       debug(`find average ratings for ${entityName.toLowerCase()} [${ids}]`);
       const query = {
@@ -139,121 +195,41 @@ class CoreDatamapper {
     });
   }
 
+  /** *************************************************************************************
+   *
+   *                              Association Methods
+   *
+   ************************************************************************************** */
+
   /**
-   * Finds all entities.
-   * @returns {object[]} - Returns an array of entities.
+   * Creates association methods between two entities.
+   * @param {string} entityName - The name of the first entity.
+   * @param {string} tableName - The name of the association table.
    */
-  async findAll() {
-    debug(`requesting all ${this.tableName}s`);
-    const query = {
-      text: `SELECT * FROM ${this.tableName}`,
+  createAssociationMethods(entityName, tableName) {
+    const lowerCaseEntityName = entityName.toLowerCase();
+    const lowerCaseTableName = tableName.toLowerCase();
+    const buildQuery = (action, id1, id2) => {
+      const queryText = action === 'associate'
+        ? `INSERT INTO ${this.tableName}_likes_${lowerCaseTableName} (${this.tableName}_id, ${lowerCaseTableName}_id) VALUES ($1, $2);`
+        : `DELETE FROM ${this.tableName}_likes_${lowerCaseTableName} WHERE ${this.tableName}_id = $1 AND ${lowerCaseTableName}_id = $2;`;
+      return {
+        text: queryText,
+        values: [id1, id2],
+      };
     };
-    const results = await this.client.query(query);
-    return results.rows;
-  }
+    const executeAssociation = async (action, id1, id2) => {
+      debug(`${action} ${this.tableName}[${id1}] and ${lowerCaseEntityName}[${id2}]`);
+      const query = buildQuery(action, id1, id2);
+      debug(query);
+      const results = await this.client.query(query);
+      return !!results.rowCount;
 
-  /**
-   * Finds an entity by its primary key.
-   * @param {number} id - The ID of the entity.
-   * @returns {object} - Returns the entity object.
-   */
-  async findByPk(id) {
-    return this.findByPkLoader.load(parseInt(id, 10));
-  }
-
-  /**
-   * Inserts a new entity.
-   * @param {object} data - The data of the entity.
-   * @returns {object} - Returns the inserted entity object.
-   * @throws {Error} - Throws an error if the email is already used in another table.
-   */
-  async insert(data) {
-    debug(data);
-    debug(`adding new ${this.tableName}`);
-    // eslint-disable-next-line no-nested-ternary
-    const tableNameToCheck = this.tableName === 'organization' ? 'member'
-      : this.tableName === 'member' ? 'organization'
-        : null;
-    if (tableNameToCheck && await isEmailInAnotherTable(data.input.email, tableNameToCheck)) {
-      throw new Error('This email is already used');
-    }
-
-    if ((this.tableName === 'member' || this.tableName === 'organization') && data.input.password) {
-      // eslint-disable-next-line max-len
-      const hashedPassword = await bcrypt.hash(data.input.password, parseInt(process.env.PASSWORD_SALT, 10) || 10);
-      data.input.password = hashedPassword;
-    }
-
-    const query = {
-      text: `SELECT * FROM insert_${this.tableName}($1);`,
-      values: [data.input],
     };
-    const result = await this.client.query(query);
-    return result.rows[0];
-  }
 
-  /**
-   * Updates an entity.
-   * @param {object} data - The data of the entity.
-   * @returns {object} - Returns the inserted entity object.
-   */
-  async update(id, data) {
-    debug(`updating ${this.tableName} [${id}]`);
-    if ((this.tableName === 'member' || this.tableName === 'organization') && data.input.password) {
-      const hashedPassword = await bcrypt.hash(
-        data.input.password,
-        parseInt(process.env.PASSWORD_SALT, 10) || 10,
-      );
-      data.input.password = hashedPassword;
-    }
-    const keys = Object.keys(data.input);
-    const values = Object.values(data.input);
-    const setString = keys.map((key, index) => `${key} = $${index + 1}`).join(', ');
-    const query = {
-      text: `UPDATE ${this.tableName} SET ${setString}, updated_at = now() WHERE id = $${values.length + 1} RETURNING *;`,
-      values: [...values, id],
-    };
-    debug(query);
-    const result = await this.client.query(query);
-    return result.rows[0];
+    this[`associate${entityName}${tableName}`] = executeAssociation.bind(this, 'associate');
+    this[`dissociate${entityName}${tableName}`] = executeAssociation.bind(this, 'dissociate');
   }
-
-  /**
-   * Deletes an entity by its ID.
-   * @param {number} id - The ID of the entity.
-   * @returns {boolean} - Returns true if the deletion is successful, false otherwise.
-   */
-  async delete(id) {
-    debug(`deleting ${this.tableName} [${id}]`);
-    const query = {
-      text: `DELETE FROM ${this.tableName} WHERE id = $1;`,
-      values: [id],
-    };
-    const result = await this.client.query(query);
-    return !!result.rowCount;
-  }
-
-  /**
-   * Caches the result of a query.
-   * @param {object} query - The query object.
-   * @param {number} ttl - The time-to-live (TTL) of the cache in seconds.
-   * @returns {object[]} - Returns the query results.
-   */
-//   async cacheQuery(key, query, ttl) {
-//     const cacheKey = `${this.tableName}:${key}`;
-//     debug(ttl);
-//     const cachedValue = await this.cache.get(cacheKey);
-//     if (cachedValue) {
-//       debug('cached value found, returning it');
-//       return JSON.parse(cachedValue);
-//     }
-//     debug(`no cached value found for ${cacheKey}`);
-//     const results = await this.client.query(query);
-//     const data = results.rows || [];
-//     debug('value added to cache');
-//     this.cache.set(cacheKey, JSON.stringify(data), { ttl });
-//     return data;
-//   }
-// }
 }
+
 export default CoreDatamapper;

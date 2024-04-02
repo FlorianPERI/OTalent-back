@@ -3,6 +3,10 @@ import Debug from 'debug';
 
 const debug = Debug('app:sireneAPI');
 
+/**
+ * A class representing the Sirene API data source.
+ * @extends RESTDataSource
+ */
 class SireneAPI extends RESTDataSource {
   baseURL = 'https://api.insee.fr/entreprises/sirene/V3/siret/';
 
@@ -15,11 +19,22 @@ class SireneAPI extends RESTDataSource {
     request.headers.authorization = this.token;
   }
 
+  /**
+   * Retrieves information for a given SIRET number.
+   * @param {string} id - The SIRET number to retrieve information for.
+   * @returns {Promise<Object>} An object containing the retrieved information.
+   */
   async getSiret(id) {
     try {
       const response = await this.get(id);
-      const { denominationUniteLegale } = response.etablissement.uniteLegale;
-      const { libelleVoieEtablissement, codePostalEtablissement, libelleCommuneEtablissement } = response.etablissement.adresseEtablissement;
+      const {
+        denominationUniteLegale,
+      } = response.etablissement.uniteLegale;
+      const {
+        libelleVoieEtablissement,
+        codePostalEtablissement,
+        libelleCommuneEtablissement,
+      } = response.etablissement.adresseEtablissement;
 
       return {
         siretFound: true,

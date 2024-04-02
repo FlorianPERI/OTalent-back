@@ -16,7 +16,7 @@ async function createMember() {
     postalCode = faker.location.zipCode();
   }
   const city = faker.location.city();
-  const urlAvatar = faker.image.url();
+  const urlAvatar = faker.image.avatar();
   const member = {
     firstname,
     lastname,

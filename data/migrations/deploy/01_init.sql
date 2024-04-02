@@ -41,7 +41,7 @@ CREATE TABLE member
   password    TEXT        NOT NULL,
   city        TEXT,
   postal_code pcode,
-  avatar      url,
+  avatar      TEXT,
   created_at TIMESTAMPTZ NOT NULL DEFAULT now(),
   updated_at TIMESTAMPTZ
 );
@@ -78,7 +78,7 @@ CREATE TABLE organization
   postal_code  pcode        NOT NULL,
   siret        siret        NOT NULL,
   description  TEXT,
-  image        url,
+  image        TEXT,
   url_site     url,
   created_at TIMESTAMPTZ NOT NULL DEFAULT now(),
   updated_at TIMESTAMPTZ
@@ -106,7 +106,7 @@ CREATE TABLE training
   excerpt         TEXT    NOT NULL,
   prerequisites   TEXT   ,
   program         TEXT   ,
-  image           url   ,
+  image           TEXT   ,
   organization_id INT     NOT NULL,
   category_id     INT     NOT NULL,
   created_at TIMESTAMPTZ NOT NULL DEFAULT now(),
