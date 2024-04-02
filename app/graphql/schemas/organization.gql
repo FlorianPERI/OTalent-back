@@ -36,7 +36,9 @@ input OrganizationInput {
     email: EmailAddress
     "Password of the organization"
     password: String
-        @constraint(pattern: "^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)[a-zA-Z\\d]{8,}$")
+        @constraint(
+            pattern: "^(?=.*[A-Za-z])(?=.*\\d)(?=.*[@$!%*#?&])[A-Za-z\\d@$!%*#?&]{8,}$"
+        )
     "Phone number of the organization"
     phoneNumber: String @constraint(pattern: "^0[1-9](\\d{2}){4}$")
     "Address of the organization"

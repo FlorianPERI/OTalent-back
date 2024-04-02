@@ -82,8 +82,9 @@ class CoreDatamapper {
 
     const query = {
       text: `SELECT * FROM insert_${this.tableName}($1);`,
-      values: [modifiedData.input],
+      values: [modifiedData],
     };
+    debug(query);
     const result = await this.client.query(query);
     return result.rows[0];
   }
