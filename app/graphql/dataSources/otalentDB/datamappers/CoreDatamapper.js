@@ -9,6 +9,7 @@
 import DataLoader from 'dataloader';
 import Debug from 'debug';
 import bcrypt from 'bcrypt';
+import { isEmailInAnotherTable } from './utils/datamapperUtils.js';
 
 const debug = Debug('app:otalentDB:core');
 
@@ -169,6 +170,7 @@ class CoreDatamapper {
   async insert(data) {
     debug(data);
     debug(`adding new ${this.tableName}`);
+    // eslint-disable-next-line no-nested-ternary
     const tableNameToCheck = this.tableName === 'organization' ? 'member'
       : this.tableName === 'member' ? 'organization'
         : null;
@@ -177,7 +179,8 @@ class CoreDatamapper {
     }
 
     if ((this.tableName === 'member' || this.tableName === 'organization') && data.input.password) {
-      const hashedPassword = await bcrypt.hash(data.input.password, parseInt(process.env.PASSWORD_SALT) || 10);
+      // eslint-disable-next-line max-len
+      const hashedPassword = await bcrypt.hash(data.input.password, parseInt(process.env.PASSWORD_SALT, 10) || 10);
       data.input.password = hashedPassword;
     }
 
@@ -197,7 +200,10 @@ class CoreDatamapper {
   async update(id, data) {
     debug(`updating ${this.tableName} [${id}]`);
     if ((this.tableName === 'member' || this.tableName === 'organization') && data.input.password) {
-      const hashedPassword = await bcrypt.hash(data.input.password, parseInt(process.env.PASSWORD_SALT) || 10);
+      const hashedPassword = await bcrypt.hash(
+        data.input.password,
+        parseInt(process.env.PASSWORD_SALT, 10) || 10,
+      );
       data.input.password = hashedPassword;
     }
     const keys = Object.keys(data.input);

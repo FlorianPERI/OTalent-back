@@ -10,11 +10,13 @@ import cors from '@fastify/cors';
 import Debug from 'debug';
 import { resolvers as scalarResolvers, typeDefs as scalarTypeDefs } from 'graphql-scalars';
 import dayjs from 'dayjs';
-import { createApollo4QueryValidationPlugin, constraintDirectiveTypeDefs } from 'graphql-constraint-directive/apollo4';
+import { createApollo4QueryValidationPlugin, constraintDirectiveTypeDefs } from 'graphql-constraint-directive/apollo4.js';
+import jwt from 'jsonwebtoken';
 import typeDefs from './app/graphql/schemas/index.js';
 import resolvers from './app/graphql/resolvers/index.js';
 import OtalentDB from './app/graphql/dataSources/otalentDB/datamappers/index.js';
 import SireneAPI from './app/graphql/dataSources/sireneAPI/index.js';
+import auth from './app/services/auth/index.js';
 
 /**
  * Setting up the server
@@ -52,20 +54,39 @@ const apollo = new ApolloServer({
     sizeCalculation: (value, key) => (value.length + key.length) * 2, // 2 bytes per char
     ttl: 300, // 5 minutes
   }),
-  plugins: [fastifyApolloDrainPlugin(fastify), createApollo4QueryValidationPlugin(), responseCachePlugin()],
+  plugins: [
+    fastifyApolloDrainPlugin(fastify),
+    createApollo4QueryValidationPlugin(),
+    responseCachePlugin(),
+  ],
   formatError: (formattedError, error) => {
     debug(formattedError);
     logger.error(formattedError);
     return formattedError;
   },
+
 });
 
 /**
  * Function to provide context to ApolloServer
  */
-const contextFunction = async () => {
+const contextFunction = async (request) => {
   const { cache } = apollo; // Get the cache from ApolloServer
+  // let loggedIn = false;
+  let user = null;
+  if (request.headers.authorization) {
+    // eslint-disable-next-line prefer-destructuring
+    const token = request.headers.authorization.split(' ')[1];
+    try {
+      const verify = auth.verifyToken(token);
+      user = await auth.getUser(verify);
+    } catch (error) {
+      throw new Error('Invalid token');
+    }
+  }
   return {
+    // loggedIn: !!user,
+    user,
     dataSources: {
       otalentDB: new OtalentDB({ cache }), // Create a new instance of OtalentDB with cache
       sireneAPI: new SireneAPI({ cache }), // Create a new instance of OtalentDB with cache
