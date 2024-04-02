@@ -79,7 +79,7 @@ class CoreDatamapper {
 
     await accountUtils.checkEmailUniqueness(data, this.tableName);
     const modifiedData = await accountUtils.hashPasswordIfNeeded(data, this.tableName);
-
+    debug(modifiedData);
     const query = {
       text: `SELECT * FROM insert_${this.tableName}($1);`,
       values: [modifiedData],
@@ -97,9 +97,16 @@ class CoreDatamapper {
    */
   async update(id, data) {
     debug(`updating ${this.tableName} [${id}]`);
+    await accountUtils.checkEmailUniqueness(data, this.tableName);
     const modifiedData = await accountUtils.hashPasswordIfNeeded(data, this.tableName);
-    const values = Object.values(modifiedData.input);
-    const keys = Object.keys(modifiedData.input);
+    const values = Object.values(modifiedData);
+    const columnMatching = {
+      postalCode: 'postal_code',
+      phoneNumber: 'phone_number',
+      urlSite: 'url_site',
+    };
+    const keys = [];
+    Object.keys(modifiedData).forEach((key) => keys.push(columnMatching[key] ?? key));
     const setString = keys.map((key, index) => `${key} = $${index + 1}`).join(', ');
     const query = {
       text: `UPDATE ${this.tableName} SET ${setString}, updated_at = now() WHERE id = $${values.length + 1} RETURNING *;`,

@@ -64,7 +64,7 @@ const accountUtils = {
       const updatedData = Object.assign(data.input, { password: hashedPassword });
       return updatedData;
     }
-    return data;
+    return data.input;
   },
 };
 

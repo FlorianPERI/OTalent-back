@@ -18,6 +18,7 @@ import OtalentDB from './app/graphql/dataSources/otalentDB/datamappers/index.js'
 import SireneAPI from './app/graphql/dataSources/sireneAPI/index.js';
 import auth from './app/services/auth/index.js';
 import 'dotenv/config';
+import depthLimit from 'graphql-depth-limit';
 
 /**
  * Setting up the server
@@ -68,6 +69,7 @@ const apollo = new ApolloServer({
     return formattedError;
   },
   introspection: process.env.NODE_ENV !== 'production',
+  validationRules: [depthLimit(4)],
 });
 
 /**
