@@ -54,12 +54,24 @@ function createQueryMethods(entityName, pluralEntityName = `${entityName}s`) {
 function createMutationMethods(entityName) {
   const lowerCaseEntityName = entityName.toLowerCase();
   return {
-    [`add${entityName}`]: (_, data, { dataSources }) => dataSources
-      .otalentDB[lowerCaseEntityName].insert(data),
-    [`modify${entityName}`]: (_, data, { dataSources }) => dataSources
-      .otalentDB[lowerCaseEntityName].update(data.id, data),
-    [`delete${entityName}`]: (_, { id }, { dataSources }) => dataSources
-      .otalentDB[lowerCaseEntityName].delete(id),
+    [`add${entityName}`]: (_, data, { user, dataSources }) => {
+      if (!user) {
+        throw new Error('User not authenticated.');
+      }
+      return dataSources.otalentDB[lowerCaseEntityName].insert(data);
+    },
+    [`modify${entityName}`]: (_, data, { user, dataSources }) => {
+      if (!user) {
+        throw new Error('User not authenticated');
+      }
+      return dataSources.otalentDB[lowerCaseEntityName].update(data.id, data);
+    },
+    [`delete${entityName}`]: (_, { id }, { user, dataSources }) => {
+      if (!user) {
+        throw new Error('User not authenticated');
+      }
+      return dataSources.otalentDB[lowerCaseEntityName].delete(id);
+    },
   };
 }
 

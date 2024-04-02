@@ -46,4 +46,25 @@ async function isEmailInAnotherTable(email, tableToCheck) {
   return !!response.rows[0];
 }
 
-export { isMember, isOrganization, isEmailInAnotherTable };
+/**
+ * Checks if a column exists in a given table.
+ * @param {string} columnName - The name of the column to check.
+ * @param {string} tableName - The name of the table to check the column in.
+ * @returns {Promise<boolean>}
+ * @returns A promise that resolves with a boolean indicating if the column exists in the tables.
+ */
+async function isColumnInTable(columnName, tableName) {
+  const query = {
+    text: `SELECT column_name FROM information_schema.columns
+          WHERE table_name = $1 AND column_name = $2;`,
+    values: [tableName, columnName],
+  };
+  const response = await client.query(query);
+  return !!response.rowCount;
+}
+
+export {
+  isMember, isOrganization, isEmailInAnotherTable, isColumnInTable,
+};
+
+isColumnInTable('member_id', 'member');

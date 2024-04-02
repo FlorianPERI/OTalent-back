@@ -64,7 +64,7 @@ const apollo = new ApolloServer({
     logger.error(formattedError);
     return formattedError;
   },
-
+  introspection: false,
 });
 
 /**

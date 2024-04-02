@@ -6,7 +6,7 @@
   "type": "module",
   "scripts": {
     "test": "bun test --coverage",
-    "dev": "set DEBUG=app:* & nodemon server.js",
+    "dev": "set DEBUG=app:server* & nodemon server.js",
     "dev:bun": "DEBUG=app:* bun server.js",
     "db:seed": "DEBUG=app:* node data/seed.js",
     "utils": "./scripts/utils.sh"

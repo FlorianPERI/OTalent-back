@@ -9,7 +9,7 @@
 import DataLoader from 'dataloader';
 import Debug from 'debug';
 import bcrypt from 'bcrypt';
-import { isEmailInAnotherTable } from './utils/datamapperUtils.js';
+import { isEmailInAnotherTable, isColumnInTable } from './utils/datamapperUtils.js';
 
 const debug = Debug('app:otalentDB:core');
 
