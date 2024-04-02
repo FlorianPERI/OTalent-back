@@ -97,6 +97,7 @@ class CoreDatamapper {
    */
   async update(id, data) {
     debug(`updating ${this.tableName} [${id}]`);
+    await accountUtils.checkEmailUniqueness(data, this.tableName);
     const modifiedData = await accountUtils.hashPasswordIfNeeded(data, this.tableName);
     const values = Object.values(modifiedData.input);
     const keys = Object.keys(modifiedData.input);
