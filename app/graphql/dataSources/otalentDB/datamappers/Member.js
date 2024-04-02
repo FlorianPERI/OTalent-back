@@ -1,8 +1,9 @@
 import bcrypt from 'bcrypt';
+import jwt from 'jsonwebtoken';
+import Debug from 'debug';
 import CoreDatamapper from './CoreDatamapper.js';
-import 'dotenv/config';
-import { isMember, isOrganization } from './utils/datamapperUtils.js';
-import { generateToken } from './utils/generateToken.js';
+
+const debug = Debug('app:otalentDB:member');
 
 /**
  * Represents a Member datamapper.
@@ -15,8 +16,8 @@ class Member extends CoreDatamapper {
     super(options);
     this.createAssociationMethods('Member', 'Category');
     this.createAssociationMethods('Member', 'Training');
-    this.createDataLoaderWithJoin('Training', 'member_likes_training', 'member_id', 'training_id');
-    this.createDataLoaderWithJoin('Category', 'member_likes_category', 'member_id', 'category_id');
+    this.joinDataLoader('Training', 'member_likes_training', 'member_id', 'training_id');
+    this.joinDataLoader('Category', 'member_likes_category', 'member_id', 'category_id');
   }
 
   /**
@@ -48,23 +49,20 @@ class Member extends CoreDatamapper {
    * @throws {Error} - Throws an error if the credantials are invalid.
    */
   async login(email, password) {
-    let token;
     const query = {
       text: 'SELECT \'member\' as type, id, email, password FROM member WHERE email = $1 UNION SELECT \'organization\' as type, id, email, password FROM organization WHERE email = $1',
       values: [email],
     };
-
+    debug(query);
     const response = await this.client.query(query);
     const user = response.rows[0];
-    const isCorrect = await bcrypt.compare(password, user.password);
-    if (!isCorrect) {
+
+    const isCorrect = user && await bcrypt.compare(password, user.password);
+    if (!user || !isCorrect) {
       throw new Error('Invalid credentials');
     }
-    if (await isMember(email)) {
-      token = generateToken('member', user.id);
-    } if (await isOrganization(email)) {
-      token = generateToken('organization', user.id);
-    }
+
+    const token = jwt.sign({ member: user.type === 'member', id: user.id }, process.env.JWT_SECRET);
     return { token };
   }
 }

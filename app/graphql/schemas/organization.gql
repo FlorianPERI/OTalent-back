@@ -1,57 +1,59 @@
 "Represents an organization"
 type Organization {
-  "ID of the organization"
-  id: ID!
-  "Name of the organization"
-  name: String!
-  "Email address of the organization"
-  email: EmailAddress!
-  "Password of the organization"
-  password: String!
-  "Description of the organization"
-  description: String
-  "Phone number of the organization"
-  phone_number: String!
-  "Address of the organization"
-  address: String!
-  "City where the organization is located"
-  city: String!
-  "Postal code of the organization's location"
-  postal_code: String!
-  "SIRET number of the organization"
-  siret: String!
-  "Image URL of the organization"
-  image: URL
-  "Website URL of the organization"
-  url_site: URL
-  "Trainings offered by the organization"
-  trainings: [Training]
+    "ID of the organization"
+    id: ID!
+    "Name of the organization"
+    name: String!
+    "Email address of the organization"
+    email: EmailAddress!
+    "Password of the organization"
+    password: String!
+    "Description of the organization"
+    description: String
+    "Phone number of the organization"
+    phone_number: String!
+    "Address of the organization"
+    address: String!
+    "City where the organization is located"
+    city: String!
+    "Postal code of the organization's location"
+    postal_code: String!
+    "SIRET number of the organization"
+    siret: String!
+    "Image URL of the organization"
+    image: String
+    "Website URL of the organization"
+    url_site: URL
+    "Trainings offered by the organization"
+    trainings: [Training]
 }
 
 "Input for creating or updating an organization"
 input OrganizationInput {
-  "Name of the organization"
-  name: String @constraint(maxLength: 255)
-  "Email address of the organization"
-  email: EmailAddress
-  "Password of the organization"
-  password: String
-    @constraint(pattern: "^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)[a-zA-Z\\d]{8,}$")
-  "Phone number of the organization"
-  phoneNumber: String @constraint(pattern: "^0[1-9](\\d{2}){4}$")
-  "Address of the organization"
-  address: String @constraint(maxLength: 255)
-  "City where the organization is located"
-  city: String @constraint(maxLength: 255)
-  "Postal code of the organization's location"
-  postalCode: String
-    @constraint(
-      pattern: "^0[1-9]\\d{3}|[1-8]\\d{4}|9[0-6]\\d{3}|9[78][12478]\\d{2}$"
-    )
-  "SIRET number of the organization"
-  siret: String @constraint(pattern: "^\\d{14}$")
-  "Image URL of the organization"
-  image: URL
-  "Website URL of the organization"
-  urlSite: URL
+    "Name of the organization"
+    name: String @constraint(maxLength: 255)
+    "Email address of the organization"
+    email: EmailAddress
+    "Password of the organization"
+    password: String
+        @constraint(
+            pattern: "^(?=.*[A-Za-z])(?=.*\\d)(?=.*[@$!%*#?&])[A-Za-z\\d@$!%*#?&]{8,}$"
+        )
+    "Phone number of the organization"
+    phoneNumber: String @constraint(pattern: "^0[1-9](\\d{2}){4}$")
+    "Address of the organization"
+    address: String @constraint(maxLength: 255)
+    "City where the organization is located"
+    city: String @constraint(maxLength: 255)
+    "Postal code of the organization's location"
+    postalCode: String
+        @constraint(
+            pattern: "^0[1-9]\\d{3}|[1-8]\\d{4}|9[0-6]\\d{3}|9[78][12478]\\d{2}$"
+        )
+    "SIRET number of the organization"
+    siret: String @constraint(pattern: "^\\d{14}$")
+    "Image URL of the organization"
+    image: URL
+    "Website URL of the organization"
+    urlSite: URL
 }

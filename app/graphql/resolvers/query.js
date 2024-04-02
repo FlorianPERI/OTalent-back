@@ -1,4 +1,4 @@
-import { createQueryMethods } from '../utils/createMethods.js';
+import { createQueryMethods } from './utils/createMethods.js';
 
 /**
  * Resolvers for the Query type.

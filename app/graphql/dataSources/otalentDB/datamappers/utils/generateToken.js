@@ -16,4 +16,4 @@ function generateToken(entity, userId) {
   return token;
 }
 
-export { generateToken };
+export default { generateToken };
