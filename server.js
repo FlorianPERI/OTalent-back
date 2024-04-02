@@ -62,7 +62,7 @@ const apollo = new ApolloServer({
     })],
   formatError: (formattedError, error) => {
     debug(formattedError);
-    logger.error(formattedError);
+    logger.error(formattedError); // Log the error to file
     return formattedError;
   },
 });

@@ -1,8 +1,6 @@
 import bcrypt from 'bcrypt';
 import jwt from 'jsonwebtoken';
 import CoreDatamapper from './CoreDatamapper.js';
-import 'dotenv/config';
-import { isMember, isOrganization } from './utils/datamapperUtils.js';
 
 /**
  * Represents a Member datamapper.
@@ -15,8 +13,8 @@ class Member extends CoreDatamapper {
     super(options);
     this.createAssociationMethods('Member', 'Category');
     this.createAssociationMethods('Member', 'Training');
-    this.createDataLoaderWithJoin('Training', 'member_likes_training', 'member_id', 'training_id');
-    this.createDataLoaderWithJoin('Category', 'member_likes_category', 'member_id', 'category_id');
+    this.joinDataLoader('Training', 'member_likes_training', 'member_id', 'training_id');
+    this.joinDataLoader('Category', 'member_likes_category', 'member_id', 'category_id');
   }
 
   /**
@@ -48,37 +46,24 @@ class Member extends CoreDatamapper {
    * @throws {Error} - Throws an error if the credantials are invalid.
    */
   async login(email, password) {
-    let query;
-    let user;
-    let token;
-    if (await isMember(email)) {
-      query = {
-        text: 'SELECT * FROM member WHERE email = $1',
-        values: [email],
-      };
-      const response = await this.client.query(query);
-      // eslint-disable-next-line prefer-destructuring
-      user = response.rows[0];
-    } else if (await isOrganization(email)) {
-      query = {
-        text: 'SELECT * FROM organization WHERE email = $1;',
-        values: [email],
-      };
-      const response = await this.client.query(query);
-      // eslint-disable-next-line prefer-destructuring
-      user = response.rows[0];
-    } else {
+    const query = {
+      text: `
+        SELECT 'member' as type, * FROM member WHERE email = $1
+        UNION
+        SELECT 'organization' as type, * FROM organization WHERE email = $1
+      `,
+      values: [email],
+    };
+
+    const response = await this.client.query(query);
+    const user = response.rows[0];
+
+    const isCorrect = user && await bcrypt.compare(password, user.password);
+    if (!user || !isCorrect) {
       throw new Error('Invalid credentials');
     }
-    const isCorrect = await bcrypt.compare(password, user.password);
-    if (!isCorrect) {
-      throw new Error('Invalid credentials');
-    }
-    if (await isMember(email)) {
-      token = jwt.sign({ member: true, id: user.id }, process.env.JWT_SECRET);
-    } else if (await isOrganization(email)) {
-      token = jwt.sign({ member: false, id: user.id }, process.env.JWT_SECRET);
-    }
+
+    const token = jwt.sign({ member: user.type === 'member', id: user.id }, process.env.JWT_SECRET);
     return { token };
   }
 }

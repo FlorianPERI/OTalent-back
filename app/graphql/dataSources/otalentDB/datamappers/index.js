@@ -7,7 +7,7 @@ import OrganizationDatamapper from './Organization.js';
 
 /**
  * Represents the OtalentDB class which serves as a data mapper for various entities.
- * @typedef {Object} OtalentDB
+ * @class OtalentDB
  */
 class OtalentDB {
   /**

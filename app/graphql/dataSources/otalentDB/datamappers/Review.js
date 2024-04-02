@@ -13,9 +13,9 @@ class Review extends CoreDatamapper {
    */
   constructor(options) {
     super(options);
-    this.createDataLoader('Training', 'training_id');
-    this.createDataLoader('Member', 'member_id');
-    this.createAverageRatingDataLoader('Training', 'review', 'training_id');
+    this.byEntityIdDataLoader('Training', 'training_id');
+    this.byEntityIdDataLoader('Member', 'member_id');
+    this.avgRatingDataLoader('Training', 'review', 'training_id');
   }
 
   /**

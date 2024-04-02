@@ -24,7 +24,7 @@ type Query {
     category(id: ID!): Category @cacheControl(maxAge: 240)
     "Retrieve all categories"
     categories: [Category!]! @cacheControl(maxAge: 240)
-
+    "Retrieve an establishment by its SIRET"
     siret(siret: String!): Sirene
 }
 

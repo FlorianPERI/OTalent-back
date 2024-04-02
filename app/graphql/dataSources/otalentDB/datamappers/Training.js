@@ -13,9 +13,9 @@ class Training extends CoreDatamapper {
    */
   constructor(options) {
     super(options);
-    this.createDataLoader('Organization', 'organization_id');
-    this.createDataLoader('Category', 'category_id');
-    this.createDataLoaderWithJoin('Member', 'member_likes_training', 'training_id', 'member_id');
+    this.byEntityIdDataLoader('Organization', 'organization_id');
+    this.byEntityIdDataLoader('Category', 'category_id');
+    this.joinDataLoader('Member', 'member_likes_training', 'training_id', 'member_id');
   }
 
   /**
