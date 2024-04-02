@@ -10,7 +10,6 @@ import DataLoader from 'dataloader';
 import Debug from 'debug';
 import accountUtils from './utils/accountUtils.js';
 
-
 const debug = Debug('app:otalentDB:core');
 
 /**
@@ -224,7 +223,6 @@ class CoreDatamapper {
       debug(query);
       const results = await this.client.query(query);
       return !!results.rowCount;
-
     };
 
     this[`associate${entityName}${tableName}`] = executeAssociation.bind(this, 'associate');

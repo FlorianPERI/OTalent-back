@@ -1,6 +1,6 @@
 import bcrypt from 'bcrypt';
+import jwt from 'jsonwebtoken';
 import CoreDatamapper from './CoreDatamapper.js';
-
 
 /**
  * Represents a Member datamapper.
