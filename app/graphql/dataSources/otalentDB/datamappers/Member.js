@@ -1,6 +1,9 @@
 import bcrypt from 'bcrypt';
 import jwt from 'jsonwebtoken';
+import Debug from 'debug';
 import CoreDatamapper from './CoreDatamapper.js';
+
+const debug = Debug('app:otalentDB:member');
 
 /**
  * Represents a Member datamapper.
@@ -47,14 +50,10 @@ class Member extends CoreDatamapper {
    */
   async login(email, password) {
     const query = {
-      text: `
-        SELECT 'member' as type, * FROM member WHERE email = $1
-        UNION
-        SELECT 'organization' as type, * FROM organization WHERE email = $1
-      `,
+      text: 'SELECT \'member\' as type, id, email, password FROM member WHERE email = $1 UNION SELECT \'organization\' as type, id, email, password FROM organization WHERE email = $1',
       values: [email],
     };
-
+    debug(query);
     const response = await this.client.query(query);
     const user = response.rows[0];
 
