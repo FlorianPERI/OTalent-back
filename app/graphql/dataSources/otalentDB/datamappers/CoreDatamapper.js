@@ -10,6 +10,7 @@ import DataLoader from 'dataloader';
 import Debug from 'debug';
 import accountUtils from './utils/accountUtils.js';
 
+
 const debug = Debug('app:otalentDB:core');
 
 /**
@@ -208,24 +209,22 @@ class CoreDatamapper {
   createAssociationMethods(entityName, tableName) {
     const lowerCaseEntityName = entityName.toLowerCase();
     const lowerCaseTableName = tableName.toLowerCase();
-
     const buildQuery = (action, id1, id2) => {
       const queryText = action === 'associate'
         ? `INSERT INTO ${this.tableName}_likes_${lowerCaseTableName} (${this.tableName}_id, ${lowerCaseTableName}_id) VALUES ($1, $2);`
         : `DELETE FROM ${this.tableName}_likes_${lowerCaseTableName} WHERE ${this.tableName}_id = $1 AND ${lowerCaseTableName}_id = $2;`;
-
       return {
         text: queryText,
         values: [id1, id2],
       };
     };
-
     const executeAssociation = async (action, id1, id2) => {
       debug(`${action} ${this.tableName}[${id1}] and ${lowerCaseEntityName}[${id2}]`);
       const query = buildQuery(action, id1, id2);
       debug(query);
       const results = await this.client.query(query);
       return !!results.rowCount;
+
     };
 
     this[`associate${entityName}${tableName}`] = executeAssociation.bind(this, 'associate');
