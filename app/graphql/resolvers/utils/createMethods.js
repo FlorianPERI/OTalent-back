@@ -95,7 +95,7 @@ function createMutationMethods(entityName) {
       // if (!user) {
       //   throw new Error('User not authenticated');
       // }
-      dataSources.otalentDB[lowerCaseEntityName].delete(id)
+      dataSources.otalentDB[lowerCaseEntityName].delete(id, user)
     ,
   };
 }

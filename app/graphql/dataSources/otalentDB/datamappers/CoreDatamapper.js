@@ -122,14 +122,29 @@ class CoreDatamapper {
    * @returns {Promise<boolean>} - Returns a promise that resolves to a boolean indicating
    * if the entity was deleted successfully.
    */
-  async delete(id) {
+  async delete(id, user) {
     debug(`deleting ${this.tableName} [${id}]`);
+    debug(user);
     const query = {
-      text: `DELETE FROM ${this.tableName} WHERE id = $1;`,
+      text: `DELETE FROM ${this.tableName} WHERE id = $1`,
       values: [id],
     };
-    const result = await this.client.query(query);
-    return !!result.rowCount;
+    if (this.tableName === user.type) {
+      if (parseInt(id, 10) === parseInt(user.id, 10)) {
+        debug(query);
+        const result = await this.client.query(query);
+        return !!result.rowCount;
+      }
+      throw new Error('Bad authentication, you are not able to do this..');
+    } else if ((this.tableName === 'training' && user.type === 'organization') || (this.tableName === 'review' && user.type === 'member')) {
+      query.text += ` AND ${user.type}_id = $2`;
+      query.values.push(user.id);
+      debug(query);
+      const result = await this.client.query(query);
+      return !!result.rowCount;
+    } else {
+      throw new Error('Bad authentication, you are not able to do this..');
+    }
   }
 
   /** *************************************************************************************
