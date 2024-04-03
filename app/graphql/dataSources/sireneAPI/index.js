@@ -1,5 +1,6 @@
 import { RESTDataSource } from '@apollo/datasource-rest';
 import Debug from 'debug';
+import 'dotenv/config';
 
 const debug = Debug('app:sireneAPI');
 
@@ -34,12 +35,17 @@ class SireneAPI extends RESTDataSource {
         libelleVoieEtablissement,
         codePostalEtablissement,
         libelleCommuneEtablissement,
+        numeroVoieEtablissement,
+        typeVoieEtablissement,
       } = response.etablissement.adresseEtablissement;
+      const address = numeroVoieEtablissement
+        ? `${numeroVoieEtablissement} ${typeVoieEtablissement} ${libelleVoieEtablissement}`
+        : `${typeVoieEtablissement} ${libelleVoieEtablissement}`;
 
       return {
         siretFound: true,
         denominationUniteLegale,
-        libelleVoieEtablissement,
+        address,
         codePostalEtablissement,
         libelleCommuneEtablissement,
       };
