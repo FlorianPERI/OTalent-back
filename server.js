@@ -12,13 +12,14 @@ import Debug from 'debug';
 import { resolvers as scalarResolvers, typeDefs as scalarTypeDefs } from 'graphql-scalars';
 import dayjs from 'dayjs';
 import { createApollo4QueryValidationPlugin, constraintDirectiveTypeDefs } from 'graphql-constraint-directive/apollo4.js';
+import depthLimit from 'graphql-depth-limit';
 import typeDefs from './app/graphql/schemas/index.js';
 import resolvers from './app/graphql/resolvers/index.js';
 import OtalentDB from './app/graphql/dataSources/otalentDB/datamappers/index.js';
 import SireneAPI from './app/graphql/dataSources/sireneAPI/index.js';
 import auth from './app/services/auth/index.js';
 import 'dotenv/config';
-import depthLimit from 'graphql-depth-limit';
+import BingMapAPI from './app/graphql/dataSources/bingMapAPI/index.js';
 
 /**
  * Setting up the server
@@ -85,6 +86,7 @@ const contextFunction = async (request) => {
     try {
       const verify = auth.verifyToken(token);
       user = await auth.getUser(verify);
+      debug(user);
     } catch (error) {
       throw new Error('Invalid token');
     }
@@ -94,7 +96,8 @@ const contextFunction = async (request) => {
     user,
     dataSources: {
       otalentDB: new OtalentDB({ cache }), // Create a new instance of OtalentDB with cache
-      sireneAPI: new SireneAPI({ cache }), // Create a new instance of OtalentDB with cache
+      sireneAPI: new SireneAPI({ cache }), // Create a new instance of SireneAPI with cache
+      bingMapAPI: new BingMapAPI({ cache }), // Create a new instance of BingMapsAPI with cache
     },
   };
 };

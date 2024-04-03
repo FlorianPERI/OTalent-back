@@ -32,7 +32,7 @@ class CoreDatamapper {
         text: `SELECT * FROM ${this.tableName} WHERE id = ANY($1)`,
         values: [ids],
       };
-      // debug(query);
+      debug(query);
       const result = await this.client.query(query);
       const { rows } = result;
       return ids.map((id) => rows.find((row) => row.id === id));
@@ -99,6 +99,7 @@ class CoreDatamapper {
     debug(`updating ${this.tableName} [${id}]`);
     await accountUtils.checkEmailUniqueness(data, this.tableName);
     const modifiedData = await accountUtils.hashPasswordIfNeeded(data, this.tableName);
+    debug(modifiedData);
     const values = Object.values(modifiedData);
     const columnMatching = {
       postalCode: 'postal_code',
@@ -112,6 +113,7 @@ class CoreDatamapper {
       text: `UPDATE ${this.tableName} SET ${setString}, updated_at = now() WHERE id = $${values.length + 1} RETURNING *;`,
       values: [...values, id],
     };
+    debug(query);
     const result = await this.client.query(query);
     return result.rows[0];
   }
