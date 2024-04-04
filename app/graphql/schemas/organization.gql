@@ -56,4 +56,6 @@ input OrganizationInput {
   image: URL
   "Website URL of the organization"
   urlSite: String @constraint(pattern: "^(https?)://[^/$.?#].[^]*$")
+  "Description of the organization"
+  description: String
 }

@@ -92,8 +92,8 @@
     "prerequisites": "Connaissance en développement logiciel et systèmes informatiques.",
     "program": "Introduction à DevOps, Outils d'automatisation des déploiements, Conteneurisation avec Docker, Orchestration avec Kubernetes, Intégration et déploiement continus (CI/CD)",
     "image": "ungkluj0b0rrruh0cqlf",
-    "organization_id": 2,
-    "category_id": 1
+    "category_id": 1,
+    "organization_id": 2
   },
   {
     "label": "Chimie Organique Avancée",
