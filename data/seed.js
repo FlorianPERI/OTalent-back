@@ -16,8 +16,8 @@ const debug = Debug('app:seed');
 const NB_MEMBERS = 200;
 const NB_ORGANIZATIONS = 50;
 const NB_REVIEWS = 450;
-const NB_TRAININGS_FROM_JSON = trainings.length;
-const NB_TRAININGS = 300;
+// const NB_TRAININGS_FROM_JSON = trainings.length;
+const NB_TRAININGS = trainings.length;
 const NB_CATEGORIES = categories.label.length;
 const NB_MEMBER_LIKES_TRAINING = 400;
 const NB_MEMBER_LIKES_CATEGORY = 250;
@@ -69,7 +69,7 @@ function importReviews(NB_REVIEWS) {
   const inserts = [];
   for (let reviewIndex = 0; reviewIndex < NB_REVIEWS; reviewIndex += 1) {
     let review = createReview();
-    review.trainingId = getRandomInt(1, NB_TRAININGS_FROM_JSON);
+    review.trainingId = getRandomInt(1, NB_TRAININGS);
     review.memberId = getRandomInt(1, NB_MEMBERS);
     review = JSON.stringify(review);
     const query = {
@@ -176,10 +176,10 @@ function importMemberLikesCategory(NB_MEMBER_LIKES_CATEGORY, NB_MEMBERS, NB_CATE
 Promise.resolve()
   .then(() => importMembers(NB_MEMBERS))
   .then(() => importOrganizationsFromJSON())
-  .then(() => importOrganizations(NB_ORGANIZATIONS))
+  // .then(() => importOrganizations(NB_ORGANIZATIONS))
   .then(() => importCategories(NB_CATEGORIES))
   .then(() => importTrainingsFromJSON())
-  .then(() => importTrainings(NB_TRAININGS))
+  // .then(() => importTrainings(NB_TRAININGS))
   .then(() => importReviews(NB_REVIEWS))
   .then(() => importMemberLikesCategory(NB_MEMBER_LIKES_CATEGORY, NB_MEMBERS, NB_CATEGORIES))
   .then(() => importMemberLikesTraining(NB_MEMBER_LIKES_TRAINING, NB_MEMBERS, NB_TRAININGS))
