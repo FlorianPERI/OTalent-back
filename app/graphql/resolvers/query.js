@@ -18,6 +18,7 @@ const query = {
   ...createQueryMethods('training'),
   ...createQueryMethods('category', 'categories'),
   siret: (_, { siret }, { dataSources }) => dataSources.sireneAPI.getSiret(siret),
+  distance: (_, { memberPostalCode, organizationPostalCode }, { dataSources }) => dataSources.bingMapAPI.getDistance(memberPostalCode, organizationPostalCode),
 };
 
 export default query;

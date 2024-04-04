@@ -1,13 +1,14 @@
 "Represents an establishment"
 type Sirene {
-    "SIRET number of the establishment"
-    siretFound: Boolean!
-    "Name of the establishment"
-    denominationUniteLegale: String!
-    "Address of the establishment"
-    libelleVoieEtablissement: String!
-    "Postal code of the establishment"
-    codePostalEtablissement: String!
-    "City where the establishment is located"
-    libelleCommuneEtablissement: String!
+  "SIRET number of the establishment"
+  siretFound: Boolean!
+  "Name of the establishment"
+  denominationUniteLegale: String!
+  "Address of the establishment"
+  libelleVoieEtablissement: String!
+  "Postal code of the establishment"
+  codePostalEtablissement: String!
+  "City where the establishment is located"
+  libelleCommuneEtablissement: String!
+  address: String!
 }

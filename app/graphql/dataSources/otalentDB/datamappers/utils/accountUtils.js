@@ -1,6 +1,6 @@
 import bcrypt from 'bcrypt';
 import client from '../../services/client.js';
-
+import SireneAPI from '../../../sireneAPI/index.js';
 /**
  * Utility functions related to account operations.
  * @namespace accountUtils
@@ -65,6 +65,23 @@ const accountUtils = {
       return updatedData;
     }
     return data.input;
+  },
+
+  /**
+   * Checks the validity of a SIRET number with Sirene API.
+   * @param {string} siret - The SIRET number to be checked.
+   * @param {string} tableName - The name of the table to check against.
+   * @throws {Error} Throws an error if the provided SIRET is invalid.
+   * @returns {Promise} A Promise that resolves if the SIRET is valid, otherwise throws an error.
+   */
+  async checkSiret(siret, tableName) {
+    if (tableName === 'organization') {
+      const sirene = new SireneAPI();
+      const isValid = sirene.getInformationsBySiret(siret);
+      if (!isValid.siretFound) {
+        throw new Error('SIRET is invalid.');
+      }
+    }
   },
 };
 

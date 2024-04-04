@@ -1,5 +1,6 @@
 import { RESTDataSource } from '@apollo/datasource-rest';
 import Debug from 'debug';
+import 'dotenv/config';
 
 const debug = Debug('app:sireneAPI');
 
@@ -24,9 +25,9 @@ class SireneAPI extends RESTDataSource {
    * @param {string} id - The SIRET number to retrieve information for.
    * @returns {Promise<Object>} An object containing the retrieved information.
    */
-  async getSiret(id) {
+  async getInformationsBySiret(siret) {
     try {
-      const response = await this.get(id);
+      const response = await this.get(siret);
       const {
         denominationUniteLegale,
       } = response.etablissement.uniteLegale;
@@ -34,12 +35,17 @@ class SireneAPI extends RESTDataSource {
         libelleVoieEtablissement,
         codePostalEtablissement,
         libelleCommuneEtablissement,
+        numeroVoieEtablissement,
+        typeVoieEtablissement,
       } = response.etablissement.adresseEtablissement;
+      const address = numeroVoieEtablissement
+        ? `${numeroVoieEtablissement} ${typeVoieEtablissement} ${libelleVoieEtablissement}`
+        : `${typeVoieEtablissement} ${libelleVoieEtablissement}`;
 
       return {
         siretFound: true,
         denominationUniteLegale,
-        libelleVoieEtablissement,
+        address,
         codePostalEtablissement,
         libelleCommuneEtablissement,
       };
