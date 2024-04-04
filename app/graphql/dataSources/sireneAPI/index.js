@@ -25,9 +25,9 @@ class SireneAPI extends RESTDataSource {
    * @param {string} id - The SIRET number to retrieve information for.
    * @returns {Promise<Object>} An object containing the retrieved information.
    */
-  async getSiret(id) {
+  async getInformationsBySiret(siret) {
     try {
-      const response = await this.get(id);
+      const response = await this.get(siret);
       const {
         denominationUniteLegale,
       } = response.etablissement.uniteLegale;

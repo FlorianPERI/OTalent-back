@@ -80,6 +80,7 @@ class CoreDatamapper {
     await accountUtils.checkEmailUniqueness(data, this.tableName);
     const modifiedData = await accountUtils.hashPasswordIfNeeded(data, this.tableName);
     debug(modifiedData);
+    await accountUtils.checkSiret(modifiedData.siret, this.tableName);
     const query = {
       text: `SELECT * FROM insert_${this.tableName}($1);`,
       values: [modifiedData],
