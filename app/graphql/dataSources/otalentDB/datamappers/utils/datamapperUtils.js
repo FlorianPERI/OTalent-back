@@ -63,8 +63,17 @@ async function isColumnInTable(columnName, tableName) {
   return !!response.rowCount;
 }
 
-export {
-  isMember, isOrganization, isEmailInAnotherTable, isColumnInTable,
-};
+async function formatDates(data, tableName) {
+  if (tableName === 'training' && 'startingDate' in data && 'endingDate' in data) {
+    console.log('je suis là');
+    data.dates = [[data.startingDate, data.endingDate]];
+    console.log(data.dates);
+    delete data.startingDate;
+    delete data.endingDate;
+    return data;
+  }
+}
 
-isColumnInTable('member_id', 'member');
+export {
+  isMember, isOrganization, isEmailInAnotherTable, isColumnInTable, formatDates,
+};

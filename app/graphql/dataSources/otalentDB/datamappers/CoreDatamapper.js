@@ -9,6 +9,7 @@
 import DataLoader from 'dataloader';
 import Debug from 'debug';
 import accountUtils from './utils/accountUtils.js';
+import { formatDates } from './utils/datamapperUtils.js';
 
 const debug = Debug('app:otalentDB:core');
 
@@ -100,15 +101,24 @@ class CoreDatamapper {
     debug(`updating ${this.tableName} [${id}]`);
     await accountUtils.checkEmailUniqueness(data, this.tableName);
     const modifiedData = await accountUtils.hashPasswordIfNeeded(data, this.tableName);
-    debug(modifiedData);
-    const values = Object.values(modifiedData);
     const columnMatching = {
       postalCode: 'postal_code',
       phoneNumber: 'phone_number',
       urlSite: 'url_site',
+      categoryId: 'category_id',
+      memberId: 'member_id',
+      organizationId: 'organization_id',
+      trainingId: 'training_id',
+      reviewId: 'review_id',
     };
+    debug(modifiedData);
+    formatDates(modifiedData, 'training');
+    debug(modifiedData);
+    const values = Object.values(modifiedData);
     const keys = [];
     Object.keys(modifiedData).forEach((key) => keys.push(columnMatching[key] ?? key));
+    debug(values);
+    debug(keys);
     const setString = keys.map((key, index) => `${key} = $${index + 1}`).join(', ');
     const query = {
       text: `UPDATE ${this.tableName} SET ${setString}, updated_at = now() WHERE id = $${values.length + 1} RETURNING *;`,
