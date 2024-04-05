@@ -44,10 +44,10 @@ class SireneAPI extends RESTDataSource {
 
       return {
         siretFound: true,
-        denominationUniteLegale,
+        name: denominationUniteLegale,
         address,
-        codePostalEtablissement,
-        libelleCommuneEtablissement,
+        postalCode: codePostalEtablissement,
+        city: libelleCommuneEtablissement,
       };
     } catch (error) {
       debug(error);

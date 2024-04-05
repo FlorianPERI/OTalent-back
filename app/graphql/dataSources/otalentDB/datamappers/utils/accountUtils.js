@@ -77,7 +77,7 @@ const accountUtils = {
   async checkSiret(siret, tableName) {
     if (tableName === 'organization') {
       const sirene = new SireneAPI();
-      const isValid = sirene.getInformationsBySiret(siret);
+      const isValid = await sirene.getInformationsBySiret(siret);
       if (!isValid.siretFound) {
         throw new Error('SIRET is invalid.');
       }

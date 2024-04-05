@@ -65,7 +65,7 @@ async function isColumnInTable(columnName, tableName) {
 
 async function formatDates(data, tableName) {
   if (tableName === 'training' && 'startingDate' in data && 'endingDate' in data) {
-    data.dates = [[data.startingDate, data.endingDate]];
+    data.dates = [data.startingDate, data.endingDate];
     delete data.startingDate;
     delete data.endingDate;
     return data;

@@ -1,4 +1,8 @@
+import dayjs from 'dayjs';
+import utc from 'dayjs/plugin/utc.js';
 import { createMethods } from './utils/createMethods.js';
+
+dayjs.extend(utc);
 
 /**
  * Resolvers for the Training type.
@@ -16,8 +20,7 @@ const training = {
   ...createMethods('Reviews', 'findByTrainingId'), // Find the reviews of the training
   averageRating: ({ id }, _, { dataSources }) => dataSources.otalentDB.review
     .findAverageRatingOfTraining(id),
-  dates: (parent) => parent.dates.map((dateStr) => new Date(dateStr))
-  ,
+  dates: (parent) => parent.dates.map((dateStr) => dayjs(dateStr).format('YYYY-MM-DD')),
 };
 
 export default training;
