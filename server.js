@@ -12,7 +12,6 @@ import Debug from 'debug';
 import { resolvers as scalarResolvers, typeDefs as scalarTypeDefs } from 'graphql-scalars';
 import dayjs from 'dayjs';
 import 'dayjs/locale/fr.js';
-import tz from 'dayjs/plugin/timezone.js';
 import 'dayjs/plugin/utc.js';
 import { createApollo4QueryValidationPlugin, constraintDirectiveTypeDefs } from 'graphql-constraint-directive/apollo4.js';
 import depthLimit from 'graphql-depth-limit';
