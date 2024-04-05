@@ -24,10 +24,6 @@ import auth from './app/services/auth/index.js';
 import 'dotenv/config';
 import BingMapAPI from './app/graphql/dataSources/bingMapAPI/index.js';
 
-dayjs.locale('fr');
-dayjs.extend(tz);
-
-dayjs.tz.setDefault('Europe/Paris');
 /**
  * Setting up the server
  */
