@@ -49,4 +49,6 @@ type Mutation {
   login(email: String!, password: String!): AuthPayload
   "Send a verification mail if user forgot his password"
   requestPasswordReset(input: ForgotPasswordInput!): String
+  "Reset the password"
+  resetPassword(updatedPassword: String!): Boolean
 }
