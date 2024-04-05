@@ -83,7 +83,7 @@ const contextFunction = async (request) => {
   // let loggedIn = false;
   let user = null;
   if (request.headers.authorization) {
-    // eslint-disable-next-line prefer-destructuring
+  // eslint-disable-next-line prefer-destructuring
     const token = request.headers.authorization.split(' ')[1];
     try {
       const verify = auth.verifyToken(token);

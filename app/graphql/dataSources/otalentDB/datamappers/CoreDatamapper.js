@@ -111,14 +111,10 @@ class CoreDatamapper {
       trainingId: 'training_id',
       reviewId: 'review_id',
     };
-    debug(modifiedData);
     formatDates(modifiedData, 'training');
-    debug(modifiedData);
     const values = Object.values(modifiedData);
     const keys = [];
     Object.keys(modifiedData).forEach((key) => keys.push(columnMatching[key] ?? key));
-    debug(values);
-    debug(keys);
     const setString = keys.map((key, index) => `${key} = $${index + 1}`).join(', ');
     const query = {
       text: `UPDATE ${this.tableName} SET ${setString}, updated_at = now() WHERE id = $${values.length + 1} RETURNING *;`,
