@@ -2,6 +2,7 @@ import bcrypt from 'bcrypt';
 import jwt from 'jsonwebtoken';
 import Debug from 'debug';
 import CoreDatamapper from './CoreDatamapper.js';
+import mailService from '../../../../services/mail/index.js';
 
 const debug = Debug('app:otalentDB:member');
 
@@ -64,6 +65,22 @@ class Member extends CoreDatamapper {
 
     const token = jwt.sign({ member: user.type === 'member', id: user.id }, process.env.JWT_SECRET);
     return { token };
+  }
+
+  async forgotPassword(data) {
+    const { email } = data;
+    const query = {
+      text: 'SELECT * FROM member WHERE email = $1',
+      values: [email],
+    };
+    const response = await this.client.query(query);
+    const user = response.rows[0];
+    if (!user) {
+      throw new Error("Sorry, we couldn't find any user with this email address.");
+    }
+    const resetToken = jwt.sign({ member: true, id: user.id }, process.env.JWT_SECRET);
+    const emailSent = await mailService.sendPasswordReset(email, resetToken);
+    return emailSent;
   }
 }
 

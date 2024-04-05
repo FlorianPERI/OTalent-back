@@ -9,7 +9,7 @@ const debug = Debug('app:sireneAPI');
  * @extends RESTDataSource
  */
 class SireneAPI extends RESTDataSource {
-  baseURL = 'https://api.insee.fr/entreprises/sirene/V3/siret/';
+  baseURL = 'https://api.insee.fr/entreprises/sirene/V3.11/siret/';
 
   constructor(options) {
     super(options);

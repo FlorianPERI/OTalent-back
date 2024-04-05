@@ -76,7 +76,7 @@ CREATE TABLE organization
   address      TEXT         NOT NULL,
   city         TEXT         NOT NULL,
   postal_code  pcode        NOT NULL,
-  siret        siret        NOT NULL,
+  siret        siret        NOT NULL UNIQUE,
   description  TEXT,
   image        TEXT,
   url_site     url,
