@@ -9,7 +9,8 @@
     "dev": "set DEBUG=app:* & nodemon server.js",
     "dev:bun": "DEBUG=app:* bun server.js",
     "db:seed": "DEBUG=app:* node data/seed.js",
-    "utils": "./scripts/utils.sh"
+    "utils": "./scripts/utils.sh",
+    "server": "set DEBUG=app:server* & nodemon server.js"
   },
   "repository": {
     "type": "git",

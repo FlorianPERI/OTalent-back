@@ -8,6 +8,8 @@ type Category {
   members: [Member]
   "Trainings belonging to this category"
   trainings: [Training]
+  "Creation time of the category"
+  created_at: Date!
 }
 
 "Input for creating or updating a category"

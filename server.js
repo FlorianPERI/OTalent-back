@@ -80,7 +80,6 @@ const apollo = new ApolloServer({
  */
 const contextFunction = async (request) => {
   const { cache } = apollo; // Get the cache from ApolloServer
-  // let loggedIn = false;
   let user = null;
   if (request.headers.authorization) {
   // eslint-disable-next-line prefer-destructuring
@@ -94,7 +93,6 @@ const contextFunction = async (request) => {
     }
   }
   return {
-    // loggedIn: !!user,
     user,
     dataSources: {
       otalentDB: new OtalentDB({ cache }), // Create a new instance of OtalentDB with cache

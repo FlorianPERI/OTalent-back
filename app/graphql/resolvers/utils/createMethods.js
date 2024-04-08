@@ -81,21 +81,27 @@ function createMutationMethods(entityName) {
   // example : addCategory: (_, data, { dataSources }) =>
   // dataSources.otalentDB.category.insert(data),
   return {
-    [`add${entityName}`]: (_, data, { user, dataSources }) =>
-      // if (!user && !['Member', 'Organization'].includes(entityName)) {
-      //   throw new Error('User not authenticated');
-      // }
-      dataSources.otalentDB[lowerCaseEntityName].insert(data),
-    [`modify${entityName}`]: (_, data, { user, dataSources }) =>
-      // if (!user && !['Member', 'Organization'].includes(entityName)) {
-      //   throw new Error('User not authenticated');
-      // }
-      dataSources.otalentDB[lowerCaseEntityName].update(data.id, data),
-    [`delete${entityName}`]: (_, { id }, { user, dataSources }) =>
-      // if (!user) {
-      //   throw new Error('User not authenticated');
-      // }
-      dataSources.otalentDB[lowerCaseEntityName].delete(id, user)
+    [`add${entityName}`]: (_, data, { user, dataSources }) => {
+      console.log(user);
+      if (!user && !['Member', 'Organization'].includes(entityName)) {
+        throw new Error('User not authenticated');
+      }
+      return dataSources.otalentDB[lowerCaseEntityName].insert(data);
+    },
+    [`modify${entityName}`]: (_, data, { user, dataSources }) => {
+      console.log(user);
+      if (!user && !['Member', 'Organization'].includes(entityName)) {
+        throw new Error('User not authenticated');
+      }
+      dataSources.otalentDB[lowerCaseEntityName].update(data.id, data);
+    },
+    [`delete${entityName}`]: (_, { id }, { user, dataSources }) => {
+      console.log(user);
+      if (!user) {
+        throw new Error('User not authenticated');
+      }
+      return dataSources.otalentDB[lowerCaseEntityName].delete(id, user);
+    }
     ,
   };
 }
@@ -117,8 +123,8 @@ function createAssociationMethods(firstEntity, secondEntity) {
   // dataSources.otalentDB.category.associateCategoryMember(categoryId, memberId),
   //
   return {
-    [`associate${firstEntity}${secondEntity}`]: (_, { [`${lowerFirstEntity}Id`]: firstEntityId, [`${lowerSecondEntity}Id`]: secondEntityId }, { dataSources }) => dataSources.otalentDB[lowerFirstEntity][`associate${firstEntity}${secondEntity}`](firstEntityId, secondEntityId),
-    [`dissociate${firstEntity}${secondEntity}`]: (_, { [`${lowerFirstEntity}Id`]: firstEntityId, [`${lowerSecondEntity}Id`]: secondEntityId }, { dataSources }) => dataSources.otalentDB[lowerFirstEntity][`dissociate${firstEntity}${secondEntity}`](firstEntityId, secondEntityId),
+    [`associate${firstEntity}${secondEntity}`]: (_, { [`${lowerFirstEntity}Id`]: firstEntityId, [`${lowerSecondEntity}Id`]: secondEntityId }, { dataSources, user }) => dataSources.otalentDB[lowerFirstEntity][`associate${firstEntity}${secondEntity}`](firstEntityId, secondEntityId, user),
+    [`dissociate${firstEntity}${secondEntity}`]: (_, { [`${lowerFirstEntity}Id`]: firstEntityId, [`${lowerSecondEntity}Id`]: secondEntityId }, { dataSources, user }) => dataSources.otalentDB[lowerFirstEntity][`dissociate${firstEntity}${secondEntity}`](firstEntityId, secondEntityId, user),
   };
 }
 

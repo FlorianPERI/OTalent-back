@@ -30,6 +30,8 @@ type Training {
   reviews: [Review]
   "Average rating of the training"
   averageRating: NonNegativeFloat
+  "Creation time of the training"
+  created_at: Date!
 }
 
 "Input for creating or updating a training"
