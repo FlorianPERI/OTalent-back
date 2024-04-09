@@ -63,6 +63,13 @@ async function isColumnInTable(columnName, tableName) {
   return !!response.rowCount;
 }
 
+/**
+ * Formats dates in the provided data object based on the specified table name.
+ * @param {Object} data - The data object containing date properties to be formatted.
+ * @param {string} tableName - The name of the table associated with the data
+ * @returns {Object|null} The formatted data object with dates transformed into an array,
+ * or null if the table name does not match 'training' or date properties are missing.
+ */
 async function formatDates(data, tableName) {
   if (tableName === 'training' && 'startingDate' in data && 'endingDate' in data) {
     data.dates = [data.startingDate, data.endingDate];
@@ -72,6 +79,13 @@ async function formatDates(data, tableName) {
   }
 }
 
+/**
+ * Retrieves the name of the region based on the provided postal code.
+ * This function searches through a predefined list of regions and their associated departments.
+ * @param {string} postalCode - The postal code used to determine the region.
+ * @returns {string|null} The name of the region corresponding to the provided postal code,
+ * or null if no matching region is found for the given postal code.
+ */
 function getRegion(postalCode) {
   const departmentCode = postalCode.substring(0, 2);
   let regionName = null;
