@@ -82,21 +82,18 @@ function createMutationMethods(entityName) {
   // dataSources.otalentDB.category.insert(data),
   return {
     [`add${entityName}`]: (_, data, { user, dataSources }) => {
-      console.log(user);
       if (!user && !['Member', 'Organization'].includes(entityName)) {
         throw new Error('User not authenticated');
       }
       return dataSources.otalentDB[lowerCaseEntityName].insert(data);
     },
     [`modify${entityName}`]: (_, data, { user, dataSources }) => {
-      console.log(user);
       if (!user && !['Member', 'Organization'].includes(entityName)) {
         throw new Error('User not authenticated');
       }
       dataSources.otalentDB[lowerCaseEntityName].update(data.id, data);
     },
     [`delete${entityName}`]: (_, { id }, { user, dataSources }) => {
-      console.log(user);
       if (!user) {
         throw new Error('User not authenticated');
       }

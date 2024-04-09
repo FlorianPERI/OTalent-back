@@ -3,6 +3,7 @@ import Debug from 'debug';
 import CoreDatamapper from './CoreDatamapper.js';
 import mailService from '../../../../services/mail/index.js';
 import accountUtils from './utils/accountUtils.js';
+import { getRegion } from './utils/datamapperUtils.js';
 
 const debug = Debug('app:otalentDB:member');
 
@@ -106,6 +107,11 @@ class Member extends CoreDatamapper {
     };
     const response = await this.client.query(query);
     return !!response.rowCount;
+  }
+
+  findRegion(postalCode) {
+    const region = getRegion(postalCode);
+    return region;
   }
 }
 

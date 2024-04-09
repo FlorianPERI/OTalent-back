@@ -30,7 +30,6 @@ const mutation = {
     return dataSources.otalentDB.member.forgotPassword(input);
   },
   resetPassword(_, { updatedPassword }, { dataSources, user }) {
-    console.log(user);
     return dataSources.otalentDB.member.resetPassword(updatedPassword, user);
   },
 

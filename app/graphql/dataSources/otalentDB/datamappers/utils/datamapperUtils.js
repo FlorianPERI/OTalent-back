@@ -1,5 +1,5 @@
 import client from '../../services/client.js';
-
+import regions from '../../../../../../data/regions.json' assert {type: "json"};
 /**
  * Checks if the given email belongs to a member.
  * @param {string} email - The email to check.
@@ -72,6 +72,19 @@ async function formatDates(data, tableName) {
   }
 }
 
+function getRegion(postalCode) {
+  const departmentCode = postalCode.substring(0, 2);
+  let regionName = null;
+  regions.forEach((region) => {
+    const departement = region.departements.find((dep) => dep.code === departmentCode)
+    if (departement) {
+      regionName = region.name;
+      return;
+    }
+  });
+  return regionName;
+}
+
 export {
-  isMember, isOrganization, isEmailInAnotherTable, isColumnInTable, formatDates,
+  isMember, isOrganization, isEmailInAnotherTable, isColumnInTable, formatDates, getRegion
 };
