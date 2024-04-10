@@ -49,6 +49,11 @@ class Training extends CoreDatamapper {
     return result || [];
   }
 
+  /**
+   * Finds trainings based on the specified region name provided.
+   * @param {string} region - The name of the region to search for trainings.
+   * @returns {Promise<Array>} A promise that resolves to an array of trainings.
+   */
   async findByRegion(region) {
     const departmentsCode = getDepartementsCode(region);
     const placeholders = departmentsCode.map((code, index) => `$${index + 1}`).join(',');
