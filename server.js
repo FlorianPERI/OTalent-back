@@ -19,6 +19,7 @@ import typeDefs from './app/graphql/schemas/index.js';
 import resolvers from './app/graphql/resolvers/index.js';
 import OtalentDB from './app/graphql/dataSources/otalentDB/datamappers/index.js';
 import SireneAPI from './app/graphql/dataSources/sireneAPI/index.js';
+import GeoApiGouv from './app/graphql/dataSources/GeoApiGouv/index.js';
 import auth from './app/services/auth/index.js';
 import 'dotenv/config';
 import BingMapAPI from './app/graphql/dataSources/bingMapAPI/index.js';
@@ -80,10 +81,9 @@ const apollo = new ApolloServer({
  */
 const contextFunction = async (request) => {
   const { cache } = apollo; // Get the cache from ApolloServer
-  // let loggedIn = false;
   let user = null;
   if (request.headers.authorization) {
-    // eslint-disable-next-line prefer-destructuring
+  // eslint-disable-next-line prefer-destructuring
     const token = request.headers.authorization.split(' ')[1];
     try {
       const verify = auth.verifyToken(token);
@@ -94,12 +94,12 @@ const contextFunction = async (request) => {
     }
   }
   return {
-    // loggedIn: !!user,
     user,
     dataSources: {
       otalentDB: new OtalentDB({ cache }), // Create a new instance of OtalentDB with cache
       sireneAPI: new SireneAPI({ cache }), // Create a new instance of SireneAPI with cache
       bingMapAPI: new BingMapAPI({ cache }), // Create a new instance of BingMapsAPI with cache
+      geoApiGouv: new GeoApiGouv({ cache }), // Create a new instance of GeoAPIGouv with cache
     },
   };
 };

@@ -24,6 +24,10 @@ type Member {
   reviews: [Review]
   "Nearest organizations"
   nearestOrganizations: [Organization]
+  "Creation time of the member"
+  created_at: Date!
+  "Region of the member"
+  region: String!
 }
 
 "Input for creating or updating a member"

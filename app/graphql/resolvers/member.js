@@ -12,7 +12,10 @@ const member = {
   ...createMethods('Categories', 'findByMemberId'), // Find the categories of the member
   ...createMethods('Reviews', 'findByMemberId'), // Find the reviews of the member
   nearestOrganizations({ postal_code: postalCode }, __, { dataSources }) {
-    return dataSources.otalentDB.organization.findOrganizationsByMemberPostalCode(postalCode);
+    return dataSources.otalentDB.organization.findOrganizationsByRegion(postalCode);
+  },
+  region({ postal_code: postalCode }, _, { dataSources }) {
+    return dataSources.otalentDB.member.findRegion(postalCode);
   },
 };
 

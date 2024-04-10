@@ -26,6 +26,10 @@ type Organization {
   url_site: URL
   "Trainings offered by the organization"
   trainings: [Training]
+  "Creation time of the organization"
+  created_at: Date!
+  "Region of the organization"
+  region: String!
 }
 
 "Input for creating or updating an organization"

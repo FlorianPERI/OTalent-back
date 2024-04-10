@@ -1,6 +1,8 @@
 import bcrypt from 'bcrypt';
+import jwt from 'jsonwebtoken';
 import client from '../../services/client.js';
 import SireneAPI from '../../../sireneAPI/index.js';
+import 'dotenv/config';
 /**
  * Utility functions related to account operations.
  * @namespace accountUtils
@@ -82,6 +84,21 @@ const accountUtils = {
         throw new Error('SIRET is invalid.');
       }
     }
+  },
+
+  /**
+ * Generates a JSON Web Token (JWT) with the provided entity and user ID.
+ * @param {string} entity - The entity type (member or organization).
+ * @param {number} userId - Tue user ID.
+ * @returns {string} The generated JSON Web Token.
+ */
+  generateToken(entity, userId) {
+    const token = jwt.sign(
+      { member: entity === 'member', id: userId },
+      process.env.JWT_SECRET,
+      { expiresIn: process.env.JWT_DURATION },
+    );
+    return token;
   },
 };
 

@@ -1,8 +1,9 @@
 import bcrypt from 'bcrypt';
-import jwt from 'jsonwebtoken';
 import Debug from 'debug';
 import CoreDatamapper from './CoreDatamapper.js';
 import mailService from '../../../../services/mail/index.js';
+import accountUtils from './utils/accountUtils.js';
+import { getRegion } from './utils/datamapperUtils.js';
 
 const debug = Debug('app:otalentDB:member');
 
@@ -63,14 +64,20 @@ class Member extends CoreDatamapper {
       throw new Error('Invalid credentials');
     }
 
-    const token = jwt.sign({ member: user.type === 'member', id: user.id }, process.env.JWT_SECRET);
+    const token = accountUtils.generateToken(user.type, user.id);
     return { token };
   }
 
+  /**
+   * Sends a password reset email to the user associated with the provided email address.
+   * @param {Object} data - The data object containing the email address.
+   * @returns {Promise<boolean>} A promise that resolves to true if the email was sent.
+   * @throws {Error} Throws an error if no user is found with the provided email address.
+   */
   async forgotPassword(data) {
     const { email } = data;
     const query = {
-      text: 'SELECT * FROM member WHERE email = $1',
+      text: 'SELECT \'member\' as type, id, email, password FROM member WHERE email = $1 UNION SELECT \'organization\' as type, id, email, password FROM organization WHERE email = $1',
       values: [email],
     };
     const response = await this.client.query(query);
@@ -78,9 +85,33 @@ class Member extends CoreDatamapper {
     if (!user) {
       throw new Error("Sorry, we couldn't find any user with this email address.");
     }
-    const resetToken = jwt.sign({ member: true, id: user.id }, process.env.JWT_SECRET);
+    const resetToken = accountUtils.generateToken(user.type, user.id);
     const emailSent = await mailService.sendPasswordReset(email, resetToken);
     return emailSent;
+  }
+
+  /**
+   * Resets the password for a user and updates it in the database.
+   * @param {string} updatedPassword - The new password to be updated.
+   * @param {Object} user - The user object provided by the context.
+   * @returns {Promise<boolean>} A promise that resolves to true if the password was updated.
+   */
+  async resetPassword(updatedPassword, user) {
+    const hashedUpdatedPassword = await bcrypt.hash(
+      updatedPassword,
+      parseInt(process.env.PASSWORD_SALT, 10) || 10,
+    );
+    const query = {
+      text: `UPDATE ${user.type} SET password = $1, updated_at = now() WHERE id = $2;`,
+      values: [hashedUpdatedPassword, user.id],
+    };
+    const response = await this.client.query(query);
+    return !!response.rowCount;
+  }
+
+  findRegion(postalCode) {
+    const region = getRegion(postalCode);
+    return region;
   }
 }
 
