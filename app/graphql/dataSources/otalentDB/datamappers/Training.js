@@ -1,4 +1,5 @@
 import CoreDatamapper from './CoreDatamapper.js';
+import { getDepartementsCode } from './utils/datamapperUtils.js';
 
 /**
  * Represents a Training data mapper.
@@ -46,6 +47,25 @@ class Training extends CoreDatamapper {
   async findByCategoryId(id) {
     const result = await this.findByCategoryIdLoader.load(id);
     return result || [];
+  }
+
+  /**
+   * Finds trainings based on the specified region name provided.
+   * @param {string} region - The name of the region to search for trainings.
+   * @returns {Promise<Array>} A promise that resolves to an array of trainings.
+   */
+  async findByRegion(region) {
+    const departmentsCode = getDepartementsCode(region);
+    const placeholders = departmentsCode.map((code, index) => `$${index + 1}`).join(',');
+    const values = departmentsCode.map((code) => `${code}%`);
+    const query = {
+      text: `SELECT * FROM training WHERE organization_id IN (
+                SELECT id FROM organization WHERE postal_code LIKE ANY(ARRAY[${placeholders}])
+            );`,
+      values,
+    };
+    const response = await this.client.query(query);
+    return response.rows;
   }
 }
 

@@ -19,6 +19,7 @@ const query = {
   ...createQueryMethods('category', 'categories'),
   siret: (_, { siret }, { dataSources }) => dataSources.sireneAPI.getInformationsBySiret(siret),
   distance: (_, { memberPostalCode, organizationPostalCode }, { dataSources }) => dataSources.bingMapAPI.getDistance(memberPostalCode, organizationPostalCode),
+  trainingsByRegion: (_, { regionName }, { dataSources }) => dataSources.otalentDB.training.findByRegion(regionName),
 };
 
 export default query;

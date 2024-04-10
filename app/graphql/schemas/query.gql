@@ -32,6 +32,9 @@ type Query {
     memberPostalCode: PostalCode!
     organizationPostalCode: PostalCode!
   ): Float
+
+  "Retrieve trainings by orgnization region name"
+  trainingsByRegion(regionName: String!): [Training]!
 }
 
 enum CacheControlScope {
