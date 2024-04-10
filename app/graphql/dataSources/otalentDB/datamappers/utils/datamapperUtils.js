@@ -99,6 +99,18 @@ function getRegion(postalCode) {
   return regionName;
 }
 
+/**
+ * Retrieves an array of department  codes based on the specified region name.
+ * @param {string} regionName - The name of the region to retrieve department codes for.
+ * @returns {string[]} - An array of department codes belonging to the specified region.
+ */
+function getDepartementsCode(regionName) {
+  let departmentsCode = [];
+  const region = regions.find((reg) => reg.name === regionName);
+  region.departements.forEach((dep) => departmentsCode.push(dep.code));
+  return departmentsCode;
+}
+
 export {
-  isMember, isOrganization, isEmailInAnotherTable, isColumnInTable, formatDates, getRegion
+  isMember, isOrganization, isEmailInAnotherTable, isColumnInTable, formatDates, getRegion, getDepartementsCode
 };
