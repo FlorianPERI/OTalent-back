@@ -55,7 +55,7 @@ input TrainingInput {
   "Program or curriculum of the training"
   program: String
   "Image URL representing the training"
-  image: URL
+  image: String
   "ID of the organization offering the training"
   organizationId: ID
   "ID of the category to which the training belongs"
