@@ -8,7 +8,7 @@
     "test": "bun test --coverage",
     "dev": "set DEBUG=app:* & nodemon server.js",
     "dev:bun": "DEBUG=app:* bun server.js",
-    "db:seed": "DEBUG=app:* node data/seed.js",
+    "db:seed": "set DEBUG=app:* & node data/seed.js",
     "utils": "./scripts/utils.sh",
     "server": "set DEBUG=app:server* & nodemon server.js"
   },

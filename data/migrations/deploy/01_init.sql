@@ -174,7 +174,7 @@ CREATE FUNCTION insert_member(json) RETURNS member AS $$
     $1->>'email',
     $1->>'postalCode',
     $1->>'city',
-    $1->>'urlAvatar'
+    $1->>'avatar'
   ) RETURNING *;
 $$ LANGUAGE SQL STRICT;
 
