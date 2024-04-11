@@ -1,63 +1,63 @@
 "Represents a training"
 type Training {
-  "ID of the training"
-  id: ID!
-  "Label or name of the training"
-  label: String!
-  "Description of the training"
-  description: String!
-  "Price of the training"
-  price: NonNegativeFloat!
-  "Duration of the training in hours"
-  duration: PositiveInt!
-  "List of dates for the training"
-  dates: [Date!]!
-  "Excerpt or summary of the training"
-  excerpt: String!
-  "Prerequisites required for the training"
-  prerequisites: String
-  "Program or curriculum of the training"
-  program: String
-  "Image URL representing the training"
-  image: String
-  "Organization offering the training"
-  organization: Organization!
-  "Category to which the training belongs"
-  category: Category!
-  "Members enrolled in the training"
-  members: [Member]
-  "Reviews associated with the training"
-  reviews: [Review]
-  "Average rating of the training"
-  averageRating: NonNegativeFloat
-  "Creation time of the training"
-  created_at: Date!
+    "ID of the training"
+    id: ID!
+    "Label or name of the training"
+    label: String!
+    "Description of the training"
+    description: String!
+    "Price of the training"
+    price: NonNegativeFloat!
+    "Duration of the training in hours"
+    duration: PositiveInt!
+    "List of dates for the training"
+    dates: [Date!]!
+    "Excerpt or summary of the training"
+    excerpt: String!
+    "Prerequisites required for the training"
+    prerequisites: String
+    "Program or curriculum of the training"
+    program: String
+    "Image URL representing the training"
+    image: String
+    "Organization offering the training"
+    organization: Organization!
+    "Category to which the training belongs"
+    category: Category!
+    "Members enrolled in the training"
+    members: [Member]
+    "Reviews associated with the training"
+    reviews: [Review]
+    "Average rating of the training"
+    averageRating: NonNegativeFloat
+    "Creation time of the training"
+    created_at: Date!
 }
 
 "Input for creating or updating a training"
 input TrainingInput {
-  "Label or name of the training"
-  label: String @constraint(maxLength: 250)
-  "Description of the training"
-  description: String
-  "Price of the training"
-  price: NonNegativeFloat
-  "Duration of the training in hours"
-  duration: PositiveInt
-  "Starting date for the training"
-  startingDate: Date
-  "Ending date for the training"
-  endingDate: Date
-  "Excerpt or summary of the training"
-  excerpt: String @constraint(maxLength: 250)
-  "Prerequisites required for the training"
-  prerequisites: String
-  "Program or curriculum of the training"
-  program: String
-  "Image URL representing the training"
-  image: URL
-  "ID of the organization offering the training"
-  organizationId: ID
-  "ID of the category to which the training belongs"
-  categoryId: ID
+    "Label or name of the training"
+    label: String @constraint(maxLength: 250)
+    "Description of the training"
+    description: String
+    "Price of the training"
+    price: NonNegativeFloat
+    "Duration of the training in hours"
+    duration: PositiveInt
+    "Starting date for the training"
+    startingDate: Date
+    "Ending date for the training"
+    endingDate: Date
+    "Excerpt or summary of the training"
+    excerpt: String @constraint(maxLength: 250)
+    "Prerequisites required for the training"
+    prerequisites: String
+    "Program or curriculum of the training"
+    program: String
+    "Image URL representing the training"
+    image: String
+    "ID of the organization offering the training"
+    organizationId: ID
+    "ID of the category to which the training belongs"
+    categoryId: ID
 }

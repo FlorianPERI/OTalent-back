@@ -6,11 +6,11 @@
   "type": "module",
   "scripts": {
     "test": "bun test --coverage",
-    "dev": "set DEBUG=app:* & nodemon server.js",
+    "dev": "DEBUG=app:* nodemon server.js",
     "dev:bun": "DEBUG=app:* bun server.js",
-    "db:seed": "set DEBUG=app:* & node data/seed.js",
+    "db:seed": "DEBUG=app:*,data:* node data/seed.js",
     "utils": "./scripts/utils.sh",
-    "server": "set DEBUG=app:server* & nodemon server.js"
+    "server": "DEBUG=app:server* nodemon server.js"
   },
   "repository": {
     "type": "git",

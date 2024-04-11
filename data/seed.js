@@ -8,12 +8,14 @@ import 'dotenv/config';
 import client from '../app/graphql/dataSources/otalentDB/services/client.js';
 import { importTrainingsFromJSON } from './importTrainings.js';
 import { importOrganizationsFromJSON } from './importOrganizations.js';
+import { importMembersFromJSON } from './importMembers.js';
 import trainings from './trainings.json' assert {type: "json"};
+import { importReviewsFromJSON } from './importReview.js';
 
 const debug = Debug('app:seed');
 
 /*****  NUMBERS OF DATA TO IMPORT *****/
-const NB_MEMBERS = 200;
+const NB_MEMBERS = 110;
 const NB_ORGANIZATIONS = 50;
 const NB_REVIEWS = 450;
 // const NB_TRAININGS_FROM_JSON = trainings.length;
@@ -174,13 +176,13 @@ function importMemberLikesCategory(NB_MEMBER_LIKES_CATEGORY, NB_MEMBERS, NB_CATE
 }
 
 Promise.resolve()
-  .then(() => importMembers(NB_MEMBERS))
+  .then(() => importMembersFromJSON())
   .then(() => importOrganizationsFromJSON())
   // .then(() => importOrganizations(NB_ORGANIZATIONS))
   .then(() => importCategories(NB_CATEGORIES))
   .then(() => importTrainingsFromJSON())
   // .then(() => importTrainings(NB_TRAININGS))
-  .then(() => importReviews(NB_REVIEWS))
+  .then(() => importReviewsFromJSON(NB_MEMBERS, NB_TRAININGS))
   .then(() => importMemberLikesCategory(NB_MEMBER_LIKES_CATEGORY, NB_MEMBERS, NB_CATEGORIES))
   .then(() => importMemberLikesTraining(NB_MEMBER_LIKES_TRAINING, NB_MEMBERS, NB_TRAININGS))
   .then(() => debug('all data imported'))
