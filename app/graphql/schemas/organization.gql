@@ -57,7 +57,7 @@ input OrganizationInput {
   "SIRET number of the organization"
   siret: String @constraint(pattern: "^\\d{14}$")
   "Image URL of the organization"
-  image: URL
+  image: String
   "Website URL of the organization"
   urlSite: String @constraint(pattern: "^(https?)://[^/$.?#].[^]*$")
   "Description of the organization"
