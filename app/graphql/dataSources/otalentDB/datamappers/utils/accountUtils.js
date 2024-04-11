@@ -1,6 +1,8 @@
 import bcrypt from 'bcrypt';
+import jwt from 'jsonwebtoken';
 import client from '../../services/client.js';
-
+import SireneAPI from '../../../sireneAPI/index.js';
+import 'dotenv/config';
 /**
  * Utility functions related to account operations.
  * @namespace accountUtils
@@ -65,6 +67,38 @@ const accountUtils = {
       return updatedData;
     }
     return data.input;
+  },
+
+  /**
+   * Checks the validity of a SIRET number with Sirene API.
+   * @param {string} siret - The SIRET number to be checked.
+   * @param {string} tableName - The name of the table to check against.
+   * @throws {Error} Throws an error if the provided SIRET is invalid.
+   * @returns {Promise} A Promise that resolves if the SIRET is valid, otherwise throws an error.
+   */
+  async checkSiret(siret, tableName) {
+    if (tableName === 'organization') {
+      const sirene = new SireneAPI();
+      const isValid = await sirene.getInformationsBySiret(siret);
+      if (!isValid.siretFound) {
+        throw new Error('SIRET is invalid.');
+      }
+    }
+  },
+
+  /**
+ * Generates a JSON Web Token (JWT) with the provided entity and user ID.
+ * @param {string} entity - The entity type (member or organization).
+ * @param {number} userId - Tue user ID.
+ * @returns {string} The generated JSON Web Token.
+ */
+  generateToken(entity, userId) {
+    const token = jwt.sign(
+      { member: entity === 'member', id: userId },
+      process.env.JWT_SECRET,
+      { expiresIn: process.env.JWT_DURATION },
+    );
+    return token;
   },
 };
 

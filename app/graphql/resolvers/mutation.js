@@ -26,6 +26,12 @@ const mutation = {
   login(_, { email, password }, { dataSources }) {
     return dataSources.otalentDB.member.login(email, password);
   },
+  requestPasswordReset(_, { input }, { dataSources }) {
+    return dataSources.otalentDB.member.forgotPassword(input);
+  },
+  resetPassword(_, { updatedPassword }, { dataSources, user }) {
+    return dataSources.otalentDB.member.resetPassword(updatedPassword, user);
+  },
 
 };
 export default mutation;

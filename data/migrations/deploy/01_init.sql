@@ -76,7 +76,7 @@ CREATE TABLE organization
   address      TEXT         NOT NULL,
   city         TEXT         NOT NULL,
   postal_code  pcode        NOT NULL,
-  siret        siret        NOT NULL,
+  siret        siret        NOT NULL UNIQUE,
   description  TEXT,
   image        TEXT,
   url_site     url,
@@ -174,7 +174,7 @@ CREATE FUNCTION insert_member(json) RETURNS member AS $$
     $1->>'email',
     $1->>'postalCode',
     $1->>'city',
-    $1->>'urlAvatar'
+    $1->>'avatar'
   ) RETURNING *;
 $$ LANGUAGE SQL STRICT;
 

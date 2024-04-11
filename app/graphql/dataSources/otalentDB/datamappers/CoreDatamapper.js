@@ -9,6 +9,7 @@
 import DataLoader from 'dataloader';
 import Debug from 'debug';
 import accountUtils from './utils/accountUtils.js';
+import { formatDates } from './utils/datamapperUtils.js';
 
 const debug = Debug('app:otalentDB:core');
 
@@ -32,7 +33,7 @@ class CoreDatamapper {
         text: `SELECT * FROM ${this.tableName} WHERE id = ANY($1)`,
         values: [ids],
       };
-      // debug(query);
+      debug(query);
       const result = await this.client.query(query);
       const { rows } = result;
       return ids.map((id) => rows.find((row) => row.id === id));
@@ -79,7 +80,8 @@ class CoreDatamapper {
 
     await accountUtils.checkEmailUniqueness(data, this.tableName);
     const modifiedData = await accountUtils.hashPasswordIfNeeded(data, this.tableName);
-
+    debug(modifiedData);
+    await accountUtils.checkSiret(modifiedData.siret, this.tableName);
     const query = {
       text: `SELECT * FROM insert_${this.tableName}($1);`,
       values: [modifiedData],
@@ -99,12 +101,18 @@ class CoreDatamapper {
     debug(`updating ${this.tableName} [${id}]`);
     await accountUtils.checkEmailUniqueness(data, this.tableName);
     const modifiedData = await accountUtils.hashPasswordIfNeeded(data, this.tableName);
-    const values = Object.values(modifiedData);
     const columnMatching = {
       postalCode: 'postal_code',
       phoneNumber: 'phone_number',
       urlSite: 'url_site',
+      categoryId: 'category_id',
+      memberId: 'member_id',
+      organizationId: 'organization_id',
+      trainingId: 'training_id',
+      reviewId: 'review_id',
     };
+    formatDates(modifiedData, 'training');
+    const values = Object.values(modifiedData);
     const keys = [];
     Object.keys(modifiedData).forEach((key) => keys.push(columnMatching[key] ?? key));
     const setString = keys.map((key, index) => `${key} = $${index + 1}`).join(', ');
@@ -112,6 +120,7 @@ class CoreDatamapper {
       text: `UPDATE ${this.tableName} SET ${setString}, updated_at = now() WHERE id = $${values.length + 1} RETURNING *;`,
       values: [...values, id],
     };
+    debug(query);
     const result = await this.client.query(query);
     return result.rows[0];
   }
@@ -122,14 +131,29 @@ class CoreDatamapper {
    * @returns {Promise<boolean>} - Returns a promise that resolves to a boolean indicating
    * if the entity was deleted successfully.
    */
-  async delete(id) {
+  async delete(id, user) {
     debug(`deleting ${this.tableName} [${id}]`);
+    debug(user);
     const query = {
-      text: `DELETE FROM ${this.tableName} WHERE id = $1;`,
+      text: `DELETE FROM ${this.tableName} WHERE id = $1`,
       values: [id],
     };
-    const result = await this.client.query(query);
-    return !!result.rowCount;
+    if (this.tableName === user.type) {
+      if (parseInt(id, 10) === parseInt(user.id, 10)) {
+        debug(query);
+        const result = await this.client.query(query);
+        return !!result.rowCount;
+      }
+      throw new Error('Bad authentication, you are not able to do this..');
+    } else if ((this.tableName === 'training' && user.type === 'organization') || (this.tableName === 'review' && user.type === 'member')) {
+      query.text += ` AND ${user.type}_id = $2`;
+      query.values.push(user.id);
+      debug(query);
+      const result = await this.client.query(query);
+      return !!result.rowCount;
+    } else {
+      throw new Error('Bad authentication, you are not able to do this..');
+    }
   }
 
   /** *************************************************************************************

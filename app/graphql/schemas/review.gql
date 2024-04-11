@@ -1,25 +1,27 @@
 "Represents a review"
 type Review {
-    "ID of the review"
-    id: ID!
-    "Rating given in the review"
-    rating: NonNegativeInt!
-    "Comment provided in the review"
-    comment: String
-    "Training associated with the review"
-    training: Training!
-    "Member who submitted the review"
-    member: Member!
+  "ID of the review"
+  id: ID!
+  "Rating given in the review"
+  rating: NonNegativeInt!
+  "Comment provided in the review"
+  comment: String
+  "Training associated with the review"
+  training: Training!
+  "Member who submitted the review"
+  member: Member!
+  "Creation time of the review"
+  created_at: Date!
 }
 
 "Input for creating or updating a review"
 input ReviewInput {
-    "Rating to be given in the review"
-    rating: NonNegativeInt
-    "Comment to be provided in the review"
-    comment: String
-    "ID of the training associated with the review"
-    trainingId: ID
-    "ID of the member who submitted the review"
-    memberId: ID
+  "Rating to be given in the review"
+  rating: NonNegativeInt
+  "Comment to be provided in the review"
+  comment: String
+  "ID of the training associated with the review"
+  trainingId: ID
+  "ID of the member who submitted the review"
+  memberId: ID
 }
