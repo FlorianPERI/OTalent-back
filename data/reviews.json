@@ -1,0 +1,306 @@
+[
+  {
+    "rating": "4",
+    "comment": "La formation était très instructive. J'ai beaucoup appris et je recommande vivement."
+  },
+  {
+    "rating": "3",
+    "comment": "La formation était intéressante, mais aurait pu être plus approfondie sur certains sujets."
+  },
+  {
+    "rating": "5",
+    "comment": "Excellent formateur ! La formation a dépassé mes attentes et je me sens prêt à appliquer ce que j'ai appris."
+  },
+  {
+    "rating": "2",
+    "comment": "Je suis déçu de la qualité de la formation. Le contenu était trop généraliste et manquait de détails."
+  },
+  {
+    "rating": "4",
+    "comment": "Très bonne expérience d'apprentissage. Le formateur était compétent et les exemples étaient pertinents."
+  },
+  {
+    "rating": "3",
+    "comment": "La formation était informative, mais certains aspects étaient un peu confus."
+  },
+  {
+    "rating": "5",
+    "comment": "Exceptionnelle ! La formation était très bien organisée et le formateur était passionné."
+  },
+  {
+    "rating": "1",
+    "comment": "La pire formation que j'ai jamais suivie. Le contenu était totalement inutile et le formateur était désagréable."
+  },
+  {
+    "rating": "4",
+    "comment": "La formation était très instructive. J'ai particulièrement apprécié les études de cas pratiques."
+  },
+  {
+    "rating": "2",
+    "comment": "Je ne recommanderais pas cette formation. Le contenu était mal structuré et le formateur était peu compétent."
+  },
+  {
+    "rating": "5",
+    "comment": "Fantastique ! La formation était très complète et m'a permis de mieux comprendre le sujet."
+  },
+  {
+    "rating": "3",
+    "comment": "La formation était intéressante, mais certaines parties étaient un peu ennuyeuses."
+  },
+  {
+    "rating": "4",
+    "comment": "Bonne formation dans l'ensemble. Le contenu était bien présenté et facile à comprendre."
+  },
+  {
+    "rating": "2",
+    "comment": "Je suis déçu de la qualité de la formation. Le formateur était peu dynamique et le matériel était obsolète."
+  },
+  {
+    "rating": "5",
+    "comment": "Très bonne expérience d'apprentissage. La formation était interactive et les exemples étaient pertinents."
+  },
+  {
+    "rating": "1",
+    "comment": "J'ai été très déçu par cette formation. Le contenu était très basique et le formateur semblait désintéressé."
+  },
+  {
+    "rating": "4",
+    "comment": "La formation était bien structurée et le formateur était très compétent."
+  },
+  {
+    "rating": "3",
+    "comment": "La formation était informative, mais j'aurais aimé plus d'exemples pratiques."
+  },
+  {
+    "rating": "5",
+    "comment": "Excellente formation ! Le contenu était très intéressant et le formateur était très motivant."
+  },
+  {
+    "rating": "2",
+    "comment": "Je ne recommande pas cette formation. Le contenu était désorganisé et le formateur était peu engageant."
+  },
+  {
+    "rating": "4",
+    "comment": "Bonne expérience d'apprentissage. La formation était bien équilibrée entre théorie et pratique."
+  },
+  {
+    "rating": "3",
+    "comment": "La formation était intéressante, mais aurait pu être plus approfondie sur certains sujets."
+  },
+  {
+    "rating": "5",
+    "comment": "La formation était excellente et m'a permis d'acquérir de nouvelles compétences."
+  },
+  {
+    "rating": "1",
+    "comment": "Je suis très déçu par cette formation. Le contenu était superficiel et le formateur était peu compétent."
+  },
+  {
+    "rating": "4",
+    "comment": "Très bonne expérience d'apprentissage. La formation était bien organisée et le formateur était très compétent."
+  },
+  {
+    "rating": "3",
+    "comment": "La formation était informative, mais j'aurais aimé plus de cas pratiques pour mieux comprendre les concepts."
+  },
+  {
+    "rating": "5",
+    "comment": "Fantastique ! La formation était très interactive et m'a permis d'acquérir de nouvelles compétences rapidement."
+  },
+  {
+    "rating": "2",
+    "comment": "Je ne recommande pas cette formation. Le contenu était trop théorique et le formateur était peu dynamique."
+  },
+  {
+    "rating": "4",
+    "comment": "La formation était bien organisée et le formateur était très compétent."
+  },
+  {
+    "rating": "3",
+    "comment": "La formation était intéressante, mais j'aurais aimé plus de supports pédagogiques."
+  },
+  {
+    "rating": "5",
+    "comment": "Excellente formation ! La formation était très interactive et le formateur était très motivant."
+  },
+  {
+    "rating": "2",
+    "comment": "Je suis déçu de la qualité de la formation. Le contenu était obsolète et peu pertinent."
+  },
+  {
+    "rating": "4",
+    "comment": "Très bonne expérience d'apprentissage. La formation était bien structurée et le contenu était très instructif."
+  },
+  {
+    "rating": "3",
+    "comment": "La formation était informative, mais j'aurais aimé plus de temps pour poser des questions."
+  },
+  {
+    "rating": "5",
+    "comment": "La formation était excellente et m'a permis de développer de nouvelles compétences."
+  },
+  {
+    "rating": "1",
+    "comment": "La pire formation que j'ai jamais suivie. Le formateur était incompétent et le contenu était incorrect."
+  },
+  {
+    "rating": "4",
+    "comment": "Très bonne expérience d'apprentissage. La formation était bien équilibrée entre théorie et pratique."
+  },
+  {
+    "rating": "3",
+    "comment": "La formation était intéressante, mais certains sujets étaient traités de manière superficielle."
+  },
+  {
+    "rating": "5",
+    "comment": "Excellente formation ! La formation était très complète et le formateur était très compétent."
+  },
+  {
+    "rating": "2",
+    "comment": "Je ne recommande pas cette formation. Le contenu était trop basique et peu pertinent."
+  },
+  {
+    "rating": "4",
+    "comment": "La formation était bien organisée et le formateur était très compétent."
+  },
+  {
+    "rating": "3",
+    "comment": "La formation était informative, mais j'aurais aimé plus d'exemples pratiques."
+  },
+  {
+    "rating": "5",
+    "comment": "Excellente formation ! La formation était très interactive et m'a permis d'acquérir de nouvelles compétences rapidement."
+  },
+  {
+    "rating": "2",
+    "comment": "Je ne recommande pas cette formation. Le contenu était trop théorique et le formateur était peu dynamique."
+  },
+  {
+    "rating": "4",
+    "comment": "La formation était bien organisée et le formateur était très compétent."
+  },
+  {
+    "rating": "3",
+    "comment": "La formation était intéressante, mais j'aurais aimé plus de supports pédagogiques."
+  },
+  {
+    "rating": "5",
+    "comment": "Excellente formation ! La formation était très interactive et le formateur était très motivant."
+  },
+  {
+    "rating": "2",
+    "comment": "Je suis déçu de la qualité de la formation. Le contenu était obsolète et peu pertinent."
+  },
+  {
+    "rating": "4",
+    "comment": "Très bonne expérience d'apprentissage. La formation était bien structurée et le contenu était très instructif."
+  },
+  {
+    "rating": "3",
+    "comment": "La formation était informative, mais j'aurais aimé plus de temps pour poser des questions."
+  },
+  {
+    "rating": "5",
+    "comment": "La formation était excellente et m'a permis de développer de nouvelles compétences."
+  },
+  {
+    "rating": "1",
+    "comment": "La pire formation que j'ai jamais suivie. Le formateur était incompétent et le contenu était incorrect."
+  },
+  {
+    "rating": "4",
+    "comment": "Très bonne expérience d'apprentissage. La formation était bien équilibrée entre théorie et pratique."
+  },
+  {
+    "rating": "3",
+    "comment": "La formation était intéressante, mais certains sujets étaient traités de manière superficielle."
+  },
+  {
+    "rating": "5",
+    "comment": "Excellente formation ! La formation était très complète et le formateur était très compétent."
+  },
+  {
+    "rating": "2",
+    "comment": "Je ne recommande pas cette formation. Le contenu était trop basique et peu pertinent."
+  },
+  {
+    "rating": "4",
+    "comment": "La formation était très enrichissante. J'ai apprécié la manière dont les concepts ont été expliqués."
+  },
+  {
+    "rating": "3",
+    "comment": "La formation était plutôt bonne dans l'ensemble, mais certains points auraient pu être mieux abordés."
+  },
+  {
+    "rating": "5",
+    "comment": "Formateur exceptionnel ! La formation était dynamique et interactive, ce qui rendait l'apprentissage très agréable."
+  },
+  {
+    "rating": "2",
+    "comment": "Je suis déçu de la qualité de la formation. Le contenu était trop superficiel et manquait de pertinence."
+  },
+  {
+    "rating": "4",
+    "comment": "Bonne expérience globale. Le formateur était compétent et les exemples étaient utiles pour la compréhension."
+  },
+  {
+    "rating": "3",
+    "comment": "La formation était informative, mais certains points auraient pu être mieux structurés."
+  },
+  {
+    "rating": "5",
+    "comment": "Excellente formation ! J'ai beaucoup appris et je me sens beaucoup plus confiant dans ce domaine maintenant."
+  },
+  {
+    "rating": "1",
+    "comment": "La pire expérience de formation de ma vie. Le contenu était obsolète et le formateur était désintéressé."
+  },
+  {
+    "rating": "4",
+    "comment": "La formation était très complète. J'ai particulièrement aimé les exercices pratiques qui étaient proposés."
+  },
+  {
+    "rating": "2",
+    "comment": "Je ne recommande pas cette formation. Le formateur manquait d'engagement et le matériel était dépassé."
+  },
+  {
+    "rating": "5",
+    "comment": "Fantastique ! La formation était bien organisée et le formateur était très compétent dans son domaine."
+  },
+  {
+    "rating": "3",
+    "comment": "La formation était intéressante, mais certains sujets étaient traités trop rapidement."
+  },
+  {
+    "rating": "4",
+    "comment": "Bonne expérience d'apprentissage. La formation était équilibrée entre théorie et pratique."
+  },
+  {
+    "rating": "2",
+    "comment": "Je suis mitigé sur cette formation. Certains aspects étaient bons, mais d'autres étaient très décevants."
+  },
+  {
+    "rating": "5",
+    "comment": "Excellente formation ! Je recommande vivement à quiconque cherche à approfondir ses connaissances dans ce domaine."
+  },
+  {
+    "rating": "1",
+    "comment": "Je regrette d'avoir suivi cette formation. Le contenu était trop basique et le formateur était peu compétent."
+  },
+  {
+    "rating": "4",
+    "comment": "La formation était bien organisée. Le formateur a su captiver mon attention tout au long du cours."
+  },
+  {
+    "rating": "3",
+    "comment": "La formation était instructive, mais j'aurais préféré plus d'exemples concrets pour illustrer les concepts."
+  },
+  {
+    "rating": "5",
+    "comment": "Très bonne expérience ! La formation était interactive et m'a permis de mettre en pratique ce que j'ai appris."
+  },
+  {
+    "rating": "2",
+    "comment": "Je ne suis pas satisfait de cette formation. Le contenu était désorganisé et le formateur était peu clair dans ses explications."
+  }
+]
