@@ -2,6 +2,7 @@ import pino from 'pino';
 import pretty from 'pino-pretty';
 import SonicBoom from 'sonic-boom';
 import Fastify from 'fastify';
+import { fastifyWebsocket } from '@fastify/websocket';
 import { ApolloServer } from '@apollo/server';
 import { InMemoryLRUCache } from '@apollo/utils.keyvaluecache';
 import responseCachePlugin from '@apollo/server-plugin-response-cache';
@@ -23,6 +24,14 @@ import GeoApiGouv from './app/graphql/dataSources/GeoApiGouv/index.js';
 import auth from './app/services/auth/index.js';
 import 'dotenv/config';
 import BingMapAPI from './app/graphql/dataSources/bingMapAPI/index.js';
+
+import Redis from 'ioredis';
+
+const redis = new Redis({
+  password: '9klCdQEX843eayQhDE9n3EFZgqJ2FWX6',
+  host: 'redis-18916.c250.eu-central-1-1.ec2.cloud.redislabs.com',
+  port: 18916,
+});
 
 /**
  * Setting up the server
@@ -119,6 +128,31 @@ await fastify.register(cors, { origin: '*' });
  */
 await fastify.register(fastifyApollo(apollo), { context: contextFunction });
 
+redis.on('error', (err) => {
+  debug('Error connecting to Redis', err);
+});
+fastify.register(fastifyWebsocket);
+fastify.register(async (fastify) => {
+  fastify.get('/', { websocket: true }, (socket /* SocketStream */, req /* FastifyRequest */) => {
+    debug('Client connected');
+    socket.on('message', (message) => {
+      const parsedMessage = JSON.parse(message);
+      debug(`Received message ${JSON.stringify(parsedMessage)}`);
+      if (parsedMessage.type === 'getAllMessages') {
+        // Récupère tous les messages de Redis
+        redis.lrange('messages', 0, -1, (err, messages) => {
+          if (err) debug(err);
+          debug(messages);
+          socket.send(JSON.stringify(messages)); // Envoie tous les messages au client
+        });
+      } else {
+        redis.rpush('messages', message, (err) => { // Stocke le message dans Redis
+          if (err) debug(err);
+        });
+      }
+    });
+  });
+});
 /**
  * Starting the server
  */
