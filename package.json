@@ -9,6 +9,8 @@
     "dev": "DEBUG=app:* nodemon server.js",
     "dev:bun": "DEBUG=app:* bun server.js",
     "db:seed": "DEBUG=app:*,data:* node data/seed.js",
+    "set": "set DEBUG=app:* & nodemon server.js",
+    "set:seed": "set DEBUG=app:* & node data/seed.js",
     "utils": "./scripts/utils.sh",
     "server": "DEBUG=app:server* nodemon server.js"
   },
