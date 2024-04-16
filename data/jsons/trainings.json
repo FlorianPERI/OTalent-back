@@ -1,0 +1,1938 @@
+[
+  {
+    "label": "Développement Web Avancé",
+    "description": "Cette formation avancée de développement web vous plongera dans les techniques les plus récentes pour créer des applications web robustes et interactives. Vous maîtriserez les frameworks populaires tels que React.js et Vue.js, ainsi que les technologies backend comme Node.js et MongoDB. Cette formation est idéale pour les développeurs souhaitant approfondir leurs compétences en développement web.",
+    "price": 800,
+    "duration": 8,
+    "dates": [
+      "2024-04-15",
+      "2024-06-10"
+    ],
+    "excerpt": "Maîtrisez les dernières technologies web et développez des applications web dynamiques.",
+    "prerequisites": "Connaissance de base en HTML, CSS et JavaScript.",
+    "program": "Introduction à React.js, Développement frontend avancé avec React.js, Introduction à Node.js et Express.js, Développement backend avec Node.js et MongoDB",
+    "image": "iisdjknclod0dkgl8qd8",
+    "category_id": 1,
+    "organization_id": 1
+  },
+  {
+    "label": "Science des Données Appliquée",
+    "description": "Plongez dans le monde passionnant de la science des données avec cette formation pratique. Vous apprendrez à manipuler et à analyser des ensembles de données complexes, à construire des modèles prédictifs et à tirer des insights exploitables à partir des données. Cette formation vous préparera à une carrière enrichissante en science des données.",
+    "price": 1000,
+    "duration": 10,
+    "dates": [
+      "2024-05-02",
+      "2024-07-10"
+    ],
+    "excerpt": "Explorez le monde des données et découvrez les secrets cachés à l'intérieur.",
+    "prerequisites": "Connaissance de base en statistiques et programmation.",
+    "program": "Introduction à Python pour la science des données, Manipulation de données avec Pandas, Visualisation de données avec Matplotlib et Seaborn, Modélisation prédictive avec Scikit-learn, Projet de science des données pratique",
+    "image": "yoprrvjoeyyo39iarcxo",
+    "category_id": 1,
+    "organization_id": 1
+  },
+  {
+    "label": "Développement d'Applications Mobiles",
+    "description": "Cette formation complète vous enseignera les compétences nécessaires pour développer des applications mobiles pour les plateformes iOS et Android. Vous apprendrez à utiliser des outils et des langages de programmation tels que Swift, Kotlin, et React Native pour créer des applications réactives et intuitives.",
+    "price": 900,
+    "duration": 10,
+    "dates": [
+      "2024-05-15",
+      "2024-07-23"
+    ],
+    "excerpt": "Maîtrisez le développement d'applications mobiles et lancez-vous dans le marché en plein essor des applications mobiles.",
+    "prerequisites": "Connaissance de base en programmation",
+    "program": "Introduction au développement mobile, Programmation iOS avec Swift, Programmation Android avec Kotlin, Développement multiplateforme avec React Native, Projet d'application mobile pratique",
+    "image": "s3za0motsxwuct5r95t3",
+    "category_id": 1,
+    "organization_id": 1
+  },
+  {
+    "label": "Cybersécurité et Sécurité des Réseaux",
+    "description": "Explorez les principes fondamentaux de la cybersécurité et de la sécurité des réseaux avec cette formation avancée. Vous apprendrez à protéger les systèmes informatiques contre les attaques malveillantes, à détecter les vulnérabilités et à mettre en œuvre des stratégies de sécurité robustes pour garantir l'intégrité et la confidentialité des données.",
+    "price": 1200,
+    "duration": 12,
+    "dates": [
+      "2024-06-01",
+      "2024-08-23"
+    ],
+    "excerpt": "Protégez vos données et vos systèmes contre les menaces cybernétiques avec une formation complète en cybersécurité.",
+    "prerequisites": "Connaissance de base en réseaux informatiques.",
+    "program": "Introduction à la cybersécurité, Sécurité des réseaux, Cryptographie et sécurité des données, Sécurité des systèmes d'exploitation, Geestion des incidents de sécurité, Projet de cybersécurité pratique",
+    "image": "poxwtk5ygxqonhzoczhh",
+    "category_id": 1,
+    "organization_id": 2
+  },
+  {
+    "label": "Intelligence Artificielle et Apprentissage Automatique",
+    "description": "Découvrez les dernières avancées en intelligence artificielle et en apprentissage automatique avec cette formation avancée. Vous apprendrez à construire et à entraîner des modèles d'IA pour résoudre des problèmes complexes tels que la reconnaissance d'images, la traduction automatique et l'analyse prédictive.",
+    "price": 1500,
+    "duration": 14,
+    "dates": [
+      "2024-07-10",
+      "2024-10-16"
+    ],
+    "excerpt": "Explorez le monde passionnant de l'intelligence artificielle et apprenez à créer des systèmes intelligents et autonomes.",
+    "prerequisites": "Connaissance en mathématiques et programmation.",
+    "program": "Introduction à l'intelligence artificielle, Apprentissage supervisé et non supervisé, Réseaux neuronaux et Deep Learning, Traitement du langage naturel, Vision par ordinateur, Projet d'intelligence artificielle pratique",
+    "image": "x7whi4djldbruxyzneok",
+    "category_id": 1,
+    "organization_id": 1
+  },
+  {
+    "label": "DevOps et Automatisation des Déploiements",
+    "description": "Apprenez à mettre en œuvre des pratiques DevOps pour automatiser les déploiements logiciels avec cette formation pratique. Vous découvrirez les principes de DevOps, les outils d'automatisation des déploiements tels que Docker et Kubernetes, ainsi que les meilleures pratiques pour accélérer le cycle de développement et améliorer la qualité du logiciel.",
+    "price": 1000,
+    "duration": 10,
+    "dates": [
+      "2024-09-10",
+      "2024-11-20"
+    ],
+    "excerpt": "Accélérez le déploiement de votre logiciel avec une formation complète en DevOps et automatisation des déploiements.",
+    "prerequisites": "Connaissance en développement logiciel et systèmes informatiques.",
+    "program": "Introduction à DevOps, Outils d'automatisation des déploiements, Conteneurisation avec Docker, Orchestration avec Kubernetes, Intégration et déploiement continus (CI/CD)",
+    "image": "ungkluj0b0rrruh0cqlf",
+    "category_id": 1,
+    "organization_id": 2
+  },
+  {
+    "label": "Chimie Organique Avancée",
+    "description": "Cette formation avancée en chimie organique explore les concepts et les techniques avancés de synthèse organique. Vous apprendrez à concevoir et à réaliser des réactions organiques complexes, à analyser et à interpréter les données spectroscopiques, ainsi qu'à résoudre des problèmes de chimie organique avancée.",
+    "price": 1200.00,
+    "duration": 12,
+    "dates": [
+      "2024-05-15",
+      "2024-08-01"
+    ],
+    "excerpt": "Approfondissez vos connaissances en chimie organique avec cette formation spécialisée.",
+    "prerequisites": "Connaissance de base en chimie organique.",
+    "program": "Réactions d'addition et d'élimination, Réactions de substitution, Réactions de réarrangement, Spectroscopie RMN, Spectroscopie IR, Projet de synthèse organique",
+    "image": "kwcty37jx1j90azhrffz",
+    "category_id": 2,
+    "organization_id": 3
+  },
+  {
+    "label": "Chimie Quantique et Spectroscopie",
+    "description": "Découvrez les principes fondamentaux de la chimie quantique et de la spectroscopie avec cette formation approfondie. Vous apprendrez les concepts de base de la mécanique quantique appliquée à la chimie, ainsi que les techniques spectroscopiques avancées telles que la spectroscopie UV-Vis, la spectroscopie infrarouge et la spectroscopie RMN.",
+    "price": 1500.00,
+    "duration": 14,
+    "dates": [
+      "2024-06-01",
+      "2024-09-15"
+    ],
+    "excerpt": "Explorez le monde de la chimie quantique et de la spectroscopie avec cette formation spécialisée.",
+    "prerequisites": "Connaissance de base en chimie et en physique.",
+    "program": "Principes de chimie quantique, Structure atomique et liaisons chimiques, Spectroscopie UV-Vis, Spectroscopie infrarouge, Spectroscopie RMN, Projet de spectroscopie avancée",
+    "image": "b6txq2dfpv0mhapnzxjm",
+    "category_id": 2,
+    "organization_id": 4
+  },
+  {
+    "label": "Chimie Inorganique Avancée",
+    "description": "Cette formation avancée en chimie inorganique couvre les aspects théoriques et pratiques de la chimie des métaux de transition et des composés inorganiques. Vous apprendrez les principes de coordination, les réactions de complexation, la catalyse homogène et hétérogène, ainsi que les applications industrielles de la chimie inorganique.",
+    "price": 1300.00,
+    "duration": 12,
+    "dates": [
+      "2024-07-10",
+      "2024-10-01"
+    ],
+    "excerpt": "Approfondissez votre compréhension de la chimie inorganique avec cette formation spécialisée.",
+    "prerequisites": "Connaissance de base en chimie inorganique.",
+    "program": "Introduction à la chimie des métaux de transition, Chimie de coordination, Réactions de complexation, Catalyse homogène, Catalyse hétérogène, Applications industrielles",
+    "image": "f1ktonp9yalb0429bwif",
+    "category_id": 2,
+    "organization_id": 4
+  },
+  {
+    "label": "Chimie Environnementale et Analytique",
+    "description": "Explorez les concepts et les techniques de la chimie environnementale et analytique avec cette formation pratique. Vous apprendrez à analyser et à caractériser les contaminants environnementaux, à évaluer la qualité de l'eau et de l'air, ainsi qu'à mettre en œuvre des méthodes analytiques avancées pour résoudre des problèmes environnementaux complexes.",
+    "price": 1100.00,
+    "duration": 10,
+    "dates": [
+      "2024-08-15",
+      "2024-11-01"
+    ],
+    "excerpt": "Découvrez les défis et les solutions de la chimie environnementale avec cette formation spécialisée.",
+    "prerequisites": "Connaissance de base en chimie analytique.",
+    "program": "Introduction à la chimie environnementale, Analyse des contaminants environnementaux, Qualité de l'eau et de l'air, Méthodes analytiques avancées, Projet de chimie environnementale",
+    "image": "f9qsxevm0gn86y0sur4w",
+    "category_id": 2,
+    "organization_id": 3
+  },
+  {
+    "label": "Chimie des Matériaux Avancée",
+    "description": "Cette formation avancée en chimie des matériaux explore les propriétés et les applications des matériaux avancés tels que les polymères, les céramiques et les nanomatériaux. Vous apprendrez les principes de base de la synthèse des matériaux, les techniques de caractérisation avancées, ainsi que les applications pratiques dans les domaines de l'électronique, de la médecine et de l'énergie.",
+    "price": 1300.00,
+    "duration": 12,
+    "dates": [
+      "2024-06-15",
+      "2024-09-05"
+    ],
+    "excerpt": "Explorez les avancées récentes en chimie des matériaux avec cette formation spécialisée.",
+    "prerequisites": "Connaissance de base en chimie et en physique.",
+    "program": "Introduction à la chimie des matériaux, Synthèse des matériaux, Caractérisation des matériaux, Applications électroniques des matériaux, Applications biomédicales des matériaux, Applications énergétiques des matériaux",
+    "image": "l2ainbwiueljhbmv52zs",
+    "category_id": 2,
+    "organization_id": 3
+  },
+  {
+    "label": "Gestion du Temps et Productivité",
+    "description": "Apprenez à gérer votre temps efficacement et à améliorer votre productivité avec cette formation pratique. Vous découvrirez des stratégies de planification du temps, des techniques de gestion des tâches, ainsi que des outils pour surmonter la procrastination et maximiser votre efficacité dans vos activités quotidiennes.",
+    "price": 150.00,
+    "duration": 6,
+    "dates": [
+      "2024-06-01",
+      "2024-07-15"
+    ],
+    "excerpt": "Maîtrisez l'art de la gestion du temps et augmentez votre productivité personnelle et professionnelle.",
+    "prerequisites": "Aucun prérequis nécessaire.",
+    "program": "Planification du temps, Gestion des tâches, Surmonter la procrastination",
+    "image": "ddxozk4bh89cscj1li95",
+    "category_id": 3,
+    "organization_id": 5
+  },
+  {
+    "label": "Confiance en Soi et Estime de Soi",
+    "description": "Développez votre confiance en soi et renforcez votre estime de soi avec cette formation axée sur le développement personnel. Vous apprendrez des techniques pour surmonter les doutes et les peurs, vous exprimer avec assurance, et cultiver une attitude positive envers vous-même et les autres.",
+    "price": 120.00,
+    "duration": 8,
+    "dates": [
+      "2024-07-01",
+      "2024-08-25"
+    ],
+    "excerpt": "Développez une confiance inébranlable en vous-même et découvrez votre plein potentiel.",
+    "prerequisites": "Aucun prérequis nécessaire.",
+    "program": "Comprendre la confiance en soi, Surmonter les peurs et les doutes, Communication assertive, Cultiver une attitude positive",
+    "image": "tgjzvitle7b4u5ibrtlw",
+    "category_id": 3,
+    "organization_id": 5
+  },
+  {
+    "label": "Intelligence Emotionnelle et Gestion du Stress",
+    "description": "Explorez les compétences en intelligence émotionnelle et apprenez des techniques de gestion du stress avec cette formation pratique. Vous développerez votre capacité à reconnaître et à gérer vos émotions, ainsi que des stratégies pour faire face au stress et maintenir un bien-être émotionnel et mental.",
+    "price": 180.00,
+    "duration": 10,
+    "dates": [
+      "2024-08-15",
+      "2024-10-24"
+    ],
+    "excerpt": "Développez une intelligence émotionnelle accrue et apprenez à gérer le stress de manière efficace.",
+    "prerequisites": "Aucun prérequis nécessaire.",
+    "program": "Introduction à l'intelligence émotionnelle, Reconnaissance des émotions, Gestion des émotions, Compréhension du stress, Stratégies de gestion du stress",
+    "image": "jhemghsrc6noydonhdms",
+    "category_id": 3,
+    "organization_id": 5
+  },
+  {
+    "label": "Développement Personnel et Leadership",
+    "description": "Développez votre potentiel de leadership et vos compétences en communication avec cette formation axée sur le développement personnel. Vous apprendrez à inspirer et à motiver les autres, à prendre des décisions éclairées, et à diriger efficacement des équipes vers la réussite.",
+    "price": 200.00,
+    "duration": 12,
+    "dates": [
+      "2024-09-01",
+      "2024-11-30"
+    ],
+    "excerpt": "Devenez un leader efficace et inspirez le changement dans votre vie et votre environnement.",
+    "prerequisites": "Aucun prérequis nécessaire.",
+    "program": "Principes de leadership, Communication efficace, Prise de décision, Gestion des conflits, Motivation et inspiration, Leadership pratique",
+    "image": "x0qqlezmbelvfrlabbq7",
+    "category_id": 3,
+    "organization_id": 12
+  },
+  {
+    "label": "Communication Interpersonnelle",
+    "description": "Améliorez vos compétences en communication interpersonnelle avec cette formation pratique. Vous apprendrez à écouter activement, à exprimer vos idées de manière claire et concise, ainsi qu'à développer des relations positives et constructives avec les autres.",
+    "price": 120.00,
+    "duration": 8,
+    "dates": [
+      "2024-06-15",
+      "2024-08-10"
+    ],
+    "excerpt": "Développez des compétences de communication efficaces pour réussir dans vos relations personnelles et professionnelles.",
+    "prerequisites": "Aucun prérequis nécessaire.",
+    "program": "Écoute active, Expression claire et concise, Gestion des conflits, Développement de relations positives",
+    "image": "g2pcte50a5d0ob4ca1ra",
+    "category_id": 3,
+    "organization_id": 13
+  },
+  {
+    "label": "Mindfulness et Méditation",
+    "description": "Découvrez les bienfaits de la pleine conscience et de la méditation avec cette formation axée sur le bien-être mental. Vous apprendrez des techniques de respiration consciente, de méditation guidée et de gestion du stress pour cultiver un état de calme, de présence et de clarté mentale.",
+    "price": 150.00,
+    "duration": 6,
+    "dates": [
+      "2024-07-01",
+      "2024-08-15"
+    ],
+    "excerpt": "Cultivez une présence consciente et trouvez la paix intérieure avec la pleine conscience et la méditation.",
+    "prerequisites": "Aucun prérequis nécessaire.",
+    "program": "Introduction à la pleine conscience, Pratiques de méditation, Gestion du stress et de l'anxiété",
+    "image": "qrubqjyi8fh0rohpku25",
+    "category_id": 3,
+    "organization_id": 5
+  },
+  {
+    "label": "Analyse Financière et Évaluation d'Entreprise",
+    "description": "Approfondissez vos connaissances en finance d'entreprise avec cette formation avancée. Vous apprendrez à réaliser une analyse financière approfondie, à évaluer la valeur d'une entreprise en utilisant des méthodes d'évaluation traditionnelles et modernes, ainsi qu'à interpréter les états financiers pour prendre des décisions stratégiques.",
+    "price": 250.00,
+    "duration": 10,
+    "dates": [
+      "2024-06-01",
+      "2024-08-10"
+    ],
+    "excerpt": "Maîtrisez les techniques d'analyse financière et d'évaluation d'entreprise pour prendre des décisions d'investissement éclairées.",
+    "prerequisites": "Connaissance de base en finance d'entreprise.",
+    "program": "Analyse des états financiers, Méthodes d'évaluation traditionnelles, Méthodes d'évaluation modernes, Analyse de rentabilité et de risque, Cas pratiques d'évaluation d'entreprise",
+    "image": "vvwgab6xpnga8fwbewih",
+    "category_id": 4,
+    "organization_id": 6
+  },
+  {
+    "label": "Gestion de Portefeuille d'Investissement",
+    "description": "Découvrez les principes de base de la gestion de portefeuille d'investissement avec cette formation pratique. Vous apprendrez à construire et à gérer un portefeuille d'investissement diversifié, à évaluer et à sélectionner des actifs financiers, ainsi qu'à mettre en œuvre des stratégies de gestion du risque pour optimiser les rendements.",
+    "price": 200.00,
+    "duration": 8,
+    "dates": [
+      "2024-07-01",
+      "2024-08-25"
+    ],
+    "excerpt": "Apprenez à gérer votre portefeuille d'investissement comme un professionnel et à maximiser vos rendements.",
+    "prerequisites": "Connaissance de base en finance et en investissement.",
+    "program": "Principes de gestion de portefeuille, Allocation d'actifs, Sélection d'actifs financiers, Gestion du risque et optimisation des rendements",
+    "image": "lxf2kawjrxyyxbixfevm",
+    "category_id": 4,
+    "organization_id": 7
+  },
+  {
+    "label": "Finance d'Entreprise et Stratégie Financière",
+    "description": "Explorez les concepts clés de la finance d'entreprise et de la stratégie financière avec cette formation complète. Vous apprendrez à évaluer les investissements, à structurer le financement d'une entreprise, à gérer le capital de travail, ainsi qu'à élaborer des stratégies financières pour maximiser la valeur de l'entreprise.",
+    "price": 300.00,
+    "duration": 12,
+    "dates": [
+      "2024-08-15",
+      "2024-11-05"
+    ],
+    "excerpt": "Acquérez une compréhension approfondie de la finance d'entreprise et développez des stratégies financières efficaces.",
+    "prerequisites": "Connaissance de base en finance d'entreprise et en comptabilité.",
+    "program": "Évaluation des investissements, Structuration du financement, Gestion du capital de travail, Analyse de rentabilité, Stratégies de croissance et de diversification, Stratégies de création de valeur",
+    "image": "xd7zqw902ba7tqaqqxyz",
+    "category_id": 4,
+    "organization_id": 7
+  },
+  {
+    "label": "Banque d'Investissement et Marchés Financiers",
+    "description": "Plongez dans le monde de la banque d'investissement et des marchés financiers avec cette formation spécialisée. Vous apprendrez les principes de base de la banque d'investissement, les opérations sur les marchés financiers, ainsi que les techniques de structuration et de gestion des transactions financières.",
+    "price": 280.00,
+    "duration": 10,
+    "dates": [
+      "2024-09-01",
+      "2024-11-10"
+    ],
+    "excerpt": "Explorez les opportunités de carrière passionnantes dans le domaine de la banque d'investissement et des marchés financiers.",
+    "prerequisites": "Connaissance de base en finance et en économie.",
+    "program": "Introduction à la banque d'investissement, Opérations sur les marchés financiers, Structuration des transactions financières, Gestion des risques financiers, Études de cas et simulations",
+    "image": "dts49yx9mxaijilqdxjb",
+    "category_id": 4,
+    "organization_id": 6
+  },
+  {
+    "label": "Comptabilité Avancée et Normes Internationales",
+    "description": "Approfondissez vos compétences en comptabilité et maîtrisez les normes internationales avec cette formation avancée. Vous apprendrez à préparer des états financiers conformes aux normes comptables internationales (IFRS), à analyser les transactions complexes, ainsi qu'à interpréter les rapports financiers pour informer les décisions stratégiques.",
+    "price": 280.00,
+    "duration": 12,
+    "dates": [
+      "2024-06-15",
+      "2024-09-05"
+    ],
+    "excerpt": "Acquérez une expertise en comptabilité internationale et maîtrisez les normes comptables mondiales.",
+    "prerequisites": "Connaissance de base en comptabilité.",
+    "program": "Principes de comptabilité internationale, Préparation des états financiers, Transactions complexes et consolidation, Analyse financière avancée, Contrôle interne et audit, Études de cas pratiques",
+    "image": "orb3cmig5ywf9pdzolco",
+    "category_id": 4,
+    "organization_id": 28
+  },
+  {
+    "label": "Finance Comportementale et Prise de Décision",
+    "description": "Explorez les concepts de finance comportementale et apprenez à prendre des décisions financières rationnelles avec cette formation spécialisée. Vous découvrirez les biais cognitifs et émotionnels qui influencent les décisions financières, ainsi que des stratégies pour surmonter ces biais et prendre des décisions plus éclairées.",
+    "price": 150.00,
+    "duration": 8,
+    "dates": [
+      "2024-07-01",
+      "2024-08-25"
+    ],
+    "excerpt": "Découvrez comment les comportements humains affectent les décisions financières et apprenez à prendre des décisions plus judicieuses.",
+    "prerequisites": "Connaissance de base en finance.",
+    "program": "Introduction à la finance comportementale, Biais cognitifs et émotionnels, Prise de décision en situation d'incertitude, Applications pratiques en finance comportementale",
+    "image": "cvdv58vnqpq0jozxh6xf",
+    "category_id": 4,
+    "organization_id": 6
+  },
+  {
+    "label": "Introduction aux Sciences Politiques",
+    "description": "Explorez les principes fondamentaux des sciences politiques avec cette formation d'introduction. Vous découvrirez les différentes théories politiques, les institutions politiques nationales et internationales, ainsi que les processus politiques et les systèmes de gouvernance.",
+    "price": 100.00,
+    "duration": 6,
+    "dates": [
+      "2024-06-01",
+      "2024-07-15"
+    ],
+    "excerpt": "Plongez dans le monde passionnant de la politique et acquérez une compréhension globale des enjeux politiques contemporains.",
+    "prerequisites": "Aucun prérequis nécessaire.",
+    "program": "Théories politiques, Institutions politiques, Processus politiques et gouvernance",
+    "image": "bmgnwid6optkwf3igyjm",
+    "category_id": 5,
+    "organization_id": 8
+  },
+  {
+    "label": "Politique Comparée",
+    "description": "Analysez les différences et les similitudes entre les systèmes politiques mondiaux avec cette formation en politique comparée. Vous étudierez les différentes formes de gouvernement, les systèmes électoraux, ainsi que les politiques publiques et les problématiques sociales à l'échelle internationale.",
+    "price": 120.00,
+    "duration": 8,
+    "dates": [
+      "2024-07-01",
+      "2024-08-25"
+    ],
+    "excerpt": "Comparez les structures politiques et les processus de prise de décision à travers le monde pour mieux comprendre la diversité politique.",
+    "prerequisites": "Connaissance de base en sciences politiques.",
+    "program": "Types de régimes politiques, Systèmes électoraux, Politiques publiques comparées, Problématiques sociales et politiques",
+    "image": "mbfewf5ays0nzhkhp7dv",
+    "category_id": 5,
+    "organization_id": 9
+  },
+  {
+    "label": "Relations Internationales",
+    "description": "Découvrez les dynamiques complexes des relations internationales avec cette formation spécialisée. Vous étudierez les théories des relations internationales, les institutions internationales, ainsi que les enjeux globaux tels que la sécurité, les droits de l'homme et le développement.",
+    "price": 150.00,
+    "duration": 10,
+    "dates": [
+      "2024-08-01",
+      "2024-10-10"
+    ],
+    "excerpt": "Explorez les interactions entre les États, les organisations internationales et les acteurs non étatiques dans un contexte mondial en évolution.",
+    "prerequisites": "Connaissance de base en sciences politiques.",
+    "program": "Théories des relations internationales, Institutions internationales, Sécurité internationale, Droits de l'homme et justice internationale, Développement global et coopération",
+    "image": "pbgx5bjmgilutzqo3kbm",
+    "category_id": 5,
+    "organization_id": 9
+  },
+  {
+    "label": "Politique Publique",
+    "description": "Analysez la formulation, la mise en œuvre et l'évaluation des politiques publiques avec cette formation spécialisée. Vous examinerez les processus décisionnels, les acteurs politiques, ainsi que les outils d'analyse et de gestion des politiques publiques dans divers domaines.",
+    "price": 130.00,
+    "duration": 8,
+    "dates": [
+      "2024-09-01",
+      "2024-10-25"
+    ],
+    "excerpt": "Comprenez comment les politiques publiques sont conçues, mises en œuvre et évaluées pour répondre aux besoins de la société.",
+    "prerequisites": "Connaissance de base en sciences politiques.",
+    "program": "Processus de formulation des politiques, Acteurs politiques et lobbying, Instruments de politique publique, Évaluation des politiques publiques",
+    "image": "r3dkhwy1ct8wf1rbgkuk",
+    "category_id": 5,
+    "organization_id": 9
+  },
+  {
+    "label": "Théorie Politique Moderne",
+    "description": "Plongez dans les principales théories politiques modernes avec cette formation avancée. Vous étudierez les courants de pensée politiques contemporains, tels que le libéralisme, le conservatisme, le marxisme et le féminisme, ainsi que leurs implications pour la gouvernance et la société.",
+    "price": 140.00,
+    "duration": 8,
+    "dates": [
+      "2024-10-01",
+      "2024-11-25"
+    ],
+    "excerpt": "Explorez les idées et les concepts qui façonnent la politique moderne et comprenez leur influence sur le monde d'aujourd'hui.",
+    "prerequisites": "Connaissance de base en sciences politiques.",
+    "program": "Libéralisme et individualisme, Conservatisme et tradition, Marxisme et lutte des classes, Féminisme et études de genre",
+    "image": "ygnccveufqx3wsgouk0w",
+    "category_id": 5,
+    "organization_id": 8
+  },
+  {
+    "label": "Économie Politique",
+    "description": "Analysez les interactions entre l'économie et la politique avec cette formation en économie politique. Vous étudierez les théories économiques du pouvoir et de la distribution des ressources, ainsi que les politiques économiques et les réformes structurelles dans un contexte national et international.",
+    "price": 160.00,
+    "duration": 10,
+    "dates": [
+      "2024-11-01",
+      "2025-01-10"
+    ],
+    "excerpt": "Comprenez les liens complexes entre l'économie, la politique et la gouvernance et explorez les enjeux économiques contemporains.",
+    "prerequisites": "Connaissance de base en économie et en sciences politiques.",
+    "program": "Théories de l'économie politique, Politiques économiques nationales, Mondialisation et intégration économique, Réformes structurelles et développement, Débats contemporains en économie politique",
+    "image": "mogsis5fqmc2zuyvxs4q",
+    "category_id": 5,
+    "organization_id": 9
+  },
+  {
+    "label": "Introduction à l'Astronomie",
+    "description": "Découvrez les bases de l'astronomie avec cette formation d'introduction. Vous explorerez le système solaire, les étoiles, les galaxies, ainsi que les concepts fondamentaux de l'astronomie, tels que les mouvements célestes et la structure de l'univers.",
+    "price": 100.00,
+    "duration": 6,
+    "dates": [
+      "2024-06-01",
+      "2024-07-15"
+    ],
+    "excerpt": "Plongez dans le monde fascinant de l'astronomie et explorez les merveilles de l'univers.",
+    "prerequisites": "Aucun prérequis nécessaire.",
+    "program": "Le système solaire, Les étoiles et les constellations, Les galaxies et l'univers",
+    "image": "hg0ej6ppliyxh9fpo08d",
+    "category_id": 6,
+    "organization_id": 10
+  },
+  {
+    "label": "Astrophysique Moderne",
+    "description": "Approfondissez vos connaissances en astrophysique avec cette formation avancée. Vous étudierez les principes de la mécanique céleste, la formation et l'évolution des étoiles, ainsi que les phénomènes cosmiques tels que les trous noirs et les supernovae.",
+    "price": 120.00,
+    "duration": 8,
+    "dates": [
+      "2024-07-01",
+      "2024-08-25"
+    ],
+    "excerpt": "Explorez les mystères de l'univers avec l'astrophysique moderne et comprenez les phénomènes célestes à un niveau avancé.",
+    "prerequisites": "Connaissance de base en physique et en mathématiques.",
+    "program": "Mécanique céleste, Formation et évolution des étoiles, Cosmologie et structure de l'univers, Phénomènes cosmiques avancés",
+    "image": "vic3aukepdzzxyxt3eaa",
+    "category_id": 6,
+    "organization_id": 10
+  },
+  {
+    "label": "Observation Astronomique",
+    "description": "Apprenez les techniques d'observation astronomique et familiarisez-vous avec l'utilisation des télescopes avec cette formation pratique. Vous découvrirez les différents types de télescopes, les méthodes d'observation des objets célestes, ainsi que les bases de la photographie astronomique.",
+    "price": 150.00,
+    "duration": 10,
+    "dates": [
+      "2024-08-01",
+      "2024-10-10"
+    ],
+    "excerpt": "Explorez le ciel nocturne et apprenez à observer les merveilles de l'univers avec des techniques d'observation avancées.",
+    "prerequisites": "Connaissance de base en astronomie.",
+    "program": "Types de télescopes,: Techniques d'observation, Photographie astronomique, Observation des planètes, Observation des étoiles et des galaxies",
+    "image": "ftdqqgsudid09iccmorl",
+    "category_id": 6,
+    "organization_id": 11
+  },
+  {
+    "label": "Astrobiologie et Recherche de Vie Extraterrestre",
+    "description": "Explorez les possibilités de vie dans l'univers avec cette formation en astrobiologie. Vous étudierez les conditions nécessaires à l'émergence de la vie, les techniques de recherche de vie extraterrestre, ainsi que les implications philosophiques et scientifiques de la découverte de formes de vie au-delà de la Terre.",
+    "price": 130.00,
+    "duration": 8,
+    "dates": [
+      "2024-09-01",
+      "2024-10-25"
+    ],
+    "excerpt": "Plongez dans le domaine passionnant de l'astrobiologie et explorez les possibilités de vie dans l'univers.",
+    "prerequisites": "Connaissance de base en sciences naturelles.",
+    "program": "Conditions de vie dans l'univers, Recherche de vie extraterrestre, Origine de la vie sur Terre, Philosophie et éthique de l'astrobiologie",
+    "image": "zlkiyjhjfinaq5mqe3ss",
+    "category_id": 6,
+    "organization_id": 10
+  },
+  {
+    "label": "Astrophotographie",
+    "description": "Maîtrisez l'art de la photographie astronomique avec cette formation spécialisée. Vous apprendrez à capturer des images époustouflantes du ciel nocturne, des planètes, des nébuleuses et des galaxies en utilisant des techniques avancées de photographie et de post-traitement.",
+    "price": 160.00,
+    "duration": 6,
+    "dates": [
+      "2024-11-01",
+      "2024-12-15"
+    ],
+    "excerpt": "Explorez l'univers à travers l'objectif de votre appareil photo et capturez la beauté du cosmos avec des techniques d'astrophotographie avancées.",
+    "prerequisites": "Connaissance de base en photographie et en astronomie.",
+    "program": "Introduction à l'astrophotographie, Techniques de prise de vue, Post-traitement et retouche d'images",
+    "image": "vqinnenfnibahud55td7",
+    "category_id": 6,
+    "organization_id": 11
+  },
+  {
+    "label": "Cosmologie Théorique",
+    "description": "Explorez les théories et les modèles de l'univers avec cette formation avancée en cosmologie théorique. Vous étudierez les concepts fondamentaux de la cosmologie moderne, tels que le Big Bang, l'inflation cosmique, la matière sombre et l'énergie sombre, ainsi que les implications philosophiques et scientifiques de ces théories.",
+    "price": 180.00,
+    "duration": 10,
+    "dates": [
+      "2025-01-01",
+      "2025-03-15"
+    ],
+    "excerpt": "Plongez dans les mystères de l'univers avec la cosmologie théorique et explorez les théories qui tentent de comprendre son origine, sa structure et son évolution.",
+    "prerequisites": "Connaissance avancée en physique et en astronomie.",
+    "program": "Fondements de la cosmologie, Modèles cosmologiques, Évolution de l'univers, Matière sombre et énergie sombre, Débats contemporains en cosmologie",
+    "image": "jocecpdyvx2adeddb9rv",
+    "category_id": 6,
+    "organization_id": 10
+  },
+  {
+    "label": "Histoire de l'Art",
+    "description": "Explorez l'évolution de l'art à travers les âges avec cette formation en histoire de l'art. Vous découvrirez les principaux mouvements artistiques, les grands artistes et leurs œuvres emblématiques, ainsi que les contextes historiques et culturels qui ont façonné l'art.",
+    "price": 100.00,
+    "duration": 8,
+    "dates": [
+      "2024-06-01",
+      "2024-07-25"
+    ],
+    "excerpt": "Plongez dans l'univers de l'art et découvrez les chefs-d'œuvre qui ont marqué l'histoire de l'humanité.",
+    "prerequisites": "Aucun prérequis nécessaire.",
+    "program": "Art de la Préhistoire à l'Antiquité, Art du Moyen Âge et de la Renaissance, Art moderne et contemporain, Approches thématiques en histoire de l'art",
+    "image": "t1blfl3p2eqycavv01ue",
+    "category_id": 7,
+    "organization_id": 16
+  },
+  {
+    "label": "Philosophie Occidentale",
+    "description": "Découvrez les grands courants de pensée de la philosophie occidentale avec cette formation spécialisée. Vous étudierez les philosophes et les concepts clés, tels que la métaphysique, l'éthique, la logique et la politique, ainsi que leurs implications dans la société moderne.",
+    "price": 120.00,
+    "duration": 10,
+    "dates": [
+      "2024-07-01",
+      "2024-09-10"
+    ],
+    "excerpt": "Explorez les questions fondamentales de l'existence humaine et découvrez les idées qui ont façonné la civilisation occidentale.",
+    "prerequisites": "Aucun prérequis nécessaire.",
+    "program": "Philosophie antique, Philosophie médiévale, Philosophie moderne, Philosophie contemporaine, Débats actuels en philosophie",
+    "image": "kgfabfef72zhmxwurym2",
+    "category_id": 7,
+    "organization_id": 12
+  },
+  {
+    "label": "Littérature Mondiale",
+    "description": "Explorez les grandes œuvres de la littérature mondiale avec cette formation complète. Vous étudierez les chefs-d'œuvre de la littérature classique et contemporaine, les mouvements littéraires, ainsi que les thèmes universels présents dans les œuvres littéraires à travers les cultures.",
+    "price": 110.00,
+    "duration": 8,
+    "dates": [
+      "2024-08-01",
+      "2024-09-25"
+    ],
+    "excerpt": "Plongez dans les trésors de la littérature mondiale et découvrez les histoires qui ont captivé l'humanité à travers les siècles.",
+    "prerequisites": "Aucun prérequis nécessaire.",
+    "program": "Littérature ancienne, Littérature médiévale, Littérature moderne, Littérature contemporaine",
+    "image": "huonkjq3kurljlhwujw7",
+    "category_id": 7,
+    "organization_id": 13
+  },
+  {
+    "label": "Cinéma et Culture Visuelle",
+    "description": "Explorez l'histoire du cinéma et son impact sur la culture visuelle avec cette formation spécialisée. Vous étudierez les grands réalisateurs, les mouvements cinématographiques, ainsi que les théories et les techniques du cinéma, tout en examinant les liens entre le cinéma et la société.",
+    "price": 130.00,
+    "duration": 10,
+    "dates": [
+      "2024-09-01",
+      "2024-11-10"
+    ],
+    "excerpt": "Plongez dans le monde du cinéma et découvrez comment les films reflètent et influencent la culture contemporaine.",
+    "prerequisites": "Aucun prérequis nécessaire.",
+    "program": "Débuts du cinéma, Cinéma classique, Nouvelle Vague et cinéma d'auteur, Cinéma contemporain, Analyse critique du cinéma",
+    "image": "w3qxqbwo1uobzbdza2ry",
+    "category_id": 7,
+    "organization_id": 25
+  },
+  {
+    "label": "Musique et Société",
+    "description": "Explorez l'histoire de la musique et son rôle dans la société avec cette formation spécialisée. Vous étudierez les différents genres musicaux, les grands compositeurs et interprètes, ainsi que les influences culturelles et sociales sur la musique à travers les époques.",
+    "price": 100.00,
+    "duration": 8,
+    "dates": [
+      "2024-10-01",
+      "2024-11-25"
+    ],
+    "excerpt": "Découvrez les mélodies qui ont façonné notre monde et explorez les liens entre la musique, l'art et la société.",
+    "prerequisites": "Aucun prérequis nécessaire.",
+    "program": "Musique ancienne, Musique classique, Musique romantique et moderniste, Musique contemporaine et populaire",
+    "image": "dnownbreg4hyoy7fqan0",
+    "category_id": 7,
+    "organization_id": 27
+  },
+  {
+    "label": "Géographie Humaine",
+    "description": "Découvrez les dynamiques sociales, culturelles et économiques qui façonnent notre monde avec cette formation en géographie humaine. Vous explorerez les principaux concepts de la géographie, tels que la mondialisation, le développement durable, les migrations et les inégalités spatiales.",
+    "price": 120.00,
+    "duration": 8,
+    "dates": [
+      "2024-11-01",
+      "2025-01-05"
+    ],
+    "excerpt": "Explorez les paysages humains de la planète Terre et comprenez les défis et les opportunités de la société contemporaine.",
+    "prerequisites": "Aucun prérequis nécessaire.",
+    "program": "Introduction à la géographie humaine, Mondialisation et interconnexion, Développement durable et environnement, Migrations et mobilité spatiale",
+    "image": "gzd0ylvwreczgzi6ltew",
+    "category_id": 7,
+    "organization_id": 12
+  },
+  {
+    "label": "Jardinage 101 : Les Fondamentaux",
+    "description": "Découvrez les bases du jardinage avec cette formation d'introduction. Vous apprendrez les principes de base de la création et de l'entretien d'un jardin, y compris la sélection des plantes, la préparation du sol, l'arrosage et la lutte contre les ravageurs.",
+    "price": 50.00,
+    "duration": 4,
+    "dates": [
+      "2024-06-01",
+      "2024-06-30"
+    ],
+    "excerpt": "Plongez dans le monde du jardinage et apprenez à cultiver votre propre oasis verte.",
+    "prerequisites": "Aucun prérequis nécessaire.",
+    "program": "Introduction au jardinage, Sélection des plantes, Préparation du sol, Entretien du jardin",
+    "image": "fpw9l6gbtetka2jo5rny",
+    "category_id": 8,
+    "organization_id": 12
+  },
+  {
+    "label": "Jardinage Biologique",
+    "description": "Apprenez à cultiver un jardin respectueux de l'environnement avec cette formation spécialisée en jardinage biologique. Vous découvrirez les principes de l'agriculture biologique, y compris la compostage, la rotation des cultures, et la lutte biologique contre les ravageurs.",
+    "price": 60.00,
+    "duration": 6,
+    "dates": [
+      "2024-07-01",
+      "2024-08-15"
+    ],
+    "excerpt": "Explorez les méthodes de jardinage respectueuses de la nature et créez un jardin sain et durable.",
+    "prerequisites": "Connaissance de base en jardinage.",
+    "program": "Principes de l'agriculture biologique, Compostage et gestion des déchets, Lutte biologique contre les ravageurs",
+    "image": "ar5yzbrjg49ribdeljo6",
+    "category_id": 8,
+    "organization_id": 13
+  },
+  {
+    "label": "Jardinage Urbain",
+    "description": "Découvrez comment créer un jardin dans un environnement urbain avec cette formation spécialisée en jardinage urbain. Vous apprendrez à cultiver des plantes comestibles dans des espaces restreints, tels que les balcons, les terrasses et les jardins verticaux.",
+    "price": 70.00,
+    "duration": 6,
+    "dates": [
+      "2024-08-01",
+      "2024-09-15"
+    ],
+    "excerpt": "Transformez votre espace urbain en un oasis de verdure avec des techniques de jardinage adaptées à la vie en ville.",
+    "prerequisites": "Aucun prérequis nécessaire.",
+    "program": "Design et aménagement d'un jardin urbain, Cultiver des légumes dans des conteneurs, Gestion de l'espace et de l'eau",
+    "image": "jd988tc9pv9ymbprv305",
+    "category_id": 8,
+    "organization_id": 15
+  },
+  {
+    "label": "Jardinage Ornemental",
+    "description": "Explorez l'art de la conception de jardins décoratifs avec cette formation spécialisée en jardinage ornemental. Vous apprendrez les principes de conception de jardins, y compris la sélection des plantes, la disposition des éléments paysagers, et la création de thèmes de jardin.",
+    "price": 80.00,
+    "duration": 8,
+    "dates": [
+      "2024-09-01",
+      "2024-10-31"
+    ],
+    "excerpt": "Transformez votre jardin en un paradis floral avec des techniques de jardinage ornemental.",
+    "prerequisites": "Connaissance de base en jardinage.",
+    "program": "Principe de conception de jardin, Sélection des plantes ornementales, Aménagement paysager et design, Entretien et soin des jardins ornementaux",
+    "image": "ned9ypvfibysybddfbwn",
+    "category_id": 8,
+    "organization_id": 13
+  },
+  {
+    "label": "Permaculture",
+    "description": "Apprenez les principes de la permaculture et découvrez comment créer un jardin durable et autosuffisant. Vous explorerez les techniques de design permaculturel, y compris la gestion de l'eau, la plantation en guildes, et la création d'écosystèmes diversifiés.",
+    "price": 90.00,
+    "duration": 8,
+    "dates": [
+      "2024-10-01",
+      "2024-11-30"
+    ],
+    "excerpt": "Créez un jardin en harmonie avec la nature et cultivez des aliments sains et nutritifs avec la permaculture.",
+    "prerequisites": "Connaissance de base en jardinage.",
+    "program": "Principes de la permaculture, Design permaculturel, Systèmes d'eau et de drainage, Gestion des cultures et des écosystèmes",
+    "image": "uwgohlce6z6jav41faoy",
+    "category_id": 8,
+    "organization_id": 15
+  },
+  {
+    "label": "Jardinage Écologique",
+    "description": "Apprenez les techniques de jardinage respectueuses de l'environnement avec cette formation en jardinage écologique. Vous découvrirez les pratiques durables telles que le compostage, la plantation d'espèces indigènes, et la conservation de la biodiversité.",
+    "price": 70.00,
+    "duration": 6,
+    "dates": [
+      "2024-11-01",
+      "2024-12-15"
+    ],
+    "excerpt": "Créez un jardin sain pour vous et pour la planète en utilisant des méthodes de jardinage respectueuses de l'environnement.",
+    "prerequisites": "Aucun prérequis nécessaire.",
+    "program": "Principes du jardinage écologique, Compostage et recyclage, Conservation de la biodiversité",
+    "image": "sjvmbsrhlmhy5dobbvub",
+    "category_id": 8,
+    "organization_id": 12
+  },
+  {
+    "label": "Cuisine de Base",
+    "description": "Apprenez les techniques de base en cuisine avec cette formation d'introduction. Vous découvrirez les fondamentaux de la préparation des aliments, les techniques de coupe, de cuisson et d'assaisonnement, ainsi que les principes de la sécurité alimentaire.",
+    "price": 50.00,
+    "duration": 4,
+    "dates": [
+      "2024-06-01",
+      "2024-06-30"
+    ],
+    "excerpt": "Maîtrisez les compétences essentielles pour devenir un cuisinier compétent et créatif.",
+    "prerequisites": "Aucun prérequis nécessaire.",
+    "program": "Introduction à la cuisine, Techniques de coupe et de préparation, Méthodes de cuisson, Sécurité alimentaire et hygiène",
+    "image": "zs8yzpjwphjgrlcqdxvp",
+    "category_id": 9,
+    "organization_id": 15
+  },
+  {
+    "label": "Pâtisserie Classique",
+    "description": "Découvrez l'art de la pâtisserie avec cette formation spécialisée en pâtisserie classique. Vous apprendrez à préparer une variété de desserts délicieux, y compris des gâteaux, des tartes, des biscuits et des pâtisseries françaises classiques.",
+    "price": 60.00,
+    "duration": 6,
+    "dates": [
+      "2024-07-01",
+      "2024-08-15"
+    ],
+    "excerpt": "Maîtrisez les techniques de la pâtisserie classique et créez des desserts dignes d'un chef pâtissier.",
+    "prerequisites": "Connaissance de base en cuisine.",
+    "program": "Techniques de pâtisserie de base, Gâteaux et tartes, Biscuits et petits gâteaux",
+    "image": "m3fxd7y52viiza8nuamj",
+    "category_id": 9,
+    "organization_id": 15
+  },
+  {
+    "label": "Cuisine Italienne Authentique",
+    "description": "Explorez les saveurs de l'Italie avec cette formation spécialisée en cuisine italienne authentique. Vous apprendrez à préparer des plats traditionnels italiens, tels que les pâtes fraîches, les risottos, les pizzas et les desserts italiens.",
+    "price": 70.00,
+    "duration": 6,
+    "dates": [
+      "2024-08-01",
+      "2024-09-15"
+    ],
+    "excerpt": "Voyagez en Italie depuis votre cuisine et découvrez les secrets de la cuisine italienne.",
+    "prerequisites": "Connaissance de base en cuisine.",
+    "program": "Pâtes fraîches et sauces, Risottos et plats de riz, Pizzas et focaccias",
+    "image": "ajaupraw1aaayddfgbyz",
+    "category_id": 9,
+    "organization_id": 12
+  },
+  {
+    "label": "Cuisine Végétarienne Gourmet",
+    "description": "Découvrez les délices de la cuisine végétarienne avec cette formation spécialisée en cuisine végétarienne gourmet. Vous apprendrez à préparer des plats créatifs et équilibrés mettant en valeur les ingrédients végétaux frais et de saison.",
+    "price": 80.00,
+    "duration": 8,
+    "dates": [
+      "2024-09-01",
+      "2024-10-31"
+    ],
+    "excerpt": "Explorez la diversité des saveurs végétales et découvrez des recettes végétariennes exquises.",
+    "prerequisites": "Connaissance de base en cuisine.",
+    "program": "Introduction à la cuisine végétarienne, Plats principaux végétariens, Salades et accompagnements, Desserts végétaliens",
+    "image": "txqs76xzyj8bovxbo5ni",
+    "category_id": 9,
+    "organization_id": 13
+  },
+  {
+    "label": "Cuisine Fusion Asiatique",
+    "description": "Découvrez les saveurs exotiques de l'Asie avec cette formation spécialisée en cuisine fusion asiatique. Vous apprendrez à combiner les techniques et les ingrédients de différentes cuisines asiatiques pour créer des plats uniques et délicieux.",
+    "price": 90.00,
+    "duration": 8,
+    "dates": [
+      "2024-10-01",
+      "2024-11-30"
+    ],
+    "excerpt": "Explorez les saveurs vibrantes de l'Asie et apprenez à préparer des plats fusion innovants.",
+    "prerequisites": "Connaissance de base en cuisine.",
+    "program": "Cuisine chinoise et japonaise, Cuisine thaïlandaise et vietnamienne, Cuisine indienne et malaisienne, Créativité et innovation en cuisine fusion",
+    "image": "yync3xifzkacmobvtpub",
+    "category_id": 9,
+    "organization_id": 13
+  },
+  {
+    "label": "Art de la Cuisine Française",
+    "description": "Plongez dans la sophistication de la cuisine française avec cette formation spécialisée en art de la cuisine française. Vous apprendrez les techniques classiques de la cuisine française, y compris les sauces, les techniques de cuisson et la présentation des plats.",
+    "price": 100.00,
+    "duration": 10,
+    "dates": [
+      "2024-11-01",
+      "2025-01-15"
+    ],
+    "excerpt": "Maîtrisez les secrets de la cuisine française et préparez des plats dignes d'un chef étoilé.",
+    "prerequisites": "Connaissance de base en cuisine.",
+    "program": "Les fondamentaux de la cuisine française, Les sauces classiques, Techniques de cuisson françaises, Plats traditionnels français, Pâtisserie française",
+    "image": "pavbwe04dhvt4ciulxxc",
+    "category_id": 9,
+    "organization_id": 12
+  },
+  {
+    "label": "Dessin Artistique",
+    "description": "Explorez les techniques de dessin artistique avec cette formation d'introduction. Vous apprendrez les bases du dessin, y compris le trait, la perspective, l'ombrage et la composition, ainsi que différentes techniques de dessin telles que le crayon, le fusain et l'aquarelle.",
+    "price": 60.00,
+    "duration": 6,
+    "dates": [
+      "2024-06-01",
+      "2024-07-15"
+    ],
+    "excerpt": "Exprimez votre créativité à travers le dessin et apprenez les compétences nécessaires pour créer des œuvres d'art saisissantes.",
+    "prerequisites": "Aucun prérequis nécessaire.",
+    "program": "Les bases du dessin, Techniques de dessin au crayon, Techniques de dessin au fusain et à l'aquarelle",
+    "image": "cbmimo7v7yuddfuucxux",
+    "category_id": 10,
+    "organization_id": 16
+  },
+  {
+    "label": "Peinture à l'huile",
+    "description": "Découvrez l'art de la peinture à l'huile avec cette formation spécialisée en peinture à l'huile. Vous apprendrez les techniques de base de la peinture à l'huile, y compris le mélange des couleurs, la gestion de la lumière et de l'ombre, ainsi que différentes techniques de peinture.",
+    "price": 80.00,
+    "duration": 8,
+    "dates": [
+      "2024-07-01",
+      "2024-08-31"
+    ],
+    "excerpt": "Plongez dans le monde vibrant de la peinture à l'huile et créez des œuvres d'art riches en texture et en couleur.",
+    "prerequisites": "Connaissance de base en dessin.",
+    "program": "Les bases de la peinture à l'huile, Mélange des couleurs et palette, Techniques de peinture à l'huile, Composition et expression artistique",
+    "image": "srcykh5wjdkxe2eo8cid",
+    "category_id": 10,
+    "organization_id": 17
+  },
+  {
+    "label": "Sculpture sur Bois",
+    "description": "Explorez l'art de la sculpture sur bois avec cette formation spécialisée en sculpture sur bois. Vous apprendrez les techniques de sculpture traditionnelles, y compris le façonnage, le modelage et la finition du bois, ainsi que les outils et les méthodes de sécurité.",
+    "price": 70.00,
+    "duration": 6,
+    "dates": [
+      "2024-09-01",
+      "2024-10-15"
+    ],
+    "excerpt": "Donnez vie à votre créativité en sculptant des formes et des motifs uniques dans le bois.",
+    "prerequisites": "Aucun prérequis nécessaire.",
+    "program": "Introduction à la sculpture sur bois, Techniques de façonnage et de modelage, Finition et polissage du bois",
+    "image": "ekaqsqihag0zbutuzhz5",
+    "category_id": 10,
+    "organization_id": 17
+  },
+  {
+    "label": "Photographie Artistique",
+    "description": "Maîtrisez l'art de la photographie artistique avec cette formation spécialisée en photographie. Vous apprendrez les techniques de composition, d'éclairage et de post-traitement pour créer des images saisissantes et expressives.",
+    "price": 90.00,
+    "duration": 8,
+    "dates": [
+      "2024-10-01",
+      "2024-11-30"
+    ],
+    "excerpt": "Capturez le monde qui vous entoure d'une manière créative et expressive à travers la photographie artistique.",
+    "prerequisites": "Connaissance de base en photographie.",
+    "program": "Principes de la photographie artistique, Composition et cadrage, Utilisation de la lumière et de l'ombre, Post-traitement et retouche",
+    "image": "geoi9a8dkjy4pfecgkeb",
+    "category_id": 10,
+    "organization_id": 24
+  },
+  {
+    "label": "Art Numérique",
+    "description": "Explorez les possibilités de l'art numérique avec cette formation spécialisée en art numérique. Vous apprendrez à utiliser des logiciels de création d'art numérique, à créer des œuvres d'art numériques originales, et à maîtriser les techniques de dessin, de peinture et de retouche.",
+    "price": 100.00,
+    "duration": 10,
+    "dates": [
+      "2024-12-01",
+      "2025-02-28"
+    ],
+    "excerpt": "Découvrez un nouveau monde de créativité avec l'art numérique et explorez les possibilités infinies de l'art sur ordinateur.",
+    "prerequisites": "Connaissance de base en informatique.",
+    "program": "Introduction à l'art numérique, Logiciels de création d'art numérique, Techniques de dessin et de peinture numériques, Composition et design, Animation et effets spéciaux",
+    "image": "rmurqtzsqjrvim1lzlyf",
+    "category_id": 10,
+    "organization_id": 24
+  },
+  {
+    "label": "Art Conceptuel",
+    "description": "Explorez les idées et les concepts dans l'art contemporain avec cette formation spécialisée en art conceptuel. Vous examinerez les principes fondamentaux de l'art conceptuel, y compris la notion d'idée comme œuvre d'art, le rôle du contexte et de la perception, ainsi que les différentes approches et techniques.",
+    "price": 80.00,
+    "duration": 8,
+    "dates": [
+      "2025-01-01",
+      "2025-02-28"
+    ],
+    "excerpt": "Découvrez l'art au-delà de la forme et explorez les idées et les concepts qui façonnent notre compréhension de l'art.",
+    "prerequisites": "Connaissance de base en histoire de l'art.",
+    "program": "Fondamentaux de l'art conceptuel, Contexte et perception, Approches et techniques, Pratique de l'art conceptuel",
+    "image": "clxbwizsmumih3h4kebb",
+    "category_id": 10,
+    "organization_id": 16
+  },
+  {
+    "label": "Introduction à l'Électronique",
+    "description": "Découvrez les fondamentaux de l'électronique avec cette formation d'introduction. Vous apprendrez les principes de base des circuits électroniques, les composants électroniques courants, ainsi que les techniques de mesure et de dépannage.",
+    "price": 50.00,
+    "duration": 4,
+    "dates": [
+      "2024-06-01",
+      "2024-06-30"
+    ],
+    "excerpt": "Acquérez les compétences de base nécessaires pour comprendre et travailler avec des circuits électroniques.",
+    "prerequisites": "Aucun prérequis nécessaire.",
+    "program": "Introduction à l'électronique, Circuits et composants électroniques, Mesure et instrumentation, Dépannage et réparation",
+    "image": "wjef0kgarfbq5xdkxtr2",
+    "category_id": 11,
+    "organization_id": 18
+  },
+  {
+    "label": "Conception de Circuits Imprimés",
+    "description": "Apprenez à concevoir des circuits imprimés professionnels avec cette formation spécialisée en conception de circuits imprimés (PCB). Vous découvrirez les logiciels de conception de PCB, les techniques de routage, les règles de conception et les bonnes pratiques.",
+    "price": 60.00,
+    "duration": 6,
+    "dates": [
+      "2024-07-01",
+      "2024-08-15"
+    ],
+    "excerpt": "Maîtrisez les compétences nécessaires pour créer des circuits imprimés fonctionnels et esthétiques pour vos projets électroniques.",
+    "prerequisites": "Connaissance de base en électronique.",
+    "program": "Introduction à la conception de PCB, Logiciels de conception de PCB, Techniques de routage et de placement",
+    "image": "er9bhdpbmxemfq3bqhvh",
+    "category_id": 11,
+    "organization_id": 19
+  },
+  {
+    "label": "Microcontrôleurs et Systèmes Embarqués",
+    "description": "Explorez le monde des microcontrôleurs et des systèmes embarqués avec cette formation spécialisée. Vous apprendrez à programmer des microcontrôleurs, à interfacer des capteurs et des actionneurs, ainsi qu'à concevoir et à déboguer des systèmes embarqués.",
+    "price": 70.00,
+    "duration": 6,
+    "dates": [
+      "2024-08-01",
+      "2024-09-15"
+    ],
+    "excerpt": "Plongez dans le domaine des systèmes embarqués et apprenez à créer des dispositifs électroniques intelligents et autonomes.",
+    "prerequisites": "Connaissance de base en électronique et en programmation.",
+    "program": "Introduction aux microcontrôleurs, Programmation de microcontrôleurs, Interfaces et communication",
+    "image": "opu205gypuhy2dymudpr",
+    "category_id": 11,
+    "organization_id": 19
+  },
+  {
+    "label": "Électronique Analogique",
+    "description": "Découvrez les principes de l'électronique analogique avec cette formation spécialisée. Vous apprendrez les circuits analogiques de base, les amplificateurs opérationnels, les filtres, les oscillateurs, ainsi que les techniques de conception et d'analyse.",
+    "price": 80.00,
+    "duration": 8,
+    "dates": [
+      "2024-09-01",
+      "2024-10-31"
+    ],
+    "excerpt": "Explorez le domaine de l'électronique analogique et apprenez à concevoir et à analyser des circuits électroniques analogiques.",
+    "prerequisites": "Connaissance de base en électronique.",
+    "program": "Circuits analogiques de base, Amplificateurs opérationnels, Filtres et oscillateurs, Conception et analyse",
+    "image": "eqmhoe7uy9sfen7slfel",
+    "category_id": 11,
+    "organization_id": 19
+  },
+  {
+    "label": "Électronique Numérique",
+    "description": "Maîtrisez les concepts de l'électronique numérique avec cette formation spécialisée. Vous apprendrez les circuits logiques, les portes logiques, les mémoires, les compteurs, ainsi que les techniques de conception et de simulation.",
+    "price": 90.00,
+    "duration": 8,
+    "dates": [
+      "2024-10-01",
+      "2024-11-30"
+    ],
+    "excerpt": "Plongez dans le domaine de l'électronique numérique et apprenez à concevoir et à analyser des circuits numériques.",
+    "prerequisites": "Connaissance de base en électronique.",
+    "program": "Circuits logiques de base, Portes logiques et algèbre de Boole, Mémoires et compteurs, Conception et simulation",
+    "image": "hmern869ed1qw7tta8gf",
+    "category_id": 11,
+    "organization_id": 18
+  },
+  {
+    "label": "Robotique et Automatisation",
+    "description": "Explorez le domaine de la robotique et de l'automatisation avec cette formation spécialisée. Vous apprendrez les principes de la robotique, la cinématique des robots, les capteurs et les actionneurs, ainsi que les techniques de programmation et de contrôle.",
+    "price": 100.00,
+    "duration": 10,
+    "dates": [
+      "2024-12-01",
+      "2025-02-28"
+    ],
+    "excerpt": "Découvrez comment concevoir, construire et programmer des robots intelligents et autonomes pour une variété d'applications.",
+    "prerequisites": "Connaissance de base en électronique et en programmation.",
+    "program": "Introduction à la robotique, Cinématique des robots, Capteurs et actionneurs, Programmation de robots Contrôle et navigation",
+    "image": "w5jlwcjpercooizotmqq",
+    "category_id": 11,
+    "organization_id": 18
+  },
+  {
+    "label": "Design Graphique Fondamental",
+    "description": "Explorez les principes fondamentaux du design graphique avec cette formation d'introduction. Vous apprendrez les bases de la composition, de la typographie, de la couleur et de la mise en page pour créer des designs visuellement attrayants et efficaces.",
+    "price": 50.00,
+    "duration": 4,
+    "dates": [
+      "2024-06-01",
+      "2024-06-30"
+    ],
+    "excerpt": "Acquérez les compétences de base nécessaires pour créer des designs graphiques professionnels et percutants.",
+    "prerequisites": "Aucun prérequis nécessaire.",
+    "program": "Introduction au design graphique, Composition et mise en page, Typographie et couleur, Principes de conception",
+    "image": "z4zcy0fivnji4e6jdjj6",
+    "category_id": 12,
+    "organization_id": 20
+  },
+  {
+    "label": "Adobe Photoshop Avancé",
+    "description": "Maîtrisez Adobe Photoshop avec cette formation spécialisée. Vous apprendrez les techniques avancées de retouche photo, de manipulation d'images, de création graphique et de composition pour créer des œuvres d'art numériques impressionnantes.",
+    "price": 60.00,
+    "duration": 6,
+    "dates": [
+      "2024-07-01",
+      "2024-08-15"
+    ],
+    "excerpt": "Explorez les fonctionnalités avancées de Photoshop et découvrez comment transformer vos idées en œuvres d'art numériques de qualité professionnelle.",
+    "prerequisites": "Connaissance de base en design graphique et utilisation de Photoshop.",
+    "program": "Fondamentaux de Photoshop, Retouche photo avancée, Création graphique et composition",
+    "image": "dqjbfl6sbnrfcu0nlfjn",
+    "category_id": 12,
+    "organization_id": 21
+  },
+  {
+    "label": "Illustration Numérique avec Adobe Illustrator",
+    "description": "Découvrez l'art de l'illustration numérique avec Adobe Illustrator. Vous apprendrez à utiliser les outils de dessin vectoriel, à créer des illustrations complexes, des logos, des icônes et des illustrations graphiques pour l'impression et le web.",
+    "price": 70.00,
+    "duration": 6,
+    "dates": [
+      "2024-08-01",
+      "2024-09-15"
+    ],
+    "excerpt": "Maîtrisez les outils et les techniques d'Adobe Illustrator pour donner vie à vos idées et créer des illustrations numériques de qualité professionnelle.",
+    "prerequisites": "Connaissance de base en design graphique et utilisation d'Illustrator.",
+    "program": "Introduction à Illustrator, Dessin vectoriel et manipulation d'objets, Création d'illustrations complexes",
+    "image": "rzijw5xifn3fosuzfn36",
+    "category_id": 12,
+    "organization_id": 20
+  },
+  {
+    "label": "Animation 2D avec Adobe Animate",
+    "description": "Apprenez à créer des animations 2D interactives avec Adobe Animate. Vous découvrirez les principes de l'animation, les techniques de dessin, d'animation de personnages, ainsi que la création d'animations pour le web et les applications.",
+    "price": 80.00,
+    "duration": 8,
+    "dates": [
+      "2024-09-01",
+      "2024-10-31"
+    ],
+    "excerpt": "Explorez les possibilités de l'animation 2D et apprenez à créer des animations interactives captivantes pour une variété de médias.",
+    "prerequisites": "Connaissance de base en design graphique et utilisation d'Animate.",
+    "program": "Principes de l'animation, Dessin et animation de personnages, Animation pour le web et les applications",
+    "image": "zuyhrmp1wampnwghki0i",
+    "category_id": 12,
+    "organization_id": 20
+  },
+  {
+    "label": "UI/UX Design",
+    "description": "Plongez dans le monde du design d'interface utilisateur (UI) et d'expérience utilisateur (UX) avec cette formation spécialisée. Vous apprendrez les principes de conception d'interfaces utilisateur efficaces, les techniques de prototypage, ainsi que les processus de conception centrés sur l'utilisateur.",
+    "price": 90.00,
+    "duration": 8,
+    "dates": [
+      "2024-10-01",
+      "2024-11-30"
+    ],
+    "excerpt": "Découvrez comment créer des interfaces utilisateur intuitives et des expériences utilisateur exceptionnelles pour les sites web et les applications.",
+    "prerequisites": "Connaissance de base en design graphique et expérience utilisateur.",
+    "program": "Introduction au UI/UX Design, Principes de conception centrée sur l'utilisateur, Prototypage et wireframing, Test utilisateur et itérations",
+    "image": "smjjry8krn68hoxrxyri",
+    "category_id": 12,
+    "organization_id": 21
+  },
+  {
+    "label": "Design de Packaging",
+    "description": "Explorez le domaine du design de packaging avec cette formation spécialisée. Vous apprendrez les principes de conception de packaging, les techniques de création de maquettes, ainsi que les considérations pratiques et esthétiques pour créer des emballages attrayants et fonctionnels.",
+    "price": 100.00,
+    "duration": 10,
+    "dates": [
+      "2024-12-01",
+      "2025-02-28"
+    ],
+    "excerpt": "Découvrez comment créer des emballages qui se démarquent sur les étagères et captivent les consommateurs grâce à un design innovant et créatif.",
+    "prerequisites": "Connaissance de base en design graphique.",
+    "program": "Principes de conception de packaging, Création de maquettes et prototypes, Considérations pratiques et esthétiques, Packaging pour différents produits, Branding et marketing",
+    "image": "xj8mh6oruqczzekb3i1y",
+    "category_id": 12,
+    "organization_id": 20
+  },
+  {
+    "label": "Leadership et Gestion d'Équipe",
+    "description": "Développez vos compétences en leadership et en gestion d'équipe avec cette formation spécialisée. Vous apprendrez les théories du leadership, les compétences de communication, la résolution de conflits et la motivation d'équipe pour devenir un leader efficace.",
+    "price": 150.00,
+    "duration": 8,
+    "dates": [
+      "2024-06-01",
+      "2024-07-31"
+    ],
+    "excerpt": "Acquérez les compétences nécessaires pour inspirer, motiver et diriger une équipe vers le succès.",
+    "prerequisites": "Aucun prérequis nécessaire.",
+    "program": "Théories du leadership, Communication efficace, Gestion de conflits, Motivation et développement d'équipe",
+    "image": "oxlnron8g0ecgwqicktb",
+    "category_id": 13,
+    "organization_id": 23
+  },
+  {
+    "label": "Gestion de Projet Agile",
+    "description": "Maîtrisez les principes de la gestion de projet Agile avec cette formation spécialisée. Vous apprendrez les méthodologies Agile, les techniques de planification itérative, la gestion des parties prenantes, ainsi que les outils et pratiques Agile.",
+    "price": 200.00,
+    "duration": 10,
+    "dates": [
+      "2024-08-01",
+      "2024-09-30"
+    ],
+    "excerpt": "Découvrez comment gérer efficacement les projets complexes et les équipes dynamiques avec les méthodes Agile.",
+    "prerequisites": "Connaissance de base en gestion de projet.",
+    "program": "Introduction à l'Agile, Méthodologies Agile, Planification itérative, Gestion des parties prenantes, Outils et pratiques Agile",
+    "image": "ebszb1fkfkgowmppwkw6",
+    "category_id": 13,
+    "organization_id": 22
+  },
+  {
+    "label": "Gestion du Temps et Productivité",
+    "description": "Optimisez votre gestion du temps et votre productivité avec cette formation spécialisée. Vous apprendrez les techniques de gestion du temps, la planification efficace, la priorisation des tâches et la lutte contre la procrastination pour maximiser votre efficacité.",
+    "price": 100.00,
+    "duration": 6,
+    "dates": [
+      "2024-10-01",
+      "2024-11-15"
+    ],
+    "excerpt": "Découvrez comment organiser votre emploi du temps, éliminer les distractions et atteindre vos objectifs plus rapidement.",
+    "prerequisites": "Aucun prérequis nécessaire.",
+    "program": "Gestion du temps et organisation, Planification et priorisation, Lutte contre la procrastination",
+    "image": "b2n8adfciufin1n7e3fw",
+    "category_id": 13,
+    "organization_id": 23
+  },
+  {
+    "label": "Gestion du Changement",
+    "description": "Apprenez à gérer efficacement le changement organisationnel avec cette formation spécialisée. Vous découvrirez les modèles de changement, les stratégies de communication, la gestion de la résistance au changement, ainsi que les meilleures pratiques pour mener des transitions réussies.",
+    "price": 180.00,
+    "duration": 8,
+    "dates": [
+      "2024-12-01",
+      "2025-01-31"
+    ],
+    "excerpt": "Acquérez les compétences nécessaires pour mener des transformations organisationnelles avec succès et gérer les réactions humaines au changement.",
+    "prerequisites": "Connaissance de base en gestion.",
+    "program": "Introduction à la gestion du changement, Modèles de changement, Communication et engagement, Gestion de la résistance",
+    "image": "v7lc8s0buofwjojkwapd",
+    "category_id": 13,
+    "organization_id": 23
+  },
+  {
+    "label": "Gestion des Ressources Humaines",
+    "description": "Explorez les principes et les pratiques de la gestion des ressources humaines (GRH) avec cette formation spécialisée. Vous apprendrez la gestion du recrutement, de la formation, de l'évaluation de la performance, ainsi que la gestion des conflits et des relations de travail.",
+    "price": 160.00,
+    "duration": 8,
+    "dates": [
+      "2025-02-01",
+      "2025-03-31"
+    ],
+    "excerpt": "Découvrez comment gérer efficacement les ressources humaines pour soutenir les objectifs organisationnels et favoriser un environnement de travail positif.",
+    "prerequisites": "Aucun prérequis nécessaire.",
+    "program": "Introduction à la GRH, Recrutement et sélection, Formation et développement, Évaluation de la performance et gestion des conflits",
+    "image": "xj49rmc8atd8tg4r7ydq",
+    "category_id": 13,
+    "organization_id": 22
+  },
+  {
+    "label": "Leadership Éthique",
+    "description": "Explorez les dimensions éthiques du leadership avec cette formation spécialisée. Vous apprendrez les principes éthiques, la prise de décision éthique, la responsabilité sociale des entreprises (RSE), ainsi que les stratégies pour promouvoir une culture organisationnelle éthique.",
+    "price": 140.00,
+    "duration": 6,
+    "dates": [
+      "2025-04-01",
+      "2025-05-15"
+    ],
+    "excerpt": "Acquérez les compétences nécessaires pour exercer un leadership éthique et responsable dans un monde en évolution.",
+    "prerequisites": "Aucun prérequis nécessaire.",
+    "program": "Fondements de l'éthique, Prise de décision éthique, Responsabilité sociale des entreprises (RSE)",
+    "image": "jn1595x1y69kiar7f3zk",
+    "category_id": 13,
+    "organization_id": 5
+  },
+  {
+    "label": "Formation en Photographie Numérique",
+    "description": "Cette formation complète en photographie numérique vous enseignera les techniques de base ainsi que les aspects avancés de la photographie. Vous apprendrez à utiliser un appareil photo numérique, à maîtriser la composition, l'éclairage, la retouche photo et à développer votre propre style photographique.",
+    "price": 150.00,
+    "duration": 8,
+    "dates": [
+      "2024-09-01",
+      "2024-10-31"
+    ],
+    "excerpt": "Explorez le monde de la photographie numérique et développez votre créativité visuelle.",
+    "prerequisites": "Aucun prérequis nécessaire.",
+    "program": "Principes de base de la photographie, Composition et cadrage, Techniques d'éclairage, Retouche photo et développement créatif",
+    "image": "prdztoj4l6tsjiwvzw1y",
+    "category_id": 14,
+    "organization_id": 24
+  },
+  {
+    "label": "Formation en Montage Vidéo",
+    "description": "Apprenez les techniques de montage vidéo professionnelles avec cette formation spécialisée. Vous découvrirez les logiciels de montage, les principes de l'édition vidéo, les effets spéciaux, le mixage audio, ainsi que les techniques avancées de post-production.",
+    "price": 180.00,
+    "duration": 6,
+    "dates": [
+      "2024-11-01",
+      "2024-12-15"
+    ],
+    "excerpt": "Maîtrisez l'art du montage vidéo et réalisez des projets créatifs et professionnels.",
+    "prerequisites": "Connaissance de base en informatique.",
+    "program": "Introduction au montage vidéo, Édition et post-production, Effets spéciaux et animation",
+    "image": "q3prt5ckrf6eyijzvghl",
+    "category_id": 14,
+    "organization_id": 25
+  },
+  {
+    "label": "Formation en Photographie de Portrait",
+    "description": "Explorez l'art de la photographie de portrait avec cette formation spécialisée. Vous apprendrez les techniques de pose, de direction artistique, de retouche de portrait, ainsi que les stratégies de communication avec le modèle pour capturer des portraits expressifs et captivants.",
+    "price": 160.00,
+    "duration": 6,
+    "dates": [
+      "2025-01-01",
+      "2025-02-15"
+    ],
+    "excerpt": "Maîtrisez les secrets de la photographie de portrait et créez des images saisissantes.",
+    "prerequisites": "Connaissance de base en photographie.",
+    "program": "Techniques de pose et de direction artistique, Retouche de portrait et correction des imperfections, Communication avec le modèle et expression émotionnelle",
+    "image": "cc3hq3didxvkfilhnjcp",
+    "category_id": 14,
+    "organization_id": 24
+  },
+  {
+    "label": "Formation en Cinématographie",
+    "description": "Découvrez l'art de la cinématographie avec cette formation avancée. Vous apprendrez les techniques de composition, de cadrage, d'éclairage cinématographique, de réalisation, ainsi que les aspects techniques de la production cinématographique.",
+    "price": 200.00,
+    "duration": 8,
+    "dates": [
+      "2025-03-01",
+      "2025-04-30"
+    ],
+    "excerpt": "Explorez les possibilités créatives du cinéma et apprenez à raconter des histoires visuelles.",
+    "prerequisites": "Connaissance de base en photographie ou en vidéo.",
+    "program": "Principes de base de la cinématographie, Techniques de cadrage et de composition, Éclairage cinématographique, Réalisation et production",
+    "image": "ixfioidmzse33ipyn7zq",
+    "category_id": 14,
+    "organization_id": 25
+  },
+  {
+    "label": "Formation en Photographie de Nature",
+    "description": "Cette formation spécialisée en photographie de nature vous emmènera dans une aventure au cœur de la nature sauvage. Vous apprendrez les techniques de prise de vue en extérieur, de photographie animalière, de paysages, ainsi que les principes de conservation et d'éthique en photographie de nature.",
+    "price": 170.00,
+    "duration": 6,
+    "dates": [
+      "2025-05-01",
+      "2025-06-15"
+    ],
+    "excerpt": "Capturez la beauté de la nature avec des images étonnantes et inspirantes.",
+    "prerequisites": "Connaissance de base en photographie.",
+    "program": "Techniques de prise de vue en extérieur, Photographie animalière et paysages, Conservation et éthique en photographie de nature",
+    "image": "inzy4zybbjdu3xkdsp8r",
+    "category_id": 14,
+    "organization_id": 24
+  },
+  {
+    "label": "Formation en Réalisation de Documentaires",
+    "description": "Apprenez les techniques de réalisation de documentaires avec cette formation spécialisée. Vous découvrirez les étapes de la préproduction, de la production et de la postproduction documentaire, les techniques d'interview, le storytelling, ainsi que les aspects éthiques et juridiques du journalisme audiovisuel.",
+    "price": 190.00,
+    "duration": 8,
+    "dates": [
+      "2025-07-01",
+      "2025-08-31"
+    ],
+    "excerpt": "Réalisez des documentaires captivants et impactants sur des sujets qui vous passionnent.",
+    "prerequisites": "Connaissance de base en vidéo.",
+    "program": "Préproduction documentaire, Tournage et interview, Montage documentaire, Éthique et droits en journalisme audiovisuel",
+    "image": "bmgnwid6optkwf3igyjm",
+    "category_id": 14,
+    "organization_id": 25
+  },
+  {
+    "label": "Composition Musicale",
+    "description": "Explorez l'art de la composition musicale avec cette formation spécialisée. Vous apprendrez les techniques de composition, d'harmonie, d'orchestration, ainsi que les principes de structure et de développement musical.",
+    "price": 180.00,
+    "duration": 8,
+    "dates": [
+      "2024-09-01",
+      "2024-10-31"
+    ],
+    "excerpt": "Développez votre créativité et apprenez à créer des compositions musicales originales.",
+    "prerequisites": "Connaissance de base en théorie musicale.",
+    "program": "Introduction à la composition musicale, Techniques d'harmonie et de contrepoint, Orchestration et arrangement, Structure et développement musical",
+    "image": "b2ozsg5jhe4tcm6dc9bi",
+    "category_id": 15,
+    "organization_id": 27
+  },
+  {
+    "label": "Production Musicale",
+    "description": "Découvrez les techniques de production musicale avec cette formation pratique. Vous apprendrez à utiliser des logiciels de production, à enregistrer et mixer des instruments, à créer des pistes audio, ainsi que les principes de mastering et de postproduction.",
+    "price": 200.00,
+    "duration": 6,
+    "dates": [
+      "2024-11-01",
+      "2024-12-15"
+    ],
+    "excerpt": "Maîtrisez les outils de production musicale et créez des morceaux professionnels.",
+    "prerequisites": "Connaissance de base en informatique et en musique.",
+    "program": "Introduction à la production musicale, Enregistrement et mixage, Mastering et postproduction",
+    "image": "oy5r7rayrxl8az64g9xp",
+    "category_id": 15,
+    "organization_id": 26
+  },
+  {
+    "label": "Composition de Musique de Film",
+    "description": "Cette formation spécialisée vous enseignera les techniques de composition de musique pour le cinéma, la télévision et les médias. Vous apprendrez à synchroniser la musique avec l'image, à créer des ambiances sonores, des thèmes mélodiques et des motifs rythmiques pour renforcer la narration visuelle.",
+    "price": 220.00,
+    "duration": 8,
+    "dates": [
+      "2025-01-01",
+      "2025-02-28"
+    ],
+    "excerpt": "Explorez l'univers de la composition de musique de film et créez des bandes sonores évocatrices.",
+    "prerequisites": "Connaissance de base en composition musicale.",
+    "program": "Introduction à la composition de musique de film, Techniques de synchronisation avec l'image, Création de thèmes et motifs, Postproduction et mixage audio",
+    "image": "md2bg2jtdkcv835adlas",
+    "category_id": 15,
+    "organization_id": 27
+  },
+  {
+    "label": "Technique Vocale",
+    "description": "Apprenez les techniques de chant professionnelles avec cette formation spécialisée. Vous découvrirez les principes de la respiration, de la projection vocale, de la justesse, du timbre, ainsi que les exercices pour développer votre voix et votre expressivité.",
+    "price": 150.00,
+    "duration": 6,
+    "dates": [
+      "2025-03-01",
+      "2025-04-15"
+    ],
+    "excerpt": "Améliorez votre technique vocale et libérez tout le potentiel de votre voix.",
+    "prerequisites": "Aucun prérequis nécessaire.",
+    "program": "Technique de respiration et de soutien, Justesse et timbre vocal, Expressivité et interprétation",
+    "image": "eletzbsgknx3yxro7uju",
+    "category_id": 15,
+    "organization_id": 26
+  },
+  {
+    "label": "Musique Jazz",
+    "description": "Explorez le monde du jazz avec cette formation spécialisée. Vous apprendrez les techniques d'improvisation, les accords jazz, les standards, ainsi que les principes du rythme et de la phraséologie jazz.",
+    "price": 170.00,
+    "duration": 8,
+    "dates": [
+      "2025-05-01",
+      "2025-06-30"
+    ],
+    "excerpt": "Plongez dans l'univers envoûtant du jazz et développez votre propre style musical.",
+    "prerequisites": "Connaissance de base en musique.",
+    "program": "Techniques d'improvisation, Accords et harmonie jazz, Standards et répertoire, Rythme et phraséologie",
+    "image": "dcifrkpfm2washk6piim",
+    "category_id": 15,
+    "organization_id": 27
+  },
+  {
+    "label": "Musique Classique",
+    "description": "Découvrez l'héritage de la musique classique avec cette formation spécialisée. Vous étudierez les grandes œuvres des compositeurs classiques, les principes de l'interprétation historique, ainsi que les techniques de jeu et d'expression musicale.",
+    "price": 190.00,
+    "duration": 8,
+    "dates": [
+      "2025-07-01",
+      "2025-08-31"
+    ],
+    "excerpt": "Explorez les chefs-d'œuvre de la musique classique et développez votre sensibilité musicale.",
+    "prerequisites": "Connaissance de base en musique.",
+    "program": "Œuvres et compositeurs classiques, Interprétation historique, Technique instrumentale, Expression musicale et style",
+    "image": "dbisfhoqbuqmsy5igfok",
+    "category_id": 15,
+    "organization_id": 26
+  },
+  {
+    "label": "Stratégie d'Entreprise",
+    "description": "Apprenez à développer une stratégie d'entreprise efficace pour assurer la croissance et la pérennité de votre organisation. Cette formation couvre les principes fondamentaux de la stratégie d'entreprise, l'analyse concurrentielle, la segmentation de marché, ainsi que les outils de mise en œuvre stratégique.",
+    "price": 250.00,
+    "duration": 8,
+    "dates": [
+      "2024-09-01",
+      "2024-10-31"
+    ],
+    "excerpt": "Maîtrisez les techniques de formulation et d'exécution de la stratégie d'entreprise pour réussir dans un environnement concurrentiel.",
+    "prerequisites": "Connaissance de base en gestion d'entreprise.",
+    "program": "Principes de la stratégie d'entreprise, Analyse de l'environnement concurrentiel, Segmentation de marché et positionnement, Mise en œuvre stratégique et évaluation des performances",
+    "image": "rfdifhhbt3g7n55ti8zu",
+    "category_id": 16,
+    "organization_id": 29
+  },
+  {
+    "label": "Marketing Digital",
+    "description": "Explorez les stratégies et les outils du marketing digital avec cette formation spécialisée. Vous apprendrez les principes du marketing en ligne, le référencement (SEO), la publicité en ligne, les médias sociaux, ainsi que les stratégies de contenu pour développer la visibilité et la notoriété de votre entreprise sur Internet.",
+    "price": 200.00,
+    "duration": 6,
+    "dates": [
+      "2024-11-01",
+      "2024-12-15"
+    ],
+    "excerpt": "Maîtrisez les techniques du marketing digital et augmentez la visibilité de votre entreprise sur le web.",
+    "prerequisites": "Aucun prérequis nécessaire.",
+    "program": "Fondamentaux du marketing digital, Référencement (SEO) et marketing de contenu, Publicité en ligne et médias sociaux",
+    "image": "hr4iareytgteshkzsoqf",
+    "category_id": 16,
+    "organization_id": 28
+  },
+  {
+    "label": "Finance d'Entreprise",
+    "description": "Découvrez les principes de la finance d'entreprise avec cette formation spécialisée. Vous apprendrez à interpréter les états financiers, à évaluer la rentabilité des projets d'investissement, à gérer le fonds de roulement, ainsi que les stratégies de financement et de levée de fonds.",
+    "price": 280.00,
+    "duration": 8,
+    "dates": [
+      "2025-01-01",
+      "2025-02-28"
+    ],
+    "excerpt": "Acquérez les compétences financières nécessaires pour prendre des décisions éclairées dans le contexte des affaires.",
+    "prerequisites": "Connaissance de base en comptabilité.",
+    "program": "Analyse des états financiers, Gestion de trésorerie et fonds de roulement, Évaluation de projets d'investissement, Stratégies de financement et de levée de fonds",
+    "image": "mkkurvcexxtpnqrdn1si",
+    "category_id": 16,
+    "organization_id": 7
+  },
+  {
+    "label": "Leadership et Gestion d'Équipe",
+    "description": "Développez vos compétences en leadership et en gestion d'équipe avec cette formation pratique. Vous apprendrez les principes du leadership, la communication efficace, la résolution de conflits, la motivation des équipes, ainsi que les stratégies de développement personnel et professionnel.",
+    "price": 230.00,
+    "duration": 6,
+    "dates": [
+      "2025-03-01",
+      "2025-04-15"
+    ],
+    "excerpt": "Devenez un leader inspirant et efficace en apprenant à gérer et à motiver votre équipe avec succès.",
+    "prerequisites": "Aucun prérequis nécessaire.",
+    "program": "Principes du leadership, Communication et gestion des conflits, Motivation des équipes et développement personnel",
+    "image": "p3vwat3vdzfbwgw3bzb1",
+    "category_id": 16,
+    "organization_id": 23
+  },
+  {
+    "label": "Entrepreneuriat et Création d'Entreprise",
+    "description": "Explorez le processus de création d'entreprise avec cette formation spécialisée. Vous apprendrez les étapes de la création d'entreprise, de l'idéation à la mise en œuvre, les aspects juridiques et réglementaires, le business model canvas, ainsi que les stratégies de financement et de croissance.",
+    "price": 260.00,
+    "duration": 8,
+    "dates": [
+      "2025-05-01",
+      "2025-06-30"
+    ],
+    "excerpt": "Transformez vos idées en projets d'entreprise réussis en acquérant les compétences nécessaires pour créer et développer une entreprise.",
+    "prerequisites": "Aucun prérequis nécessaire.",
+    "program": "Processus de création d'entreprise, Plan d'affaires et business model canvas, Aspects juridiques et réglementaires, Stratégies de financement et de croissance",
+    "image": "hq4b8fmadpb5pn1lfvhb",
+    "category_id": 16,
+    "organization_id": 29
+  },
+  {
+    "label": "Gestion de Projet",
+    "description": "Apprenez à gérer des projets avec succès avec cette formation pratique en gestion de projet. Vous découvrirez les principes de base de la gestion de projet, la planification, l'organisation, le suivi et le contrôle des projets, ainsi que les outils et les techniques de gestion de projet.",
+    "price": 220.00,
+    "duration": 8,
+    "dates": [
+      "2025-07-01",
+      "2025-08-31"
+    ],
+    "excerpt": "Maîtrisez les compétences essentielles de la gestion de projet et menez vos projets à bien dans les délais et les budgets impartis.",
+    "prerequisites": "Aucun prérequis nécessaire.",
+    "program": "Principes de base de la gestion de projet, Planification et organisation, Suivi et contrôle des projets, Outils et techniques de gestion de projet",
+    "image": "iwgz76yl53vuasvpkhgd",
+    "category_id": 16,
+    "organization_id": 22
+  },
+  {
+    "label": "Nutrition et Diététique",
+    "description": "Découvrez les principes fondamentaux de la nutrition et de la diététique avec cette formation. Vous apprendrez à équilibrer votre alimentation, à choisir des aliments sains, à planifier des repas équilibrés et à adopter des habitudes alimentaires favorables à votre santé.",
+    "price": 150.00,
+    "duration": 8,
+    "dates": [
+      "2024-09-01",
+      "2024-10-31"
+    ],
+    "excerpt": "Apprenez à nourrir votre corps de manière saine et équilibrée pour une meilleure santé.",
+    "prerequisites": "Aucun prérequis nécessaire.",
+    "program": "Introduction à la nutrition, Principes de base de la diététique, Planification des repas, Habitudes alimentaires saines",
+    "image": "tj4azg1aczksiq2uwvtj",
+    "category_id": 17,
+    "organization_id": 30
+  },
+  {
+    "label": "Méditation et Mindfulness",
+    "description": "Explorez les bienfaits de la méditation et de la pleine conscience avec cette formation. Vous découvrirez les techniques de méditation, de respiration et de relaxation pour réduire le stress, améliorer votre concentration et favoriser un état d'esprit calme et équilibré.",
+    "price": 120.00,
+    "duration": 6,
+    "dates": [
+      "2024-11-01",
+      "2024-12-15"
+    ],
+    "excerpt": "Pratiquez la méditation et la pleine conscience pour cultiver la paix intérieure et le bien-être mental.",
+    "prerequisites": "Aucun prérequis nécessaire.",
+    "program": "Introduction à la méditation, Techniques de respiration, Pratique de la pleine conscience",
+    "image": "xcaln08xlssna80opznw",
+    "category_id": 17,
+    "organization_id": 30
+  },
+  {
+    "label": "Yoga et Bien-être Physique",
+    "description": "Pratiquez le yoga pour améliorer votre bien-être physique et mental. Cette formation vous guidera à travers les postures de yoga, les techniques de respiration, la méditation et la relaxation pour renforcer votre corps, améliorer votre flexibilité et apaiser votre esprit.",
+    "price": 160.00,
+    "duration": 6,
+    "dates": [
+      "2025-01-01",
+      "2025-02-15"
+    ],
+    "excerpt": "Trouvez l'équilibre entre le corps et l'esprit grâce à la pratique du yoga.",
+    "prerequisites": "Aucun prérequis nécessaire.",
+    "program": "Postures de yoga, Techniques de respiration, Méditation et relaxation",
+    "image": "b1c3juicio4vgdvsnmyt",
+    "category_id": 17,
+    "organization_id": 31
+  },
+  {
+    "label": "Gestion du Stress et du Burnout",
+    "description": "Apprenez à gérer le stress et à prévenir le burnout avec cette formation pratique. Vous découvrirez les causes du stress, les techniques de gestion du stress, les stratégies de relaxation, ainsi que les méthodes de prévention du burnout professionnel et personnel.",
+    "price": 140.00,
+    "duration": 6,
+    "dates": [
+      "2025-03-01",
+      "2025-04-15"
+    ],
+    "excerpt": "Adoptez des techniques efficaces pour gérer le stress et préserver votre bien-être.",
+    "prerequisites": "Aucun prérequis nécessaire.",
+    "program": "Comprendre le stress, Gestion du stress au quotidien, Prévention du burnout",
+    "image": "k4mnnaxdd0kxrhtaz8ne",
+    "category_id": 17,
+    "organization_id": 5
+  },
+  {
+    "label": "Équilibre Émotionnel et Intelligence Émotionnelle",
+    "description": "Développez votre équilibre émotionnel et votre intelligence émotionnelle avec cette formation. Vous apprendrez à reconnaître, comprendre et gérer vos émotions, ainsi qu'à cultiver des relations saines et équilibrées avec les autres.",
+    "price": 170.00,
+    "duration": 8,
+    "dates": [
+      "2025-05-01",
+      "2025-06-30"
+    ],
+    "excerpt": "Apprenez à maîtriser vos émotions et à vivre une vie équilibrée et épanouissante.",
+    "prerequisites": "Aucun prérequis nécessaire.",
+    "program": "Compréhension des émotions, Gestion des émotions, Relations interpersonnelles, Développement de l'intelligence émotionnelle",
+    "image": "uvdiuaeces74wxh49o1x",
+    "category_id": 17,
+    "organization_id": 5
+  },
+  {
+    "label": "Sommeil et Hygiène de Vie",
+    "description": "Améliorez la qualité de votre sommeil et adoptez une meilleure hygiène de vie avec cette formation. Vous découvrirez les facteurs influençant le sommeil, les techniques de relaxation, les habitudes favorables au sommeil, ainsi que les stratégies pour optimiser votre santé globale.",
+    "price": 130.00,
+    "duration": 6,
+    "dates": [
+      "2025-07-01",
+      "2025-08-31"
+    ],
+    "excerpt": "Retrouvez un sommeil réparateur et vivez en harmonie avec votre corps et votre esprit.",
+    "prerequisites": "Aucun prérequis nécessaire.",
+    "program": "Comprendre le sommeil, Techniques de relaxation pour le sommeil, Habitudes favorables au sommeil",
+    "image": "hx8ksjrhm1a2dtct7cfd",
+    "category_id": 17,
+    "organization_id": 5
+  },
+  {
+    "label": "Stratégie Marketing Digital",
+    "description": "Explorez les fondements de la stratégie marketing digital avec cette formation. Vous apprendrez à élaborer une stratégie de marketing en ligne efficace, à utiliser les médias sociaux, le référencement et la publicité en ligne pour atteindre vos objectifs commerciaux.",
+    "price": 200.00,
+    "duration": 8,
+    "dates": [
+      "2024-09-01",
+      "2024-10-31"
+    ],
+    "excerpt": "Découvrez les meilleures pratiques en marketing digital pour développer votre présence en ligne et augmenter votre chiffre d'affaires.",
+    "prerequisites": "Connaissance de base en marketing.",
+    "program": "Introduction au marketing digital, Médias sociaux et marketing de contenu, Référencement et publicité en ligne, Analyse et optimisation des campagnes",
+    "image": "v4m0mhf8a5nxmjxqd6pv",
+    "category_id": 18,
+    "organization_id": 29
+  },
+  {
+    "label": "Marketing de Contenu et Storytelling",
+    "description": "Maîtrisez l'art du marketing de contenu et du storytelling avec cette formation. Vous apprendrez à créer du contenu engageant et persuasif, à raconter des histoires captivantes pour votre marque et à développer une stratégie de contenu efficace pour attirer et fidéliser votre audience.",
+    "price": 180.00,
+    "duration": 6,
+    "dates": [
+      "2024-11-01",
+      "2024-12-15"
+    ],
+    "excerpt": "Utilisez le pouvoir du storytelling pour captiver votre audience et transformer vos prospects en clients fidèles.",
+    "prerequisites": "Connaissance de base en marketing.",
+    "program": "Introduction au marketing de contenu, Stratégie de contenu et planification éditoriale, Storytelling et création de contenu",
+    "image": "v7lc8s0buofwjojkwapd",
+    "category_id": 18,
+    "organization_id": 23
+  },
+  {
+    "label": "Email Marketing et Marketing Automation",
+    "description": "Découvrez les techniques avancées d'email marketing et de marketing automation avec cette formation. Vous apprendrez à créer des campagnes d'email efficaces, à segmenter votre audience, à automatiser vos processus marketing et à mesurer les performances de vos campagnes.",
+    "price": 220.00,
+    "duration": 8,
+    "dates": [
+      "2025-01-01",
+      "2025-02-28"
+    ],
+    "excerpt": "Optimisez votre stratégie d'email marketing pour générer des leads qualifiés et augmenter vos ventes.",
+    "prerequisites": "Connaissance de base en marketing.",
+    "program": "Fondements de l'email marketing, Segmentation et ciblage de l'audience, Automation et workflows marketing, Analyse des performances et optimisation",
+    "image": "xj49rmc8atd8tg4r7ydq",
+    "category_id": 18,
+    "organization_id": 28
+  },
+  {
+    "label": "Marketing d'Influence et Relations Publiques",
+    "description": "Apprenez à tirer parti du marketing d'influence et des relations publiques pour promouvoir votre marque. Cette formation vous enseignera les stratégies pour collaborer avec des influenceurs, gérer votre réputation en ligne et créer des partenariats gagnants avec les médias.",
+    "price": 250.00,
+    "duration": 8,
+    "dates": [
+      "2025-03-01",
+      "2025-04-15"
+    ],
+    "excerpt": "Utilisez le pouvoir des influenceurs et des médias pour accroître la visibilité et la crédibilité de votre marque.",
+    "prerequisites": "Connaissance de base en marketing.",
+    "program": "Introduction au marketing d'influence, Stratégies de collaboration avec les influenceurs, Gestion de la réputation en ligne, Relations publiques et partenariats médias",
+    "image": "rzl6hfffzekqpykgzilh",
+    "category_id": 18,
+    "organization_id": 29
+  },
+  {
+    "label": "Analyse de Données Marketing",
+    "description": "Maîtrisez l'analyse de données marketing pour prendre des décisions stratégiques éclairées. Cette formation vous apprendra à collecter, analyser et interpréter les données marketing pour comprendre le comportement des consommateurs, évaluer les performances de vos campagnes et optimiser votre stratégie marketing.",
+    "price": 230.00,
+    "duration": 6,
+    "dates": [
+      "2025-05-01",
+      "2025-06-30"
+    ],
+    "excerpt": "Transformez vos données en insights exploitables pour améliorer votre ROI marketing et atteindre vos objectifs commerciaux.",
+    "prerequisites": "Connaissance de base en marketing et en analyse de données.",
+    "program": "Collecte et traitement des données, Analyse descriptive et segmentation, Analyse prédictive et modélisation",
+    "image": "r8cdagmobhasw48wvo9e",
+    "category_id": 18,
+    "organization_id": 28
+  },
+  {
+    "label": "Stratégie de Marque et Positionnement",
+    "description": "Développez une stratégie de marque percutante et un positionnement différenciateur avec cette formation. Vous apprendrez à définir l'identité de votre marque, à identifier votre marché cible, à positionner votre offre de manière unique et à créer des messages marketing percutants pour attirer votre audience.",
+    "price": 210.00,
+    "duration": 8,
+    "dates": [
+      "2025-07-01",
+      "2025-08-31"
+    ],
+    "excerpt": "Créez une marque forte et mémorable qui se démarque de la concurrence et fidélise vos clients.",
+    "prerequisites": "Connaissance de base en marketing.",
+    "program": "Définition de la stratégie de marque, Analyse concurrentielle et positionnement, Développement de l'identité visuelle, Communication de marque et storytelling",
+    "image": "oocookbnfcqtdhmaqsad",
+    "category_id": 18,
+    "organization_id": 29
+  },
+  {
+    "label": "Anglais des Affaires",
+    "description": "Maîtrisez l'anglais des affaires avec cette formation spécialisée. Vous apprendrez le vocabulaire, les expressions et les compétences linguistiques nécessaires pour communiquer efficacement dans un contexte professionnel. Cette formation mettra l'accent sur la rédaction d'emails, la présentation orale, les négociations commerciales et la communication interculturelle.",
+    "price": 180.00,
+    "duration": 8,
+    "dates": [
+      "2024-09-01",
+      "2024-10-31"
+    ],
+    "excerpt": "Améliorez vos compétences linguistiques en anglais pour réussir dans le monde des affaires.",
+    "prerequisites": "Niveau intermédiaire en anglais.",
+    "program": "Vocabulaire des affaires, Rédaction d'emails professionnels, Présentations et réunions, Négociations commerciales et communication interculturelle",
+    "image": "feirfwf2kfcfclxixj7q",
+    "category_id": 19,
+    "organization_id": 28
+  },
+  {
+    "label": "Japonais pour les Étudiants Avancés",
+    "description": "Approfondissez vos connaissances en japonais avec cette formation destinée aux étudiants avancés. Vous perfectionnerez votre maîtrise de la grammaire japonaise, élargirez votre vocabulaire et améliorerez vos compétences de lecture, d'écriture, d'écoute et de conversation.",
+    "price": 220.00,
+    "duration": 10,
+    "dates": [
+      "2025-09-01",
+      "2025-11-10"
+    ],
+    "excerpt": "Poussez vos compétences linguistiques japonaises au niveau supérieur et explorez la richesse de la culture japonaise.",
+    "prerequisites": "Niveau intermédiaire à avancé en japonais.",
+    "program": "Grammaire avancée, Vocabulaire spécialisé, Lecture et compréhension de textes, Expression écrite avancée, Conversations et débats avancés",
+    "image": "v2enan9g9p1abi7pf87b",
+    "category_id": 19,
+    "organization_id": 14
+  },
+  {
+    "label": "Espagnol pour les Voyageurs",
+    "description": "Préparez-vous à voyager en Espagne ou en Amérique latine avec cette formation rapide en espagnol pour les voyageurs. Vous apprendrez les bases de la langue espagnole, y compris les salutations, les expressions courantes, les directions, la nourriture et les situations de voyage.",
+    "price": 120.00,
+    "duration": 4,
+    "dates": [
+      "2025-01-01",
+      "2025-01-31"
+    ],
+    "excerpt": "Communiquez efficacement en espagnol lors de vos voyages et enrichissez votre expérience culturelle.",
+    "prerequisites": "Aucun prérequis nécessaire.",
+    "program": "Salutations et présentations, Directions et transports, Nourriture et restaurants, Situations de voyage et expressions utiles",
+    "image": "ymkuzpoda88ousbo7dbt",
+    "category_id": 19,
+    "organization_id": 14
+  },
+  {
+    "label": "Allemand pour les Débutants",
+    "description": "Initiez-vous à la langue allemande avec cette formation pour débutants. Vous apprendrez les bases de la grammaire allemande, le vocabulaire essentiel et les compétences de communication pratiques pour interagir dans des situations quotidiennes.",
+    "price": 140.00,
+    "duration": 6,
+    "dates": [
+      "2025-02-01",
+      "2025-03-15"
+    ],
+    "excerpt": "Découvrez la richesse de la langue allemande et ouvrez-vous à de nouvelles opportunités.",
+    "prerequisites": "Aucun prérequis nécessaire.",
+    "program": "Alphabet et prononciation, Grammaire de base, Vocabulaire courant et conversation",
+    "image": "hi4a4dkfjaovdcatctop",
+    "category_id": 19,
+    "organization_id": 14
+  },
+  {
+    "label": "Chinois Mandarin Intensif",
+    "description": "Plongez-vous dans la langue et la culture chinoises avec cette formation intensive en mandarin. Vous apprendrez les caractères chinois, la prononciation, la grammaire et le vocabulaire essentiel pour communiquer dans des situations quotidiennes et professionnelles.",
+    "price": 200.00,
+    "duration": 8,
+    "dates": [
+      "2025-04-01",
+      "2025-05-31"
+    ],
+    "excerpt": "Maîtrisez le mandarin et découvrez la diversité et la richesse de la culture chinoise.",
+    "prerequisites": "Aucun prérequis nécessaire.",
+    "program": "Caractères chinois et prononciation, Grammaire de base, Vocabulaire courant, Conversation et pratique orale",
+    "image": "n6zcyarw3vzx9jcxx5oe",
+    "category_id": 19,
+    "organization_id": 14
+  },
+  {
+    "label": "Italien pour les Voyageurs",
+    "description": "Préparez votre voyage en Italie avec cette formation rapide en italien pour les voyageurs. Vous apprendrez les phrases essentielles, les expressions courantes, ainsi que le vocabulaire et la grammaire de base nécessaires pour communiquer en italien lors de vos déplacements.",
+    "price": 130.00,
+    "duration": 4,
+    "dates": [
+      "2025-06-01",
+      "2025-06-30"
+    ],
+    "excerpt": "Profitez pleinement de votre séjour en Italie en communiquant avec les habitants en italien.",
+    "prerequisites": "Aucun prérequis nécessaire.",
+    "program": "Salutations et présentations, Directions et transports, Nourriture et restaurants, Situations de voyage et expressions utiles",
+    "image": "u2rr8a85bi9c4c6sgjmj",
+    "category_id": 19,
+    "organization_id": 14
+  },
+  {
+    "label": "Entraînement Cardiovasculaire",
+    "description": "Améliorez votre condition cardiovasculaire avec cette formation d'entraînement cardio intensif. Vous apprendrez des exercices cardiovasculaires variés tels que la course, le vélo, la corde à sauter et les entraînements par intervalles, conçus pour renforcer votre cœur, brûler des calories et améliorer votre endurance.",
+    "price": 150.00,
+    "duration": 6,
+    "dates": [
+      "2024-09-01",
+      "2024-10-15"
+    ],
+    "excerpt": "Boostez votre santé cardiovasculaire et atteignez vos objectifs de remise en forme avec des séances d'entraînement dynamiques.",
+    "prerequisites": "Aucun prérequis nécessaire.",
+    "program": "Course à pied et vélo, Entraînement par intervalles, Entraînement cardiovasculaire avancé",
+    "image": "kaz8ggfibm4gy9pxdrga",
+    "category_id": 20,
+    "organization_id": 30
+  },
+  {
+    "label": "Renforcement Musculaire",
+    "description": "Développez votre force et votre masse musculaire avec cette formation de renforcement musculaire. Vous apprendrez les principes de base de l'entraînement de force, y compris les exercices de musculation, de poids corporel et de résistance, pour sculpter et tonifier votre corps.",
+    "price": 160.00,
+    "duration": 8,
+    "dates": [
+      "2024-10-20",
+      "2024-12-15"
+    ],
+    "excerpt": "Transformez votre corps en une machine de puissance grâce à un entraînement de renforcement musculaire progressif et efficace.",
+    "prerequisites": "Aucun prérequis nécessaire.",
+    "program": "Entraînement de base avec poids corporel, Entraînement avec haltères et machines, Entraînement de résistance, Programme de renforcement musculaire avancé",
+    "image": "lwjd1lwk0wonajpiw6oz",
+    "category_id": 20,
+    "organization_id": 30
+  },
+  {
+    "label": "Perte de Poids et Équilibre Nutritionnel",
+    "description": "Atteignez vos objectifs de perte de poids et adoptez une alimentation équilibrée avec cette formation complète. Vous découvrirez les principes de la nutrition, les stratégies de perte de poids efficaces, ainsi que des conseils pratiques pour maintenir un mode de vie sain et équilibré.",
+    "price": 170.00,
+    "duration": 10,
+    "dates": [
+      "2025-01-01",
+      "2025-03-11"
+    ],
+    "excerpt": "Perdez du poids de manière durable et retrouvez une santé optimale grâce à une approche holistique de la remise en forme.",
+    "prerequisites": "Aucun prérequis nécessaire.",
+    "program": "Introduction à la nutrition, Élaboration d'un plan de repas équilibré, Exercices pour la perte de poids, Gestion du stress et du sommeil, Maintien de la perte de poids et changement d'habitudes",
+    "image": "pwux8oi4jquwxlb662mg",
+    "category_id": 20,
+    "organization_id": 31
+  },
+  {
+    "label": "Danse Aérobique",
+    "description": "Mettez-vous en forme en dansant avec cette formation de danse aérobique. Vous apprendrez une variété de mouvements de danse dynamiques et rythmés conçus pour brûler des calories, améliorer votre endurance et tonifier votre corps. Plongez dans une ambiance énergique et joyeuse tout en vous entraînant.",
+    "price": 170.00,
+    "duration": 6,
+    "dates": [
+      "2025-09-01",
+      "2025-10-15"
+    ],
+    "excerpt": "Faites de l'exercice en vous amusant avec des chorégraphies entraînantes et des rythmes envoûtants.",
+    "prerequisites": "Aucun prérequis nécessaire.",
+    "program": "Échauffement et bases de la danse, Chorégraphies de danse aérobique, Intensification et performances",
+    "image": "hkmhr1nyqtqa7gszvdvv",
+    "category_id": 20,
+    "organization_id": 31
+  },
+  {
+    "label": "Entraînement CrossFit",
+    "description": "Découvrez l'intensité de l'entraînement CrossFit avec cette formation complète. Vous serez initié aux mouvements fonctionnels variés, aux entraînements à haute intensité et aux principes de programmation CrossFit pour améliorer votre force, votre endurance et votre condition physique globale.",
+    "price": 190.00,
+    "duration": 8,
+    "dates": [
+      "2025-09-01",
+      "2025-10-31"
+    ],
+    "excerpt": "Défiez-vous avec des séances d'entraînement variées et intenses pour repousser vos limites et atteindre de nouveaux objectifs de remise en forme.",
+    "prerequisites": "Expérience préalable en musculation recommandée.",
+    "program": "Fondamentaux du CrossFit, Entraînements de force et de puissance, Entraînements cardiovasculaires et de conditionnement, Entraînements CrossFit avancés et compétition",
+    "image": "yx0ntppr2eithqz2mj6q",
+    "category_id": 20,
+    "organization_id": 30
+  },
+  {
+    "label": "Yoga Ashtanga",
+    "description": "Plongez dans la pratique dynamique du Yoga Ashtanga avec cette formation avancée. Vous explorerez les séries de postures enchaînées, la respiration synchronisée et la méditation pour développer force, souplesse et clarté mentale. Cette formation est destinée aux pratiquants expérimentés qui cherchent à approfondir leur pratique.",
+    "price": 200.00,
+    "duration": 10,
+    "dates": [
+      "2025-11-01",
+      "2026-01-10"
+    ],
+    "excerpt": "Trouvez l'harmonie entre le mouvement et la respiration et laissez-vous porter par le rythme fluide du Yoga Ashtanga.",
+    "prerequisites": "Expérience préalable en yoga recommandée.",
+    "program": "Salutations au soleil et séquence debout, Séquence intermédiaire, Séquence avancée et inversion, Pratique de la méditation et de la respiration, Pratique de la série complète et relaxation finale",
+    "image": "qc8biibd6ofdhnro8gyp",
+    "category_id": 20,
+    "organization_id": 31
+  },
+  {
+    "label": "Exercices de Mémoire et Concentration",
+    "description": "Ce programme d'exercices de mémoire et de concentration est conçu pour améliorer les capacités cognitives et la concentration. Vous apprendrez des techniques éprouvées pour renforcer votre mémoire à court et long terme, ainsi que des exercices pratiques pour maintenir votre concentration.",
+    "price": 5,
+    "duration": 1,
+    "dates": [
+      "2024-06-01",
+      "2024-06-02"
+    ],
+    "excerpt": "Boostez votre mémoire et renforcez votre concentration avec ces exercices stimulants.",
+    "prerequisites": "Aucun prérequis nécessaire.",
+    "program": "Introduction à la mémoire humaine, Techniques d'association et de mémorisation, Exercices pratiques pour améliorer la concentration",
+    "image": "z3f9shjssx3po5fgu71k",
+    "category_id": 3,
+    "organization_id": 5
+  },
+  {
+    "label": "Maîtrise des Gestionnaires de Mots de Passe",
+    "description": "Cette formation pratique vous apprendra à utiliser efficacement un gestionnaire de mots de passe pour sécuriser et gérer vos identifiants en ligne. Vous découvrirez les fonctionnalités avancées des gestionnaires de mots de passe et les meilleures pratiques en matière de sécurité numérique.",
+    "price": 5,
+    "duration": 1,
+    "dates": [
+      "2024-07-01",
+      "2024-07-02"
+    ],
+    "excerpt": "Protégez vos identifiants avec un gestionnaire de mots de passe fiable.",
+    "prerequisites": "Connaissance de base en informatique et utilisation d'Internet.",
+    "program": "Introduction aux gestionnaires de mots de passe, Configuration et utilisation avancée, Gestion sécurisée des identifiants en ligne",
+    "image": "jqjcekskzbsvwe9rrhmq",
+    "category_id": 1,
+    "organization_id": 1
+  }
+]

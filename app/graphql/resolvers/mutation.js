@@ -1,4 +1,7 @@
-import { createMutationMethods, createAssociationMethods } from './utils/createMethods.js';
+import {
+  createMutationMethods,
+  createAssociationMethods,
+} from './utils/createMethods.js';
 
 /**
  * Resolvers for the Mutation type.
@@ -12,7 +15,6 @@ import { createMutationMethods, createAssociationMethods } from './utils/createM
  * @property {Function} Member_Training - Resolver for Member_Training association.
  */
 const mutation = {
-
   // Create, update, and delete methods for each type
   ...createMutationMethods('Member'),
   ...createMutationMethods('Organization'),
@@ -30,8 +32,10 @@ const mutation = {
     return dataSources.otalentDB.member.forgotPassword(input);
   },
   resetPassword(_, { updatedPassword }, { dataSources, user }) {
-    return dataSources.otalentDB.member.resetPassword(updatedPassword, user);
+    return dataSources.otalentDB.member.resetPassword(
+      updatedPassword,
+      user,
+    );
   },
-
 };
 export default mutation;

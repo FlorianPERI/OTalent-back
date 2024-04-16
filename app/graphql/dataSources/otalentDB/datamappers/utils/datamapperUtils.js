@@ -1,5 +1,5 @@
 import client from '../../services/client.js';
-import regions from '../../../../../../data/regions.json' assert {type: "json"};
+import regions from '../../../../../../data/jsons/regions.json' assert { type: 'json' };
 /**
  * Checks if the given email belongs to a member.
  * @param {string} email - The email to check.
@@ -7,12 +7,12 @@ import regions from '../../../../../../data/regions.json' assert {type: "json"};
  * A promise that resolves to true if the email belongs to a member, otherwise false.
  */
 async function isMember(email) {
-  const query = {
-    text: 'SELECT * FROM member WHERE email = $1;',
-    values: [email],
-  };
-  const response = await client.query(query);
-  return !!response.rows[0];
+    const query = {
+        text: 'SELECT * FROM member WHERE email = $1;',
+        values: [email],
+    };
+    const response = await client.query(query);
+    return !!response.rows[0];
 }
 
 /**
@@ -22,12 +22,12 @@ async function isMember(email) {
  * A promise that resolves to true if the email belongs to an organization, otherwise false.
  */
 async function isOrganization(email) {
-  const query = {
-    text: 'SELECT * FROM organization WHERE email = $1;',
-    values: [email],
-  };
-  const response = await client.query(query);
-  return !!response.rows[0];
+    const query = {
+        text: 'SELECT * FROM organization WHERE email = $1;',
+        values: [email],
+    };
+    const response = await client.query(query);
+    return !!response.rows[0];
 }
 
 /**
@@ -38,12 +38,12 @@ async function isOrganization(email) {
  * A promise that resolves to true if the email exists in the specified table, otherwise false.
  */
 async function isEmailInAnotherTable(email, tableToCheck) {
-  const query = {
-    text: `SELECT * FROM ${tableToCheck} WHERE email = $1;`,
-    values: [email],
-  };
-  const response = await client.query(query);
-  return !!response.rows[0];
+    const query = {
+        text: `SELECT * FROM ${tableToCheck} WHERE email = $1;`,
+        values: [email],
+    };
+    const response = await client.query(query);
+    return !!response.rows[0];
 }
 
 /**
@@ -54,13 +54,13 @@ async function isEmailInAnotherTable(email, tableToCheck) {
  * @returns A promise that resolves with a boolean indicating if the column exists in the tables.
  */
 async function isColumnInTable(columnName, tableName) {
-  const query = {
-    text: `SELECT column_name FROM information_schema.columns
+    const query = {
+        text: `SELECT column_name FROM information_schema.columns
           WHERE table_name = $1 AND column_name = $2;`,
-    values: [tableName, columnName],
-  };
-  const response = await client.query(query);
-  return !!response.rowCount;
+        values: [tableName, columnName],
+    };
+    const response = await client.query(query);
+    return !!response.rowCount;
 }
 
 /**
@@ -71,12 +71,16 @@ async function isColumnInTable(columnName, tableName) {
  * or null if the table name does not match 'training' or date properties are missing.
  */
 async function formatDates(data, tableName) {
-  if (tableName === 'training' && 'startingDate' in data && 'endingDate' in data) {
-    data.dates = [data.startingDate, data.endingDate];
-    delete data.startingDate;
-    delete data.endingDate;
-    return data;
-  }
+    if (
+        tableName === 'training' &&
+        'startingDate' in data &&
+        'endingDate' in data
+    ) {
+        data.dates = [data.startingDate, data.endingDate];
+        delete data.startingDate;
+        delete data.endingDate;
+        return data;
+    }
 }
 
 /**
@@ -87,16 +91,18 @@ async function formatDates(data, tableName) {
  * or null if no matching region is found for the given postal code.
  */
 function getRegion(postalCode) {
-  const departmentCode = postalCode.substring(0, 2);
-  let regionName = null;
-  regions.forEach((region) => {
-    const departement = region.departements.find((dep) => dep.code === departmentCode)
-    if (departement) {
-      regionName = region.name;
-      return;
-    }
-  });
-  return regionName;
+    const departmentCode = postalCode.substring(0, 2);
+    let regionName = null;
+    regions.forEach(region => {
+        const departement = region.departements.find(
+            dep => dep.code === departmentCode
+        );
+        if (departement) {
+            regionName = region.name;
+            return;
+        }
+    });
+    return regionName;
 }
 
 /**
@@ -105,12 +111,18 @@ function getRegion(postalCode) {
  * @returns {string[]} - An array of department codes belonging to the specified region.
  */
 function getDepartementsCode(regionName) {
-  let departmentsCode = [];
-  const region = regions.find((reg) => reg.name === regionName);
-  region.departements.forEach((dep) => departmentsCode.push(dep.code));
-  return departmentsCode;
+    let departmentsCode = [];
+    const region = regions.find(reg => reg.name === regionName);
+    region.departements.forEach(dep => departmentsCode.push(dep.code));
+    return departmentsCode;
 }
 
 export {
-  isMember, isOrganization, isEmailInAnotherTable, isColumnInTable, formatDates, getRegion, getDepartementsCode
+    isMember,
+    isOrganization,
+    isEmailInAnotherTable,
+    isColumnInTable,
+    formatDates,
+    getRegion,
+    getDepartementsCode,
 };

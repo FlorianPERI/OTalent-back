@@ -39,6 +39,7 @@ const schemas = `#graphql
     ${mutation}
     ${authPayload}
     ${forgotPasswordInput}
+    extend schema @link(url: "https://specs.apollo.dev/federation/v2.0", import: ["@key", "@shareable"])
   `;
 
 debug('schemas combined successfully');

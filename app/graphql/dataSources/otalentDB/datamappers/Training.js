@@ -9,54 +9,61 @@ class Training extends CoreDatamapper {
   tableName = 'training';
 
   /**
-   * Creates a new instance of the Training data mapper.
-   * @param {object} options - The options for the data mapper.
-   */
+     * Creates a new instance of the Training data mapper.
+     * @param {object} options - The options for the data mapper.
+     */
   constructor(options) {
     super(options);
     this.byEntityIdDataLoader('Organization', 'organization_id');
     this.byEntityIdDataLoader('Category', 'category_id');
-    this.joinDataLoader('Member', 'member_likes_training', 'training_id', 'member_id');
+    this.joinDataLoader(
+      'Member',
+      'member_likes_training',
+      'training_id',
+      'member_id',
+    );
   }
 
   /**
-   * Finds trainings by member ID.
-   * @param {number} id - The member ID.
-   * @returns {Promise<Array>} - A promise that resolves to an array of trainings.
-   */
+     * Finds trainings by member ID.
+     * @param {number} id - The member ID.
+     * @returns {Promise<Array>} - A promise that resolves to an array of trainings.
+     */
   async findByMemberId(id) {
     const result = await this.findByMemberIdLoader.load(id);
     return result || [];
   }
 
   /**
-   * Finds trainings by organization ID.
-   * @param {number} id - The organization ID.
-   * @returns {Promise<Array>} - A promise that resolves to an array of trainings.
-   */
+     * Finds trainings by organization ID.
+     * @param {number} id - The organization ID.
+     * @returns {Promise<Array>} - A promise that resolves to an array of trainings.
+     */
   async findByOrganizationId(id) {
     const result = await this.findByOrganizationIdLoader.load(id);
     return result || [];
   }
 
   /**
-   * Finds trainings by category ID.
-   * @param {number} id - The category ID.
-   * @returns {Promise<Array>} - A promise that resolves to an array of trainings.
-   */
+     * Finds trainings by category ID.
+     * @param {number} id - The category ID.
+     * @returns {Promise<Array>} - A promise that resolves to an array of trainings.
+     */
   async findByCategoryId(id) {
     const result = await this.findByCategoryIdLoader.load(id);
     return result || [];
   }
 
   /**
-   * Finds trainings based on the specified region name provided.
-   * @param {string} region - The name of the region to search for trainings.
-   * @returns {Promise<Array>} A promise that resolves to an array of trainings.
-   */
+     * Finds trainings based on the specified region name provided.
+     * @param {string} region - The name of the region to search for trainings.
+     * @returns {Promise<Array>} A promise that resolves to an array of trainings.
+     */
   async findByRegion(region) {
     const departmentsCode = getDepartementsCode(region);
-    const placeholders = departmentsCode.map((code, index) => `$${index + 1}`).join(',');
+    const placeholders = departmentsCode
+      .map((code, index) => `$${index + 1}`)
+      .join(',');
     const values = departmentsCode.map((code) => `${code}%`);
     const query = {
       text: `SELECT * FROM training WHERE organization_id IN (

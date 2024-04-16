@@ -16,7 +16,10 @@ function createMethods(entityName, methodName, idField = 'id') {
   if (lowerCaseEntityName === 'categories') {
     dataSourceName = 'category';
   }
-  if (lowerCaseEntityName.endsWith('s') && lowerCaseEntityName !== 'categories') {
+  if (
+    lowerCaseEntityName.endsWith('s')
+        && lowerCaseEntityName !== 'categories'
+  ) {
     dataSourceName = lowerCaseEntityName.slice(0, -1);
   }
 
@@ -45,12 +48,12 @@ function createMethods(entityName, methodName, idField = 'id') {
 }
 
 /**
-   * Dynamically creates query methods for a specific entity.
-   *
-   * @param {string} entityName - The name of the entity.
-   * @param {string} [pluralEntityName=`${entityName}s`] - The plural name of the entity.
-   * @returns {Object} - The query methods object.
-   */
+ * Dynamically creates query methods for a specific entity.
+ *
+ * @param {string} entityName - The name of the entity.
+ * @param {string} [pluralEntityName=`${entityName}s`] - The plural name of the entity.
+ * @returns {Object} - The query methods object.
+ */
 function createQueryMethods(entityName, pluralEntityName = `${entityName}s`) {
   // Convert the entity names to lowercase
   const lowerCaseEntityName = entityName.toLowerCase();
@@ -68,11 +71,11 @@ function createQueryMethods(entityName, pluralEntityName = `${entityName}s`) {
 }
 
 /**
-   * Creates mutation methods for a specific entity.
-   *
-   * @param {string} entityName - The name of the entity.
-   * @returns {Object} - The mutation methods object.
-   */
+ * Creates mutation methods for a specific entity.
+ *
+ * @param {string} entityName - The name of the entity.
+ * @returns {Object} - The mutation methods object.
+ */
 function createMutationMethods(entityName) {
   // Convert the entity name to lowercase
   const lowerCaseEntityName = entityName.toLowerCase();
@@ -98,18 +101,17 @@ function createMutationMethods(entityName) {
         throw new Error('User not authenticated');
       }
       return dataSources.otalentDB[lowerCaseEntityName].delete(id, user);
-    }
-    ,
+    },
   };
 }
 
 /**
-   * Creates association methods for a specific entity and association.
-   *
-   * @param {string} firstEntity - The name of the first entity.
-   * @param {string} secondEntity - The name of the second entity.
-   * @returns {Object} - The association methods object.
-   */
+ * Creates association methods for a specific entity and association.
+ *
+ * @param {string} firstEntity - The name of the first entity.
+ * @param {string} secondEntity - The name of the second entity.
+ * @returns {Object} - The association methods object.
+ */
 function createAssociationMethods(firstEntity, secondEntity) {
   // Convert the entity names to lowercase
   const lowerFirstEntity = firstEntity.toLowerCase();
@@ -120,11 +122,32 @@ function createAssociationMethods(firstEntity, secondEntity) {
   // dataSources.otalentDB.category.associateCategoryMember(categoryId, memberId),
   //
   return {
-    [`associate${firstEntity}${secondEntity}`]: (_, { [`${lowerFirstEntity}Id`]: firstEntityId, [`${lowerSecondEntity}Id`]: secondEntityId }, { dataSources, user }) => dataSources.otalentDB[lowerFirstEntity][`associate${firstEntity}${secondEntity}`](firstEntityId, secondEntityId, user),
-    [`dissociate${firstEntity}${secondEntity}`]: (_, { [`${lowerFirstEntity}Id`]: firstEntityId, [`${lowerSecondEntity}Id`]: secondEntityId }, { dataSources, user }) => dataSources.otalentDB[lowerFirstEntity][`dissociate${firstEntity}${secondEntity}`](firstEntityId, secondEntityId, user),
+    [`associate${firstEntity}${secondEntity}`]: (
+      _,
+      {
+        [`${lowerFirstEntity}Id`]: firstEntityId,
+        [`${lowerSecondEntity}Id`]: secondEntityId,
+      },
+      { dataSources, user },
+    ) => dataSources.otalentDB[lowerFirstEntity][
+      `associate${firstEntity}${secondEntity}`
+    ](firstEntityId, secondEntityId, user),
+    [`dissociate${firstEntity}${secondEntity}`]: (
+      _,
+      {
+        [`${lowerFirstEntity}Id`]: firstEntityId,
+        [`${lowerSecondEntity}Id`]: secondEntityId,
+      },
+      { dataSources, user },
+    ) => dataSources.otalentDB[lowerFirstEntity][
+      `dissociate${firstEntity}${secondEntity}`
+    ](firstEntityId, secondEntityId, user),
   };
 }
 
 export {
-  createMethods, createQueryMethods, createMutationMethods, createAssociationMethods,
+  createMethods,
+  createQueryMethods,
+  createMutationMethods,
+  createAssociationMethods,
 };
