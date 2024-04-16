@@ -1,4 +1,5 @@
 "Represents the authentication token"
 type AuthPayload {
+    "Token for authentication"
     token: String
 }

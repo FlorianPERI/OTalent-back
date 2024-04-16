@@ -7,7 +7,7 @@ import axios from 'axios';
  * @returns {Promise<void>}
  */
 async function testQuery(query, checkResponse) {
-  const result = await axios.post('http://localhost:3000/graphql', { query });
+  const result = await axios.post(process.env.GRAPH_TEST_URL, { query });
   checkResponse(result.data.data);
 }
 
@@ -209,6 +209,7 @@ test('Member query', async () => {
         city
         postal_code
         avatar
+        region
         categories {
           id
           label
@@ -233,6 +234,7 @@ test('Member query', async () => {
     expect(typeof data.member.lastname).toBe('string');
     expect(typeof data.member.email).toBe('string');
     expect(typeof data.member.password).toBe('string');
+    expect(typeof data.member.region).toBe('string');
     if (data.member.city) {
       expect(typeof data.member.city).toBe('string');
     }

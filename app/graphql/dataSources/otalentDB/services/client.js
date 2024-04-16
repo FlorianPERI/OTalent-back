@@ -1,9 +1,8 @@
 import Debug from 'debug';
-import pkg from 'pg';
-import 'dotenv/config';
+import pg from 'pg';
 
-const { Pool } = pkg;
-const debug = Debug('app:client');
+const debug = Debug('app:pgclient');
+const { Pool } = pg;
 
 /**
  * Instance of pg Pool. It will connect to the PostgreSQL database

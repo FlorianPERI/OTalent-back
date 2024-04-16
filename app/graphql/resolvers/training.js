@@ -18,8 +18,8 @@ const training = {
   ...createMethods('Organization', 'findByPk', 'organization_id'), // Find the organization of the training
   ...createMethods('Members', 'findByTrainingId'), // Find the members of the training
   ...createMethods('Reviews', 'findByTrainingId'), // Find the reviews of the training
-  averageRating: ({ id }, _, { dataSources }) => dataSources.otalentDB.review
-    .findAverageRatingOfTraining(id),
+  averageRating: ({ id }, _, { dataSources }) => dataSources.otalentDB
+    .review.findAverageRatingOfTraining(id),
   dates: (parent) => parent.dates.map((dateStr) => dayjs(dateStr).format('YYYY-MM-DD')),
 };
 

@@ -1,7 +1,6 @@
 import dayjs from 'dayjs';
 import { fakerFR as faker } from '@faker-js/faker';
 import bcrypt from 'bcrypt';
-import 'dotenv/config';
 
 /**
  * Formating a date with dayJs
@@ -57,10 +56,17 @@ function matchPostalCodeRegex(postalCode) {
  * @returns {Promise<string>} - A Promise that resolves with the hashed password.
  */
 async function hashingPassword(password) {
-  const hash = await bcrypt.hash(password, parseInt(process.env.PASSWORD_SALT, 10));
+  const hash = await bcrypt.hash(
+    password,
+    parseInt(process.env.PASSWORD_SALT, 10),
+  );
   return hash;
 }
 
 export {
-  formatingDate, getRandomInt, generateRandomArray, matchPostalCodeRegex, hashingPassword,
+  formatingDate,
+  getRandomInt,
+  generateRandomArray,
+  matchPostalCodeRegex,
+  hashingPassword,
 };
