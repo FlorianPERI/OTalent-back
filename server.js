@@ -9,7 +9,7 @@ import fastifyApollo, {
 import { buildSubgraphSchema } from '@apollo/subgraph';
 import { mergeTypeDefs } from '@graphql-tools/merge';
 import Fastify from 'fastify';
-import fastifyJwt from '@fastify/jwt';
+
 import Debug from 'debug';
 import depthLimit from 'graphql-depth-limit';
 import {
@@ -20,7 +20,6 @@ import {
   createApollo4QueryValidationPlugin,
   constraintDirectiveTypeDefs,
 } from 'graphql-constraint-directive/apollo4.js';
-import fs from 'node:fs';
 import pino from 'pino';
 import pretty from 'pino-pretty';
 import Redis from 'ioredis';
@@ -43,12 +42,7 @@ import resolvers from './app/graphql/resolvers/index.js';
 
 const PORT = process.env.SERVER_PORT ?? 3000;
 const debug = Debug('app:server');
-const fastify = Fastify({
-  https: {
-    key: fs.readFileSync('./ssl/server.key'),
-    cert: fs.readFileSync('./ssl/server.crt'),
-  },
-});
+const fastify = Fastify();
 
 const logger = pino(
   pretty({
@@ -190,10 +184,6 @@ await fastify.register(fastifyApollo(apollo), { context: contextFunction });
  */
 fastify.register(fastifyWebsocket);
 
-fastify.register(fastifyJwt, {
-  secret: process.env.JWT_SECRET_FASTIFY,
-});
-
 /** *************************************************************************************
  *
  *                                Starting the Server
@@ -209,8 +199,8 @@ fastify
         logger.error(err);
         process.exit(1);
       }
-      const serverAddress = fastify.addresses().find((address) => address.family === 'IPv4');
-      debug(`🚀 Server ready at http://${serverAddress.address}:{serverAddress.port}/graphql`);
+      const serverAddress = fastify.server.address();
+      debug(`🚀 Server ready at http://${serverAddress.address}:${serverAddress.port}/graphql`);
     });
   })
   .catch((err) => {
