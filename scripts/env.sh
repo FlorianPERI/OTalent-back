@@ -17,6 +17,16 @@ read -p "$(echo -e ${BLUE}Enter db name: ${NOCOLOR} )" new_PGDATABASE
 read -p "$(echo -e ${BLUE}Enter db username: ${NOCOLOR} )" new_PGUSER
 read -p "$(echo -e ${BLUE}Enter db password: ${NOCOLOR} )" new_PGPASSWORD
 read -p "$(echo -e ${BLUE}Enter db ssl mode: ${NOCOLOR} )" new_PGSSLMODE
+read -p "$(echo -e ${BLUE}Enter password salt: ${NOCOLOR} )" new_PASSWORD_SALT
+read -p "$(echo -e ${BLUE}Enter insee api key: ${NOCOLOR} )" new_INSEE_API_KEY
+read -p "$(echo -e ${BLUE}Enter jwt token duration: ${NOCOLOR} )" new_JWT_DURATION
+read -p "$(echo -e ${BLUE}Enter jwt token secret: ${NOCOLOR} )" new_JWT_SECRET
+read -p "$(echo -e ${BLUE}Enter graph url endpoint for tests: ${NOCOLOR} )" new_GRAPH_TEST_URL
+read -p "$(echo -e ${BLUE}Enter nodemailer key: ${NOCOLOR} )" new_NODEMAILER_KEY
+read -p "$(echo -e ${BLUE}Enter nodemailer email: ${NOCOLOR} )" new_MAIL_ADDRESS
+read -p "$(echo -e ${BLUE}Enter redis port: ${NOCOLOR} )" new_REDIS_PORT
+read -p "$(echo -e ${BLUE}Enter redis password: ${NOCOLOR} )" new_REDIS_PASSWORD
+read -p "$(echo -e ${BLUE}Enter redis url: ${NOCOLOR} )" new_REDIS_URL
 
 envFile=".env"
 sqitchFile="sqitch.conf"
@@ -48,6 +58,46 @@ fi
 if [ ! -z "$new_PGSSLMODE" ]; then
     sed -i "s/^PGSSLMODE=.*/PGSSLMODE=$new_PGSSLMODE/" "$envFile"
     PGSSLMODE=$new_PGSSLMODE
+fi
+
+if [ ! -z "$new_PASSWORD_SALT" ]; then
+  sed -i "s/^PASSWORD_SALT=.*/PASSWORD_SALT=$new_PASSWORD_SALT/" "$envFile"
+fi
+
+if [ ! -z "$new_INSEE_API_KEY" ]; then
+  sed -i "s/^INSEE_API_KEY=.*/INSEE_API_KEY=$new_INSEE_API_KEY/" "$envFile"
+fi
+
+if [ ! -z "$new_JWT_DURATION" ]; then
+  sed -i "s/^JWT_DURATION=.*/JWT_DURATION=$new_JWT_DURATION/" "$envFile"
+fi
+
+if [ ! -z "$new_JWT_SECRET" ]; then
+  sed -i "s/^JWT_SECRET=.*/JWT_SECRET=$new_JWT_SECRET/" "$envFile"
+fi
+
+if [ ! -z "$new_GRAPH_TEST_URL" ]; then
+  sed -i "s/^GRAPH_TEST_URL=.*/GRAPH_TEST_URL=$new_GRAPH_TEST_URL/" "$envFile"
+fi
+
+if [ ! -z "$new_NODEMAILER_KEY" ]; then
+  sed -i "s/^NODEMAILER_KEY=.*/NODEMAILER_KEY=$new_NODEMAILER_KEY/" "$envFile"
+fi
+
+if [ ! -z "$new_MAIL_ADDRESS" ]; then
+  sed -i "s/^MAIL_ADDRESS=.*/MAIL_ADDRESS=$new_MAIL_ADDRESS/" "$envFile"
+fi
+
+if [ ! -z "$new_REDIS_PORT" ]; then
+  sed -i "s/^REDIS_PORT=.*/REDIS_PORT=$new_REDIS_PORT/" "$envFile"
+fi
+
+if [ ! -z "$new_REDIS_PASSWORD" ]; then
+  sed -i "s/^REDIS_PASSWORD=.*/REDIS_PASSWORD=$new_REDIS_PASSWORD/" "$envFile"
+fi
+
+if [ ! -z "$new_REDIS_URL" ]; then
+  sed -i "s/^REDIS_URL=.*/REDIS_URL=$new_REDIS_URL/" "$envFile"
 fi
 
 new_PGURL="postgresql://$PGUSER:$PGPASSWORD@$PGHOST/$PGDATABASE?sslmode=$PGSSLMODE"
