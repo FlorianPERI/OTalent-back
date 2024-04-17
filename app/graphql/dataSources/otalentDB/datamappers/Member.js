@@ -129,7 +129,7 @@ class Member extends CoreDatamapper {
      * @param {string} region - The name of the region to search for members.
      * @returns {Promise<Array>} A promise that resolves to an array of members.
      */
-  static findRegion(postalCode) {
+  findRegion(postalCode) {
     const region = getRegion(postalCode);
     return region;
   }
