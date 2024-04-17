@@ -117,6 +117,11 @@ const contextFunction = async (request) => {
 
 await apollo.start();
 
+/**
+ * Registering ApolloServer with Fastify
+ */
+await fastify.register(fastifyApollo(apollo), { context: contextFunction });
+
 /** *************************************************************************************
  *
  *                              WebSocket Settings
@@ -127,9 +132,9 @@ await apollo.start();
  * Setting up Redis
  */
 const redis = new Redis({
-  password: '9klCdQEX843eayQhDE9n3EFZgqJ2FWX6',
-  host: 'redis-18916.c250.eu-central-1-1.ec2.cloud.redislabs.com',
-  port: 18916,
+  password: process.env.REDIS_PASSWORD,
+  host: process.env.REDIS_URL,
+  port: process.env.REDIS_PORT,
 });
 
 /**
@@ -138,6 +143,11 @@ const redis = new Redis({
 redis.on('error', (err) => {
   debug('Error connecting to Redis', err);
 });
+
+/**
+ * Registering WebSocket with Fastify
+ */
+fastify.register(fastifyWebsocket);
 
 /**
  * WebSocket route
@@ -165,30 +175,14 @@ fastify.register(async () => {
 
 /** *************************************************************************************
  *
- *                                Server Plugins
+ *                                Starting the Server
  *
  ************************************************************************************** */
 
 /**
  * Registering CORS plugin with Fastify
  */
-await fastify.register(cors, { origin: '*' });
-
-/**
- * Registering ApolloServer with Fastify
- */
-await fastify.register(fastifyApollo(apollo), { context: contextFunction });
-
-/**
- * Registering WebSocket with Fastify
- */
-fastify.register(fastifyWebsocket);
-
-/** *************************************************************************************
- *
- *                                Starting the Server
- *
- ************************************************************************************** */
+await fastify.register(cors, { origin: ['http://localhost:3000', 'https://studio.apollographql.com/', 'https://otalentoclock.netlify.app/'] });
 
 fastify
   .ready()
