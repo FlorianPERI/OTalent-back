@@ -97,7 +97,7 @@ const contextFunction = async (request) => {
     try {
       const verify = auth.verifyToken(token);
       user = await auth.getUser(verify);
-      debug(user);
+      // debug(user);
     } catch (error) {
       throw new Error('Invalid token');
     }
