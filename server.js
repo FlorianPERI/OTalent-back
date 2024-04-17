@@ -34,6 +34,7 @@ import OtalentDB from './app/graphql/dataSources/otalentDB/datamappers/index.js'
 import SireneAPI from './app/graphql/dataSources/sireneAPI/index.js';
 import typeDefs from './app/graphql/schemas/index.js';
 import resolvers from './app/graphql/resolvers/index.js';
+import 'dotenv/config';
 
 /** *************************************************************************************
  *
@@ -190,10 +191,6 @@ await fastify.register(fastifyApollo(apollo), { context: contextFunction });
  */
 fastify.register(fastifyWebsocket);
 
-fastify.register(fastifyJwt, {
-  secret: process.env.JWT_SECRET_FASTIFY,
-});
-
 /** *************************************************************************************
  *
  *                                Starting the Server
@@ -210,7 +207,7 @@ fastify
         process.exit(1);
       }
       const serverAddress = fastify.addresses().find((address) => address.family === 'IPv4');
-      debug(`🚀 Server ready at http://${serverAddress.address}:{serverAddress.port}/graphql`);
+      debug(`🚀 Server ready at http://${serverAddress.address}:${serverAddress.port}/graphql`);
     });
   })
   .catch((err) => {
