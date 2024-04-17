@@ -1,12 +1,13 @@
-import 'dotenv/config';
 import nodemailer from 'nodemailer';
 import { fileURLToPath } from 'url';
 import { join } from 'path';
+import Debug from 'debug';
 
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = join(__filename, '..');
+const debug = Debug('app:services:mail');
 
-const imagePath = join(__dirname, '../../../img/logo_otalent.png');
+const filename = fileURLToPath(import.meta.url);
+const dirname = join(filename, '..');
+const imagePath = join(dirname, '../../../img/logo_otalent.png');
 
 const transporter = nodemailer.createTransport({
   host: 'smtp.sendgrid.net',
@@ -17,6 +18,11 @@ const transporter = nodemailer.createTransport({
   },
 });
 
+/**
+ * Sends a password reset email to the user associated with the provided email address.
+ * @param {string} email - The email address of the user.
+ * @param {string} token - The password reset token.
+ */
 async function sendPasswordReset(email, token) {
   try {
     const resetLink = `http://localhost:5173/reset-password?token=${token}`;
@@ -37,7 +43,8 @@ ${text}
 </body>
 </html>
 `;
-    const info = await transporter.sendMail({
+
+    await transporter.sendMail({
       from: 'otalentoclock@gmail.com',
       to: email,
       subject: 'Password Reset',
@@ -52,6 +59,7 @@ ${text}
     });
     return true;
   } catch (error) {
+    debug(`Failed to send email: ${error}`);
     return false;
   }
 }

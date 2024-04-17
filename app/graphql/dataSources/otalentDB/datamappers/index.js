@@ -11,18 +11,17 @@ import OrganizationDatamapper from './Organization.js';
  */
 class OtalentDB {
   /**
-   * Creates an instance of OtalentDB.
-   * @param {object} options - The options for configuring the data mapper.
-   * @param {object} options.client - The client object for connecting to the database.
-   */
+     * Creates an instance of OtalentDB.
+     * @param {object} options - The options for configuring the data mapper.
+     * @param {object} options.client - The client object for connecting to the database.
+     */
   constructor(options = {}) {
-    // eslint-disable-next-line no-param-reassign
-    options.client = client;
-    this.member = new MemberDatamapper(options);
-    this.review = new ReviewDatamapper(options);
-    this.training = new TrainingDatamapper(options);
-    this.category = new CategoryDatamapper(options);
-    this.organization = new OrganizationDatamapper(options);
+    const optionsCopy = { ...options, client };
+    this.member = new MemberDatamapper(optionsCopy);
+    this.review = new ReviewDatamapper(optionsCopy);
+    this.training = new TrainingDatamapper(optionsCopy);
+    this.category = new CategoryDatamapper(optionsCopy);
+    this.organization = new OrganizationDatamapper(optionsCopy);
   }
 }
 

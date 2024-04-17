@@ -1,54 +1,54 @@
 "Root mutation type"
 type Mutation {
-  "Add a new member"
-  addMember(input: MemberInput!): Member
-  "Modify an existing member"
-  modifyMember(id: ID!, input: MemberInput!): Member
-  "Delete a member"
-  deleteMember(id: ID!): Boolean
+    "Add a new member"
+    addMember(input: MemberInput!): Member
+    "Modify an existing member"
+    modifyMember(id: ID!, input: MemberInput!): Member
+    "Delete a member"
+    deleteMember(id: ID!): Boolean
 
-  "Add a new organization"
-  addOrganization(input: OrganizationInput!): Organization
-  "Modify an existing organization"
-  modifyOrganization(id: ID!, input: OrganizationInput!): Organization
-  "Delete an organization"
-  deleteOrganization(id: ID!): Boolean
+    "Add a new organization"
+    addOrganization(input: OrganizationInput!): Organization
+    "Modify an existing organization"
+    modifyOrganization(id: ID!, input: OrganizationInput!): Organization
+    "Delete an organization"
+    deleteOrganization(id: ID!): Boolean
 
-  "Add a new review"
-  addReview(input: ReviewInput!): Review
-  "Modify an existing review"
-  modifyReview(id: ID!, input: ReviewInput!): Review
-  "Delete a review"
-  deleteReview(id: ID!): Boolean
+    "Add a new review"
+    addReview(input: ReviewInput!): Review
+    "Modify an existing review"
+    modifyReview(id: ID!, input: ReviewInput!): Review
+    "Delete a review"
+    deleteReview(id: ID!): Boolean
 
-  "Add a new training"
-  addTraining(input: TrainingInput!): Training
-  "Modify an existing training"
-  modifyTraining(id: ID!, input: TrainingInput!): Training
-  "Delete a training"
-  deleteTraining(id: ID!): Boolean
+    "Add a new training"
+    addTraining(input: TrainingInput!): Training
+    "Modify an existing training"
+    modifyTraining(id: ID!, input: TrainingInput!): Training
+    "Delete a training"
+    deleteTraining(id: ID!): Boolean
 
-  "Add a new category"
-  addCategory(input: CategoryInput!): Category
-  "Modify an existing category"
-  modifyCategory(id: ID!, input: CategoryInput!): Category
-  "Delete a category"
-  deleteCategory(id: ID!): Boolean
+    "Add a new category"
+    addCategory(input: CategoryInput!): Category
+    "Modify an existing category"
+    modifyCategory(id: ID!, input: CategoryInput!): Category
+    "Delete a category"
+    deleteCategory(id: ID!): Boolean
 
-  "Associate a member with a category"
-  associateMemberCategory(memberId: ID!, categoryId: ID!): Boolean
-  "Dissociate a member from a category"
-  dissociateMemberCategory(memberId: ID!, categoryId: ID!): Boolean
+    "Associate a member with a category"
+    associateMemberCategory(memberId: ID!, categoryId: ID!): Boolean
+    "Dissociate a member from a category"
+    dissociateMemberCategory(memberId: ID!, categoryId: ID!): Boolean
 
-  "Associate a member with a training"
-  associateMemberTraining(memberId: ID!, trainingId: ID!): Boolean
-  "Dissociate a member from a training"
-  dissociateMemberTraining(memberId: ID!, trainingId: ID!): Boolean
+    "Associate a member with a training"
+    associateMemberTraining(memberId: ID!, trainingId: ID!): Boolean
+    "Dissociate a member from a training"
+    dissociateMemberTraining(memberId: ID!, trainingId: ID!): Boolean
 
-  "Log a member or an organization"
-  login(email: String!, password: String!): AuthPayload
-  "Send a verification mail if user forgot his password"
-  requestPasswordReset(input: ForgotPasswordInput!): String
-  "Reset the password"
-  resetPassword(updatedPassword: String!): Boolean
+    "Log a member or an organization"
+    login(email: String!, password: String!): AuthPayload
+    "Send a verification mail if user forgot his password"
+    requestPasswordReset(input: ForgotPasswordInput!): String
+    "Reset the password"
+    resetPassword(updatedPassword: String!): Boolean
 }

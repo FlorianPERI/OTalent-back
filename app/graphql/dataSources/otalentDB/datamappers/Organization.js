@@ -1,5 +1,4 @@
 import CoreDatamapper from './CoreDatamapper.js';
-import regions from '../../../../../data/regions.json' assert {type: "json"};
 import { getRegion } from './utils/datamapperUtils.js';
 
 /**
@@ -9,6 +8,10 @@ import { getRegion } from './utils/datamapperUtils.js';
 class Organization extends CoreDatamapper {
   tableName = 'organization';
 
+  /**
+     * Finds organizations by member postal code.
+     * @param {string} postalCode - The postal code of the member.
+     */
   async findOrganizationsByMemberPostalCode(postalCode) {
     const department = postalCode.substring(0, 2);
     const query = {
@@ -18,20 +21,24 @@ class Organization extends CoreDatamapper {
     return result.rows;
   }
 
+  /**
+     *  Finds organizations by region.
+     * @param {string} postalCode - The postal code of the member.
+     */
   async findOrganizationsByRegion(postalCode) {
     const memberRegion = getRegion(postalCode);
-    let organizationsByRegion = [];
+    const organizationsByRegion = [];
     const query = {
       text: `SELECT * FROM ${this.tableName};`,
     };
     const result = await this.client.query(query);
     const organizations = result.rows;
-    organizations.forEach(organization => {
-      const organizationRegion = getRegion(organization.postal_code);      
+    organizations.forEach((organization) => {
+      const organizationRegion = getRegion(organization.postal_code);
       if (organizationRegion === memberRegion) {
         organizationsByRegion.push(organization);
       }
-    })
+    });
     return organizationsByRegion;
   }
 }

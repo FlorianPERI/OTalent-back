@@ -18,12 +18,16 @@ One of O'Talent's main features is its extensive library of courses, covering a 
 
 [Sqitch](https://sqitch.org/)
 
+[Redis](https://redis.io/)
+
 ## Install
 
 ### Fastest way
 
+Use the following bash script to go step by step on the installation process
+
 ```bash
-./bin/install.sh
+bash ./scripts/utils.sh
 ```
 
 ### Good old way
@@ -43,16 +47,34 @@ cp .env.example .env
 3. Create and seed the database
 
 ```bash
-dropdb otalent
-createdb otalent
+dropdb <DATABASE> --if-exists -e -i
+createdb <DATABASE> -e
 sqitch deploy
 sqitch verify
-node data/seed.js
+npm db:seed
+```
+
+4. Start the server
+
+```bash
+node server.js
 ```
 
 ## How to use
 
 ### Endpoints
+
+```bash
+/graphql
+```
+
+Apollo server
+
+```bash
+/ws
+```
+
+Websocket route for messaging
 
 ### Request Methods
 
@@ -62,6 +84,6 @@ node data/seed.js
 
 ### Status codes
 
-```
-
+```bash
+200 : Data response
 ```

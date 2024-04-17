@@ -10,7 +10,6 @@ import { createQueryMethods } from './utils/createMethods.js';
  * @property {Function} category - Resolver for category field.
  */
 const query = {
-
   // Creates findByPK and findAll methods for each type
   ...createQueryMethods('member'),
   ...createQueryMethods('organization'),
@@ -18,8 +17,14 @@ const query = {
   ...createQueryMethods('training'),
   ...createQueryMethods('category', 'categories'),
   siret: (_, { siret }, { dataSources }) => dataSources.sireneAPI.getInformationsBySiret(siret),
-  distance: (_, { memberPostalCode, organizationPostalCode }, { dataSources }) => dataSources
-    .bingMapAPI.getDistance(memberPostalCode, organizationPostalCode),
+  distance: (
+    _,
+    { memberPostalCode, organizationPostalCode },
+    { dataSources },
+  ) => dataSources.bingMapAPI.getDistance(
+    memberPostalCode,
+    organizationPostalCode,
+  ),
   trainingsByRegion: (_, { regionName }, { dataSources }) => dataSources
     .otalentDB.training.findByRegion(regionName),
 };
