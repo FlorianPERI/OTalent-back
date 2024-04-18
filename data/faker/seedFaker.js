@@ -3,7 +3,7 @@ import {
   createMember, createOrganization, createTraining, createReview,
 } from './createFakerData.js';
 import { getRandomInt } from '../utils/dataUtils.js';
-import categoriesJson from '../jsons/categories.json' assert { type: 'json' };
+import categoriesJson from '../jsons/categories.json' with { type: 'json' };
 import client from '../../app/graphql/dataSources/otalentDB/services/client.js';
 
 const debug = Debug('app:faker');
@@ -188,12 +188,12 @@ async function seedFaker() {
     await importReviews(REVIEWS, TRAININGS, MEMBERS);
     await importMemberLikesCategory(MEMBER_LIKES_CATEGORY, MEMBERS, CATEGORIES);
     await importMemberLikesTraining(MEMBER_LIKES_TRAINING, MEMBERS, TRAININGS);
-  } catch (error) {
-    console.error('An error occurred:', error);
-  } finally {
     debug('all data imported, closing connection...');
+  } catch (error) {
+    debug('An error occurred:', error);
+  } finally {
     client.end();
-  };
+  }
 }
 
 if (import.meta.main) {

@@ -1,5 +1,5 @@
 import Debug from 'debug';
-import members from '../jsons/members.json' assert { type: 'json' };
+import members from '../jsons/members.json' with { type: 'json' };
 import client from '../../app/graphql/dataSources/otalentDB/services/client.js';
 import { hashingPassword } from './dataUtils.js';
 

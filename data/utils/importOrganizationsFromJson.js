@@ -1,5 +1,5 @@
 import Debug from 'debug';
-import organizations from '../jsons/organizations.json' assert { type: 'json' };
+import organizations from '../jsons/organizations.json' with { type: 'json' };
 import client from '../../app/graphql/dataSources/otalentDB/services/client.js';
 import { hashingPassword } from './dataUtils.js';
 

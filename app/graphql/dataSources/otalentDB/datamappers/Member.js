@@ -131,6 +131,7 @@ class Member extends CoreDatamapper {
      */
   findRegion(postalCode) {
     const region = getRegion(postalCode);
+    debug(region);
     return region;
   }
 }

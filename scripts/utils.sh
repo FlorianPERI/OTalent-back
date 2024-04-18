@@ -24,14 +24,14 @@ npm run db:seed
 }
 
 start_server(){
-npm run dev
+npm run server
 }
 
 menu(){
 echo -ne "
 ${CYAN}O'Talent init menu
 ${PURPLE}Please enter a number to choose an option ${NOCOLOR}
-${GREEN}1)${NOCOLOR}  Install depedencies
+${GREEN}1)${NOCOLOR} Install depedencies
 ${GREEN}2)${NOCOLOR} Set .env file
 ${GREEN}3)${NOCOLOR} Init / reset database
 ${GREEN}4)${NOCOLOR} Seed database

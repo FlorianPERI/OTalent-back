@@ -1,6 +1,6 @@
 import Debug from 'debug';
 import client from '../../app/graphql/dataSources/otalentDB/services/client.js';
-import categories from '../jsons/categories.json' assert { type: 'json' };
+import categories from '../jsons/categories.json' with { type: 'json' };
 
 const debug = Debug('data:json:categories');
 

@@ -1,6 +1,6 @@
 import Debug from 'debug';
 import client from '../../app/graphql/dataSources/otalentDB/services/client.js';
-import trainings from '../jsons/trainings.json' assert { type: 'json' };
+import trainings from '../jsons/trainings.json' with { type: 'json' };
 
 const debug = Debug('data:json:trainings');
 
@@ -14,6 +14,7 @@ function importTrainingsFromJson() {
     const inserts = [];
     const fields = Object.keys(trainings[0]);
     const placeholders = [];
+
     fields.forEach((_, index) => {
         placeholders.push(`$${index + 1}`);
     });

@@ -58,7 +58,7 @@
     "lastname": "Martinez",
     "email": "jamesmartinez@example.com",
     "password": "RandomPass123",
-    "postalCode": "98765",
+    "postalCode": "95765",
     "city": "San Antonio",
     "avatar": "auqxhf5ipoyjowa47rzc"
   },
@@ -121,7 +121,7 @@
     "lastname": "Thomas",
     "email": "avathomas@example.com",
     "password": "Passw0rd!456",
-    "postalCode": "98765",
+    "postalCode": "95765",
     "city": "Indianapolis",
     "avatar": "bivnshswgfveht0lmunk"
   },

@@ -1,5 +1,8 @@
+import Debug from 'debug';
 import CoreDatamapper from './CoreDatamapper.js';
 import { getRegion } from './utils/datamapperUtils.js';
+
+const debug = Debug('app:otalentDB:organization');
 
 /**
  * Represents an Organization datamapper.
@@ -27,6 +30,7 @@ class Organization extends CoreDatamapper {
      */
   async findOrganizationsByRegion(postalCode) {
     const memberRegion = getRegion(postalCode);
+    debug(memberRegion);
     const organizationsByRegion = [];
     const query = {
       text: `SELECT * FROM ${this.tableName};`,
