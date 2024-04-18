@@ -1,5 +1,5 @@
 import jwt from 'jsonwebtoken';
-
+import 'dotenv/config';
 import client from '../../graphql/dataSources/otalentDB/services/client.js';
 
 const auth = {
