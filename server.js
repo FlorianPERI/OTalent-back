@@ -201,7 +201,7 @@ fastify
         process.exit(1);
       }
       const serverAddress = fastify.server.address();
-      debug(`🚀 Server ready at http://${serverAddress.address}:${serverAddress.port}/graphql`);
+      debug(`🚀 Server ready at http://localhost:${serverAddress.port}/graphql`);
     });
   })
   .catch((err) => {

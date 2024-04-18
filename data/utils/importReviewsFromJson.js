@@ -14,8 +14,8 @@ async function importReviewsFromJson(members, trainings) {
     debug('importing reviews from json');
     const inserts = [];
     for (let i = 0; i < trainings; i += 1) {
-        const reviews = getRandomInt(0, 10); // Generate between 0 and 10 reviews per training
-        for (let j = 0; j < reviews; j += 1) {
+        const NB_REVIEWS = getRandomInt(0, 10); // Generate between 0 and 10 reviews per training
+        for (let j = 0; j < NB_REVIEWS; j += 1) {
             const review = reviews[j % reviews.length];
             review.trainingId = i + 1;
             review.memberId = getRandomInt(1, members);

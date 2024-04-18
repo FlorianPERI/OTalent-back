@@ -14,7 +14,7 @@ function importTrainingsFromJson() {
     const inserts = [];
     const fields = Object.keys(trainings[0]);
     const placeholders = [];
-    fields.forEach(index => {
+    fields.forEach((_, index) => {
         placeholders.push(`$${index + 1}`);
     });
     trainings.forEach(originalTraining => {
