@@ -12,18 +12,15 @@ const debug = Debug('data:json:organizations');
  */
 async function importOrganizationsFromJson() {
     debug('importing organizations from json');
-    const inserts = organizations.map(async organization => {
-        const hashedPassword = await hashingPassword(organization.password);
-        const modifiedOrganization = {
-            ...organization,
-            password: hashedPassword,
-        };
+    const inserts = [];
+    for (const organization of organizations) {
+        organization.password = await hashingPassword(organization.password);
         const query = {
-            text: 'SELECT * FROM insert_organization($1);',
-            values: [modifiedOrganization],
+            text: `SELECT * FROM insert_organization($1);`,
+            values: [organization],
         };
-        return client.query(query);
-    });
+        inserts.push(client.query(query));
+    };
     return Promise.all(inserts);
 }
 

@@ -94,7 +94,7 @@ function createMutationMethods(entityName) {
       if (!user && !['Member', 'Organization'].includes(entityName)) {
         throw new Error('User not authenticated');
       }
-      dataSources.otalentDB[lowerCaseEntityName].update(data.id, data);
+      return dataSources.otalentDB[lowerCaseEntityName].update(data.id, data);
     },
     [`delete${entityName}`]: (_, { id }, { user, dataSources }) => {
       if (!user) {
