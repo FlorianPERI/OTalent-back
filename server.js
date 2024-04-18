@@ -33,6 +33,7 @@ import OtalentDB from './app/graphql/dataSources/otalentDB/datamappers/index.js'
 import SireneAPI from './app/graphql/dataSources/sireneAPI/index.js';
 import typeDefs from './app/graphql/schemas/index.js';
 import resolvers from './app/graphql/resolvers/index.js';
+import 'dotenv/config';
 
 /** *************************************************************************************
  *
@@ -101,7 +102,7 @@ const contextFunction = async (request) => {
     try {
       const verify = auth.verifyToken(token);
       user = await auth.getUser(verify);
-      debug(user);
+      // debug(user);
     } catch (error) {
       throw new Error('Invalid token');
     }
@@ -194,7 +195,7 @@ fastify
         process.exit(1);
       }
       const serverAddress = fastify.server.address();
-      debug(`🚀 Server ready at http://${serverAddress.address}:${serverAddress.port}/graphql`);
+      debug(`🚀 Server ready at http://localhost:${serverAddress.port}/graphql`);
     });
   })
   .catch((err) => {
