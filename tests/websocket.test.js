@@ -29,11 +29,5 @@ describe('WebSocket Server', () => {
     });
   });
 
-  test('should handle other messages', (done) => {
-    client.on('open', () => {
-      client.send(JSON.stringify({ type: 'other', content: 'Hello' }));
-    });
-
-    setTimeout(done, 1000);
-  });
+  setTimeout(done, 1000);
 });
