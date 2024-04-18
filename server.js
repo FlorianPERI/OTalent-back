@@ -9,7 +9,6 @@ import fastifyApollo, {
 import { buildSubgraphSchema } from '@apollo/subgraph';
 import { mergeTypeDefs } from '@graphql-tools/merge';
 import Fastify from 'fastify';
-
 import Debug from 'debug';
 import depthLimit from 'graphql-depth-limit';
 import {
@@ -40,10 +39,16 @@ import resolvers from './app/graphql/resolvers/index.js';
  *
  ************************************************************************************** */
 
-const PORT = process.env.SERVER_PORT ?? 3000;
+const PORT = process.env.SERVER_PORT || 3000;
 const debug = Debug('app:server');
 const fastify = Fastify();
 
+const allResolvers = { ...scalarResolvers, ...resolvers };
+const allTypes = mergeTypeDefs([scalarTypeDefs, constraintDirectiveTypeDefs, typeDefs]);
+
+/**
+ * Setting up Pino logger
+ */
 const logger = pino(
   pretty({
     colorize: false,
@@ -56,14 +61,27 @@ const logger = pino(
   }),
 );
 
+/**
+ * Setting up Redis
+ */
+const redis = new Redis({
+  password: process.env.REDIS_PASSWORD,
+  host: process.env.REDIS_URL,
+  port: process.env.REDIS_PORT,
+});
+
+/**
+ * Registering CORS plugin with Fastify
+ */
+// await fastify.register(cors, { origin: ['http://localhost:3000', 'https://studio.apollographql.com', 'https://otalentoclock.netlify.app'] });
+await fastify.register(cors, { origin: '*' });
+
 /** *************************************************************************************
  *
  *                              Apollo Server Settings
  *
  ************************************************************************************** */
 
-const allResolvers = { ...scalarResolvers, ...resolvers };
-const allTypes = mergeTypeDefs([scalarTypeDefs, constraintDirectiveTypeDefs, typeDefs]);
 /**
  * Creating an instance of ApolloServer
  */
@@ -115,6 +133,9 @@ const contextFunction = async (request) => {
   };
 };
 
+/**
+ * Starting the Apollo server
+ */
 await apollo.start();
 
 /**
@@ -127,15 +148,6 @@ await fastify.register(fastifyApollo(apollo), { context: contextFunction });
  *                              WebSocket Settings
  *
  ************************************************************************************** */
-
-/**
- * Setting up Redis
- */
-const redis = new Redis({
-  password: process.env.REDIS_PASSWORD,
-  host: process.env.REDIS_URL,
-  port: process.env.REDIS_PORT,
-});
 
 /**
  * Redis error handling
@@ -178,11 +190,6 @@ fastify.register(async () => {
  *                                Starting the Server
  *
  ************************************************************************************** */
-
-/**
- * Registering CORS plugin with Fastify
- */
-await fastify.register(cors, { origin: ['http://localhost:3000', 'https://studio.apollographql.com/', 'https://otalentoclock.netlify.app/'] });
 
 fastify
   .ready()

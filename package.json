@@ -7,13 +7,13 @@
   "scripts": {
     "test": "bun test --coverage",
     "dev": "DEBUG=app:* nodemon server.js",
+    "server": "bun server.js",
     "dev:bun": "DEBUG=app:* bun server.js",
     "db:seed": "DEBUG=app:*,data:* node data/seedDatabase.js",
     "db:seed:fake": "DEBUG=app:*,data:* node data/faker/seedFaker.js",
     "set": "set DEBUG=app:* & nodemon server.js",
     "set:seed": "set DEBUG=app:* & node data/seedDatabase.js",
-    "utils": "./scripts/utils.sh",
-    "server": "DEBUG=app:server* nodemon server.js"
+    "utils": "./scripts/utils.sh"
   },
   "repository": {
     "type": "git",
@@ -66,6 +66,7 @@
     "pg": "^8.11.3",
     "pino": "^8.19.0",
     "pino-pretty": "^11.0.0",
-    "sonic-boom": "^3.8.0"
+    "sonic-boom": "^3.8.0",
+    "ws": "^8.16.0"
   }
 }

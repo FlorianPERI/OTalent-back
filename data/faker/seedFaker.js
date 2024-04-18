@@ -3,7 +3,7 @@ import {
   createMember, createOrganization, createTraining, createReview,
 } from './createFakerData.js';
 import { getRandomInt } from '../utils/dataUtils.js';
-import categoriesJson from '../jsons/categories.json' assert { type: 'json' };
+import categoriesJson from '../jsons/categories.json' with { type: 'json' };
 import client from '../../app/graphql/dataSources/otalentDB/services/client.js';
 
 const debug = Debug('app:faker');
@@ -193,7 +193,7 @@ async function seedFaker() {
   } finally {
     debug('all data imported, closing connection...');
     client.end();
-  };
+  }
 }
 
 if (import.meta.main) {

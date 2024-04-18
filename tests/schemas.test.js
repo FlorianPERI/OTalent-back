@@ -7,7 +7,7 @@ import axios from 'axios';
  * @returns {Promise<void>}
  */
 async function testQuery(query, checkResponse) {
-  const result = await axios.post(process.env.GRAPH_TEST_URL, { query });
+  const result = await axios.post('http://localhost:3000/graphql', { query });
   checkResponse(result.data.data);
 }
 

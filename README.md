@@ -57,33 +57,82 @@ npm db:seed
 4. Start the server
 
 ```bash
-node server.js
+npm run server
 ```
 
 ## How to use
 
 ### Endpoints
 
+#### Apollo server
+
+Apollo Sandbox endpoint
+
 ```bash
 /graphql
 ```
 
-Apollo server
+#### Websocket
+
+Used to handle Websocket connections. It contacts a Redis database and serve the data to the client to build a messaging tool.
 
 ```bash
 /ws
 ```
 
-Websocket route for messaging
+### Query Examples
 
-### Request Methods
+```js
+query Member($memberId: ID!) {
+  member(id: $memberId) {
+    postal_code
+    categories {
+      label
+      id
+    }
+    region
+    nearestOrganizations {
+      trainings {
+        id
+        label
+        price
+        image
+        duration
 
-### Responses
+        category {
+          label
+          id
+        }
+        dates
+        organization {
+          name
+          id
+        }
+        created_at
+        reviews {
+          rating
+        }
+      }
+    }
+  }
+}`
+```
 
-### Examples
+## Architecture
 
-### Status codes
-
-```bash
-200 : Data response
+```
+|- /app
+  |- /graphql      - GraphQL application
+  |- /services     - general helpers
+|- /data
+  |- /faker        - fake data generation
+  |- /jsons        - real data files
+  |- /migrations   - database deployement and versioning
+  |- /utils        - functions used to build data
+|- /docs        - docs of the project
+|- /img         - images
+|- /logs        - error log files
+|- /tests       - unit tests (jest)
+|- /scripts     - scripts that can be executed from CLI
+|- server.js    - application main file
 ```
