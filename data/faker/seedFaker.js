@@ -188,10 +188,10 @@ async function seedFaker() {
     await importReviews(REVIEWS, TRAININGS, MEMBERS);
     await importMemberLikesCategory(MEMBER_LIKES_CATEGORY, MEMBERS, CATEGORIES);
     await importMemberLikesTraining(MEMBER_LIKES_TRAINING, MEMBERS, TRAININGS);
-  } catch (error) {
-    console.error('An error occurred:', error);
-  } finally {
     debug('all data imported, closing connection...');
+  } catch (error) {
+    debug('An error occurred:', error);
+  } finally {
     client.end();
   }
 }

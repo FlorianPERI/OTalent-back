@@ -26,7 +26,7 @@ const MEMBERS = membersJson.length;
 const TRAININGS = trainingsJson.length;
 const CATEGORIES = categoriesJson.label.length;
 const MEMBER_LIKES_CATEGORY = 250;
-const MEMBER_LIKES_TRAINING = 250;
+const MEMBER_LIKES_TRAINING = 400;
 
 /**
  * Seeds the database with data from json files.
