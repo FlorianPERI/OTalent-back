@@ -135,6 +135,7 @@ class CoreDatamapper {
     debug(keys);
     debug(query);
     const result = await this.client.query(query);
+    debug(result.rows[0]);
     return result.rows[0];
   }
 
