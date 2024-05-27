@@ -24,13 +24,18 @@ One of O'Talent's main features is its extensive library of courses, covering a 
 
 ### Fastest way
 
-Use the following bash script to go step by step on the installation process
+Use the following bash script to go step by step on the installation process :
 
 ```bash
 bash ./scripts/utils.sh
 ```
+This will show this menu :
 
-### Good old way
+![image](https://github.com/FlorianPERI/OTalent-back/assets/118565331/23820275-45c1-431c-ad22-e91260160da0)
+
+Enter a number and press Enter to select an option.
+
+### Manually
 
 1. Install depedencies
 
