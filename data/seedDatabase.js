@@ -11,7 +11,7 @@ import {
 } from './faker/seedFaker.js';
 
 /**
- * Importing json files to get legth of them.
+ * Importing json files to get length of them.
  */
 import trainingsJson from './jsons/trainings.json' with { type: "json" };
 import categoriesJson from './jsons/categories.json' with { type: "json" };

@@ -1,6 +1,6 @@
 #!/bin/bash
 
-source ./scripts/colors.sh
+source colors.sh
 
 npm_install(){
 npm install

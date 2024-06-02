@@ -74,8 +74,12 @@ const redis = new Redis({
 /**
  * Registering CORS plugin with Fastify
  */
-// await fastify.register(cors, { origin: ['http://localhost:3000', 'https://studio.apollographql.com', 'https://otalentoclock.netlify.app'] });
-await fastify.register(cors, { origin: '*' });
+await fastify.register(cors, {
+  origin: ['http://localhost:3000',
+    'https://studio.apollographql.com',
+    'https://otalentoclock.netlify.app'],
+});
+// await fastify.register(cors, { origin: '*' });
 
 /** *************************************************************************************
  *
