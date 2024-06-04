@@ -7,12 +7,12 @@ npm install
 }
 
 env(){
-bash ./scripts/env.sh
+bash env.sh
 }
 
 
 init_db(){
-bash ./scripts/init_db.sh
+bash init_db.sh
 }
 
 seed_fake_db(){

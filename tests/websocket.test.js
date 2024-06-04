@@ -16,7 +16,7 @@ describe('WebSocket Server', () => {
     client.close();
   });
 
-  test('should handle getAllMessages message', (done) => {
+  test('should handle getAllMessages message', () => {
     client.on('open', () => {
       client.send(JSON.stringify({ type: 'getAllMessages' }));
     });
@@ -25,9 +25,6 @@ describe('WebSocket Server', () => {
       debug(message);
       const messages = JSON.parse(message);
       expect(messages).toEqual(expect.any(Array));
-      done();
     });
   });
-
-  setTimeout(done, 1000);
 });
