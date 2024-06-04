@@ -8,8 +8,6 @@ const debug = Debug('app:sireneAPI');
  * @extends RESTDataSource
  */
 class SireneAPI extends RESTDataSource {
-  baseURL = 'https://api.insee.fr/entreprises/sirene/V3.11/siret/';
-
   constructor(options) {
     super(options);
     this.token = `Bearer ${process.env.INSEE_API_KEY}`;
@@ -25,9 +23,17 @@ class SireneAPI extends RESTDataSource {
      * @returns {Promise<Object>} An object containing the retrieved information.
      */
   async getInformationsBySiret(siret) {
+    const url = `https://api.insee.fr/entreprises/sirene/V3.11/siret/${siret}`;
     try {
-      const response = await this.get(siret);
-      const { denominationUniteLegale } = response.periodesEtablissement.denominationUsuelleEtablissement;
+      const response = await this.get(url);
+      const { periodesEtablissement } = response.etablissement;
+      let denominationUsuelleEtablissement = null;
+
+      if (Array.isArray(periodesEtablissement) && periodesEtablissement.length > 0) {
+        denominationUsuelleEtablissement = periodesEtablissement[0].denominationUsuelleEtablissement;
+      }
+
+      debug(denominationUsuelleEtablissement);
       const {
         libelleVoieEtablissement,
         codePostalEtablissement,
@@ -41,7 +47,7 @@ class SireneAPI extends RESTDataSource {
 
       return {
         siretFound: true,
-        name: denominationUniteLegale,
+        name: denominationUsuelleEtablissement,
         address,
         postalCode: codePostalEtablissement,
         city: libelleCommuneEtablissement,
