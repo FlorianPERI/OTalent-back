@@ -27,7 +27,7 @@ class SireneAPI extends RESTDataSource {
   async getInformationsBySiret(siret) {
     try {
       const response = await this.get(siret);
-      const { denominationUniteLegale } = response.etablissement.uniteLegale;
+      const { denominationUniteLegale } = response.periodesEtablissement.denominationUsuelleEtablissement;
       const {
         libelleVoieEtablissement,
         codePostalEtablissement,
